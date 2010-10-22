@@ -1,6 +1,4 @@
 require 'rubygems'
-require 'active_support'
-require 'active_resource/http_mock'
 require 'test/unit'
 require 'mocha'
 $:.unshift File.join( File.dirname(__FILE__),'..','lib')
