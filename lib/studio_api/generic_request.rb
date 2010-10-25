@@ -44,22 +44,22 @@ module StudioApi
     end
 
     def get(path)
-      do_request Net::HTTP::Get.new File.join @connection.uri.request_uri,path
+      do_request Net::HTTP::Get.new ::File.join @connection.uri.request_uri,path
     end
 
     #Even it is not dry I want to avoid meta programming with dynamic code evaluation so code is clear
     def delete(path)
-      do_request Net::HTTP::Delete.new File.join @connection.uri.request_uri,path
+      do_request Net::HTTP::Delete.new ::File.join @connection.uri.request_uri,path
     end
 
     def post(path,data)
-      request = Net::HTTP::Post.new File.join @connection.uri.request_uri,path
+      request = Net::HTTP::Post.new ::File.join @connection.uri.request_uri,path
       set_data(request,data)
       do_request request
     end
 
     def post(path,data)
-      request = Net::HTTP::Put.new File.join @connection.uri.request_uri,path
+      request = Net::HTTP::Put.new ::File.join @connection.uri.request_uri,path
       set_data(request,data)
       do_request request
     end
