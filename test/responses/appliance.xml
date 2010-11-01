@@ -1,0 +1,31 @@
+<appliance>
+<id>266657</id>
+<name>josef's SLES 11 SP1 git test</name>
+<arch>i586</arch>
+<type>vmx</type>
+<last_edited>2010-10-08 14:46:07 UTC</last_edited>
+<estimated_raw_size>390 MB</estimated_raw_size>
+<estimated_compressed_size>140 MB</estimated_compressed_size>
+<edit_url>http://susestudio.com/appliance/edit/266657</edit_url>
+<icon_url>
+http://susestudio.com/api/v1/user/appliance_icon/266657
+</icon_url>
+<basesystem>SLES11_SP1</basesystem>
+<uuid>b1e01a64-d2ea-11df-f1ab-475ae2f5345b</uuid>
+<parent>
+<id>202443</id>
+<name>SLES 11 SP1, Just enough OS (JeOS)</name>
+</parent>
+<builds type="array">
+<build>
+<id>509559</id>
+<version>0.0.1</version>
+<image_type>vmx</image_type>
+<image_size>695</image_size>
+<compressed_image_size>121</compressed_image_size>
+<download_url>
+http://susestudio.com/download/a0f0217f0645099c9e41c42e9bf89976/josefs_SLES_11_SP1_git_test.i686-0.0.1.vmx.tar.gz
+</download_url>
+</build>
+</builds>
+</appliance>
