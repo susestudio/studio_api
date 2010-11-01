@@ -1,7 +1,8 @@
-require "studio_api/resource"
-
 module StudioApi
   class Software < Resource
-    self.prefix = "/appliances/:appliance_id/"
+    def self.set_appliance_id id
+      self.prefix = self.site.path+"/appliances/#{id.to_i}/"
+      @appliance_id = id
+    end
   end
 end
