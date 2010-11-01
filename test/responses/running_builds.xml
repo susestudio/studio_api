@@ -1,0 +1,16 @@
+<running_builds>
+  <running_build>
+    <id test="var">38</id>
+    <state>running</state>
+    <percent>0</percent>
+    <time_elapsed>5</time_elapsed>
+    <message>Fetching appliance configuration</message>
+  </running_build>
+  <running_build>
+    <id>39</id>
+    <state>running</state>
+    <percent>0</percent>
+    <time_elapsed>5</time_elapsed>
+    <message>Fetching appliance configuration</message>
+  </running_build>
+</running_builds>
