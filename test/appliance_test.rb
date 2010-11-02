@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'active_support'
 require 'active_resource/http_mock'
-require 'test/unit'
 require 'mocha'
+require 'test/unit'
 $:.unshift File.join( File.dirname(__FILE__),'..','lib')
 require 'studio_api/appliance'
 require 'studio_api/connection'
