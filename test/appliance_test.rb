@@ -23,6 +23,7 @@ class ApplianceTest < Test::Unit::TestCase
       mock.get "/appliances", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliances_out,200
       mock.get "/appliances/266657", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliance_out,200
       mock.get "/appliances/266657/status", {"Authorization"=>"Basic dGVzdDp0ZXN0"},status_out,200
+      mock.post "/appliances?appliance_id=266657", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliance_out,200 #correct output should be clone of appliance, but it is not important in test
     end
   end
 
@@ -39,5 +40,9 @@ class ApplianceTest < Test::Unit::TestCase
   def test_status
     res = StudioApi::Appliance.find 266657
     assert_equal "ok", res.status.state
+  end
+
+  def test_clone
+    assert StudioApi::Appliance.clone 266657
   end
 end
