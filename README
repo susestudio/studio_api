@@ -21,3 +21,15 @@ StudioApi::Appliance.set_connection connection
 # Find all appliances
 appliances = StudioApi::Appliance.find :all
 appliance_names = appliances.map{|a| a.name} # => Returns list of your appliances (names)
+
+require 'studio_api/studio_api'
+
+# Use the connection for running_builds
+StudioApi::RunningBuild.set_connection connection
+
+# Finds all running builds for appliance with ID 269186
+# Appliance ID must be set
+running_builds = StudioApi::RunningBuild.find :all, :params => {:appliance_id => 269186}
+
+# Finds details about running build with ID 529783
+build_details = StudioApi::RunningBuild.find 529783
