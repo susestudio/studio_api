@@ -1,0 +1,23 @@
+<running_builds type="array">
+  <running_build>
+    <id>529783</id>
+    <state>running</state>
+    <percent>10</percent>
+    <time_elapsed>109</time_elapsed>
+    <message>Creating boot image</message>
+  </running_build>
+  <running_build>
+    <id>529782</id>
+    <state>running</state>
+    <percent>10</percent>
+    <time_elapsed>110</time_elapsed>
+    <message>Creating boot image</message>
+  </running_build>
+  <running_build>
+    <id>529781</id>
+    <state>running</state>
+    <percent>35</percent>
+    <time_elapsed>111</time_elapsed>
+    <message>Installing software</message>
+  </running_build>
+</running_builds>
