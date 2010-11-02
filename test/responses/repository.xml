@@ -1,0 +1,8 @@
+<repository>
+<id>6343</id>
+<name>SLES 11 SP1 i386</name>
+<type>yast2</type>
+<base_system>SLES11_SP1</base_system>
+<smt_name>SLES11-SP1-Pool</smt_name>
+<smt_target>sle-11-i586</smt_target>
+</repository>
