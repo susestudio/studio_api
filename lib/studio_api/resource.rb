@@ -30,5 +30,6 @@ module StudioApi
       prefix_options, query_options = split_options(prefix_options) if query_options.nil?
       "#{prefix(prefix_options)}#{collection_name}#{query_string(query_options)}"
     end
+
   end
 end

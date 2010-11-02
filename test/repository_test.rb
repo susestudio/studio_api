@@ -5,6 +5,7 @@ require 'test/unit'
 require 'mocha'
 $:.unshift File.join( File.dirname(__FILE__),'..','lib')
 require 'studio_api/repository'
+require 'studio_api/appliance'
 require 'studio_api/connection'
 
 class ApplianceTest < Test::Unit::TestCase
@@ -12,7 +13,6 @@ class ApplianceTest < Test::Unit::TestCase
   def respond_load name
     IO.read(File.join(File.dirname(__FILE__),"responses",name))
   end
-APPLIANCE_ID = 266657
   def setup
     @connection = StudioApi::Connection.new("test","test","http://localhost")
     StudioApi::Repository.set_connection @connection
