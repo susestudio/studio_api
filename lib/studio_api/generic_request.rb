@@ -155,9 +155,9 @@ module StudioApi
 
     def mime_type(file)
       case
-        when file =~ /\.jpg\z/ then 'image/jpg'
-        when file =~ /\.gif\z/ then 'image/gif'
-        when file =~ /\.png\z/ then 'image/png'
+        when file =~ /\.jpe?g\z/i then 'image/jpg'
+        when file =~ /\.gif\z/i then 'image/gif'
+        when file =~ /\.png\z/i then 'image/png'
         else 'application/octet-stream'
       end
     end
