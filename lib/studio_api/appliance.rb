@@ -61,21 +61,7 @@ module StudioApi
       request_str = "/appliances/#{id.to_i}/software"
       response = GenericRequest.new(self.class.studio_connection).get request_str
       attrs = XmlSimple.xml_in response
-      res = []
-      attrs["pattern"].each do |pattern|
-        res << Pattern.new(pattern)
-      end
-      attrs["package"].each do |package|
-        res << case package
-          when Hash
-            Package.new(package["content"],package["version"])
-          when String
-            Package.new(package)
-          else
-            raise "Unknown format of element package"
-          end
-      end
-      res
+      convert_selectable attrs
     end
 
 #internal overwrite of ActiveResource::Base methods
@@ -88,6 +74,31 @@ module StudioApi
       prefix_options, query_options = split_options(options)
       method_string = method_name.blank? ? "" : "/#{method_name}"
       "#{self.class.prefix(prefix_options)}#{self.class.collection_name}#{method_string}#{self.class.send :query_string,query_options}"
+    end
+
+private
+    def convert_selectable attrs, preset_options = {}
+      res = []
+      attrs["pattern"].each do |pattern|
+        res << create_model_based_on_attrs(Pattern, pattern, preset_options)
+      end
+      attrs["package"].each do |package|
+        res << create_model_based_on_attrs( Package, package, preset_options)
+      end
+      res
+    end
+
+#generic factory to create model based on attrs which can be string of hash of options + content which is same as string
+    def create_model_based_on_attrs model, attrs, preset_options
+      case attrs
+      when Hash
+          name = attrs.delete "content"
+          model.new(name, preset_options.merge(attrs))
+      when String
+          model.new(attrs)
+      else
+          raise "Unknown format of element #{model}"
+      end
     end
   end
 end

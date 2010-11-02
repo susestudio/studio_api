@@ -1,0 +1,729 @@
+<software_map type="array" appliance_id="214486">
+  <repository name="SLED 11 SP1 i386" id="6347">
+    <software type="array">
+      <package arch="i586" checksum="a8c58f15a5d27f7d45445a58efacc3ad81ca1ab6" version="0.742-32.25" checksum_type="SHA1">3ddiag</package>
+      <package arch="i586" checksum="76eb36ab83ea05de4d756b45d03fbd90dbf938ae" version="2.1.1-6.2.44" checksum_type="SHA1">amarok</package>
+      <package arch="i586" checksum="6ca4bbc3522c7b6a537f9203528c9512111154b9" version="2.1.1-6.2.44" checksum_type="SHA1">amarok-lang</package>
+      <package arch="i586" checksum="68fe1af257f583af6ee2ee84849a4a5c2846b469" version="0.60.6-26.22" checksum_type="SHA1">aspell</package>
+
+      <package arch="i586" checksum="71dba67d4ba41920a135cf7473250f543a4c6714" version="1.28.0-1.2.28" checksum_type="SHA1">atk</package>
+      <package arch="i586" checksum="0ef005fe0789d858da6c3dc0cca4945c6f940b36" version="1.28.0-1.2.28" checksum_type="SHA1">atk-lang</package>
+      <package arch="i586" checksum="0015e64886d6e0e8016857aa37624f6b68b65610" version="0.2.6-142.11.42" checksum_type="SHA1">audiofile</package>
+      <package arch="i586" checksum="1fb07596426d79a790507ed18173af2c1292c9d2" version="1.7.7-5.16" checksum_type="SHA1">audit-libs</package>
+      <package arch="noarch" checksum="51f0948f84ebf1533a0eee832f1c7ac134bcc57b" version="2.17.43-0.2.36" checksum_type="SHA1">autoyast2-installation</package>
+      <package arch="i586" checksum="b527b07eb6c4c9004a44e0280e5da825d5019168" version="3.2-147.9.13" checksum_type="SHA1">bash</package>
+
+      <package arch="i586" checksum="3c49559bd37002bde8077d77189628a23103a6bd" version="4.51-1.1.97" checksum_type="SHA1">bluez</package>
+      <package arch="i586" checksum="673268e63c58e641dd85b5cd5e4abc3faa1fe3ac" version="3.3-146.24.12" checksum_type="SHA1">bootsplash</package>
+      <package arch="i586" checksum="0a18f1fa74ff16e7f365adfc00df73541a3c40db" version="3.1-47.22" checksum_type="SHA1">bootsplash-branding-SLED</package>
+      <package arch="noarch" checksum="84cb26b100d4c010bb947c34f217951133960e12" version="11-10.15" checksum_type="SHA1">branding-SLED</package>
+      <package arch="i586" checksum="7345143f0443e339eabc2cfc05f507bd0861660d" version="1.8.8-2.1.48" checksum_type="SHA1">cairo</package>
+      <package arch="i586" checksum="83405bf18d817f232e8545e42e9121025b9443da" version="1.2.2-248.31" checksum_type="SHA1">cdrdao</package>
+
+      <package arch="i586" checksum="8983526b0c5dcf89680e0231de0fb5bef06ae6e7" version="1.1.8-3.25" checksum_type="SHA1">cdrkit-cdrtools-compat</package>
+      <package arch="i586" checksum="abfaccfd51a3f4d7a657204637b7f5b064316b52" version="0.39-101.22" checksum_type="SHA1">chmlib</package>
+      <package arch="i586" checksum="84a19157dee3bd27a69063c243297a99e61e9c64" version="0.9.21-1.15" checksum_type="SHA1">clucene-core</package>
+      <package arch="i586" checksum="6822ba7d734b67be908794622c586215d4b672b0" version="0.7.8-32.42.31" checksum_type="SHA1">compiz</package>
+      <package arch="i586" checksum="da5bed803072297a860e8e1eade32378fc4e540d" version="0.7.8-32.42.31" checksum_type="SHA1">compiz-branding-SLE</package>
+      <package arch="i586" checksum="7b842309924de6d629c6bb04f69cfb08149f7479" version="0.7.8-3.37" checksum_type="SHA1">compiz-fusion-plugins-extra</package>
+
+      <package arch="i586" checksum="6d21349fa64160602b25acf2f46e8c669eb99944" version="0.7.8-10.14.2" checksum_type="SHA1">compiz-fusion-plugins-main</package>
+      <package arch="i586" checksum="dc16f538e26b6563c3ec3c4d5d1e871b7322b4de" version="0.7.8-32.42.31" checksum_type="SHA1">compiz-gnome</package>
+      <package arch="noarch" checksum="d700d6003efbcbc48820a46a401aca1a07db7707" version="0.0.1_git080201-55.3.1" checksum_type="SHA1">compiz-manager</package>
+      <package arch="i586" checksum="eb1885083fa116f1516482d2d90ecdd231e13e1f" version="0.1.0-8.38.1" checksum_type="SHA1">compiz-plugins-dmx</package>
+      <package arch="i586" checksum="a77c02624747200c708c59100b3176eddb080c33" version="0.7.8-3.21" checksum_type="SHA1">compizconfig-settings-manager</package>
+      <package arch="i586" checksum="321c1c26888e8950edd7db6dd263f189136fc639" version="0.2.10-64.13.6" checksum_type="SHA1">ConsoleKit</package>
+
+      <package arch="i586" checksum="015312331f0372d9f4dfbdd25cd8e7181c37b989" version="0.2.10-64.13.6" checksum_type="SHA1">ConsoleKit-x11</package>
+      <package arch="i586" checksum="bec0657fed745e90dea90fc0aede7c25a30262d0" version="6.12-32.17" checksum_type="SHA1">coreutils</package>
+      <package arch="i586" checksum="b5a5e1cb5acdcc06f1859f793400d390a3c48b8f" version="6.12-32.17" checksum_type="SHA1">coreutils-lang</package>
+      <package arch="i586" checksum="f68be95320e556cfcef20bd2072d1f4a4362095a" version="2.9-75.28.3" checksum_type="SHA1">cpio</package>
+      <package arch="i586" checksum="12e46ef90d555866741f4a9278b303ae226309ca" version="2.9-75.28.3" checksum_type="SHA1">cpio-lang</package>
+      <package arch="i586" checksum="12fd1f40f3f29ffd410b31a7ae3ad41bfe498d30" version="4.3-62.198" checksum_type="SHA1">cpp</package>
+
+      <package arch="i586" checksum="0239dc34bf07734977211bf26a1726a6523cd40c" version="4.3.4_20091019-0.7.35" checksum_type="SHA1">cpp43</package>
+      <package arch="i586" checksum="596579a8a96fc2940f801830cc3fd339dd7c40f0" version="2.8.12-56.9.9" checksum_type="SHA1">cracklib</package>
+      <package arch="i586" checksum="2c9889752132a31eeb0041906b1641bf37b96d13" version="2.8.12-43.16" checksum_type="SHA1">cracklib-dict-full</package>
+      <package arch="i586" checksum="3d8c983ad0f143ab61cc76c829e5a6cd86cc6194" version="4.1-194.24.4" checksum_type="SHA1">cron</package>
+      <package arch="i586" checksum="e7dd232210c056f61adb68772ab48f114e2885f3" version="1.0.5_SVNr46-58.30.38" checksum_type="SHA1">cryptsetup</package>
+      <package arch="i586" checksum="c242e22e4ca85b48da93a2fc4a6aac04b59ffbff" version="1.3.9-8.30.1" checksum_type="SHA1">cups-libs</package>
+
+      <package arch="i586" checksum="3de20770d1eda267e482fd737f917bef44df3f97" version="7.19.0-11.24.25" checksum_type="SHA1">curl</package>
+      <package arch="i586" checksum="c5a4def4e5b609df240c2f9626bd32fa771f48b2" version="2.1.22-182.20.1" checksum_type="SHA1">cyrus-sasl</package>
+      <package arch="i586" checksum="335d81a8008c26eb19573d603c41f90610df34fb" version="1.2.10-3.11.29" checksum_type="SHA1">dbus-1</package>
+      <package arch="i586" checksum="83d58e77ef195dc795aa696921c44acf070f1356" version="0.62-223.1.43" checksum_type="SHA1">dbus-1-qt3</package>
+      <package arch="i586" checksum="4a80cf23917cbe825c63c19d2157465828fc443e" version="1.2.10-3.11.33" checksum_type="SHA1">dbus-1-x11</package>
+      <package arch="noarch" checksum="9f1c04951b8483d100ebcfb039dd2f7a03f6e68a" version="11-29.14.31" checksum_type="SHA1">desktop-data-SLED</package>
+
+      <package arch="i586" checksum="a00103307b8f91b92481fdb4fbec80825014e229" version="0.15-1.29" checksum_type="SHA1">desktop-file-utils</package>
+      <pattern arch="i586" version="11">desktop-kde</pattern>
+      <package arch="i586" checksum="310dd7afb80ad991e10624efe8ebd563adfed1e1" version="1.02.27-8.17.20" checksum_type="SHA1">device-mapper</package>
+      <package arch="i586" checksum="eda7214bdac96f563d4ca4cf1f74fa76c8efac43" version="3.2.3-44.16.17" checksum_type="SHA1">dhcpcd</package>
+      <package arch="i586" checksum="546555dddf9bef70f5cca59ab6d6e86b2f51ccf4" version="2.8.7-143.22" checksum_type="SHA1">diffutils</package>
+      <package arch="i586" checksum="7ac7c01de602572ef3dfe4e13ea6b1b60dd236be" version="0.10.0-6.3.73" checksum_type="SHA1">digikam</package>
+
+      <package arch="i586" checksum="80d78a084bb8b1ca75cf5a1fca6ecda35c64738e" version="0.10.0-6.3.73" checksum_type="SHA1">digikam-lang</package>
+      <package arch="i586" checksum="1a34fd71c1febf95b0b85ec27262834b2b631a1d" version="1.0.2-1.19" checksum_type="SHA1">dirmngr</package>
+      <package arch="i586" checksum="4b1377dd3376c83a3f1a6c5b24ff5966f1e87bd4" version="1.0.0.rc16-0.6.18" checksum_type="SHA1">dmraid</package>
+      <package arch="i586" checksum="557d750483a2f1412192c592c58df8efff5f86b8" version="4.3.5-0.1.74" checksum_type="SHA1">dolphin</package>
+      <package arch="i586" checksum="66fb96b2b2876856fd88bbf1f8787ebf9ef7682a" version="7.1-35.21" checksum_type="SHA1">dvd+rw-tools</package>
+      <package arch="i586" checksum="1dd3f2a0a7a8e937bb855041f21987d3ec633e40" version="1.41.9-2.1.51" checksum_type="SHA1">e2fsprogs</package>
+
+      <package arch="i586" checksum="0942d4330838d7c8706b34a9232520b70b7be55c" version="0.137-8.22.58" checksum_type="SHA1">elfutils</package>
+      <package arch="i586" checksum="a247dd703a346177e7c489b252c6309542244c5c" version="1.4.2-16.26" checksum_type="SHA1">enchant</package>
+      <package arch="i586" checksum="c9d08816e51abc73cb96e457eea23b4df167205d" version="2.7.0-130.21" checksum_type="SHA1">fam</package>
+      <package arch="i586" checksum="de1942f5d3b331162750bec113047a686a13799c" version="4.24-43.17" checksum_type="SHA1">file</package>
+      <package arch="i586" checksum="2b4e69a3169d56d5bed19d4d21f46b8657f1d0e3" version="11.1-3.5.3" checksum_type="SHA1">filesystem</package>
+      <package arch="i586" checksum="1f0006eb7630662db5bd0715272e76a98c613e03" version="1.42-242.21" checksum_type="SHA1">fillup</package>
+
+      <package arch="i586" checksum="47e2c10493d70c9740438ce09f74fb638014d240" version="4.4.0-38.24.11" checksum_type="SHA1">findutils</package>
+      <package arch="i586" checksum="2a9c5415813788512806c948aa1ebe6425a0bd9d" version="2.6.0-10.6" checksum_type="SHA1">fontconfig</package>
+      <package arch="noarch" checksum="102c8ddef45197769cae8f19d581413b76d97be1" version="20080121-25.21" checksum_type="SHA1">fonts-config</package>
+      <package arch="i586" checksum="8f939b9864bdc09cbf5b7e38139ad26bc5e33d60" version="080721-21.9" checksum_type="SHA1">freeglut</package>
+      <package arch="i586" checksum="bcce214ac94138f78a6d4d7e5da02efec7c5c828" version="3.1.6-26.1.35" checksum_type="SHA1">gawk</package>
+      <package arch="i586" checksum="382439f204a50c7dd32cde046750b2ba610bf26b" version="2.28.0-1.6.10" checksum_type="SHA1">gconf2</package>
+
+      <package arch="i586" checksum="622629dc806a14f4a368c73ef9eed3f42d4e8c49" version="2.28.0-1.6.10" checksum_type="SHA1">gconf2-lang</package>
+      <package arch="i586" checksum="adf36f251331691a9c0f054318be77ee1b0cc92a" version="1.8.3-371.83" checksum_type="SHA1">gdbm</package>
+      <package arch="i586" checksum="5b614671a5a212d4dcc76bf33ed9cf7bf05a1622" version="1.1.8-3.25" checksum_type="SHA1">genisoimage</package>
+      <package arch="i586" checksum="7b70fe03facd34540be4e7e8e7ff11d2cc5bf3c1" version="0.0.14.1-4.16" checksum_type="SHA1">ggz</package>
+      <package arch="i586" checksum="5fb91437755b8de7c1112c674eaefcf1c64a3c87" version="0.0.14.1-59.19" checksum_type="SHA1">ggz-client-libs</package>
+      <package arch="i586" checksum="7f9cb5b80a41d6a92c7541d38167d5a5674b81c4" version="0.0.14.1-59.19" checksum_type="SHA1">ggz-client-libs-lang</package>
+
+      <package arch="i586" checksum="8f53589036ea730c36ec5888277b234cea49d01a" version="4.1.6-11.10" checksum_type="SHA1">giflib</package>
+      <package arch="i586" checksum="36a95f57cd8025f4e5d4d81cc8dcb8e62c0f97ca" version="2.22.5-0.2.23" checksum_type="SHA1">glib2</package>
+      <package arch="noarch" checksum="d07864aa76cb658545d9e78f2f163db0c2545355" version="2.16-47.4.1" checksum_type="SHA1">glib2-branding-SLED</package>
+      <package arch="i586" checksum="de101e042d8321d88327e6ac394b678d0218d83e" version="2.22.5-0.2.23" checksum_type="SHA1">glib2-lang</package>
+      <package arch="i586" checksum="acdc94c3103e50e0a9aba1a2661f81fdebb54996" version="4.2.3-10.99" checksum_type="SHA1">gmp</package>
+      <package arch="i586" checksum="dd34dab49aa04acf5cc3c3dc7cdacaa54cc0c0db" version="2.28.2-0.3.22" checksum_type="SHA1">gnome-desktop</package>
+
+      <package arch="i586" checksum="1bd1763c0a11e217dcb11d7432284c2063de732d" version="2.28.2-0.3.22" checksum_type="SHA1">gnome-desktop-lang</package>
+      <package arch="noarch" checksum="876b3b5931b5347da296b37b0ed436c0fe4eb25f" version="2.28.0-1.2.11" checksum_type="SHA1">gnome-icon-theme</package>
+      <package arch="i586" checksum="250058868bb0641e54493f8f3a9fe929f4c51a16" version="2.28.2-1.1.166" checksum_type="SHA1">gnome-keyring</package>
+      <package arch="i586" checksum="ff388f92fb07880b1a5fe8240cf09c46ac3318d7" version="2.28.2-1.1.166" checksum_type="SHA1">gnome-keyring-lang</package>
+      <package arch="i586" checksum="8835aa228d5091cfaea6f18284810d890759e43b" version="2.28.0.1-1.1.213" checksum_type="SHA1">gnome-menus</package>
+      <package arch="noarch" checksum="415c10ffd08623f4d2f2c05eed267a80ac5ae74f" version="11.1-14.26" checksum_type="SHA1">gnome-menus-branding-SLED</package>
+
+      <package arch="i586" checksum="e83c9f84cff9ebd0143e78598c9e645b2114ec7d" version="2.28.0.1-1.1.213" checksum_type="SHA1">gnome-menus-lang</package>
+      <package arch="i586" checksum="f24dd10359894f90ebe2a24e146614d7dc8fc676" version="2.24.2-2.1.172" checksum_type="SHA1">gnome-vfs2</package>
+      <package arch="i586" checksum="d813ab1ff493f42d41e49d719bdefe6afa88e948" version="2.24.2-2.1.172" checksum_type="SHA1">gnome-vfs2-lang</package>
+      <package arch="i586" checksum="1a49733385a97a15acfddbc76bfb13f4e1a7bf4b" version="1.1.6-25.30" checksum_type="SHA1">gpgme</package>
+      <package arch="i586" checksum="a5f8447340573aec6b6c520604b594b15b2c95b9" version="2.5.2-90.18.41" checksum_type="SHA1">grep</package>
+      <package arch="i586" checksum="eda502bdb8913fb1a0a86837e1ef8621fec0a29b" version="0.10.25-3.1.46" checksum_type="SHA1">gstreamer-0_10</package>
+
+      <package arch="i586" checksum="3e19d016c1f679144589bcdab3c01b92fff383c3" version="0.10.25-3.1.46" checksum_type="SHA1">gstreamer-0_10-lang</package>
+      <package arch="i586" checksum="dd204dd264fd433023db0129280415591fdee7c1" version="0.10.25-1.1.133" checksum_type="SHA1">gstreamer-0_10-plugins-base</package>
+      <package arch="i586" checksum="5360cdc3485579e42bf68634a9804e0c535bf993" version="0.10.25-1.1.133" checksum_type="SHA1">gstreamer-0_10-plugins-base-lang</package>
+      <package arch="i586" checksum="b72b7db4266d35ae6f681ef184eaf2e703c54bba" version="1.4.3-0.3.13" checksum_type="SHA1">gvfs</package>
+      <package arch="i586" checksum="7ef89e67b1e0eda8af02726762bb64973b447e41" version="1.4.3-0.3.13" checksum_type="SHA1">gvfs-lang</package>
+      <package arch="i586" checksum="7b94bf1e1a4876244398f77aab02372fc5ce2ced" version="1.3.12-69.19.1" checksum_type="SHA1">gzip</package>
+
+      <package arch="i586" checksum="a6204c392fca3633095cab1c5e11e2265c5af597" version="0.5.12-23.40.5" checksum_type="SHA1">hal</package>
+      <package arch="noarch" checksum="1f82b838d426675944491f75c7e385b03dfabdc5" version="0.10-102.22" checksum_type="SHA1">hicolor-icon-theme</package>
+      <package arch="i586" checksum="022152b4af08d5add321e5252755c8f4eefe820d" version="1.2.7-1.16" checksum_type="SHA1">hunspell</package>
+      <package arch="i586" checksum="e9a1cb732c222668c558511c20b640d996d35f65" version="15.33-0.2.19" checksum_type="SHA1">hwinfo</package>
+      <package arch="i586" checksum="1d48d05d1add224baf273d00c129d0530bcb724f" version="1.1.8-3.25" checksum_type="SHA1">icedax</package>
+      <package arch="i586" checksum="ddce5cfcd3e651cdda323673da2c011d90eb1e9d" version="1.2.36-1.35" checksum_type="SHA1">icewm</package>
+
+      <package arch="i586" checksum="f0d6a1b69d7f8fbc859addc52f3e3633313f8619" version="1.2.36-1.18" checksum_type="SHA1">icewm-lite</package>
+      <package arch="i586" checksum="d69d331568b25f2c6c982479f84235f671357e48" version="1.0.1-40.22" checksum_type="SHA1">IlmBase</package>
+      <package arch="i586" checksum="e55b6bd9ea5b5b1a0ba06e74c45bab7c217c8c3c" version="4.12-1.86" checksum_type="SHA1">info</package>
+      <package arch="i586" checksum="c581333c124d5a63ba3f0116f2d29fe4837b43f4" version="0.5-55.21" checksum_type="SHA1">initviocons</package>
+      <package arch="i586" checksum="70e5189b43df7abcd7a17871fc9b00c468e5a18b" version="1.12.0-25.3.20" checksum_type="SHA1">insserv</package>
+      <package arch="i586" checksum="43f996688b4ea2bcd22dafb90697b26aeaf402b2" version="2.6.29.1-6.1.82" checksum_type="SHA1">iproute2</package>
+
+      <package arch="i586" checksum="c339989a85a5ec9023b8378c2efb317fb2ea03a1" version="1.4.6-2.2.24" checksum_type="SHA1">iptables</package>
+      <package arch="noarch" checksum="0aab937175fe55dca9a0fe93cfafb3ceea6efd09" version="3.3-1.20" checksum_type="SHA1">iso-codes</package>
+      <package arch="i586" checksum="e0d3e5dd7faad493da9f40c3a4540c6dba6d07f2" version="1.7.5-14.6" checksum_type="SHA1">jpackage-utils</package>
+      <package arch="i586" checksum="f3155e75e472ac28590218e6dc44ec51bd7c8566" version="6b-879.10" checksum_type="SHA1">jpeg</package>
+      <package arch="i586" checksum="e8aa5e154d88fafadb033ba42ce5ece3e0ca4591" version="1.0.5-48.32.32" checksum_type="SHA1">k3b</package>
+      <package arch="i586" checksum="eac7f339047e0e476cd6f37a784dde533b1deede" version="1.0.5-48.32.32" checksum_type="SHA1">k3b-lang</package>
+
+      <package arch="noarch" checksum="49c27ec5a1e6485b24ed3e1d63fd0622ccceb1b5" version="11.1-14.13.14.103" checksum_type="SHA1">kde-susetranslations</package>
+      <package arch="i586" checksum="a6754039bf2942e8dcbb92db2114b4028dc7142a" version="4.3.5-0.2.25" checksum_type="SHA1">kde4-filesystem</package>
+      <package arch="i586" checksum="4d42d13e906144271d9579eefb32604d1ba0e514" version="4.3.5-0.8.35" checksum_type="SHA1">kde4-kgreeter-plugins</package>
+      <package arch="i586" checksum="b890be4ee7d3526927a32290a5c781d596e24113" version="4.3.5-0.3.30" checksum_type="SHA1">kdeartwork4-screensaver</package>
+      <package arch="i586" checksum="90c46a1ca5ad0fff9da0df92a2fb63f02304858a" version="3.5.10-20.31" checksum_type="SHA1">kdebase3-runtime</package>
+      <package arch="i586" checksum="a0214e8ac6cd707f658436698fdc04411528d7ae" version="4.3.5-0.1.74" checksum_type="SHA1">kdebase4</package>
+
+      <package arch="i586" checksum="67af9fa13374532e47c2f7a7b51c951eaa708738" version="4.3.5-0.1.74" checksum_type="SHA1">kdebase4-libkonq</package>
+      <package arch="i586" checksum="10ce0b5161f2408cf9e8c5ce8d69103e585e01f6" version="4.3.5-0.1.97" checksum_type="SHA1">kdebase4-runtime</package>
+      <package arch="i586" checksum="40d0b7de5a3e977c10f32130962f2bea4339ef4a" version="11-25.14.22" checksum_type="SHA1">kdebase4-runtime-branding-SLED</package>
+      <package arch="i586" checksum="9f0dd2aa45554c92d9680f4245cfc8e8da86189d" version="4.3.5-7.1.1" checksum_type="SHA1">kdebase4-session</package>
+      <package arch="i586" checksum="30a8b7ca4610ad6b0055b451a058227669caa092" version="11-25.14.22" checksum_type="SHA1">kdebase4-SLED</package>
+      <package arch="i586" checksum="b48ecf8f3d12e928724f072b49d031bc70b1a082" version="11-25.14.22" checksum_type="SHA1">kdebase4-SLED-lang</package>
+
+      <package arch="i586" checksum="5880b42d16371b531b712e2fcc4ac197636e0561" version="4.3.5-0.8.35" checksum_type="SHA1">kdebase4-workspace</package>
+      <package arch="i586" checksum="52142e39438ddc8634035b4ea7403ffb17db17f7" version="11-25.14.22" checksum_type="SHA1">kdebase4-workspace-branding-SLED</package>
+      <package arch="i586" checksum="ba3a23f0bbc72a65b4f185c60d15136a7ec731e1" version="4.3.5-0.8.35" checksum_type="SHA1">kdebase4-workspace-ksysguardd</package>
+      <package arch="i586" checksum="1962c050f040e98041eeb00040fb6127d3fa8b5b" version="4.3.5-0.1.61" checksum_type="SHA1">kdegames4</package>
+      <package arch="noarch" checksum="e17a6a9c35c2a289167c4f48967310e0013376cd" version="4.3.5-0.1.60" checksum_type="SHA1">kdegames4-carddecks-default</package>
+      <package arch="i586" checksum="f66746b06c4378697d0d6ccdaa4f93fc82002b23" version="3.5.10-23.27.1" checksum_type="SHA1">kdelibs3</package>
+
+      <package arch="i586" checksum="da9f7f96a61926ef75f7030d8d2b8accfc62cfba" version="3.5.10-23.27.1" checksum_type="SHA1">kdelibs3-default-style</package>
+      <package arch="i586" checksum="da98bed59591bd83d441ac0122b8e5d6d9e673bd" version="4.3.5-0.2.46" checksum_type="SHA1">kdelibs4</package>
+      <package arch="i586" checksum="d2ebfb161f0d595a6825ea802392fd7cf358245f" version="11-25.14.22" checksum_type="SHA1">kdelibs4-branding-SLED</package>
+      <package arch="i586" checksum="0db82a43f2e9fe66d356599b7ba890c327cdcf2c" version="4.3.5-0.2.46" checksum_type="SHA1">kdelibs4-core</package>
+      <package arch="i586" checksum="7703f938fbe5d9594becc290dd4a771afe8dcaf7" version="4.3.5-0.2.28" checksum_type="SHA1">kdemultimedia4</package>
+      <package arch="i586" checksum="95606b81b984c5f8852afd52ef0b7a740b8b13ab" version="4.3.5-0.8.35" checksum_type="SHA1">kdm</package>
+
+      <package arch="i586" checksum="ebcbe221197486db264ece5f5443f0cddc0c3918" version="11-25.14.22" checksum_type="SHA1">kdm-branding-SLED</package>
+      <package arch="i586" checksum="657da3b672656a5c3f056d8e57c27e92f4d29a19" version="1.2-107.22" checksum_type="SHA1">keyutils-libs</package>
+      <package arch="i586" checksum="c8246f6cf978c2ad350bca5c0646092b449ea80b" version="4.3.5-0.1.74" checksum_type="SHA1">kfind</package>
+      <package arch="i586" checksum="7cf057e77b365488e504659bb568f6215b70d12e" version="4.3.5-0.2.28" checksum_type="SHA1">kio_audiocd</package>
+      <package arch="i586" checksum="08511d81bc1d16b681fc0a45dbd8478c88c76c1a" version="11-25.14.22" checksum_type="SHA1">kio_sysinfo</package>
+      <package arch="i586" checksum="c1c115bc8c87d02f73eb5202c8f6bedd40f31a43" version="11-25.14.22" checksum_type="SHA1">kio_sysinfo-branding-SLED</package>
+
+      <package arch="i586" checksum="16f96b1fa7d47c09666da95dc8600e4dc8dec695" version="1.99.svn1102156-0.2.53" checksum_type="SHA1">kiosktool</package>
+      <package arch="i586" checksum="9933139f20d52761f9107def90ca44dd733a6091" version="0.1.5-66.22" checksum_type="SHA1">kipi-plugins</package>
+      <package arch="i586" checksum="dcbb0d6b94eb331078b83338db751e6c5b021cf8" version="0.1.5-66.22" checksum_type="SHA1">kipi-plugins-lang</package>
+      <package arch="i586" checksum="b06c284163d582d67a8ef847b812e5407004ceac" version="4.3.5-0.2.28" checksum_type="SHA1">kmix</package>
+      <package arch="i586" checksum="4c189bd1cfd0f4d0ad3d27460f3fa9ab49d616e5" version="4.3.5-0.1.74" checksum_type="SHA1">konqueror</package>
+      <package arch="i586" checksum="7fc9f9d2c45c7ab277cf30673ff59360513a3220" version="4.3.1-1.1.98" checksum_type="SHA1">konqueror-plugins</package>
+
+      <package arch="i586" checksum="22a13778540689045970b272b21ca1e07e9de6b6" version="4.3.1-1.1.98" checksum_type="SHA1">konqueror-plugins-lang</package>
+      <package arch="i586" checksum="74ccbf693cd9d2d65f4bba62bd61df9ff0a8fbc3" version="4.3.5-0.1.61" checksum_type="SHA1">kpat</package>
+      <package arch="i586" checksum="052cea1238b3def005f90cf8dd93fd49cfa9a0de" version="1.6.3-133.27.1" checksum_type="SHA1">krb5</package>
+      <package arch="i586" checksum="59de79ea2a8c48664ef1803c8a00ec39c0bb49af" version="4.3.5-0.2.28" checksum_type="SHA1">kscd</package>
+      <package arch="i586" checksum="f64a5a0f71461a4eb3a5215974bb269a3a78677a" version="4.3.5-0.8.35" checksum_type="SHA1">kwin</package>
+      <package arch="i586" checksum="6caa41b6de255132b69104b9419c797a18c665aa" version="4.3.5-0.1.74" checksum_type="SHA1">kwrite</package>
+
+      <package arch="i586" checksum="905167b8de1b874be6a70182a2f0da81825fb11d" version="1.17-77.14.19" checksum_type="SHA1">lcms</package>
+      <package arch="i586" checksum="0d9cf9a6ba7d2db659cd61b35132fef1446bb3da" version="424b-10.22" checksum_type="SHA1">less</package>
+      <package arch="i586" checksum="14e3acbbf1a765cc51b9632b74b535abd25a695f" version="2.2.47-30.34.29" checksum_type="SHA1">libacl</package>
+      <package arch="i586" checksum="6dce09e06eccc537f092c012118a664c98527dd1" version="0.3.109-0.1.46" checksum_type="SHA1">libaio</package>
+      <package arch="i586" checksum="4c932e8d0f7100067ef31884fa71b7fd77c9007e" version="4.3.5-0.1.68" checksum_type="SHA1">libakonadi4</package>
+      <package arch="i586" checksum="573416ea491a98050ed37e93a24e656ae4ca1be4" version="1.2.1-1.1.87" checksum_type="SHA1">libakonadiprotocolinternals1</package>
+
+      <package arch="i586" checksum="36480ec098869bd3f3ba94f523c4c8c34154b0f5" version="0.8.8-81.27" checksum_type="SHA1">libao</package>
+      <package arch="i586" checksum="c5495069b76a2b535ed37fe78786f803ff1de1d7" version="2.3.20-46.16.43" checksum_type="SHA1">libart_lgpl</package>
+      <package arch="i586" checksum="2c2094c6c3cb5d46ef6b270bda5561b773048e5f" version="0.137-8.22.58" checksum_type="SHA1">libasm1</package>
+      <package arch="i586" checksum="9e7349dded7be2e9f0c2444799a487ba669e743b" version="1.0.18-16.9.29" checksum_type="SHA1">libasound2</package>
+      <package arch="i586" checksum="fb3140a1d1304733e8910cbffe7ca46603505a26" version="1.28.0-1.2.28" checksum_type="SHA1">libatk-1_0-0</package>
+      <package arch="i586" checksum="389cbdc4bb17884f6aa652d38e8d41915840e010" version="2.4.43-1.18" checksum_type="SHA1">libattr</package>
+
+      <package arch="i586" checksum="fbc1f3670d96e1dd8595a7a42e0bda495c404578" version="0.5.0-1.1.61" checksum_type="SHA1">libaugeas0</package>
+      <package arch="i586" checksum="3f2bb1bc00e9b70c36561bf2e82f081ed8ef4e2b" version="0.6.23-11.19.22" checksum_type="SHA1">libavahi-client3</package>
+      <package arch="i586" checksum="774672a5916f6672515775802bc47be39f2ca6a8" version="0.6.23-11.19.22" checksum_type="SHA1">libavahi-common3</package>
+      <package arch="i586" checksum="3ed8e7b582e1d7a68ff3da1ac2f598f5ea3785f8" version="0.6.23-13.19.26" checksum_type="SHA1">libavahi-glib1</package>
+      <package arch="i586" checksum="9d4d4faf77d0ad26c29569bc57ff4266b109d5e4" version="0.3.5.1-7.27" checksum_type="SHA1">libbeagle1</package>
+      <package arch="i586" checksum="88c2955780b0e9ab4b352cc7211da96e8ac82d59" version="2.16-6.8.2" checksum_type="SHA1">libblkid1</package>
+
+      <package arch="i586" checksum="5aba33bb0abe40a1cb05c6f61573b311601195db" version="2.1.0.342-122.6" checksum_type="SHA1">libblocxx6</package>
+      <package arch="i586" checksum="fae75ec00cdfeac0fed799796820491048d0d422" version="4.51-1.1.97" checksum_type="SHA1">libbluetooth3</package>
+      <package arch="i586" checksum="d3c27e2eb1121da4db6da49e1ca6b80decaa3f67" version="2.24.2-2.1.63" checksum_type="SHA1">libbonobo</package>
+      <package arch="i586" checksum="669cf7da4802a01949f68de75b4a9b42d8f7f0da" version="2.24.2-2.1.63" checksum_type="SHA1">libbonobo-lang</package>
+      <package arch="i586" checksum="5ccca6eb05ee84f387a0ffc2e4761256d626e0fd" version="0.18-2.1.225" checksum_type="SHA1">libcanberra-gtk</package>
+      <package arch="i586" checksum="13307528737e6cfd8c357ed274287bb61bf83da8" version="0.18-2.1.225" checksum_type="SHA1">libcanberra-gtk0</package>
+
+      <package arch="i586" checksum="bf232994e7fd1dd421ff1d565c87dd4683cd64f5" version="0.18-2.1.225" checksum_type="SHA1">libcanberra0</package>
+      <package arch="i586" checksum="de5f708ee834f8e1d1b15d0108fea982ae904e71" version="2.11-2.15" checksum_type="SHA1">libcap2</package>
+      <package arch="i586" checksum="45859f6b2551829aab30aaff7934818989c32465" version="3.10.2-2.1.42" checksum_type="SHA1">libcdda_interface0</package>
+      <package arch="i586" checksum="03092b4178b7b326ed2c31a60333174410216d6b" version="3.10.2-2.1.42" checksum_type="SHA1">libcdda_paranoia0</package>
+      <package arch="i586" checksum="40574b885eeb2ecc7d860e84c448b8472dcbd2c6" version="1.41.9-2.1.51" checksum_type="SHA1">libcom_err2</package>
+      <package arch="i586" checksum="abe519a1375f24c2ba9b88662bd03c2d03879831" version="0.7.8-4.8" checksum_type="SHA1">libcompizconfig</package>
+
+      <package arch="i586" checksum="9aa9eeec4c8055f37ffdd3336607c88fe83c3bdf" version="0.6.1-120.16" checksum_type="SHA1">libcroco-0_6-3</package>
+      <package arch="i586" checksum="f87c4146f78853fb2b2b0e598447325587dcf8b9" version="1.0.5_SVNr46-58.30.38" checksum_type="SHA1">libcryptsetup0</package>
+      <package arch="i586" checksum="6ed611fbb5d40bee45ee9cdef573732b127eb70c" version="7.19.0-11.24.25" checksum_type="SHA1">libcurl4</package>
+      <package arch="i586" checksum="b61b4971071ba250d71b7e495bc8bc9a0e2b46a1" version="4.5.20-95.39" checksum_type="SHA1">libdb-4_5</package>
+      <package arch="i586" checksum="5f6f3d927e4889459e36d0bc211b701a5299be91" version="3.5.21-1.24" checksum_type="SHA1">libdjvulibre21</package>
+      <package arch="i586" checksum="99a836fe68330b009a11386f01432267624d8057" version="0.6.23-11.19.22" checksum_type="SHA1">libdns_sd</package>
+
+      <package arch="i586" checksum="4996f56d864a16bd12de1f43667570781a165a05" version="2.4.17-0.3.12" checksum_type="SHA1">libdrm</package>
+      <package arch="i586" checksum="4c79c2a88150d09cf3634509ea39fcb12216de73" version="4.1.3-1.22" checksum_type="SHA1">libdvdread4</package>
+      <package arch="i586" checksum="e307c68a1821b6e674b7743e1f426863516e8254" version="0.137-8.22.58" checksum_type="SHA1">libdw1</package>
+      <package arch="i586" checksum="935b03895115e9cee1a458977a201b956fa9b2d8" version="0.137-8.22.58" checksum_type="SHA1">libelf1</package>
+      <package arch="i586" checksum="89a860d8c093c20b0734166ed7f99bd20ba04a8d" version="1.4.2-16.26" checksum_type="SHA1">libenchant1</package>
+      <package arch="i586" checksum="27b5b60b160a9d02f8448b0177a4fc9aee388125" version="0.2.41-3.1.41" checksum_type="SHA1">libesd0</package>
+
+      <package arch="i586" checksum="ce4b0b6a2c983d777d6db6ccf1d93d0c063e0085" version="2.4.12-4.19" checksum_type="SHA1">libevoldap-2_4-2</package>
+      <package arch="i586" checksum="ab8a16c5f68f59cd1e1ea92e1c931bfde09469d4" version="2.0.2-2.22" checksum_type="SHA1">libexempi3</package>
+      <package arch="i586" checksum="127a2dbfe845343b8feac4eb83bf36c6c37e3abe" version="0.6.17-2.12" checksum_type="SHA1">libexif</package>
+      <package arch="i586" checksum="3ed41db8e6421df6cd1ccca98f67f4013fce12a7" version="0.17.1-31.20" checksum_type="SHA1">libexiv2-4</package>
+      <package arch="i586" checksum="c03e7d1f1e23448e7fd7a7b4252d5d1ab1f79990" version="2.0.1-88.26.1" checksum_type="SHA1">libexpat1</package>
+      <package arch="i586" checksum="5d6f325e898b8be2101c4253ebdb1be0faa32789" version="1.41.9-2.1.51" checksum_type="SHA1">libext2fs2</package>
+
+      <package arch="i586" checksum="f286bcd15cb8343a7979bef8c441527e76ff8b46" version="1.2.1-68.15" checksum_type="SHA1">libFLAC++6</package>
+      <package arch="i586" checksum="dc95d2df8a2cb039edd8cc89f0d18cb82b0984e0" version="1.2.1-68.15" checksum_type="SHA1">libFLAC8</package>
+      <package arch="i586" checksum="1a4447d046af650c05e6a019ebf1da000ba82337" version="3.12.6-3.1.1" checksum_type="SHA1">libfreebl3</package>
+      <package arch="i586" checksum="03a89b7e2e3845e51928c8291789897c1fed3526" version="2.7.2-61.18.1" checksum_type="SHA1">libfuse2</package>
+      <package arch="i586" checksum="d7a53348e24771a52fea8b07ec08dc470ffedda8" version="4.3.4_20091019-0.7.35" checksum_type="SHA1">libgcc43</package>
+      <package arch="i586" checksum="a019fc4299c1d6913de9b4c7792cd44f98f5bb64" version="1.4.1-6.7" checksum_type="SHA1">libgcrypt11</package>
+
+      <package arch="i586" checksum="1441d1401aa788512c8efe8d70d8e1a991ab4f64" version="0.0.14.1-4.16" checksum_type="SHA1">libggz2</package>
+      <package arch="i586" checksum="99d54657bcc830661a5d320f448e97b41f95d2c2" version="2.22.5-0.2.23" checksum_type="SHA1">libgio-2_0-0</package>
+      <package arch="i586" checksum="326efd632a58eb1f34e7128ed0095f2665409969" version="2.6.4-1.2.267" checksum_type="SHA1">libglade2</package>
+      <package arch="i586" checksum="4be852e4b3120f491f5cc809f8b8183daa2d7fa4" version="2.22.5-0.2.23" checksum_type="SHA1">libglib-2_0-0</package>
+      <package arch="i586" checksum="0699e9a9271bac860c24786e88f3d88bdbeec612" version="2.22.5-0.2.23" checksum_type="SHA1">libgmodule-2_0-0</package>
+      <package arch="i586" checksum="74ab32d12d2e8faa2c5da1bc6fffe09f077bc712" version="2.28.2-0.3.22" checksum_type="SHA1">libgnome-desktop-2-11</package>
+
+      <package arch="i586" checksum="eac5246df5e569c482d3c4584f1f47297e22c3c8" version="2.28.0.1-1.1.213" checksum_type="SHA1">libgnome-menu2</package>
+      <package arch="i586" checksum="17619240c5a945837da03692aa5c862c96f69dad" version="2.28.2-1.1.164" checksum_type="SHA1">libgnomekbd</package>
+      <package arch="i586" checksum="6755a3cce3238d764d273d367a44dc92c25ebc5e" version="2.28.2-1.1.164" checksum_type="SHA1">libgnomekbd-lang</package>
+      <package arch="i586" checksum="17ffcdbf9da12ff5d598c5f38c4abc43bed17e36" version="2.4.1-24.19.1" checksum_type="SHA1">libgnutls26</package>
+      <package arch="i586" checksum="f379fdc80e59ab8707669afe798ea469360fd9a9" version="2.22.5-0.2.23" checksum_type="SHA1">libgobject-2_0-0</package>
+      <package arch="i586" checksum="93b9bed522c2fee918c0aff3e9ca369bf2ad3911" version="1.6-8.6" checksum_type="SHA1">libgpg-error0</package>
+
+      <package arch="i586" checksum="1e3cdf1e768b44c9f0ab287d2696474ad7f1271e" version="1.1.6-25.30" checksum_type="SHA1">libgpgme11</package>
+      <package arch="i586" checksum="9a3384c39669203008cb5231d7bac5ee8f7e2d96" version="2.4.3-3.25.73" checksum_type="SHA1">libgphoto2</package>
+      <package arch="i586" checksum="4eeca947ef56935f247c1818ffb9196490a76e79" version="2.4.3-3.25.73" checksum_type="SHA1">libgphoto2-lang</package>
+      <package arch="i586" checksum="7997429f59bedf8f60b464f905f42a2ac6ba9fba" version="0.6.0-84.29" checksum_type="SHA1">libgpod-lang</package>
+      <package arch="i586" checksum="f329195c59f1fe9cdc160cba38c85098b061d238" version="0.6.0-84.29" checksum_type="SHA1">libgpod3</package>
+      <package arch="i586" checksum="0bc652f39231ec48020c0be1c1590bb8de4c5329" version="1.14.9-2.27" checksum_type="SHA1">libgsf-1-114</package>
+
+      <package arch="i586" checksum="1053c79e0d61bdfc53e99937dbd2703aa193a7fb" version="0.10.25-1.1.133" checksum_type="SHA1">libgstapp-0_10-0</package>
+      <package arch="i586" checksum="bb20e8fd59c31425ac992dc5203ff37df949f3a6" version="0.10.25-1.1.133" checksum_type="SHA1">libgstinterfaces-0_10-0</package>
+      <package arch="i586" checksum="17f5f4520c1fc4dc5a96b1d4ba2b22f61a97b3fe" version="0.10.25-3.1.46" checksum_type="SHA1">libgstreamer-0_10-0</package>
+      <package arch="i586" checksum="959567cb9b5bc44bd7f0df57e8332f6c409c55d9" version="2.22.5-0.2.23" checksum_type="SHA1">libgthread-2_0-0</package>
+      <package arch="i586" checksum="965c19f7dd21864c02f045b3405d411a83d203a3" version="2.28.0-1.2.20" checksum_type="SHA1">libgtop</package>
+      <package arch="i586" checksum="ff5ac774ec6fa0245731aa870880d8f9963f4a0f" version="2.28.0-1.2.20" checksum_type="SHA1">libgtop-2_0-7</package>
+
+      <package arch="i586" checksum="a2c10cf5fe912655f22eaccf7c8c17b3acaa355d" version="2.28.0-1.2.20" checksum_type="SHA1">libgtop-lang</package>
+      <package arch="i586" checksum="2b1fdf5446dda2f2abcda617425da6dafb07c306" version="1.4.3-0.3.13" checksum_type="SHA1">libgvfscommon0</package>
+      <package arch="i586" checksum="0e2d52b8903db62e4bfbf3c53dabf7771f8d5a9d" version="2.28.0-1.4.8" checksum_type="SHA1">libgweather</package>
+      <package arch="i586" checksum="aa0f7397d60a0c3590c07e3b9f41da20c1e3162f" version="2.28.0-1.4.8" checksum_type="SHA1">libgweather-lang</package>
+      <package arch="i586" checksum="63bc4be8e5bac56e96083643bc8708af7316bfec" version="2.28.0-1.4.8" checksum_type="SHA1">libgweather1</package>
+      <package arch="i586" checksum="2a0444d0008292b64d3a942bda5139eded778ba3" version="0.43-1.1.40" checksum_type="SHA1">libical0</package>
+
+      <package arch="i586" checksum="6451f306c99793e4477b27736a54ea50a2b27661" version="4.0-7.24.11" checksum_type="SHA1">libicu</package>
+      <package arch="i586" checksum="5a0f95ffa5405201ef12ddd1de9a675196a745da" version="0.8.13-1.1.57" checksum_type="SHA1">libidl</package>
+      <package arch="i586" checksum="848c5cd4fb679a85b43b59a2c24c5775d2e1ddbc" version="1.10-3.18" checksum_type="SHA1">libidn</package>
+      <package arch="i586" checksum="a0403611269d009d6cbaf65fc095850acd0c58ce" version="1.900.1-134.9" checksum_type="SHA1">libjasper</package>
+      <package arch="i586" checksum="2710436ee822878ca64608b3edf6ba9d118aaa5b" version="6.2.0-879.10" checksum_type="SHA1">libjpeg</package>
+      <package arch="i586" checksum="0c66896091390c8063d179de7b39076544e9cfee" version="3.5.10-8.30" checksum_type="SHA1">libkcal</package>
+
+      <package arch="i586" checksum="749ce00622c0139aee369d7579d3dd662313e150" version="3.5.10-8.30" checksum_type="SHA1">libkcal2</package>
+      <package arch="i586" checksum="0930135107432d2fb85f214face2d22ff52fd4f4" version="4.3.5-0.2.28" checksum_type="SHA1">libkcddb4</package>
+      <package arch="i586" checksum="c04f500f6e9c10cb57f3e6e92792e3515cddaa24" version="4.3.5-0.2.28" checksum_type="SHA1">libkcompactdisc4</package>
+      <package arch="i586" checksum="036c44d534e34c79888e4781f53c0f4291066c2a" version="0.1.4-50.26" checksum_type="SHA1">libkdcraw3</package>
+      <package arch="i586" checksum="2aaa6e20be863a1f80600fc55074f833bedc9f4b" version="0.1.4-50.26" checksum_type="SHA1">libkdcraw3-lang</package>
+      <package arch="i586" checksum="fd1b326aedd43cbe628f30070bb5b4483121d916" version="4.3.5-0.2.46" checksum_type="SHA1">libkde4</package>
+
+      <package arch="i586" checksum="b5197b0a43417ea250a574c99db480471f320653" version="4.3.5-0.2.46" checksum_type="SHA1">libkdecore4</package>
+      <package arch="i586" checksum="7e964a83ec4236bd53822407f4b0d139a0b81146" version="4.3.5-0.1.61" checksum_type="SHA1">libkdegames4</package>
+      <package arch="i586" checksum="3136af43a2d1b4d6b9c2806391432809a15c1241" version="4.3.5-0.1.68" checksum_type="SHA1">libkdepimlibs4</package>
+      <package arch="i586" checksum="845bc795a703cfdaa6fc11ad88b880c3237d71d1" version="0.1.7-49.26" checksum_type="SHA1">libkexiv2-3</package>
+      <package arch="i586" checksum="71669d80bc9da312b95f8d9b3581577e6e77021f" version="0.1.6-1.32" checksum_type="SHA1">libkipi0</package>
+      <package arch="i586" checksum="ea226fbaf63450b0fa02797e928b42ee98f1df87" version="0.1.6-1.32" checksum_type="SHA1">libkipi0-lang</package>
+
+      <package arch="i586" checksum="16abb22479c59b2b434fe191c2e06f995ed69b32" version="3.5.10-8.30" checksum_type="SHA1">libkmime2</package>
+      <package arch="i586" checksum="3d01074c8619b59e2e7baff88c888d89c3ff1e3d" version="4.3.5-0.1.64" checksum_type="SHA1">libknotificationitem-1-1</package>
+      <package arch="i586" checksum="1ff11776100e6a21539ecd8bc3e36a87f5f1116d" version="4.3.5-0.1.74" checksum_type="SHA1">libkonq5</package>
+      <package arch="i586" checksum="77b080f081b2bf420c14a7102054f8b8220cd79a" version="1.0.4-1.16" checksum_type="SHA1">libksba</package>
+      <package arch="i586" checksum="ef880e29c3a61b56a3ea7319ee12c36bdb326955" version="3.5.10-8.30" checksum_type="SHA1">libktnef1</package>
+      <package arch="i586" checksum="e247b27e552cc076735816c65dcfd7515cb40049" version="0.2-35.16" checksum_type="SHA1">liblazy1</package>
+
+      <package arch="i586" checksum="91dd69960d0f89f085bb1ab5d809ca452568223b" version="1.17-77.14.19" checksum_type="SHA1">liblcms1</package>
+      <package arch="i586" checksum="59c18788b1e0eacf9f25cc0f1b22a71588e7c4de" version="1.4.2-3.20" checksum_type="SHA1">libloudmouth-1-0</package>
+      <package arch="i586" checksum="913ff50d6757543001e09a8f28e7e6e09af9ce97" version="2.2.6-2.131.1" checksum_type="SHA1">libltdl7</package>
+      <package arch="i586" checksum="04678113505fb531bc56d6e3542fba27f1b99d6c" version="1.0.10-46.18" checksum_type="SHA1">libmng</package>
+      <package arch="i586" checksum="c20f3efa04769792949af0f4f7e74aa77190da77" version="1.2.6-4.22" checksum_type="SHA1">libmpcdec5</package>
+      <package arch="i586" checksum="a255253c57b73399573aac7a412afac18ade20f2" version="2.3.2-3.115" checksum_type="SHA1">libmpfr1</package>
+
+      <package arch="i586" checksum="d136dd0f3fa02195216f670c601c0686d56d5ddd" version="0.3.4-2.19" checksum_type="SHA1">libmtp8</package>
+      <package arch="i586" checksum="02ed9a2ee2c114f9ed83684c34c87ad0b4e41efc" version="2.1.5-5.18" checksum_type="SHA1">libmusicbrainz4</package>
+      <package arch="i586" checksum="ad4c56da15753e96bb3133f815cb629d880dda99" version="5.6-90.55" checksum_type="SHA1">libncurses5</package>
+      <package arch="i586" checksum="75c69a545e4725df2d607e68cb59c1c0ac1bd6e0" version="0.28.3-2.12.1" checksum_type="SHA1">libneon27</package>
+      <package arch="i586" checksum="3b1719f2798e6b2dcc7337900df6d0f0a62c8605" version="1.1-49.18" checksum_type="SHA1">libnl</package>
+      <package arch="i586" checksum="69fbc21556d77372ecec839c4e8977bb040ef16a" version="0.4.4-173.27.1" checksum_type="SHA1">libnotify</package>
+
+      <package arch="i586" checksum="fac91227034a3e5e5a8753178817567f0ce05420" version="0.4.4-173.27.1" checksum_type="SHA1">libnotify1</package>
+      <package arch="i586" checksum="b2b47b27c3b767da2a175710a20f8002f7530132" version="2.0.2-73.18" checksum_type="SHA1">libnscd</package>
+      <package arch="i586" checksum="062dd425b514474949e94ef5c465c441f98332c7" version="1.0.6-1.6" checksum_type="SHA1">libnsssharedhelper0</package>
+      <package arch="i586" checksum="410db6e5c0ce78206cabce1a2564d2584b65510b" version="1.1.3-87.12" checksum_type="SHA1">libogg0</package>
+      <package arch="i586" checksum="8ad62e55388dc63bf07600b9b197a345737a36f9" version="0.3.15-3.10" checksum_type="SHA1">liboil</package>
+      <package arch="i586" checksum="61833f895f42b5551f8b2062bb73f20f9629cedf" version="0.6.15-5.20" checksum_type="SHA1">libopenct1</package>
+
+      <package arch="i586" checksum="6d5f8522eb68628e2e1633d50ac2f6ca9764909c" version="0.11.6-5.25.1" checksum_type="SHA1">libopensc2</package>
+      <package arch="i586" checksum="2cf1c0b59142128161335f08cd3ed09d8b9aec3a" version="0.9.8h-30.27.11" checksum_type="SHA1">libopenssl0_9_8</package>
+      <package arch="i586" checksum="7d5df18faf1037bb4e7c189b92d6193072f7a303" version="7.4-8.24.2" checksum_type="SHA1">libpciaccess0</package>
+      <package arch="i586" checksum="c5a433f13aa96fbaab667378b79aab0987480f62" version="4.3.1-3.3.10" checksum_type="SHA1">libphonon4</package>
+      <package arch="i586" checksum="3ede8671cbe1567dc43d645e363a084696b01482" version="0.16.0-1.2.22" checksum_type="SHA1">libpixman-1-0</package>
+      <package arch="i586" checksum="b7b8a48108d19673896b34353695cc7667fdfd25" version="0.9.2-3.1.92" checksum_type="SHA1">libpolkit-qt0</package>
+
+      <package arch="i586" checksum="296b3c14a716e30f2a45f05d6934b7f1d42e88c6" version="0.12.3-1.2.44" checksum_type="SHA1">libpoppler-qt4-3</package>
+      <package arch="i586" checksum="d72dac1b9a24d78c2a32440c8a4c0590d3eb4bbc" version="0.12.3-1.2.44" checksum_type="SHA1">libpoppler5</package>
+      <package arch="i586" checksum="bfa0dc9cf518b4967d443e34293e533406419e0c" version="0.3.1-1.1.42" checksum_type="SHA1">libproxy0</package>
+      <package arch="i586" checksum="1767d2aaf21438aa6680392381a78396c42b78f2" version="0.9.21-1.5.26" checksum_type="SHA1">libpulse-mainloop-glib0</package>
+      <package arch="i586" checksum="1dd60fedf38e28677dc1dbe2840ae7de8f2b1d73" version="0.9.21-1.5.26" checksum_type="SHA1">libpulse0</package>
+      <package arch="i586" checksum="10aa00a07269756b67dbaccf97e1c078fc0ce0e0" version="2.6.0-8.9.20" checksum_type="SHA1">libpython2_6-1_0</package>
+
+      <package arch="i586" checksum="593175a668bc3739e4b6b69af4b2710896de1fee" version="2.0.1-1.28" checksum_type="SHA1">libqca2</package>
+      <package arch="i586" checksum="02f66e0133d9d527d1b972d27a9a164b3eb875fb" version="0.0.4-35.25.94" checksum_type="SHA1">libqimageblitz4</package>
+      <package arch="i586" checksum="817ab11f765ce1acedf9cd96ad12a2b3ee9ae5fd" version="4.6.2-1.6.9" checksum_type="SHA1">libqt4</package>
+      <package arch="i586" checksum="3aa11ce211e7d4bacadaab171a95210badcba9b8" version="4.6.2-1.6.9" checksum_type="SHA1">libqt4-qt3support</package>
+      <package arch="i586" checksum="8c51e8336812ca66c039def223a047fb8e875ae2" version="4.6.2-1.6.9" checksum_type="SHA1">libqt4-sql</package>
+      <package arch="i586" checksum="be5cc653f1639373c79344cd4b32ac5214a7beeb" version="4.6.2-1.6.9" checksum_type="SHA1">libqt4-sql-sqlite</package>
+
+      <package arch="i586" checksum="bd9200b932e1f2fce28a62778ef75ffbe2b3279d" version="4.6.2-1.6.9" checksum_type="SHA1">libqt4-x11</package>
+      <package arch="i586" checksum="76a9da51fa98ec7d97c2d4651165a0ce5cac43f8" version="4.6.2-1.6.9" checksum_type="SHA1">libQtWebKit4</package>
+      <package arch="i586" checksum="dc888fe29372bf098e972fe6b216d73d2f285cf9" version="1.4.18-28.21" checksum_type="SHA1">libraptor1</package>
+      <package arch="i586" checksum="e8d654c06cbbea083a70b5f60047a12ddb13d91f" version="0.9.16-1.21" checksum_type="SHA1">librasqal1</package>
+      <package arch="i586" checksum="9c58408acaf20cf44d2a9e96e7b592cce12cb9eb" version="5.2-147.9.13" checksum_type="SHA1">libreadline5</package>
+      <package arch="i586" checksum="271fdd9d0f7c194b57ae812981eef1b808132382" version="1.0.8-1.21" checksum_type="SHA1">libredland0</package>
+
+      <package arch="i586" checksum="d324f7842a63b354753f63f919910c39154ae1f3" version="0.3.0.5-143.3" checksum_type="SHA1">libreiserfs</package>
+      <package arch="i586" checksum="300d7f299723089de25189b3aaf914149df02259" version="2.26.0-2.1.227" checksum_type="SHA1">librsvg</package>
+      <package arch="i586" checksum="a44945f7f4a4918bc8ccbb07df11def7654aef7e" version="0.1.4-1.15" checksum_type="SHA1">libsamplerate</package>
+      <package arch="i586" checksum="30ea9e6f5169dbc46fd9cebbdbf91de5be8648b8" version="3.0.3-4.14.11" checksum_type="SHA1">libsensors4</package>
+      <package arch="i586" checksum="eda45268e7f0655fb8afbe201d9f30c7a44c8d33" version="0.1.11-168.26" checksum_type="SHA1">libsexy</package>
+      <package arch="i586" checksum="2a39187ff4f133d6f1fa72edc1fabc06f459d517" version="2.0.2-11.8.4" checksum_type="SHA1">libsmbios2</package>
+
+      <package arch="i586" checksum="34454b9b4f11d0711ed1bef21ac4cca3e92b847a" version="1.0.20-2.1.46" checksum_type="SHA1">libsndfile</package>
+      <package arch="i586" checksum="66a99c210eb59043c776361f2663b30da0321bcc" version="2.3.0-4.1.92" checksum_type="SHA1">libsoprano4</package>
+      <package arch="i586" checksum="c530cb16eba6a46538cd5f4b2c5b75caf8b3ddcd" version="2.28.2-0.1.151" checksum_type="SHA1">libsoup-2_4-1</package>
+      <package arch="i586" checksum="4d6736fdc7a43cee6adf751186deb518f99001c1" version="0.2.1-2.24" checksum_type="SHA1">libspectre1</package>
+      <package arch="i586" checksum="a315383efbe671b1ce9b4ccc42b7e815883bdd46" version="3.6.4-2.8" checksum_type="SHA1">libsqlite3-0</package>
+      <package arch="i586" checksum="2afcfad8541281381c991a76e19f36112668931f" version="4.3.4_20091019-0.7.35" checksum_type="SHA1">libstdc++43</package>
+
+      <package arch="i586" checksum="8caa1ebc2f24bbdcd5d66edb225edca718627721" version="0.7.0-1.1.92" checksum_type="SHA1">libstrigi0</package>
+      <package arch="i586" checksum="9535a165dce8adff70fe39236b575c2dbbe6a1bf" version="0.1.6-2.1.101" checksum_type="SHA1">libtag-extras0</package>
+      <package arch="i586" checksum="1739c765c41b15a4d512042c0ce1a32a61630b98" version="1.5-1.24.41" checksum_type="SHA1">libtasn1</package>
+      <package arch="i586" checksum="a09b0d426bec46015c4438cf2df41c31e4bb843f" version="1.5-1.24.41" checksum_type="SHA1">libtasn1-3</package>
+      <package arch="i586" checksum="86421bd18ae2efea20c0e1e42c038bd010e3f6ea" version="1.0.beta2-6.1.1" checksum_type="SHA1">libtheora0</package>
+      <package arch="i586" checksum="480481ae15dd3605dca65cfc95a8ac2ededc4aec" version="3.8.2-141.8.1" checksum_type="SHA1">libtiff3</package>
+
+      <package arch="i586" checksum="263897b202dce9ca6ac9235bfe2680661a32d84e" version="1.1.2-1.1.279" checksum_type="SHA1">libunique-1_0-0</package>
+      <package arch="i586" checksum="ecd633e9de20c4971ecbcb4463a91dfc102473b6" version="0.1.12-139.1.1" checksum_type="SHA1">libusb-0_1-4</package>
+      <package arch="i586" checksum="c4247ecfbafb3be089cbe5d05f49b9bb4c123215" version="2.16-6.8.2" checksum_type="SHA1">libuuid1</package>
+      <package arch="i586" checksum="e6afb4c0945d64f7ecf6ad53839ea12ccde042c7" version="0.4.0-175.12" checksum_type="SHA1">libvisual</package>
+      <package arch="i586" checksum="10685e7139aef432762a07528dd35add2909c2d9" version="2.28.0-2.2.263" checksum_type="SHA1">libwnck</package>
+      <package arch="i586" checksum="185b74e76bf1f35f29c21d9541361d75b48258b7" version="2.28.0-2.2.263" checksum_type="SHA1">libwnck-1-22</package>
+
+      <package arch="i586" checksum="f6e3953468b846a72cc8bd55c3d9117d925d90c9" version="2.28.0-2.2.263" checksum_type="SHA1">libwnck-lang</package>
+      <package arch="i586" checksum="67b81500b8bf1489a3f9fd3fe80cbde6eddfd519" version="0.8.14-4.33" checksum_type="SHA1">libwpd-0_8-8</package>
+      <package arch="i586" checksum="609cf96735f6badb3b72cef332544102c6789e2b" version="0.1.2-5.33" checksum_type="SHA1">libwps-0_1-1</package>
+      <package arch="i586" checksum="d1beba45e1789c9b80a7df398dc9c984019ecfc2" version="3.0.3-0.1.50" checksum_type="SHA1">libxcrypt</package>
+      <package arch="i586" checksum="375d179e1fcc60b4c0689b15fd376f2463df9b8f" version="4.0-1.1.73" checksum_type="SHA1">libxklavier15</package>
+      <package arch="i586" checksum="2d70ca083981d93eeaa72977d007324f7d795e05" version="2.7.6-0.1.37" checksum_type="SHA1">libxml2</package>
+
+      <package arch="i586" checksum="9a6b97327acf4abe84508fa8aaa4fcbdd4fa82cc" version="1.1.24-19.15" checksum_type="SHA1">libxslt</package>
+      <package arch="i586" checksum="a98022142ba1d6fa1754a08857af79b53de75f53" version="0.9-5.77" checksum_type="SHA1">libzio</package>
+      <package arch="i586" checksum="ae79b120ab6ea95db3084a649a45adf60991c73b" version="6.31.4-0.3.8" checksum_type="SHA1">libzypp</package>
+      <package arch="noarch" checksum="c0e48dd8a415cc60d282098e4dcd027031f2d6b7" version="20070810-2.15" checksum_type="SHA1">licenses</package>
+      <package arch="i586" checksum="5fc57e007475a7cdc5d47bb06ec97808c8c630aa" version="1.5.3-0.2.11" checksum_type="SHA1">limal</package>
+      <package arch="i586" checksum="a4b99a6f639aba68d3c38f431d59b1bccaf2a774" version="1.5.3-0.2.11" checksum_type="SHA1">limal-perl</package>
+
+      <package arch="i586" checksum="d99280a31b3bf8789bdd1f22391266fb016a1fc6" version="3.41-0.2.13" checksum_type="SHA1">login</package>
+      <package arch="i586" checksum="0d1bc3afa7414aed65d5000abaedd3f396a2e3ee" version="4.3.5-0.2.44" checksum_type="SHA1">marble</package>
+      <package arch="noarch" checksum="5882577eb12516fdb98680ff216006cdc903b87d" version="4.3.5-0.2.26" checksum_type="SHA1">marble-data</package>
+      <package arch="i586" checksum="b72ba2bd2add7ee40032174edbf994968865d16f" version="1.14-70.11" checksum_type="SHA1">master-boot-code</package>
+      <package arch="i586" checksum="5e696876f55b9c211c171cbfaef1a681b2a24cfb" version="3.0.3-0.22.4" checksum_type="SHA1">mdadm</package>
+      <package arch="i586" checksum="a5ec248bdd85df2dae934a86f0daf80e45ac1e5a" version="7.7-0.4.41" checksum_type="SHA1">Mesa</package>
+
+      <package arch="i586" checksum="a6434f39b8689af6bc9e8c120dd7c3b24499bf65" version="2.28.1-0.3.36" checksum_type="SHA1">metacity</package>
+      <package arch="i586" checksum="cd98a209cc90436f9b417c95638d002e933b62a3" version="2.28.1-0.3.36" checksum_type="SHA1">metacity-lang</package>
+      <package arch="i586" checksum="44a874b2719e4ba97d69b29272aa51a8fe66b682" version="1.0.7s-92.22" checksum_type="SHA1">mingetty</package>
+      <package arch="i586" checksum="f47fda702ac7dd56051bc58a672154478f9f701b" version="3.11.1-1.3.5" checksum_type="SHA1">module-init-tools</package>
+      <package arch="i586" checksum="c9e85ce136171c24edc06e0049e64a404d669c23" version="4.8.2-1.1.1" checksum_type="SHA1">mozilla-nspr</package>
+      <package arch="i586" checksum="d2c00bb5dce0fb0b46346337b8dca386ffb0782d" version="3.12.6-3.1.1" checksum_type="SHA1">mozilla-nss</package>
+
+      <package arch="i586" checksum="319c4e32b77c643774259a289911723104ee5b58" version="2.28.4-1.6.8" checksum_type="SHA1">nautilus</package>
+      <package arch="i586" checksum="4f9583d666ed3bb217c4c6a22b55019921d005e5" version="2.28.4-1.6.8" checksum_type="SHA1">nautilus-lang</package>
+      <package arch="i586" checksum="359141bfc98b14dc8553a0c225b45fd8fcf4efda" version="5.6-90.55" checksum_type="SHA1">ncurses-utils</package>
+      <package arch="i586" checksum="4f3becc5c53109d3bab24ceeb2207fd29b95a687" version="0.28.3-2.12.1" checksum_type="SHA1">neon</package>
+      <package arch="i586" checksum="bbef16f7f69b5a353edb064cb6984299ab5efc3e" version="1.60-725.23.24.39" checksum_type="SHA1">net-tools</package>
+      <package arch="noarch" checksum="f821e9dfb7bf02436867c0fa80ad152323bbfb9a" version="11.1-1.22" checksum_type="SHA1">netcfg</package>
+
+      <package arch="i586" checksum="0b2dfb620372e8fc950a708294edb9449cbcf69e" version="0.4.1-1.21" checksum_type="SHA1">obex-data-server</package>
+      <package arch="i586" checksum="ccee714dcff5a6a37f199d4cd847e9ecbea74d08" version="1.6.1-83.17.1" checksum_type="SHA1">OpenEXR</package>
+      <package arch="i586" checksum="ddbf6090555d1f01cef55e2e5842ec0ec2fa1f63" version="1.3-157.21" checksum_type="SHA1">openobex</package>
+      <package arch="i586" checksum="783e3915b07d82f5a1e33cb77d6db6b79a6d33e4" version="1.0-711.26" checksum_type="SHA1">OpenOffice_org-Quickstarter</package>
+      <package arch="i586" checksum="741af3854c29236a7b2d00edd16f05c38347437a" version="0.11.6-5.25.1" checksum_type="SHA1">opensc</package>
+      <package arch="i586" checksum="22a13eda7ed644e13f79b7fdcc8a516808df78fe" version="1.2.0-172.11.16" checksum_type="SHA1">openslp</package>
+
+      <package arch="i586" checksum="6e6c59942b412742b13f9c6a86b7cfbb62315daf" version="5.1p1-41.31.36" checksum_type="SHA1">openssh</package>
+      <package arch="i586" checksum="e1b9a551be71829358b613ac2f67feaf413a31d3" version="0.9.8h-30.27.11" checksum_type="SHA1">openssl</package>
+      <package arch="i586" checksum="d7c510e6a3921d19962f22225bc704e1ffa0e927" version="2.14.17-2.7.8" checksum_type="SHA1">orbit2</package>
+      <package arch="noarch" checksum="ed4ceddf79d508fdacd7499efcfc4f57b4bb44ef" version="4.3.5-0.1.65" checksum_type="SHA1">oxygen-icon-theme</package>
+      <package arch="i586" checksum="3b6f2531dccef28c50e45bf467ef30d87e7a105d" version="1.0.4-0.5.12" checksum_type="SHA1">pam</package>
+      <package arch="i586" checksum="e643ecc3430b082bf19d9125dcec83110f230661" version="0.68-1.22" checksum_type="SHA1">pam-config</package>
+
+      <package arch="i586" checksum="608375de9e88e0719eced9bf2fffdaf5bd227aee" version="11-1.6.15" checksum_type="SHA1">pam-modules</package>
+      <package arch="i586" checksum="b77e5f1236b2661534622559feb2f7a86304d456" version="1.26.2-1.1.249" checksum_type="SHA1">pango</package>
+      <package arch="i586" checksum="8ca1c53c2ed86c99fe887dbc5dc29e5cb6751015" version="1.8.8-102.21.8" checksum_type="SHA1">parted</package>
+      <package arch="i586" checksum="9330a503a4c8d08c2fbf5fd9b4348a3260750bbc" version="3.0.1-2.18" checksum_type="SHA1">pciutils</package>
+      <package arch="noarch" checksum="dbfbc4c0d808019fa7b449741efeb1420b7b81ce" version="2010.3.27-0.2.11" checksum_type="SHA1">pciutils-ids</package>
+      <package arch="i586" checksum="0b783aa1861030e54a859e305574b4104832f204" version="7.8-2.18" checksum_type="SHA1">pcre</package>
+
+      <package arch="i586" checksum="81d878b681febb412c779a9bed7f846a57d493c6" version="1.21-73.21" checksum_type="SHA1">perl-Config-Crontab</package>
+      <package arch="i586" checksum="1e4e499e480a604b16a10f5a13c6f6bf99bfbe55" version="1.05-91.95" checksum_type="SHA1">perl-gettext</package>
+      <package arch="i586" checksum="db5ea5010bac079812d6c3aad38e51251ec8be07" version="0.14.17-0.2.18" checksum_type="SHA1">perl-satsolver</package>
+      <package arch="i586" checksum="d49ecdcc5e76463f46d3609176ff9a485a2da99e" version="1.37-1.22" checksum_type="SHA1">perl-URI</package>
+      <package arch="i586" checksum="06b50b29a213021cd38c6e1f365706eabc1ad470" version="4.09-2.1.72" checksum_type="SHA1">perl-WWW-Curl</package>
+      <package arch="i586" checksum="f73dfde23607b86d463061f6a9f1e76c1f7c994e" version="2.36-1.18" checksum_type="SHA1">perl-XML-Parser</package>
+
+      <package arch="i586" checksum="ea2333edd9ecadc6cf13c32a8fe08d3aff3929d8" version="2.18-1.15" checksum_type="SHA1">perl-XML-Simple</package>
+      <package arch="i586" checksum="f6330ffd3042fbd085cab5e5012871cde7a6f230" version="0.604-2.10" checksum_type="SHA1">perl-XML-Writer</package>
+      <package arch="i586" checksum="0f8c82c232a64c7667bd2c26940f33219a70fb38" version="2010.4.20-0.2.5" checksum_type="SHA1">permissions</package>
+      <package arch="i586" checksum="f9ab736f89980a15d5dd249057fdc0436e7b9945" version="4.3.1-3.3.10" checksum_type="SHA1">phonon</package>
+      <package arch="i586" checksum="b157de6cf53dc94eee3d35949163484ccd9a8329" version="4.3.1-3.3.10" checksum_type="SHA1">phonon-backend-gstreamer-0_10</package>
+      <package arch="i586" checksum="ca0976ec6c808e0de984e6616eec1985a83ae6c8" version="0.7.5-61.33.1" checksum_type="SHA1">pinentry</package>
+
+      <package arch="i586" checksum="2b8d1c58c232e25eba916253bbdd30d60d91c060" version="0.23-1.22" checksum_type="SHA1">pkg-config</package>
+      <package arch="i586" checksum="56d4dabba182beb63791e4d0e0b40641416fa577" version="4.3.5-0.3.30" checksum_type="SHA1">plasma-theme-aya</package>
+      <package arch="i586" checksum="385935ab54fe209e5c5fd29aab7a3972e8cac8d1" version="0.99.4.20071229-12.10" checksum_type="SHA1">pm-utils</package>
+      <package arch="i586" checksum="995b7efc775751f727a70592d6ff9715c91e4490" version="20071116-44.18" checksum_type="SHA1">pmtools</package>
+      <package arch="i586" checksum="c95bfebf57f103b7070e46c433cd2620277c7569" version="0.9-14.34.9" checksum_type="SHA1">PolicyKit</package>
+      <package arch="i586" checksum="1b7df0f8d3924e94dede34419add133e47f906d7" version="2.5.6-5.4.21" checksum_type="SHA1">postfix</package>
+
+      <package arch="i586" checksum="f992025ad7a0f97915c2e424f6453df6ef827e2e" version="22.7-7.1.40" checksum_type="SHA1">psmisc</package>
+      <package arch="i586" checksum="8eda70cdeab1a56adc6e52ff8581c72c61c64e9f" version="2.0.7-102.22" checksum_type="SHA1">pth</package>
+      <package arch="i586" checksum="126f9e0d49fdea964545982838bf3c0a5b03b1e0" version="3.2.8-0.2.35" checksum_type="SHA1">pwdutils</package>
+      <package arch="i586" checksum="38a3f09477cd77a35616aae41580a62cc938737a" version="2.6.0-8.9.28" checksum_type="SHA1">python</package>
+      <package arch="i586" checksum="9be0ff965d42321679d7b93aff9d89a1bb67ba78" version="2.6.0-8.9.20" checksum_type="SHA1">python-base</package>
+      <package arch="i586" checksum="26b3bd57a4452fdf2dcaadb7d5a51fdbaee09ca0" version="1.6.4-1.26" checksum_type="SHA1">python-cairo</package>
+
+      <package arch="i586" checksum="c5531a87bb3ec4a742e114bfe38fd18548f44382" version="0.7.8-1.37" checksum_type="SHA1">python-compizconfig</package>
+      <package arch="i586" checksum="51b7d81df198c04679672966ab02c765aea6ff71" version="2.20.0-1.1.56" checksum_type="SHA1">python-gobject2</package>
+      <package arch="i586" checksum="f853fff74eee0e35d84fed569dfe7a1168fb4670" version="2.16.0-1.1.251" checksum_type="SHA1">python-gtk</package>
+      <package arch="i586" checksum="b0d1d65ab99b6d67b1799a161ccc6129ae6b1014" version="1.3.0-1.1.42" checksum_type="SHA1">python-numpy</package>
+      <package arch="i586" checksum="a52af3f8361e70381c6c4365167f1afde90a5a1e" version="2.6.0-8.9.20" checksum_type="SHA1">python-xml</package>
+      <package arch="i586" checksum="d58ea859d12caa27611bf2de79c1818ffac2ee20" version="3.3.8b-88.21" checksum_type="SHA1">qt3</package>
+
+      <package arch="i586" checksum="c63ba3b988189f411db85282a8625b03dc2eabf3" version="0.1.0-3.1.83" checksum_type="SHA1">qt4-qtscript</package>
+      <package arch="i586" checksum="924c172753488fb55988085edf58aa6dfc84aabe" version="3.0.4-2.33.82" checksum_type="SHA1">rsync</package>
+      <package arch="i586" checksum="769bbf5a34f6b72e38c1a2e9db2f82ac15bd6cba" version="1.8.7.p72-5.24.2" checksum_type="SHA1">ruby</package>
+      <package arch="i586" checksum="1180e23c8955edf68936375411300d62038e895b" version="0.14.17-0.2.18" checksum_type="SHA1">satsolver-tools</package>
+      <package arch="i586" checksum="b73e52eed20c713dbe25ba11c170d6b3289ea17c" version="4.1.5-85.22" checksum_type="SHA1">sed</package>
+      <package arch="i586" checksum="876e990137ed998f5026c82a5020d21ab210b0a2" version="2.17-716.22" checksum_type="SHA1">setserial</package>
+
+      <package arch="i586" checksum="4a73d8177ec922d161804beb5cb0dc7c88714f89" version="0.51-14.8.32" checksum_type="SHA1">shared-mime-info</package>
+      <package arch="i586" checksum="8edd500df1dabfd27f59f79a125ff2553a930338" version="2.3.0-4.1.92" checksum_type="SHA1">soprano</package>
+      <package arch="noarch" checksum="b8bdc760e378bb61a34588e29be414684999e186" version="0.2-1.17" checksum_type="SHA1">sound-theme-freedesktop</package>
+      <package arch="i586" checksum="cc3380968a8884e9b8098d4174b8ea0c01564822" version="0.9-60.13" checksum_type="SHA1">startup-notification</package>
+      <package arch="i586" checksum="5542168ffca96c428befec768b200c01f71e14f7" version="1.6.9p17-21.3.1" checksum_type="SHA1">sudo</package>
+      <package arch="noarch" checksum="f3b16c9e9bb13c19f4a60d56dc1b3380c6095da2" version="0.8.2-0.3.1" checksum_type="SHA1">suse-sam-data</package>
+
+      <package arch="noarch" checksum="f509cc308f83e834dbfb3f02f2c82ea7d1fd057d" version="3.6_SVNr208-2.1" checksum_type="SHA1">SuSEfirewall2</package>
+      <package arch="i586" checksum="cb160311f5fdeeab02e7f3d2d9e240cb5d2db158" version="1.5-19.21" checksum_type="SHA1">taglib</package>
+      <package arch="i586" checksum="30adf3a1e48e3b97b537c920e0b81c2f47cfb4e2" version="1.20-23.23.1" checksum_type="SHA1">tar</package>
+      <package arch="i586" checksum="7d9c43d994a064d39412d6dc143a5e018ae44b55" version="7.6-856.13" checksum_type="SHA1">tcpd</package>
+      <package arch="i586" checksum="57f36c2c336e66ecbb81f9e9f676501803d1db68" version="5.6-90.55" checksum_type="SHA1">terminfo-base</package>
+      <package arch="i586" checksum="04ffe3311a87f303f73a841235839320145febe4" version="3.80.2-2.8" checksum_type="SHA1">unrar</package>
+
+      <package arch="i586" checksum="4c5bda7c6e9fdb18369107f210761b73da16c5b4" version="5.52-142.23.43" checksum_type="SHA1">unzip</package>
+      <package arch="noarch" checksum="d484a5328acc62e15fd3496b39ce6a6bc0ae380f" version="1.14.19-1.22" checksum_type="SHA1">update-alternatives</package>
+      <package arch="i586" checksum="c6c7b2255c7837a33d567db7014962890ccba54f" version="0.5.5-106.20.1" checksum_type="SHA1">utempter</package>
+      <package arch="i586" checksum="0f438ef1bdd2c30a4634dbc5bf31f4c1abe20a78" version="2.16-6.8.2" checksum_type="SHA1">util-linux</package>
+      <package arch="i586" checksum="66ad2d79221795319f9b265cb58ae02f53232bc3" version="2.16-6.8.2" checksum_type="SHA1">util-linux-lang</package>
+      <package arch="i586" checksum="1be0769f259a7a144937a18ba2c29bdc0afc9d16" version="2.16-6.8.2" checksum_type="SHA1">uuid-runtime</package>
+
+      <package arch="i586" checksum="d9f1607ff09503c8efa74de7ddfcdd02cfb6af0b" version="7.2-8.8" checksum_type="SHA1">vim</package>
+      <package arch="i586" checksum="f962f440dd486e3a1fb0f2bb3852cfd5251d0d92" version="7.2-8.8" checksum_type="SHA1">vim-base</package>
+      <package arch="i586" checksum="cc3f08a08fb03ab2677838867a75c63685cffa7f" version="1.1.8-3.25" checksum_type="SHA1">wodim</package>
+      <pattern arch="i586" version="11">x11</pattern>
+      <package arch="noarch" checksum="9b157d81bff6c8916fdff45ce1dd27f714e6e43f" version="0.1-167.22" checksum_type="SHA1">x11-tools</package>
+      <package arch="noarch" checksum="d167349afa5007e49c51e392c61546936b0aba91" version="2.7.0-217.24" checksum_type="SHA1">xalan-j2</package>
+
+      <package arch="i586" checksum="54cce300b47b89f24eb906aa6f3ffbb4cd61364a" version="0.2-191.22" checksum_type="SHA1">xdg-menu</package>
+      <package arch="noarch" checksum="cffecda3efa9a7835024d76548e913cb018a6699" version="2.8.1-238.27.1" checksum_type="SHA1">xerces-j2</package>
+      <package arch="noarch" checksum="ef2081cf23a343e3ffea4276398e7ef09eb8a629" version="1.5-4.9.2" checksum_type="SHA1">xkeyboard-config</package>
+      <package arch="i586" checksum="138d4f1b97fe3501d734f288b9eac6f73baff54c" version="7.4-9.24.15" checksum_type="SHA1">xorg-x11</package>
+      <package arch="i586" checksum="1cae6906819d8abd45c563b09b443822e83349fb" version="7.4-13.26.7" checksum_type="SHA1">xorg-x11-driver-input</package>
+      <package arch="i586" checksum="a6b8966ba3470ceff2b0ce51227a99401b626635" version="7.4-40.26.20" checksum_type="SHA1">xorg-x11-driver-video</package>
+
+      <package arch="i586" checksum="7ccf2c2a17ef80b8afdcc5a777fa0088bc966b69" version="1.3.0_20100325_f6c9991-1.2.20" checksum_type="SHA1">xorg-x11-driver-video-radeonhd</package>
+      <package arch="i586" checksum="3db520d1329d814a3da65966ce36c8f11dba3911" version="20091117-0.1.82" checksum_type="SHA1">xorg-x11-driver-video-unichrome</package>
+      <package arch="noarch" checksum="83f21bab582bf77a86b89b84788aeefa3f4f949c" version="7.4-1.20" checksum_type="SHA1">xorg-x11-fonts-core</package>
+      <package arch="i586" checksum="3b5d913ce2142d24d5f56571d92451f0855d0dff" version="7.4-1.15" checksum_type="SHA1">xorg-x11-libfontenc</package>
+      <package arch="i586" checksum="00a9f06b84a34b53eef05165004d553b9d5fdd5e" version="7.4-1.15" checksum_type="SHA1">xorg-x11-libICE</package>
+      <package arch="i586" checksum="439e8cf47832399353fd8e329cc6dd62e8bc8ba9" version="7.4-8.24.2" checksum_type="SHA1">xorg-x11-libs</package>
+
+      <package arch="i586" checksum="1e3eee2a5d9f1174a7cbc3a8c3723c335b9055de" version="7.4-1.18" checksum_type="SHA1">xorg-x11-libSM</package>
+      <package arch="i586" checksum="da935711f9d1c8364fe25723968d09c49b62b0ad" version="7.4-5.5" checksum_type="SHA1">xorg-x11-libX11</package>
+      <package arch="i586" checksum="cb64d916ab8939e9940ec4d0a861d94be6e18638" version="7.4-1.15" checksum_type="SHA1">xorg-x11-libXau</package>
+      <package arch="i586" checksum="09c695d5a751f415fd8a14ef4e71c26d809c997d" version="7.4-1.20.34" checksum_type="SHA1">xorg-x11-libxcb</package>
+      <package arch="i586" checksum="57cbd6a5e5f9eddec31539539e38197df0428a05" version="7.4-1.15" checksum_type="SHA1">xorg-x11-libXdmcp</package>
+      <package arch="i586" checksum="a5686cdd841a2387b25982d7157926186cc14d77" version="7.4-1.16.21" checksum_type="SHA1">xorg-x11-libXext</package>
+
+      <package arch="i586" checksum="c66914b00e4e598cd16c5084b733d94f5242a685" version="7.4-1.14" checksum_type="SHA1">xorg-x11-libXfixes</package>
+      <package arch="i586" checksum="212aec4eef49eb0adbeee526da73086ecc265242" version="7.4-1.14" checksum_type="SHA1">xorg-x11-libxkbfile</package>
+      <package arch="i586" checksum="5c20298f59617854900d6109977173c013379c87" version="7.4-1.17" checksum_type="SHA1">xorg-x11-libXmu</package>
+      <package arch="i586" checksum="a3dfd811edbb25352833a462d3bba5510a04a42e" version="7.4-1.14" checksum_type="SHA1">xorg-x11-libXp</package>
+      <package arch="i586" checksum="1f706613b0f940f833370987e38bd2cdf5dc394f" version="7.4-1.17" checksum_type="SHA1">xorg-x11-libXpm</package>
+      <package arch="i586" checksum="51479ab9260d908df0ce480e208b6e5267472469" version="7.4-1.17" checksum_type="SHA1">xorg-x11-libXprintUtil</package>
+
+      <package arch="i586" checksum="bf69f667a27508f7ee19f4e7af4ef59309bdaa1c" version="7.4-1.14" checksum_type="SHA1">xorg-x11-libXrender</package>
+      <package arch="i586" checksum="fa9c06e1a4e88f569b4da2ff4ea7f8c65331ffcb" version="7.4-1.17" checksum_type="SHA1">xorg-x11-libXt</package>
+      <package arch="i586" checksum="56bda908a7061c1a32a423a3be53238a80e7eea5" version="7.4-1.14" checksum_type="SHA1">xorg-x11-libXv</package>
+      <package arch="i586" checksum="44244254b849c823278db7529c939c8b387feed9" version="7.4-9.24.15" checksum_type="SHA1">xorg-x11-xauth</package>
+      <package arch="i586" checksum="19b358b2273400cb46065f94451e28a503f64606" version="238-1.16" checksum_type="SHA1">xterm</package>
+      <package arch="i586" checksum="c967efd06a9ece2938b44ab0ec00a1407c2f7484" version="2.17.92-0.2.27" checksum_type="SHA1">yast2</package>
+
+      <package arch="i586" checksum="5f4ded526002370f28cac46e31324cd4767ac5f5" version="2.17.73-0.2.9" checksum_type="SHA1">yast2-bootloader</package>
+      <package arch="noarch" checksum="2db86a125a881201f623807352b08792409dbef3" version="2.17.0-1.11" checksum_type="SHA1">yast2-branding-SLED</package>
+      <package arch="i586" checksum="e8eb7616172b1c8b96a473bd560533dde8f88091" version="2.17.4-0.1.76" checksum_type="SHA1">yast2-control-center</package>
+      <package arch="i586" checksum="448d609ed2cdaace105a0f1e3fe8437222253824" version="2.17.4-0.1.76" checksum_type="SHA1">yast2-control-center-qt</package>
+      <package arch="i586" checksum="5b26b15c53a94f000bd6daa3f155766967334290" version="2.17.35-0.2.17" checksum_type="SHA1">yast2-core</package>
+      <package arch="i586" checksum="a8b0b13c3ec58ef1a68488f7b6a06f9b9eb0d024" version="2.17.48-0.2.2" checksum_type="SHA1">yast2-country</package>
+
+      <package arch="i586" checksum="9133acf3ec9b14fcda6e567c287b3cf528fa5120" version="2.17.48-0.2.2" checksum_type="SHA1">yast2-country-data</package>
+      <package arch="i586" checksum="fa41a08ffc20426441072f6fe909e62f0373d73c" version="2.17.0-0.1.65" checksum_type="SHA1">yast2-dbus-client</package>
+      <package arch="noarch" checksum="89212caa4ad151a872c888c0e7d1ff8a9be073de" version="2.17.15-0.2.39" checksum_type="SHA1">yast2-firstboot</package>
+      <package arch="i586" checksum="ef15c8462b0c3c9f302ab6dcdf211ca99c9926b9" version="2.17.1-1.28" checksum_type="SHA1">yast2-hardware-detection</package>
+      <package arch="noarch" checksum="c8674911b420127c5231c068a3b0f47870a3a0ed" version="2.17.75-0.2.13" checksum_type="SHA1">yast2-installation</package>
+      <package arch="i586" checksum="712dbfc954ec4a57f1363c8533ad86e49447c471" version="2.18.8-1.1.51" checksum_type="SHA1">yast2-libyui</package>
+
+      <package arch="i586" checksum="102b8da7cd4b84c73705f323436255edf1d888cf" version="2.16.1-19.38" checksum_type="SHA1">yast2-mouse</package>
+      <package arch="i586" checksum="a25cd7232f27bcded7db7b6501e135c264c5c834" version="2.17.78-0.2.6" checksum_type="SHA1">yast2-packager</package>
+      <package arch="i586" checksum="7e0f35925f3371b06f388bc934d0b12e2402752c" version="2.17.2-1.27" checksum_type="SHA1">yast2-perl-bindings</package>
+      <package arch="i586" checksum="0cbdcbcf37d30793a0b81ec96f4a022194648981" version="2.17.45-0.2.10" checksum_type="SHA1">yast2-pkg-bindings</package>
+      <package arch="i586" checksum="9a5af7f854ee7b85bfe28100ccb1044e33fbdaa7" version="2.18.11-0.2.12" checksum_type="SHA1">yast2-qt</package>
+      <package arch="i586" checksum="8a7b02e94f3fb51fc074762a19430a2365c076b3" version="2.18.20-1.2.35" checksum_type="SHA1">yast2-qt-pkg</package>
+
+      <package arch="i586" checksum="9134b9a854da0d289162bcea8ce40465418d000a" version="2.17.99-0.2.5" checksum_type="SHA1">yast2-storage</package>
+      <package arch="i586" checksum="028488c66218a8198b8224ff400552aa1df1823e" version="2.17.99-0.2.5" checksum_type="SHA1">yast2-storage-lib</package>
+      <package arch="noarch" checksum="99d838bf19afe48247f146b35f40494d8dc7f73a" version="2.17.19-0.2.17" checksum_type="SHA1">yast2-theme-SLE</package>
+      <package arch="noarch" checksum="ba055bebe27363929bf279ce52ac1889f094b241" version="2.15.0-2.17" checksum_type="SHA1">yast2-trans-stats</package>
+      <package arch="i586" checksum="8605c3bfae0cf5a48a40b12e13e057afa8189a79" version="2.16.2-0.1.126" checksum_type="SHA1">yast2-transfer</package>
+      <package arch="i586" checksum="56a8ca61374e8c226b4f6cbeb4f063e61a44fc36" version="2.17.20-0.2.52" checksum_type="SHA1">yast2-update</package>
+
+      <package arch="noarch" checksum="73ae2ce5a1599fb2f5b41b944513550d0f6aba80" version="2.17.13-0.2.2" checksum_type="SHA1">yast2-x11</package>
+      <package arch="i586" checksum="8cc8882071b5aa372fa202593683add70ada02ff" version="2.16.1-1.23" checksum_type="SHA1">yast2-xml</package>
+      <package arch="i586" checksum="5ab7e59443765c9b5ecc71e56e2eaba67ae8e69b" version="2.18.5-1.1.60" checksum_type="SHA1">yast2-ycp-ui-bindings</package>
+      <package arch="i586" checksum="ea5106f9e484a59ff04e1a71982f49fa3d87da25" version="2.28.0-1.1.230" checksum_type="SHA1">zenity</package>
+      <package arch="i586" checksum="d76928e7f4310bba5ad0e79c9e376dca56bc3701" version="2.28.0-1.1.230" checksum_type="SHA1">zenity-lang</package>
+      <package arch="i586" checksum="7bddd95b64c9f99c6e2a019f3361c0661bac5d77" version="1.2.3-106.34" checksum_type="SHA1">zlib</package>
+
+      <package arch="i586" checksum="277433acd279c6cf71ed9bdfa7f987aca8730e27" version="1.3.7-0.2.1" checksum_type="SHA1">zypper</package>
+    </software>
+  </repository>
+  <repository name="jreidinger SLED 11 SP1" id="7860">
+    <software type="array">
+      <package arch="noarch" checksum="04e3a509c0a9c13f28248efb6113eacf98138392" version="0.0.1-0" checksum_type="sha">josefs_sled_11_sp1_kde_4_i586-release</package>
+      <package arch="noarch" checksum="bb806e59b5bb31470b91825af7845bf56196302b" version="0.0.1-5" checksum_type="sha">josefs_sled_11_sp1_kde_4_i586-update</package>
+
+    </software>
+  </repository>
+  <repository name="SLED 11 SP1 Updates i386" id="6349">
+    <software type="array">
+      <package arch="i586" checksum="c13e5d3226560087f254f630b5a3106d93854b4e" version="11-6.30.1" checksum_type="sha">aaa_base</package>
+      <package arch="i586" checksum="9fc6ee1b86704a7ffb226474cc1cb55161eb0e82" version="1.0.5-34.253.1" checksum_type="sha">bzip2</package>
+      <package arch="i586" checksum="51324225e9371c0ba2e53af9b44aeb549d80e91f" version="0.76-34.7.1" checksum_type="sha">dbus-1-glib</package>
+
+      <package arch="i586" checksum="f475752c5ccf15c20bd8e2ea90a93328c10ca60d" version="2.28.2-0.16.1" checksum_type="sha">evolution-data-server</package>
+      <package arch="i586" checksum="fff80d863f4d1620f0e3e8224eb0d65332553cba" version="2.28.2-0.16.1" checksum_type="sha">evolution-data-server-lang</package>
+      <package arch="i586" checksum="a9c4d68ce952f83d4a4e557afd183b5f3ebf2617" version="2.3.7-25.17.1" checksum_type="sha">freetype2</package>
+      <package arch="i586" checksum="96310c6bbfd42ac0b545cf71af08795cadbc572b" version="8.62-32.28.1" checksum_type="sha">ghostscript-fonts-std</package>
+      <package arch="i586" checksum="1d31ba6bdfbef385a6118c19682e4e1663d9ddcf" version="8.62-32.28.1" checksum_type="sha">ghostscript-library</package>
+      <package arch="i686" checksum="ec1799ac28f4616aaa2be54e35a8cdb0928d69b9" version="2.11.1-0.20.1" checksum_type="sha">glibc</package>
+
+      <package arch="i586" checksum="e6a31391a9f43426377dede43b1b5bec5ce6bfc7" version="2.11.1-0.20.1" checksum_type="sha">glibc-locale</package>
+      <package arch="i586" checksum="f2cb2637f161235d5b541f345eb59977dbeabebb" version="2.28.1-0.9.1" checksum_type="sha">gnome-control-center</package>
+      <package arch="i586" checksum="e552b5f57432f2e44a59e2218251fbf10f850a29" version="2.28.1-0.9.1" checksum_type="sha">gnome-control-center-lang</package>
+      <package arch="i586" checksum="076bb8e1aa2daad0bafcb4304ed63735f8967293" version="2.28.2-0.6.1" checksum_type="sha">gnome-settings-daemon</package>
+      <package arch="i586" checksum="abf861afbe9f552ccce1c9ccd8018f9cd963f4cb" version="2.28.2-0.6.1" checksum_type="sha">gnome-settings-daemon-lang</package>
+      <package arch="i586" checksum="4a68ba0e16a192ab92e2586bf627d2dad6a156e9" version="2.0.9-25.26.1" checksum_type="sha">gpg2</package>
+
+      <package arch="i586" checksum="029f24b8c6fb80b92f7bd2c6f2c07943798d5cdf" version="2.0.9-25.26.1" checksum_type="sha">gpg2-lang</package>
+      <package arch="i586" checksum="5c5c89f95fdadce3aac962aa9d34ba2d89d2b58c" version="2.18.9-0.5.1" checksum_type="sha">gtk2</package>
+      <package arch="i586" checksum="a908aef034ea8df4fbcdc34b3fbf1d76ea8799e8" version="2.18.9-0.5.1" checksum_type="sha">gtk2-lang</package>
+      <package arch="i586" checksum="58b7dff360f5c9dbbd98f094c08e575698f482fd" version="4.3.5-0.2.1" checksum_type="sha">gwenview</package>
+      <package arch="i586" checksum="30668d4195f28673f93dd7489fabeb24ca2e7642" version="0.4.2-1.4.1" checksum_type="sha">kbluetooth</package>
+      <package arch="i586" checksum="6ed23993fe14ab7aa08ae69ba34ff56b32199e24" version="4.3.5-0.2.1" checksum_type="sha">kcolorchooser</package>
+
+      <package arch="i586" checksum="673e28b63c8645eaf01540b8e2acac8443f1b095" version="2.6.32.23-0.3.1" checksum_type="sha">kernel-default</package>
+      <package arch="i586" checksum="a86b73d3fef4da9c0a3b8e07b7b68568e63246f8" version="2.6.32.23-0.3.1" checksum_type="sha">kernel-default-base</package>
+      <package arch="i586" checksum="e24aac6eb3f8905605c2e53c75eb49d366ecceeb" version="4.3.5-0.2.1" checksum_type="sha">kgamma</package>
+      <package arch="i586" checksum="c790d8a9a97dd2f6477878da91698aa17b8adde2" version="4.3.5-0.2.1" checksum_type="sha">kio_kamera</package>
+      <package arch="i586" checksum="88b52a66cabc32e79edfd7c930249e561e9846ee" version="0.4.8-40.23.1" checksum_type="sha">kpartx</package>
+      <package arch="i586" checksum="dfafe884417815b222252791c4805e50b2cf910a" version="4.3.5-0.2.1" checksum_type="sha">kruler</package>
+
+      <package arch="i586" checksum="fc769521d4d7cb83f3eaa799d7439470106bfc48" version="1.0.5-34.253.1" checksum_type="sha">libbz2-1</package>
+      <package arch="i586" checksum="f9df8ffe249ba91ea2afb1067e05103d6c7f34ff" version="4.2.7-32.28.1" checksum_type="sha">libgimpprint</package>
+      <package arch="i586" checksum="7ddb3bafbdacff46503f891f7fb69f610eb3cf2b" version="2.28.1-0.9.1" checksum_type="sha">libgnome-window-settings1</package>
+      <package arch="i586" checksum="95f6dea2cc4b6be8997d698d6d1f8de3c993b7d3" version="4.3.5-0.2.1" checksum_type="sha">libkdcraw7</package>
+      <package arch="i586" checksum="3daff50eefa9d463e1b75bd864c2c7f937538bd3" version="4.3.5-0.2.1" checksum_type="sha">libkexiv2-7</package>
+      <package arch="i586" checksum="ff19398e1454a21a9f3bf2a36093ccab0a5d6c8a" version="4.3.5-0.2.1" checksum_type="sha">libkipi6</package>
+
+      <package arch="i586" checksum="84f6f3ed3366884a3ea7e5053a3f67e8d691c848" version="2.4.20-0.5.1" checksum_type="sha">libldap-2_4-2</package>
+      <package arch="i586" checksum="ba9d34e4eb853d7cb173aaece1e7908152118615" version="1.2.31-5.18.1" checksum_type="sha">libpng12-0</package>
+      <package arch="i586" checksum="51c9b02ac1dc2f50851c7a7908b75f3f358ae0a3" version="2.0.91-4.2.1" checksum_type="sha">libselinux1</package>
+      <package arch="i586" checksum="435b4f906e526a1b0aa16a8e193a281c33098c7a" version="2.0.41-2.2.9" checksum_type="sha">libsepol1</package>
+      <package arch="i586" checksum="32096e7bfae79044aaa2903211fcad45f5f8329a" version="2.27.91-6.10.1" checksum_type="sha">libslab-lang</package>
+      <package arch="i586" checksum="8ff7113da1819705fb77adef62ce464bc4e7b67d" version="2.27.91-6.10.1" checksum_type="sha">libslab0</package>
+
+      <package arch="i586" checksum="3f4e759f98121b81224915bfbee213a854ff515c" version="3.4.3-1.19.1" checksum_type="sha">libsmbclient0</package>
+      <package arch="i586" checksum="0708050256a34649f84939a86b5dd2e7751ae2d3" version="3.4.3-1.19.1" checksum_type="sha">libtalloc1</package>
+      <package arch="i586" checksum="48f45675ed36d4c6fd1d41e9ea11eca07f4dfa42" version="3.4.3-1.19.1" checksum_type="sha">libtdb1</package>
+      <package arch="i586" checksum="be2d4c9a0a8325c7fa8be5cf0541f522794334b3" version="128-13.11.4" checksum_type="sha">libvolume_id1</package>
+      <package arch="i586" checksum="e068384fd508968a8d6e1abb4658b4d136299ecd" version="1.2.0-79.13.1" checksum_type="sha">libvorbis</package>
+      <package arch="i586" checksum="cf81eb0db3d2756319a7ec55ea8017eb932aa052" version="3.4.3-1.19.1" checksum_type="sha">libwbclient0</package>
+
+      <package arch="i586" checksum="5fbdc6a947c509e8fe03b04dfba7f8248117330d" version="2.02.39-18.31.2" checksum_type="sha">lvm2</package>
+      <package arch="i586" checksum="8f505628adadf37b3e64b681efbc84e69e6debdc" version="2.4.1-0.14.1" checksum_type="sha">mkinitrd</package>
+      <package arch="i586" checksum="914542a8ee9684001cf26c63e5737a1131181e3c" version="1.9.2.10-1.1.1" checksum_type="sha">mozilla-xulrunner192</package>
+      <package arch="i586" checksum="ada8a0afa1c411030f416d24dada170fe8e6767d" version="3.6.10-1.6.1" checksum_type="sha">MozillaFirefox</package>
+      <package arch="i586" checksum="d603020db2650fb2ab60b544e00129473813df86" version="3.5-1.2.4" checksum_type="sha">MozillaFirefox-branding-SLED</package>
+      <package arch="i586" checksum="9fbf23c1b4986c907e907b12472aaedeb0345fd7" version="0.4.8-40.23.1" checksum_type="sha">multipath-tools</package>
+
+      <package arch="i586" checksum="f63ed4b3b39c7837575817e3d4e054cd74d60836" version="0.3.7-185.30.1" checksum_type="sha">notification-daemon</package>
+      <package arch="i586" checksum="6c0629c3bf5709a95988af84b521935d9cc40ffa" version="0.3.7-185.30.1" checksum_type="sha">notification-daemon-lang</package>
+      <package arch="i586" checksum="9630320022d6afecbf985205fe3e90ffb89a5f10" version="4.3.5-0.2.1" checksum_type="sha">okular</package>
+      <package arch="i586" checksum="021075d29975fb84df55fbe962511d6b91e87af0" version="2.4.20-0.5.1" checksum_type="sha">openldap2-client</package>
+      <package arch="i586" checksum="d80e4a73ea191fd3a5f610098800491ca1dd8670" version="3.2.1.6-0.7.1" checksum_type="sha">OpenOffice_org</package>
+      <package arch="i586" checksum="7f616876c117e8ba419cf93201945ad26271ec19" version="3.2.1.6-0.7.1" checksum_type="sha">OpenOffice_org-base</package>
+
+      <package arch="noarch" checksum="35e2dc0a23b428b64e5ddadb3a6826d8c4ef270d" version="3.2.1-1.6.1" checksum_type="sha">OpenOffice_org-branding-SLED</package>
+      <package arch="i586" checksum="0c991f71d846bd6f0efe2579302b133f8670cc23" version="3.2.1.6-0.7.1" checksum_type="sha">OpenOffice_org-components</package>
+      <package arch="i586" checksum="0cb885d096a403cbae15d16203ae8974e0853ad3" version="3.2.1.6-0.7.1" checksum_type="sha">OpenOffice_org-filters</package>
+      <package arch="noarch" checksum="d8495f7ef4150dc4d035c92089d7fb0351943922" version="3.2.1.6-0.7.1" checksum_type="sha">OpenOffice_org-icon-themes</package>
+      <package arch="i586" checksum="03d5d1912783c8a649fe3cd603f8d43903be03b0" version="3.2.1.6-0.7.1" checksum_type="sha">OpenOffice_org-kde</package>
+      <package arch="noarch" checksum="fe058c84a3b0ffbd1625a3b563e7ef84a5c292d4" version="3.2.1.6-0.7.1" checksum_type="sha">OpenOffice_org-l10n-extras</package>
+
+      <package arch="i586" checksum="1c7ae4f317e36abfb7d0c0b7adf127bbdac37bcc" version="3.2.1.6-0.7.1" checksum_type="sha">OpenOffice_org-libs-core</package>
+      <package arch="i586" checksum="ca454095414ed7983c5525d947677329b4a99468" version="3.2.1.6-0.7.1" checksum_type="sha">OpenOffice_org-libs-extern</package>
+      <package arch="i586" checksum="84d44b02bea8bb0e124a8594a0cf0c5eb4d49ea6" version="3.2.1.6-0.7.1" checksum_type="sha">OpenOffice_org-libs-gui</package>
+      <package arch="i586" checksum="e39d800de26b8c90d0fd72ae8aca5b9b4235ebe4" version="3.2.1.6-0.7.1" checksum_type="sha">OpenOffice_org-ure</package>
+      <package arch="i586" checksum="ca9c9338483918761d8d58dcde69324b9068bc01" version="1.4.102-1.31.2" checksum_type="sha">pcsc-lite</package>
+      <package arch="i586" checksum="7a363863906920d2ef18821836b1305827fc8ce7" version="5.10.0-64.48.1" checksum_type="sha">perl</package>
+
+      <package arch="i586" checksum="899e0d3d13452b1c318330efaefa55fbbd798abf" version="5.10.0-64.48.1" checksum_type="sha">perl-base</package>
+      <package arch="i586" checksum="b589ef4bb95f06f29b47a8f0b87b6d66dbdcae1c" version="0.4.89.18-0.2.1" checksum_type="sha">perl-Bootloader</package>
+      <package arch="i586" checksum="1f9aeb3235973fab262754dd75db7ab3096dd2ee" version="1.7-37.18.1" checksum_type="sha">popt</package>
+      <package arch="i586" checksum="2d50e6feda6fa7537e074d02ea4758d5c169a67d" version="3.2.7-151.9.1" checksum_type="sha">procps</package>
+      <package arch="i586" checksum="5a4a6f7fd27bb0ae18f89e4b87ad31d3ada7696f" version="4.4.2.3-37.18.1" checksum_type="sha">rpm</package>
+      <package arch="i586" checksum="2d22a2b4cbd45f7a16c0a3126db19fb7cc9dff02" version="8.1-561.29.2" checksum_type="sha">sax2</package>
+
+      <package arch="i586" checksum="4898804b44fdb6e28d99da45698cecb08a251740" version="8.1-561.29.2" checksum_type="sha">sax2-ident</package>
+      <package arch="i586" checksum="f925c4be2aec742e0f976dad60efe0dd36355efe" version="8.1-561.29.2" checksum_type="sha">sax2-libsax</package>
+      <package arch="i586" checksum="a3e7786f3b08a69d81b8239ac7f4048a7ff38abb" version="8.1-561.29.2" checksum_type="sha">sax2-libsax-perl</package>
+      <package arch="i586" checksum="4a49603fdb23e258c962500494f578b7cd355a5e" version="8.1-561.29.2" checksum_type="sha">sax2-tools</package>
+      <package arch="noarch" checksum="b02cb4677457cdd0ba57f5af94e84a3a55fda4aa" version="0.8.2-0.5.1" checksum_type="sha">suse-sam</package>
+      <package arch="noarch" checksum="76318bbd6b8ff7db3781c0ddb5f0c1b792abed7b" version="1.4-1.9.1" checksum_type="sha">suseRegister</package>
+
+      <package arch="i586" checksum="253d26ad60e526abf1d65d76ca69f300cdd71521" version="0.71.30-0.4.1" checksum_type="sha">sysconfig</package>
+      <package arch="i586" checksum="08e0582c1ca2730c05abbfaa43ead7c5a6566e14" version="2.86-200.1" checksum_type="sha">sysvinit</package>
+      <package arch="i586" checksum="cd6e678490af983aa1ecadefb81ebbb9442fc626" version="2010l-0.10.1" checksum_type="sha">timezone</package>
+      <package arch="i586" checksum="d6480ac71092f4b08ab1aa306a7bea69e785b2de" version="128-13.11.4" checksum_type="sha">udev</package>
+      <package arch="i586" checksum="89af689b2f1cb16ae4b4b7b618b08d560af1d19c" version="7.4-27.24.1" checksum_type="sha">xorg-x11-server</package>
+      <package arch="i586" checksum="b5c237a41e44b8fe6087bbab22ab295640d764f9" version="2.17.2-0.2.7" checksum_type="sha">yast2-dbus-server</package>
+
+      <package arch="i586" checksum="1b08971c5a1d9f8d0f29e474462c9e4375f165d6" version="2.17.18-0.2.1" checksum_type="sha">yast2-ncurses</package>
+    </software>
+  </repository>
+  <repository name="SLE 11 SP1 SDK i386" id="6351">
+    <software type="array">
+      <package arch="i586" checksum="07e92f470520e3860d8fcf4bb94391b4955bcac1" version="1.6.0.2-7.28.37" checksum_type="SHA1">git</package>
+      <package arch="i586" checksum="d42e332edab50149d93f3a619295369cbc3b4873" version="1.6.0.2-7.28.37" checksum_type="SHA1">git-core</package>
+
+      <package arch="i586" checksum="ef13eb91db7cd0f472053896cbea11c931541c5d" version="1.8.7.p72-5.24.2" checksum_type="SHA1">ruby-devel</package>
+      <package arch="i586" checksum="deee787800f96fb458d3932a04659b2c96b376a7" version="2.3.5-1.1.39" checksum_type="SHA1">rubygem-actionmailer-2_3</package>
+      <package arch="i586" checksum="4eb53dc67e11f93f78370f5beecba2cce35ce6a9" version="2.3.5-2.2.26" checksum_type="SHA1">rubygem-actionpack-2_3</package>
+      <package arch="i586" checksum="97770f0ba48f8d135de5e8c51c887e73c99a50db" version="2.3.5-1.1.38" checksum_type="SHA1">rubygem-activerecord-2_3</package>
+      <package arch="i586" checksum="162c05903894025824c10a8f62370be1309cf057" version="2.3.5-1.1.37" checksum_type="SHA1">rubygem-activeresource-2_3</package>
+      <package arch="i586" checksum="23fbd03959ba195596a9eda56c883b1f104b1a9b" version="2.3.5-1.1.40" checksum_type="SHA1">rubygem-activesupport-2_3</package>
+
+      <package arch="i586" checksum="d2fe06e5087f94203fe8fbf7563038b766ff5af4" version="1.0.1-1.1.40" checksum_type="SHA1">rubygem-rack</package>
+      <package arch="noarch" checksum="269d66bbe6a01551d76ca112de4446807ac38670" version="2.3.5-1.1.34" checksum_type="SHA1">rubygem-rails</package>
+      <package arch="i586" checksum="03fc3c68ea37be5ab81e0a177627ffb9ec14b3e1" version="2.3.5-1.1.39" checksum_type="SHA1">rubygem-rails-2_3</package>
+      <package arch="i586" checksum="dd006f5a75662712f717a74a8b4564a971744111" version="0.8.7-0.1.4" checksum_type="SHA1">rubygem-rake</package>
+      <package arch="i586" checksum="31100e7c9e3fda3fc6104c4df5294ae0dcb36515" version="1.3.5-1.1.36" checksum_type="SHA1">rubygems</package>
+      <pattern arch="i586" version="11">sdk_ruby</pattern>
+
+      <package arch="noarch" checksum="605cbcbd111f02e55fa169b7c095a11f2c0ecc0b" version="2.8.1-238.27.1" checksum_type="SHA1">xerces-j2-xml-apis</package>
+    </software>
+  </repository>
+</software_map>
