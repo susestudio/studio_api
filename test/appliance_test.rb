@@ -24,6 +24,7 @@ class ApplianceTest < Test::Unit::TestCase
       mock.get "/appliances/266657", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliance_out,200
       mock.get "/appliances/266657/status", {"Authorization"=>"Basic dGVzdDp0ZXN0"},status_out,200
       mock.post "/appliances?appliance_id=266657", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliance_out,200 #correct output should be clone of appliance, but it is not important in test
+      mock.delete "/appliances/266657", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliance_out,200 
     end
   end
 
@@ -44,5 +45,9 @@ class ApplianceTest < Test::Unit::TestCase
 
   def test_clone
     assert StudioApi::Appliance.clone 266657
+  end
+
+  def test_delete
+    assert StudioApi::Appliance.delete 266657
   end
 end
