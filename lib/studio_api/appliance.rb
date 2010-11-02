@@ -14,6 +14,7 @@ module StudioApi
       end
     end
     
+#there is need to manually define parsing of XML as ARes has problem with attributes in XML
     class Software < Resource
       self.prefix = "/appliances/:appliance_id/"
       self.collection_name = "software"

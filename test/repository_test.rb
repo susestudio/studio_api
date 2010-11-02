@@ -1,14 +1,15 @@
 require 'rubygems'
 require 'active_support'
-require 'active_resource/http_mock'
-require 'mocha'
-require 'test/unit'
 $:.unshift File.join( File.dirname(__FILE__),'..','lib')
 require 'studio_api/repository'
 require 'studio_api/appliance'
 require 'studio_api/connection'
 
-class ApplianceTest < Test::Unit::TestCase
+require 'active_resource/http_mock'
+require 'mocha'
+require 'test/unit'
+
+class RepositoryTest < Test::Unit::TestCase
 REPOSITORY_ID = 6343
   def respond_load name
     IO.read(File.join(File.dirname(__FILE__),"responses",name))
