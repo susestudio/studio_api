@@ -1,0 +1,23 @@
+# The studio_api rubygem has been written to maintain the connection
+# to SUSE Studio (http://susestudio.com/) API or to any Studio Onsite V1.
+# Studio API V1 documentation can be found here: http://susestudio.com/help/api/v1
+
+require 'rubygems'
+
+# Path to libraries in git (not needed on a live system)
+$:.unshift File.expand_path(File.join(File.dirname(__FILE__), 'lib'))
+
+require 'studio_api/connection'
+
+# Fill up Studio credentials (user name, API key, API URL)
+# See https://susestudio.com/user/show_api_key if you are using SUSE Studio online
+connection = StudioApi::Connection.new('yourname', 'yourapikey', 'https://susestudio.com/api/v1/user')
+
+require 'studio_api/appliance'
+
+# Use the connection for appliances
+StudioApi::Appliance.set_connection connection
+
+# Find all appliances
+appliances = StudioApi::Appliance.find :all
+appliance_names = appliances.map{|a| a.name} # => Returns list of your appliances (names)
