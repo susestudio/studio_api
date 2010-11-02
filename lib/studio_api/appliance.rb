@@ -1,4 +1,8 @@
 require "studio_api/resource"
+require "studio_api/generic_request"
+require "studio_api/pattern"
+require "studio_api/package"
+require "xmlsimple"
 module StudioApi
   class Appliance < Resource
     class Status < Resource
@@ -54,10 +58,24 @@ module StudioApi
     end
 
     def selected_software
-      my_software = Software.dup
-      my_software.set_connection self.class.studio_connection
-      debugger
-      my_software.find :all, :params => { :appliance_id => id }
+      request_str = "/appliances/#{id.to_i}/software"
+      response = GenericRequest.new(self.class.studio_connection).get request_str
+      attrs = XmlSimple.xml_in response
+      res = []
+      attrs["pattern"].each do |pattern|
+        res << Pattern.new(pattern)
+      end
+      attrs["package"].each do |package|
+        res << case package
+          when Hash
+            Package.new(package["content"],package["version"])
+          when String
+            Package.new(package)
+          else
+            raise "Unknown format of element package"
+          end
+      end
+      res
     end
 
 #internal overwrite of ActiveResource::Base methods

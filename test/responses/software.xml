@@ -6,7 +6,7 @@
   <package>samba-winbind</package>
   <package>samba-krb-printing</package>
   <package>samba-client</package>
-  <package>samba</package>
+  <pattern>samba</pattern>
   <package>libwbclient0</package>
   <package>libtdb1</package>
   <package>libtalloc1</package>

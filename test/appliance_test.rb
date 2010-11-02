@@ -3,6 +3,7 @@ require 'active_support'
 $:.unshift File.join( File.dirname(__FILE__),'..','lib')
 require 'studio_api/appliance'
 require 'studio_api/connection'
+require 'studio_api/generic_request'
 
 require 'active_resource/http_mock'
 require 'mocha'
@@ -33,8 +34,8 @@ REPO_ID = 6345
       mock.post "/appliances/#{APPLIANCE_ID}/cmd/remove_repository?repo_id=#{REPO_ID}",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
       mock.post "/appliances/#{APPLIANCE_ID}/cmd/add_repository?repo_id=#{REPO_ID}",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
       mock.post "/appliances/#{APPLIANCE_ID}/cmd/add_user_repository",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
-      mock.get "/appliances/#{APPLIANCE_ID}/software",{"Authorization"=>"Basic dGVzdDp0ZXN0"},software_out,200
     end
+    StudioApi::GenericRequest.any_instance.stubs(:get).with("/appliances/#{APPLIANCE_ID}/software").returns(software_out)
   end
 
   def test_find_all
@@ -82,7 +83,8 @@ REPO_ID = 6345
 
   def test_selected_software
     res = StudioApi::Appliance.new(:id => APPLIANCE_ID).selected_software
-    debugger
-    assert_equal 5,res.size
+    assert_equal 48,res.size
+    assert res.any? {|r| r.is_a? StudioApi::Pattern }, "Pattern is not loaded"
+    assert res.any? {|r| r.name = "sysvinit" && r.version == "2.86-200.1" }, "package with specified version not found"
   end
 end
