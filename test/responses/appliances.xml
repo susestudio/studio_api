@@ -1,229 +1,199 @@
 <appliances type="array">
-<appliance>
-<id>266657</id>
-<name>josef's SLES 11 SP1 git test</name>
-<arch>i586</arch>
-<type>vmx</type>
-<last_edited>2010-10-08 14:46:07 UTC</last_edited>
-<estimated_raw_size>390 MB</estimated_raw_size>
-<estimated_compressed_size>140 MB</estimated_compressed_size>
-<edit_url>http://susestudio.com/appliance/edit/266657</edit_url>
-<icon_url>
-http://susestudio.com/api/v1/user/appliance_icon/266657
-</icon_url>
-<basesystem>SLES11_SP1</basesystem>
-<uuid>b1e01a64-d2ea-11df-f1ab-475ae2f5345b</uuid>
-<parent>
-<id>202443</id>
-<name>SLES 11 SP1, Just enough OS (JeOS)</name>
-</parent>
-<builds type="array">
-<build>
-<id>509559</id>
-<version>0.0.1</version>
-<image_type>vmx</image_type>
-<image_size>695</image_size>
-<compressed_image_size>121</compressed_image_size>
-<download_url>
-http://susestudio.com/download/a0f0217f0645099c9e41c42e9bf89976/josefs_SLES_11_SP1_git_test.i686-0.0.1.vmx.tar.gz
-</download_url>
-</build>
-</builds>
-</appliance>
-<appliance>
-<id>260956</id>
-<name>josef's SLES 11 SP1, downgrade test</name>
-<arch>i586</arch>
-<type>vmx</type>
-<last_edited>2010-10-01 08:47:31 UTC</last_edited>
-<estimated_raw_size>60 MB</estimated_raw_size>
-<estimated_compressed_size>60 MB</estimated_compressed_size>
-<edit_url>http://susestudio.com/appliance/edit/260956</edit_url>
-<icon_url>
-http://susestudio.com/api/v1/user/appliance_icon/260956
-</icon_url>
-<basesystem>SLES11_SP1</basesystem>
-<uuid>cf2bd5c8-ca15-11df-1b95-475ae2f5345b</uuid>
-<parent>
-<id>202443</id>
-<name>SLES 11 SP1, Just enough OS (JeOS)</name>
-</parent>
-<builds type="array">
-<build>
-<id>497448</id>
-<version>0.0.1</version>
-<image_type>vmx</image_type>
-<image_size>689</image_size>
-<compressed_image_size>119</compressed_image_size>
-<download_url>
-http://susestudio.com/download/f0674e05d39e58dd3ad1a585a77ee32d/josefs_SLES_11_SP1_downgrade_test.i686-0.0.1.vmx.tar.gz
-</download_url>
-</build>
-</builds>
-</appliance>
-<appliance>
-<id>258196</id>
-<name>josef's SLES 11 SP1, adapt test</name>
-<arch>i586</arch>
-<type>oem</type>
-<last_edited>2010-09-27 08:40:20 UTC</last_edited>
-<estimated_raw_size>380 MB</estimated_raw_size>
-<estimated_compressed_size>60 MB</estimated_compressed_size>
-<edit_url>http://susestudio.com/appliance/edit/258196</edit_url>
-<icon_url>
-http://susestudio.com/api/v1/user/appliance_icon/258196
-</icon_url>
-<basesystem>SLES11_SP1</basesystem>
-<uuid>9877d408-c58a-11df-1f8a-475ae2f5345b</uuid>
-<parent>
-<id>202443</id>
-<name>SLES 11 SP1, Just enough OS (JeOS)</name>
-</parent>
-<builds type="array">
-<build>
-<id>497420</id>
-<version>0.0.1</version>
-<image_type>oem</image_type>
-<image_size>449</image_size>
-<compressed_image_size>124</compressed_image_size>
-<download_url>
-http://susestudio.com/download/15070a4fb0a66d6db53d596b8f838abb/josefs_SLES_11_SP1_adapt_test.i686-0.0.1.oem.tar.gz
-</download_url>
-</build>
-</builds>
-</appliance>
-<appliance>
-<id>254953</id>
-<name>josef's slms test updates</name>
-<arch>x86_64</arch>
-<type>vmx</type>
-<last_edited>2010-09-27 08:59:55 UTC</last_edited>
-<estimated_raw_size>420 MB</estimated_raw_size>
-<estimated_compressed_size>140 MB</estimated_compressed_size>
-<edit_url>http://susestudio.com/appliance/edit/254953</edit_url>
-<icon_url>
-http://susestudio.com/api/v1/user/appliance_icon/254953
-</icon_url>
-<basesystem>SLES11_SP1</basesystem>
-<uuid>2f4bc8a4-c09e-11df-2dbd-475ae2f5345b</uuid>
-<parent>
-<id>202443</id>
-<name>SLES 11 SP1, Just enough OS (JeOS)</name>
-</parent>
-<builds type="array">
-<build>
-<id>490812</id>
-<version>0.0.1</version>
-<image_type>vmx</image_type>
-<image_size>720</image_size>
-<compressed_image_size>124</compressed_image_size>
-<download_url>
-http://susestudio.com/download/b1aa7b08e9cd862179e3941fdf600182/josefs_slms_test_updates.x86_64-0.0.1.vmx.tar.gz
-</download_url>
-</build>
-</builds>
-</appliance>
-<appliance>
-<id>254047</id>
-<name>josef's SLES 11 SP1, slms test guest</name>
-<arch>i586</arch>
-<type>vmx</type>
-<last_edited>2010-10-13 14:29:29 UTC</last_edited>
-<estimated_raw_size>60 MB</estimated_raw_size>
-<estimated_compressed_size>60 MB</estimated_compressed_size>
-<edit_url>http://susestudio.com/appliance/edit/254047</edit_url>
-<icon_url>
-http://susestudio.com/api/v1/user/appliance_icon/254047
-</icon_url>
-<basesystem>SLES11_SP1</basesystem>
-<uuid>f1ea26d4-bf3c-11df-98b9-475ae2f5345b</uuid>
-<parent>
-<id>202443</id>
-<name>SLES 11 SP1, Just enough OS (JeOS)</name>
-</parent>
-<builds type="array">
-<build>
-<id>485178</id>
-<version>0.0.1</version>
-<image_type>vmx</image_type>
-<image_size>690</image_size>
-<compressed_image_size>119</compressed_image_size>
-<download_url>
-http://susestudio.com/download/6bb29e9c653af7ab73702d16aefc1813/josefs_SLES_11_SP1_slms_test_guest.i686-0.0.1.vmx.tar.gz
-</download_url>
-</build>
-</builds>
-</appliance>
-<appliance>
-<id>218318</id>
-<name>josef's WebYaST for apptoolkit 1.1</name>
-<arch>i586</arch>
-<type>vmx</type>
-<last_edited>2010-09-21 13:00:25 UTC</last_edited>
-<estimated_raw_size>540 MB</estimated_raw_size>
-<estimated_compressed_size>180 MB</estimated_compressed_size>
-<edit_url>http://susestudio.com/appliance/edit/218318</edit_url>
-<icon_url>
-http://susestudio.com/api/v1/user/appliance_icon/218318
-</icon_url>
-<basesystem>SLES11_SP1</basesystem>
-<uuid>6841db6e-8a8c-11df-a1aa-475ae2f5345b</uuid>
-<parent>
-<id>209597</id>
-<name>WebYaST on SLE11-SP1</name>
-</parent>
-<builds type="array">
-<build>
-<id>429562</id>
-<version>0.0.8</version>
-<image_type>vmx</image_type>
-<image_size>740</image_size>
-<compressed_image_size>215</compressed_image_size>
-<download_url>
-http://susestudio.com/download/6a6925b26ec58a38260d2bdf7a9c18d1/josefs_WebYaST_for_apptoolkit_1.1.i686-0.0.8.vmx.tar.gz
-</download_url>
-</build>
-<build>
-<id>427190</id>
-<version>0.0.6</version>
-<image_type>vmx</image_type>
-<image_size>739</image_size>
-<compressed_image_size>215</compressed_image_size>
-<download_url>
-http://susestudio.com/download/518c23d95008f7e2607165f9df6fb65b/josefs_WebYaST_for_apptoolkit_1.1.i686-0.0.6.vmx.tar.gz
-</download_url>
-</build>
-</builds>
-</appliance>
-<appliance>
-<id>214486</id>
-<name>josef's SLED 11 SP1, KDE 4</name>
-<arch>i586</arch>
-<type>oem</type>
-<last_edited>2010-09-15 14:31:21 UTC</last_edited>
-<estimated_raw_size>2.03 GB</estimated_raw_size>
-<estimated_compressed_size>600 MB</estimated_compressed_size>
-<edit_url>http://susestudio.com/appliance/edit/214486</edit_url>
-<icon_url>
-http://susestudio.com/api/v1/user/appliance_icon/214486
-</icon_url>
-<basesystem>SLED11_SP1</basesystem>
-<uuid>7d38ce20-b696-11df-f3a1-475ae2f5345b</uuid>
-<parent>
-<id>202445</id>
-<name>SLED 11 SP1, KDE 4 desktop</name>
-</parent>
-<builds type="array">
-<build>
-<id>483891</id>
-<version>0.0.1</version>
-<image_type>oem</image_type>
-<image_size>3021</image_size>
-<compressed_image_size>702</compressed_image_size>
-<download_url>
-http://susestudio.com/download/15041eaadf38897c146241bc8df4bbbf/josefs_SLED_11_SP1_KDE_4.i686-0.0.1.oem.tar.gz
-</download_url>
-</build>
-</builds>
-</appliance>
+  <appliance>
+    <id>266657</id>
+    <name>josef's SLES 11 SP1 git test</name>
+    <arch>i586</arch>
+    <type>vmx</type>
+    <last_edited>2010-10-08 14:46:07 UTC</last_edited>
+    <estimated_raw_size>390 MB</estimated_raw_size>
+    <estimated_compressed_size>140 MB</estimated_compressed_size>
+    <edit_url>http://susestudio.com/appliance/edit/266657</edit_url>
+    <icon_url>http://susestudio.com/api/v1/user/appliance_icon/266657</icon_url>
+    <basesystem>SLES11_SP1</basesystem>
+    <uuid>b1e01a64-d2ea-11df-f1ab-475ae2f5345b</uuid>
+    <parent>
+      <id>202443</id>
+      <name>SLES 11 SP1, Just enough OS (JeOS)</name>
+    </parent>
+    <builds type="array">
+      <build>
+        <id>509559</id>
+        <version>0.0.1</version>
+        <image_type>vmx</image_type>
+        <image_size>695</image_size>
+        <compressed_image_size>121</compressed_image_size>
+        <download_url>http://susestudio.com/download/a0f0217f0645099c9e41c42e9bf89976/josefs_SLES_11_SP1_git_test.i686-0.0.1.vmx.tar.gz</download_url>
+      </build>
+    </builds>
+  </appliance>
+  <appliance>
+    <id>260956</id>
+    <name>josef's SLES 11 SP1, downgrade test</name>
+    <arch>i586</arch>
+    <type>vmx</type>
+    <last_edited>2010-10-01 08:47:31 UTC</last_edited>
+    <estimated_raw_size>60 MB</estimated_raw_size>
+    <estimated_compressed_size>60 MB</estimated_compressed_size>
+    <edit_url>http://susestudio.com/appliance/edit/260956</edit_url>
+    <icon_url>http://susestudio.com/api/v1/user/appliance_icon/260956</icon_url>
+    <basesystem>SLES11_SP1</basesystem>
+    <uuid>cf2bd5c8-ca15-11df-1b95-475ae2f5345b</uuid>
+    <parent>
+      <id>202443</id>
+      <name>SLES 11 SP1, Just enough OS (JeOS)</name>
+    </parent>
+    <builds type="array">
+      <build>
+        <id>497448</id>
+        <version>0.0.1</version>
+        <image_type>vmx</image_type>
+        <image_size>689</image_size>
+        <compressed_image_size>119</compressed_image_size>
+        <download_url>http://susestudio.com/download/f0674e05d39e58dd3ad1a585a77ee32d/josefs_SLES_11_SP1_downgrade_test.i686-0.0.1.vmx.tar.gz</download_url>
+      </build>
+    </builds>
+  </appliance>
+  <appliance>
+    <id>258196</id>
+    <name>josef's SLES 11 SP1, adapt test</name>
+    <arch>i586</arch>
+    <type>oem</type>
+    <last_edited>2010-09-27 08:40:20 UTC</last_edited>
+    <estimated_raw_size>380 MB</estimated_raw_size>
+    <estimated_compressed_size>60 MB</estimated_compressed_size>
+    <edit_url>http://susestudio.com/appliance/edit/258196</edit_url>
+    <icon_url>http://susestudio.com/api/v1/user/appliance_icon/258196</icon_url>
+    <basesystem>SLES11_SP1</basesystem>
+    <uuid>9877d408-c58a-11df-1f8a-475ae2f5345b</uuid>
+    <parent>
+      <id>202443</id>
+      <name>SLES 11 SP1, Just enough OS (JeOS)</name>
+    </parent>
+    <builds type="array">
+      <build>
+        <id>497420</id>
+        <version>0.0.1</version>
+        <image_type>oem</image_type>
+        <image_size>449</image_size>
+        <compressed_image_size>124</compressed_image_size>
+        <download_url>http://susestudio.com/download/15070a4fb0a66d6db53d596b8f838abb/josefs_SLES_11_SP1_adapt_test.i686-0.0.1.oem.tar.gz</download_url>
+      </build>
+    </builds>
+  </appliance>
+  <appliance>
+    <id>254953</id>
+    <name>josef's slms test updates</name>
+    <arch>x86_64</arch>
+    <type>vmx</type>
+    <last_edited>2010-09-27 08:59:55 UTC</last_edited>
+    <estimated_raw_size>420 MB</estimated_raw_size>
+    <estimated_compressed_size>140 MB</estimated_compressed_size>
+    <edit_url>http://susestudio.com/appliance/edit/254953</edit_url>
+    <icon_url>http://susestudio.com/api/v1/user/appliance_icon/254953</icon_url>
+    <basesystem>SLES11_SP1</basesystem>
+    <uuid>2f4bc8a4-c09e-11df-2dbd-475ae2f5345b</uuid>
+    <parent>
+      <id>202443</id>
+      <name>SLES 11 SP1, Just enough OS (JeOS)</name>
+    </parent>
+    <builds type="array">
+      <build>
+        <id>490812</id>
+        <version>0.0.1</version>
+        <image_type>vmx</image_type>
+        <image_size>720</image_size>
+        <compressed_image_size>124</compressed_image_size>
+        <download_url>http://susestudio.com/download/b1aa7b08e9cd862179e3941fdf600182/josefs_slms_test_updates.x86_64-0.0.1.vmx.tar.gz</download_url>
+      </build>
+    </builds>
+  </appliance>
+  <appliance>
+    <id>254047</id>
+    <name>josef's SLES 11 SP1, slms test guest</name>
+    <arch>i586</arch>
+    <type>vmx</type>
+    <last_edited>2010-10-13 14:29:29 UTC</last_edited>
+    <estimated_raw_size>60 MB</estimated_raw_size>
+    <estimated_compressed_size>60 MB</estimated_compressed_size>
+    <edit_url>http://susestudio.com/appliance/edit/254047</edit_url>
+    <icon_url>http://susestudio.com/api/v1/user/appliance_icon/254047</icon_url>
+    <basesystem>SLES11_SP1</basesystem>
+    <uuid>f1ea26d4-bf3c-11df-98b9-475ae2f5345b</uuid>
+    <parent>
+      <id>202443</id>
+      <name>SLES 11 SP1, Just enough OS (JeOS)</name>
+    </parent>
+    <builds type="array">
+      <build>
+        <id>485178</id>
+        <version>0.0.1</version>
+        <image_type>vmx</image_type>
+        <image_size>690</image_size>
+        <compressed_image_size>119</compressed_image_size>
+        <download_url>http://susestudio.com/download/6bb29e9c653af7ab73702d16aefc1813/josefs_SLES_11_SP1_slms_test_guest.i686-0.0.1.vmx.tar.gz</download_url>
+      </build>
+    </builds>
+  </appliance>
+  <appliance>
+    <id>218318</id>
+    <name>josef's WebYaST for apptoolkit 1.1</name>
+    <arch>i586</arch>
+    <type>vmx</type>
+    <last_edited>2010-09-21 13:00:25 UTC</last_edited>
+    <estimated_raw_size>540 MB</estimated_raw_size>
+    <estimated_compressed_size>180 MB</estimated_compressed_size>
+    <edit_url>http://susestudio.com/appliance/edit/218318</edit_url>
+    <icon_url>http://susestudio.com/api/v1/user/appliance_icon/218318</icon_url>
+    <basesystem>SLES11_SP1</basesystem>
+    <uuid>6841db6e-8a8c-11df-a1aa-475ae2f5345b</uuid>
+    <parent>
+      <id>209597</id>
+      <name>WebYaST on SLE11-SP1</name>
+    </parent>
+    <builds type="array">
+      <build>
+        <id>429562</id>
+        <version>0.0.8</version>
+        <image_type>vmx</image_type>
+        <image_size>740</image_size>
+        <compressed_image_size>215</compressed_image_size>
+        <download_url>http://susestudio.com/download/6a6925b26ec58a38260d2bdf7a9c18d1/josefs_WebYaST_for_apptoolkit_1.1.i686-0.0.8.vmx.tar.gz</download_url>
+      </build>
+      <build>
+        <id>427190</id>
+        <version>0.0.6</version>
+        <image_type>vmx</image_type>
+        <image_size>739</image_size>
+        <compressed_image_size>215</compressed_image_size>
+        <download_url>http://susestudio.com/download/518c23d95008f7e2607165f9df6fb65b/josefs_WebYaST_for_apptoolkit_1.1.i686-0.0.6.vmx.tar.gz</download_url>
+      </build>
+    </builds>
+  </appliance>
+  <appliance>
+    <id>214486</id>
+    <name>josef's SLED 11 SP1, KDE 4</name>
+    <arch>i586</arch>
+    <type>oem</type>
+    <last_edited>2010-09-15 14:31:21 UTC</last_edited>
+    <estimated_raw_size>2.03 GB</estimated_raw_size>
+    <estimated_compressed_size>600 MB</estimated_compressed_size>
+    <edit_url>http://susestudio.com/appliance/edit/214486</edit_url>
+    <icon_url>http://susestudio.com/api/v1/user/appliance_icon/214486</icon_url>
+    <basesystem>SLED11_SP1</basesystem>
+    <uuid>7d38ce20-b696-11df-f3a1-475ae2f5345b</uuid>
+    <parent>
+      <id>202445</id>
+      <name>SLED 11 SP1, KDE 4 desktop</name>
+    </parent>
+    <builds type="array">
+      <build>
+        <id>483891</id>
+        <version>0.0.1</version>
+        <image_type>oem</image_type>
+        <image_size>3021</image_size>
+        <compressed_image_size>702</compressed_image_size>
+        <download_url>http://susestudio.com/download/15041eaadf38897c146241bc8df4bbbf/josefs_SLED_11_SP1_KDE_4.i686-0.0.1.oem.tar.gz</download_url>
+      </build>
+    </builds>
+  </appliance>
 </appliances>

@@ -1,46 +1,42 @@
 <repositories type="array">
-<repository>
-<id>6343</id>
-<name>SLES 11 SP1 i386</name>
-<type>yast2</type>
-<base_system>SLES11_SP1</base_system>
-<smt_name>SLES11-SP1-Pool</smt_name>
-<smt_target>sle-11-i586</smt_target>
-</repository>
-<repository>
-<id>6345</id>
-<name>SLES 11 SP1 Updates i386</name>
-<type>rpm-md</type>
-<repotag>
-updates://zypp-patches.suse.de/autobuild/SLE_SERVER/11-SP1/update/i386
-</repotag>
-<base_system>SLES11_SP1</base_system>
-<smt_name>SLES11-SP1-Updates</smt_name>
-<smt_target>sle-11-i586</smt_target>
-</repository>
-<repository>
-<id>6351</id>
-<name>SLE 11 SP1 SDK i386</name>
-<type>yast2</type>
-<base_system>SLE11_SP1</base_system>
-<smt_name>SLE11-SDK-SP1-Pool</smt_name>
-<smt_target>sle-11-i586</smt_target>
-</repository>
-<repository>
-<id>6353</id>
-<name>SLE 11 SP1 SDK Updates i386</name>
-<type>rpm-md</type>
-<repotag>
-updates://zypp-patches.suse.de/autobuild/SLE_SDK/11-SP1/update/i386
-</repotag>
-<base_system>SLE11_SP1</base_system>
-<smt_name>SLE11-SDK-SP1-Updates</smt_name>
-<smt_target>sle-11-i586</smt_target>
-</repository>
-<repository>
-<id>6844</id>
-<name>jreidinger SLES 11 SP1</name>
-<type>rpm-md</type>
-<base_system>SLES11_SP1</base_system>
-</repository>
+  <repository>
+    <id>6343</id>
+    <name>SLES 11 SP1 i386</name>
+    <type>yast2</type>
+    <base_system>SLES11_SP1</base_system>
+    <smt_name>SLES11-SP1-Pool</smt_name>
+    <smt_target>sle-11-i586</smt_target>
+  </repository>
+  <repository>
+    <id>6345</id>
+    <name>SLES 11 SP1 Updates i386</name>
+    <type>rpm-md</type>
+    <repotag>updates://zypp-patches.suse.de/autobuild/SLE_SERVER/11-SP1/update/i386</repotag>
+    <base_system>SLES11_SP1</base_system>
+    <smt_name>SLES11-SP1-Updates</smt_name>
+    <smt_target>sle-11-i586</smt_target>
+  </repository>
+  <repository>
+    <id>6351</id>
+    <name>SLE 11 SP1 SDK i386</name>
+    <type>yast2</type>
+    <base_system>SLE11_SP1</base_system>
+    <smt_name>SLE11-SDK-SP1-Pool</smt_name>
+    <smt_target>sle-11-i586</smt_target>
+  </repository>
+  <repository>
+    <id>6353</id>
+    <name>SLE 11 SP1 SDK Updates i386</name>
+    <type>rpm-md</type>
+    <repotag>updates://zypp-patches.suse.de/autobuild/SLE_SDK/11-SP1/update/i386</repotag>
+    <base_system>SLE11_SP1</base_system>
+    <smt_name>SLE11-SDK-SP1-Updates</smt_name>
+    <smt_target>sle-11-i586</smt_target>
+  </repository>
+  <repository>
+    <id>6844</id>
+    <name>jreidinger SLES 11 SP1</name>
+    <type>rpm-md</type>
+    <base_system>SLES11_SP1</base_system>
+  </repository>
 </repositories>
