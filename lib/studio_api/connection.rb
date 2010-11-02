@@ -18,6 +18,7 @@
 #  you may find current contact information at www.novell.com
 
 require 'uri'
+require 'openssl'
 
 module StudioApi
   class Connection
