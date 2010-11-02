@@ -3,6 +3,7 @@ module StudioApi
   class Appliance < Resource
     class Status < Resource
     end
+
     class Repository < Resource
       self.prefix = "/appliances/:appliance_id/"
       self.element_name = "repository"
@@ -11,6 +12,11 @@ module StudioApi
       def delete
         self.class.appliance.remove_repository id
       end
+    end
+    
+    class Software < Resource
+      self.prefix = "/appliances/:appliance_id/"
+      self.collection_name = "software"
     end
 
     def status
@@ -46,8 +52,11 @@ module StudioApi
       post('',options)
     end
 
-    def self.clone appliance_id, options={}
-      self.new(:id => appliance_id).clone options
+    def selected_software
+      my_software = Software.dup
+      my_software.set_connection self.class.studio_connection
+      debugger
+      my_software.find :all, :params => { :appliance_id => id }
     end
 
 #internal overwrite of ActiveResource::Base methods

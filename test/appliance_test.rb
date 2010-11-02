@@ -21,6 +21,7 @@ REPO_ID = 6345
     appliance_out = respond_load "appliance.xml"
     status_out = respond_load "status.xml"
     repositories_out = respond_load "repositories.xml"
+    software_out = respond_load "software.xml"
     ActiveResource::HttpMock.respond_to do |mock|
       mock.get "/appliances", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliances_out,200
       mock.get "/appliances/#{APPLIANCE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliance_out,200
@@ -31,6 +32,7 @@ REPO_ID = 6345
       mock.post "/appliances/#{APPLIANCE_ID}/cmd/remove_repository?repo_id=#{REPO_ID}",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
       mock.post "/appliances/#{APPLIANCE_ID}/cmd/add_repository?repo_id=#{REPO_ID}",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
       mock.post "/appliances/#{APPLIANCE_ID}/cmd/add_user_repository",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
+      mock.get "/appliances/#{APPLIANCE_ID}/software",{"Authorization"=>"Basic dGVzdDp0ZXN0"},software_out,200
     end
   end
 
@@ -50,7 +52,7 @@ REPO_ID = 6345
   end
 
   def test_clone
-    assert StudioApi::Appliance.clone APPLIANCE_ID
+    assert StudioApi::Appliance.new(:id => APPLIANCE_ID).clone
   end
 
   def test_delete
@@ -75,5 +77,11 @@ REPO_ID = 6345
 
   def test_user_repository_add
     assert StudioApi::Appliance.new(:id => APPLIANCE_ID).add_user_repository
+  end
+
+  def test_selected_software
+    res = StudioApi::Appliance.new(:id => APPLIANCE_ID).selected_software
+    debugger
+    assert_equal 5,res.size
   end
 end

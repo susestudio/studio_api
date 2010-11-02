@@ -1,0 +1,50 @@
+<software type="array" appliance_id="218318" >
+<package version="0.0.9-1">josefs_webyast_for_apptoolkit_11_i586-update</package>
+<package version="0.0.9-0">josefs_webyast_for_apptoolkit_11_i586-release</package>
+<package>suseRegister</package>
+<package version="2.86-200.1">sysvinit</package>
+<package>samba-winbind</package>
+<package>samba-krb-printing</package>
+<package>samba-client</package>
+<package>samba</package>
+<package>libwbclient0</package>
+<package>libtdb1</package>
+<package>libtalloc1</package>
+<package>libsmbsharemodes0</package>
+<package>libsmbclient0</package>
+<package>libnetapi0</package>
+<package>libnetapi-devel</package>
+<package>ldapsmb</package>
+<package>cifs-mount</package>
+<package>kernel-default</package>
+<package>less</package>
+<package>openssl-certs</package>
+<package>vim</package>
+<package>aaa_base</package>
+<package>dhcpcd</package>
+<package>hwinfo</package>
+<package>insserv</package>
+<package>kbd</package>
+<package>licenses</package>
+<package>mkinitrd</package>
+<package>module-init-tools</package>
+<package>netcfg</package>
+<package>openssh</package>
+<package>procps</package>
+<package>pwdutils</package>
+<package>rpm</package>
+<package>suse-build-key</package>
+<package>sysconfig</package>
+<package>syslog-ng</package>
+<package>grub</package>
+<package>branding-SLES</package>
+<package>rpcbind</package>
+<package>PolicyKit</package>
+<package>polkit-default-privs</package>
+<package>suse-sam</package>
+<package>suse-sam-data</package>
+<package>tar</package>
+<package>perl-satsolver</package>
+<package>libzypp</package>
+<package>iputils</package>
+</software>
