@@ -23,8 +23,6 @@ REPO_ID = 6345
     appliance_out = respond_load "appliance.xml"
     status_out = respond_load "status.xml"
     repositories_out = respond_load "repositories.xml"
-    software_out = respond_load "software.xml"
-    software_in_out = respond_load "software_installed.xml"
     ActiveResource::HttpMock.respond_to do |mock|
       mock.get "/appliances", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliances_out,200
       mock.get "/appliances/#{APPLIANCE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliance_out,200
@@ -36,8 +34,6 @@ REPO_ID = 6345
       mock.post "/appliances/#{APPLIANCE_ID}/cmd/add_repository?repo_id=#{REPO_ID}",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
       mock.post "/appliances/#{APPLIANCE_ID}/cmd/add_user_repository",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
     end
-    StudioApi::GenericRequest.any_instance.stubs(:get).with("/appliances/#{APPLIANCE_ID}/software").returns(software_out)
-    StudioApi::GenericRequest.any_instance.stubs(:get).with("/appliances/#{APPLIANCE_ID}/software/installed").returns(software_in_out)
   end
 
   def test_find_all
@@ -84,6 +80,8 @@ REPO_ID = 6345
   end
 
   def test_selected_software
+    software_out = respond_load "software.xml"
+    StudioApi::GenericRequest.any_instance.stubs(:get).with("/appliances/#{APPLIANCE_ID}/software").returns(software_out).once
     res = StudioApi::Appliance.new(:id => APPLIANCE_ID).selected_software
     assert_equal 48,res.size
     assert res.any? {|r| r.is_a? StudioApi::Pattern }, "Pattern is not loaded"
@@ -91,6 +89,8 @@ REPO_ID = 6345
   end
 
 	def test_installed_software
+    software_in_out = respond_load "software_installed.xml"
+    StudioApi::GenericRequest.any_instance.stubs(:get).with("/appliances/#{APPLIANCE_ID}/software/installed").returns(software_in_out).once
     res = StudioApi::Appliance.new(:id => APPLIANCE_ID).installed_software
     assert_equal 608,res.size
     assert res.any? {|r| r.is_a? StudioApi::Pattern }, "Pattern is not loaded"
@@ -99,4 +99,30 @@ REPO_ID = 6345
 		assert_equal 6347,diag.repository_id
   end
 
+	def test_search_software
+    software_se_out = respond_load "software_search.xml"
+    StudioApi::GenericRequest.any_instance.stubs(:get).with("/appliances/#{APPLIANCE_ID}/software/search?q=qt").returns(software_se_out).once
+    res = StudioApi::Appliance.new(:id => APPLIANCE_ID).search_software "qt"
+    assert_equal 54,res.size
+    assert res.any? {|r| r.is_a? StudioApi::Pattern }, "Pattern is not loaded"
+		apport = res.find { |p| p.name == "apport-qt"}
+		assert_equal "0.114-12.7.10",apport.version
+		assert_equal 6347,apport.repository_id
+	end
+
+	def test_manipulate_with_packages_and_pattern
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/add_package?name=3ddiag",:name => "3ddiag").returns(true).once
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/remove_package?name=3ddiag",:name => "3ddiag").returns(true).once
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/add_pattern?name=kde4", :name => "kde4").returns(true).once
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/remove_pattern?name=kde4",:name => "kde4").returns(true).once
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/ban_package?name=3ddiag",:name => "3ddiag").returns(true).once
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/unban_package?name=3ddiag",:name => "3ddiag").returns(true).once
+    appliance = StudioApi::Appliance.new(:id => APPLIANCE_ID)
+		assert appliance.add_package "3ddiag"
+		assert appliance.remove_package "3ddiag"
+		assert appliance.add_pattern "kde4"
+		assert appliance.remove_pattern "kde4"
+		assert appliance.ban_package "3ddiag"
+		assert appliance.unban_package "3ddiag"
+  end
 end

@@ -77,6 +77,50 @@ module StudioApi
 			res
     end
 
+    def search_software (search_string,options={})
+      request_str = "/appliances/#{id.to_i}/software/search?q=#{search_string}"
+			options.each do |k,v|
+				request_str << "&#{URI.escape k.to_s}=#{URI.escape v.to_s}"
+			end
+      response = GenericRequest.new(self.class.studio_connection).get request_str
+      attrs = XmlSimple.xml_in response
+			res = []
+			attrs["repository"].each do |repo|
+				options = { "repository_id" => repo["id"].to_i }
+      	res += convert_selectable repo["software"][0], options
+			end
+			res
+    end
+
+		#options are version and repository_id
+		def add_package (name, options={})
+			appliance_command "add_package",{:name => name}.merge(options)
+		end
+
+		#options are version and repository_id
+		def remove_package (name)
+			appliance_command "remove_package",:name => name
+		end
+
+		#options are version and repository_id
+		def add_pattern (name, options={})
+			appliance_command "add_pattern",{:name => name}.merge(options)
+		end
+
+		#options are version and repository_id
+		def remove_pattern (name)
+			appliance_command "remove_pattern",:name => name
+		end
+
+		def ban_package(name)
+			appliance_command "ban_package",:name => name
+		end
+
+		def unban_package(name)
+			appliance_command "unban_package",:name => name
+		end
+
+private
 #internal overwrite of ActiveResource::Base methods
     def new?
       false #Appliance has only POST method
@@ -89,7 +133,6 @@ module StudioApi
       "#{self.class.prefix(prefix_options)}#{self.class.collection_name}#{method_string}#{self.class.send :query_string,query_options}"
     end
 
-private
     def convert_selectable attrs, preset_options = {}
       res = []
       (attrs["pattern"]||[]).each do |pattern|
@@ -113,5 +156,18 @@ private
           raise "Unknown format of element #{model}"
       end
     end
+
+		def appliance_command type, options={}
+      request_str = "/appliances/#{id.to_i}/cmd/#{type}"
+			unless options.empty?
+				first = true
+				options.each do |k,v|
+					separator = first ? "?" : "&"
+					first = false
+					request_str << "#{separator}#{URI.escape k.to_s}=#{URI.escape v.to_s}"
+				end
+			end
+      GenericRequest.new(self.class.studio_connection).post request_str, options
+		end
   end
 end

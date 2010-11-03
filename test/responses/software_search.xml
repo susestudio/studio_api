@@ -1,0 +1,64 @@
+<software_map type="array" appliance_id="214486">
+  <repository name="SLED 11 SP1 i386" id="6347">
+    <software type="array">
+      <package arch="i586" checksum="a7d170cd6cb091e3d805cd4a5f96268c296df464" version="0.114-12.7.10" checksum_type="SHA1">apport-qt</package>
+      <package arch="i586" checksum="83d58e77ef195dc795aa696921c44acf070f1356" version="0.62-223.1.43" checksum_type="SHA1">dbus-1-qt3</package>
+      <package arch="i586" checksum="a05103f4680183934b5d7403394bef481e572d7a" version="0.8.1-17.25" checksum_type="SHA1">libdbus-1-qt3-0</package>
+      <package arch="i586" checksum="b7b8a48108d19673896b34353695cc7667fdfd25" version="0.9.2-3.1.92" checksum_type="SHA1">libpolkit-qt0</package>
+      <package arch="i586" checksum="296b3c14a716e30f2a45f05d6934b7f1d42e88c6" version="0.12.3-1.2.44" checksum_type="SHA1">libpoppler-qt4-3</package>
+      <package arch="i586" checksum="817ab11f765ce1acedf9cd96ad12a2b3ee9ae5fd" version="4.6.2-1.6.9" checksum_type="SHA1">libqt4</package>
+      <package arch="i586" checksum="3aa11ce211e7d4bacadaab171a95210badcba9b8" version="4.6.2-1.6.9" checksum_type="SHA1">libqt4-qt3support</package>
+      <package arch="i586" checksum="8c51e8336812ca66c039def223a047fb8e875ae2" version="4.6.2-1.6.9" checksum_type="SHA1">libqt4-sql</package>
+      <package arch="i586" checksum="95c64b96add9e424751314c006295a20cb4b6c68" version="4.6.2-1.6.11" checksum_type="SHA1">libqt4-sql-mysql</package>
+      <package arch="i586" checksum="be5cc653f1639373c79344cd4b32ac5214a7beeb" version="4.6.2-1.6.9" checksum_type="SHA1">libqt4-sql-sqlite</package>
+      <package arch="i586" checksum="bd9200b932e1f2fce28a62778ef75ffbe2b3279d" version="4.6.2-1.6.9" checksum_type="SHA1">libqt4-x11</package>
+      <package arch="i586" checksum="6311b2dd3ab28e130dfba41f5c453738a91d12d5" version="0.4.2-4.25" checksum_type="SHA1">libqtpod0</package>
+      <package arch="i586" checksum="76a9da51fa98ec7d97c2d4651165a0ce5cac43f8" version="4.6.2-1.6.9" checksum_type="SHA1">libQtWebKit4</package>
+      <package arch="i586" checksum="ba54093e2dd69f28d34198c0ca4351147eaa3a60" version="3.0.0-0.5.5" checksum_type="SHA1">novell-qtgui</package>
+      <package arch="i586" checksum="69a220637d3a504f86f31930d71b646fdd3441b6" version="3.0.0-0.5.5" checksum_type="SHA1">novell-qtgui-cli</package>
+      <package arch="i586" checksum="1451f1b02b9929396b746184f67c5b3ac205f175" version="0.7.5-61.33.1" checksum_type="SHA1">pinentry-qt</package>
+      <package arch="i586" checksum="a9c1e61bff0a07130534ffe4f59e063c10f711ab" version="3.17.6-1.25" checksum_type="SHA1">python-qt</package>
+      <package arch="i586" checksum="e97d889d3f3c20736cfd3f271c978ea61a7d35d1" version="4.6.2-0.1.87" checksum_type="SHA1">python-qt4</package>
+      <package arch="i586" checksum="d58ea859d12caa27611bf2de79c1818ffac2ee20" version="3.3.8b-88.21" checksum_type="SHA1">qt3</package>
+      <package arch="i586" checksum="c63ba3b988189f411db85282a8625b03dc2eabf3" version="0.1.0-3.1.83" checksum_type="SHA1">qt4-qtscript</package>
+      <package arch="i586" checksum="5daf08fa5f1b326aadf98f851b7f64c76624130b" version="0.59.7-2.30" checksum_type="SHA1">qtcurve-gtk2</package>
+      <package arch="i586" checksum="0d7bd26ad9e221f0a60bc0c7de690b69292055bc" version="0.59.5-1.32" checksum_type="SHA1">qtcurve-kde</package>
+      <package arch="i586" checksum="36b23e28ce93c342a941bbeff1d512c723591bef" version="0.7.1-161.29" checksum_type="SHA1">qtsharp</package>
+      <package arch="i586" checksum="b6c21f19c52b5fb69a9b7121c68451623b456ea9" version="0.4.15-6.22" checksum_type="SHA1">scim-bridge-qt</package>
+      <package arch="i586" checksum="e05b6db08f40fe4f3cddb1a6fbeec982d6086945" version="0.9.4-270.29" checksum_type="SHA1">scim-qtimm</package>
+      <package arch="i586" checksum="26b372ee99bd2c7230543271246c0ea15ed8083d" version="1.2.1-276.39" checksum_type="SHA1">uim-qt</package>
+      <package arch="i586" checksum="4eb86a796c132a5aea9f453c1124917ab81fa3e0" version="2.2.12-198.21" checksum_type="SHA1">unixODBC-gui-qt</package>
+      <package arch="i586" checksum="448d609ed2cdaace105a0f1e3fe8437222253824" version="2.17.4-0.1.76" checksum_type="SHA1">yast2-control-center-qt</package>
+      <package arch="i586" checksum="9a5af7f854ee7b85bfe28100ccb1044e33fbdaa7" version="2.18.11-0.2.12" checksum_type="SHA1">yast2-qt</package>
+      <package arch="i586" checksum="8a7b02e94f3fb51fc074762a19430a2365c076b3" version="2.18.20-1.2.35" checksum_type="SHA1">yast2-qt-pkg</package>
+    </software>
+  </repository>
+  <repository name="SLE 11 SP1 SDK i386" id="6351">
+    <software type="array">
+      <package arch="i586" checksum="40f1bdd184f357feced78cd841fe379e7c907c9e" version="0.62-223.1.43" checksum_type="SHA1">dbus-1-qt3-devel</package>
+      <package arch="i586" checksum="1a524bcff3687f58177d3b2db77340f976174835" version="0.8.1-17.25" checksum_type="SHA1">dbusxml2qt3</package>
+      <package arch="i586" checksum="a057fbf61f2d47f3fdcea9834f4b9239e34829e2" version="0.8.1-17.25" checksum_type="SHA1">libdbus-1-qt3-0-devel</package>
+      <package arch="i586" checksum="a6a33ab1c9898cf10662ff109c8c88c6734e7084" version="0.3.14-2.12.105" checksum_type="SHA1">libpackagekit-qt10</package>
+      <package arch="i586" checksum="0bd977f6bcb45b96b3f1c557b3686b98d523f91c" version="0.3.14-2.12.105" checksum_type="SHA1">libpackagekit-qt10-devel</package>
+      <package arch="i586" checksum="aa11036dbcf725d827830efc09ee39d80194123d" version="0.9.2-3.1.92" checksum_type="SHA1">libpolkit-qt-devel</package>
+      <package arch="i586" checksum="9bd016e43eecc909e1e020668cd33488190af305" version="0.12.3-1.2.44" checksum_type="SHA1">libpoppler-qt2</package>
+      <package arch="i586" checksum="c90abcb0dbadae4d323e66eff3d07ba3e911e736" version="0.12.3-1.2.44" checksum_type="SHA1">libpoppler-qt3-devel</package>
+      <package arch="i586" checksum="5d06ef80c1f7f673707104b24a929d4f26e9291e" version="0.12.3-1.2.44" checksum_type="SHA1">libpoppler-qt4-devel</package>
+      <package arch="i586" checksum="08ec7c109b9338cbe0b39abd4ca719f8d7818d4a" version="4.6.2-1.6.9" checksum_type="SHA1">libqt4-devel</package>
+      <package arch="i586" checksum="2fe56aa971e97f2ad7bca5a25b3c8732afb127a5" version="4.6.2-1.6.10" checksum_type="SHA1">libqt4-devel-doc</package>
+      <package arch="noarch" checksum="dffc913a9f81896fc4cc2adee98bd7e85e442459" version="4.6.2-1.6.10" checksum_type="SHA1">libqt4-devel-doc-data</package>
+      <package arch="i586" checksum="b0a28b4d601a68c3213154b35d0bee98dbddef14" version="4.6.2-1.6.11" checksum_type="SHA1">libqt4-sql-postgresql</package>
+      <package arch="i586" checksum="8ebccb2ac5d5c57764e1e2a314fd87080d0b0f34" version="4.6.2-1.6.11" checksum_type="SHA1">libqt4-sql-unixODBC</package>
+      <package arch="i586" checksum="5169207e268211126cdcd3835a07a4bde19826a8" version="0.4.2-4.25" checksum_type="SHA1">libqtpod-devel</package>
+      <package arch="i586" checksum="ea04fc9e8e4fb715cd075a4338698b31ed8c7c23" version="4.6.2-1.6.9" checksum_type="SHA1">libQtWebKit-devel</package>
+      <package arch="i586" checksum="089338f60bad1c4842d02637904c04bbde447ac2" version="4.6.2-0.1.87" checksum_type="SHA1">python-qt4-devel</package>
+      <package arch="i586" checksum="a402adb5103d244fe850dc92a43682904f58a458" version="3.3.8b-88.21" checksum_type="SHA1">qt3-devel</package>
+      <package arch="noarch" checksum="b737d34e4e3e95d9ba2b9f240cedccf37152122c" version="3.3.8b-88.21" checksum_type="SHA1">qt3-devel-doc</package>
+      <package arch="i586" checksum="62ae7b7d5c2cd29c36340a5f4f3500e6b21a7d62" version="3.3.8b-88.21" checksum_type="SHA1">qt3-devel-tools</package>
+      <package arch="i586" checksum="b1fe4c6a4914dd9091b29e9fe4ef1137338b29e7" version="0.7a-134.25" checksum_type="SHA1">qtc</package>
+      <package arch="i586" checksum="ae175d57d57184618cae7e24f85b91d63ffdf81d" version="1.2.1-3.1.79" checksum_type="SHA1">qt-creator</package>
+      <pattern arch="i586" version="11">sdk_qt4</pattern>
+      <package arch="i586" checksum="1ddb2c0c0efb7d0ca2876937f03c5c25b6562f71" version="2.18.11-0.2.12" checksum_type="SHA1">yast2-qt-devel</package>
+    </software>
+  </repository>
+</software_map>
