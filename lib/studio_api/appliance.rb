@@ -64,6 +64,19 @@ module StudioApi
       convert_selectable attrs
     end
 
+    def installed_software (build_id = nil)
+      request_str = "/appliances/#{id.to_i}/software/installed"
+			request_str << "?build_id=#{build_id.to_i}" if build_id
+      response = GenericRequest.new(self.class.studio_connection).get request_str
+      attrs = XmlSimple.xml_in response
+			res = []
+			attrs["repository"].each do |repo|
+				options = { "repository_id" => repo["id"].to_i }
+      	res += convert_selectable repo["software"][0], options
+			end
+			res
+    end
+
 #internal overwrite of ActiveResource::Base methods
     def new?
       false #Appliance has only POST method
@@ -79,10 +92,10 @@ module StudioApi
 private
     def convert_selectable attrs, preset_options = {}
       res = []
-      attrs["pattern"].each do |pattern|
+      (attrs["pattern"]||[]).each do |pattern|
         res << create_model_based_on_attrs(Pattern, pattern, preset_options)
       end
-      attrs["package"].each do |package|
+      (attrs["package"]||[]).each do |package|
         res << create_model_based_on_attrs( Package, package, preset_options)
       end
       res
