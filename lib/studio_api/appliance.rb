@@ -28,7 +28,9 @@ module StudioApi
 
     def status
       Status.set_connection self.class.studio_connection
-      Status.find :one, :from => File.join(self.class.site.path, "appliances/#{id.to_i}/status")
+      #rails is so smart, that it ignores prefix for calls. At least it is good that we don't want to do such things from library users
+      from = self.class.join_relative_url( self.class.site.path,"appliances/#{id.to_i}/status")
+      Status.find :one, :from => from
     end
 
     def repositories

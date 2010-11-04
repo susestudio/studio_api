@@ -37,7 +37,6 @@ module StudioApi
       "#{prefix(prefix_options)}#{collection_name}#{query_string(query_options)}"
     end
 
-private
   #joins relative url for unix servers
   def self.join_relative_url(*args)
     args.reduce do |base, append|
