@@ -3,6 +3,8 @@ require "studio_api/generic_request"
 require "studio_api/pattern"
 require "studio_api/package"
 require "xmlsimple"
+require "fileutils"
+
 module StudioApi
   class Appliance < Resource
     class Status < Resource
@@ -26,7 +28,7 @@ module StudioApi
 
     def status
       Status.set_connection self.class.studio_connection
-      Status.find :one, :from => "/appliances/#{id.to_i}/status"
+      Status.find :one, :from => File.join(self.class.site.path, "appliances/#{id.to_i}/status")
     end
 
     def repositories
