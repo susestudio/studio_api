@@ -20,10 +20,14 @@ module StudioApi
       end
     end
     
-#there is need to manually define parsing of XML as ARes has problem with attributes in XML
-    class Software < Resource
+    class GpgKey < Resource
       self.prefix = "/appliances/:appliance_id/"
-      self.collection_name = "software"
+      self.element_name = "gpg_key"
+      mattr_accessor :appliance
+
+      def delete
+        self.class.appliance.remove_repository id
+      end
     end
 
     def status
@@ -59,6 +63,18 @@ module StudioApi
     def clone options={}
       options[:appliance_id] = id
       post('',options)
+    end
+
+    def gpg_keys
+      my_key = GpgKey.dup
+      my_key.set_connection self.class.studio_connection
+      my_key.find :all, :params => { :appliance_id => id }
+    end
+
+    def gpg_key( key_id )
+      my_key = GpgKey.dup
+      my_key.set_connection self.class.studio_connection
+      my_key.find key_id, :params => { :appliance_id => id }
     end
 
     def selected_software

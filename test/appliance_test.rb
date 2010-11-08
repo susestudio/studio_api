@@ -23,6 +23,8 @@ REPO_ID = 6345
     appliance_out = respond_load "appliance.xml"
     status_out = respond_load "status.xml"
     repositories_out = respond_load "repositories.xml"
+    gpg_keys_out = respond_load "gpg_keys.xml"
+    gpg_key_out = respond_load "gpg_key.xml"
     ActiveResource::HttpMock.respond_to do |mock|
       mock.get "/api/appliances", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliances_out,200
       mock.get "/api/appliances/#{APPLIANCE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliance_out,200
@@ -33,6 +35,8 @@ REPO_ID = 6345
       mock.post "/api/appliances/#{APPLIANCE_ID}/cmd/remove_repository?repo_id=#{REPO_ID}",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
       mock.post "/api/appliances/#{APPLIANCE_ID}/cmd/add_repository?repo_id=#{REPO_ID}",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
       mock.post "/api/appliances/#{APPLIANCE_ID}/cmd/add_user_repository",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
+      mock.get "/api/appliances/#{APPLIANCE_ID}/gpg_keys", {"Authorization"=>"Basic dGVzdDp0ZXN0"},gpg_keys_out,200
+      mock.get "/api/appliances/#{APPLIANCE_ID}/gpg_keys/1976", {"Authorization"=>"Basic dGVzdDp0ZXN0"},gpg_key_out,200
     end
   end
 
@@ -124,5 +128,16 @@ REPO_ID = 6345
 		assert appliance.remove_pattern "kde4"
 		assert appliance.ban_package "3ddiag"
 		assert appliance.unban_package "3ddiag"
+  end
+
+  def test_gpg_keys
+    res = StudioApi::Appliance.new(:id => APPLIANCE_ID).gpg_keys
+    assert_equal 3,res.size
+  end
+
+  def test_gpg_key
+    res = StudioApi::Appliance.new(:id => APPLIANCE_ID).gpg_key 1976
+    assert_equal 1976, res.id.to_i
+    assert_equal "rpm", res.target
   end
 end
