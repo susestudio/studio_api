@@ -18,8 +18,8 @@ end
 class ResourceTest < Test::Unit::TestCase
   def setup
     @connection = StudioApi::Connection.new("test","test","http://localhost/api/user")
-    MyTest.set_connection @connection
-    MyTest2.set_connection @connection
+    MyTest.studio_connection = @connection
+    MyTest2.studio_connection = @connection
   end
 
   def test_site

@@ -25,7 +25,7 @@ module StudioApi
       #for delete repository doesn't work clasic method from ARes
       def self.delete (id, options)
         my_app = Appliance.dup
-        my_app.set_connection studio_connection
+        my_app.studio_connection = studio_connection
         my_app.new(:id => options[:appliance_id]).remove_repository id
       end
     end
@@ -49,7 +49,7 @@ module StudioApi
     end
 
     def status
-      Status.set_connection self.class.studio_connection
+      Status.studio_connection = self.class.studio_connection
       #rails is so smart, that it ignores prefix for calls. At least it is good that we don't want to do such things from library users
       from = self.class.join_relative_url( self.class.site.path,"appliances/#{id.to_i}/status")
       Status.find :one, :from => from
@@ -57,7 +57,7 @@ module StudioApi
 
     def repositories
       my_repo = Repository.dup
-      my_repo.set_connection self.class.studio_connection
+      my_repo.studio_connection = self.class.studio_connection
       my_repo.appliance = self
       my_repo.find :all, :params => { :appliance_id => id }
     end
@@ -85,19 +85,19 @@ module StudioApi
 
     def gpg_keys
       my_key = GpgKey.dup
-      my_key.set_connection self.class.studio_connection
+      my_key.studio_connection = self.class.studio_connection
       my_key.find :all, :params => { :appliance_id => id }
     end
 
     def gpg_key( key_id )
       my_key = GpgKey.dup
-      my_key.set_connection self.class.studio_connection
+      my_key.studio_connection = self.class.studio_connection
       my_key.find key_id, :params => { :appliance_id => id }
     end
 
     def add_gpg_key (name, key, options={})
       my_key = GpgKey.dup
-      my_key.set_connection self.class.studio_connection
+      my_key.studio_connection = self.class.studio_connection
       my_key.create id, name, key, options
     end
 

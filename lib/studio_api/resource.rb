@@ -6,7 +6,7 @@ module StudioApi
       @studio_connection
     end
 
-    def self.set_connection connection
+    def self.studio_connection= connection
       self.site = connection.uri.to_s
       #there is general problem, that when specified prefix in model, it doesn't contain uri.path
       # as it is not know and uri is set during runtime, so we must add here manually adapt prefix
@@ -40,8 +40,8 @@ module StudioApi
   #joins relative url for unix servers
   def self.join_relative_url(*args)
     args.reduce do |base, append|
-      base.chop! if base.end_with? "/" #chop last slash
-      append = append[1..-1] if append.start_with? "/" #remove leading slash
+      base= base[0..-2] if base.end_with? "/" #remove ending slash in base
+      append = append[1..-1] if append.start_with? "/" #remove leading slash in append
       "#{base}/#{append}"
     end
   end

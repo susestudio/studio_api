@@ -16,7 +16,7 @@ REPOSITORY_ID = 6343
   end
   def setup
     @connection = StudioApi::Connection.new("test","test","http://localhost")
-    StudioApi::Repository.set_connection @connection
+    StudioApi::Repository.studio_connection = @connection
     repositories_out = respond_load "repositories.xml"
     repository_out = respond_load "repository.xml"
     ActiveResource::HttpMock.respond_to do |mock|

@@ -17,7 +17,7 @@ class RunningBuildTest < Test::Unit::TestCase
 
   def setup
     @connection = StudioApi::Connection.new("test", "test", "http://localhost")
-    StudioApi::RunningBuild.set_connection @connection
+    StudioApi::RunningBuild.studio_connection = @connection
 
     running_builds_out = respond_load "running_builds.xml"
     running_build_out = respond_load "running_build.xml"

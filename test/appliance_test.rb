@@ -18,8 +18,8 @@ REPO_ID = 6345
 
   def setup
     @connection = StudioApi::Connection.new("test","test","http://localhost/api/")
-    StudioApi::Appliance.set_connection @connection
-    StudioApi::Appliance::GpgKey.set_connection @connection
+    StudioApi::Appliance.studio_connection = @connection
+    StudioApi::Appliance::GpgKey.studio_connection = @connection
     appliances_out = respond_load "appliances.xml"
     appliance_out = respond_load "appliance.xml"
     status_out = respond_load "status.xml"
@@ -40,6 +40,10 @@ REPO_ID = 6345
       mock.get "/api/appliances/#{APPLIANCE_ID}/gpg_keys/1976", {"Authorization"=>"Basic dGVzdDp0ZXN0"},gpg_key_out,200
       mock.delete "/api/appliances/#{APPLIANCE_ID}/gpg_keys/1976", {"Authorization"=>"Basic dGVzdDp0ZXN0"},gpg_key_out,200
     end
+  end
+
+  def teardown
+    Mocha::Mockery.instance.stubba.unstub_all
   end
 
   def test_find_all
@@ -76,7 +80,7 @@ REPO_ID = 6345
     assert appliance.remove_repository REPO_ID
     repo = appliance.repositories.detect { |r| r.id == REPO_ID.to_s}
     assert repo.destroy #another way to delete repository
-    StudioApi::Appliance::Repository.set_connection @connection
+    StudioApi::Appliance::Repository.studio_connection = @connection
     assert StudioApi::Appliance::Repository.delete REPO_ID, :appliance_id => APPLIANCE_ID #and third way to delete repo
   end
 
