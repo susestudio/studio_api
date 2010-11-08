@@ -25,6 +25,8 @@ class RunningBuildTest < Test::Unit::TestCase
     ActiveResource::HttpMock.respond_to do |mock|
       mock.get "/running_builds?appliance_id=#{APPLIANCE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, running_builds_out, 200
       mock.get "/running_builds/#{BUILD_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, running_build_out, 200
+      mock.delete "/running_builds/#{BUILD_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, running_build_out, 200
+      mock.post "/running_builds?appliance_id=#{APPLIANCE_ID}&force=true", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, running_build_out, 200
     end
   end
 
@@ -33,5 +35,16 @@ class RunningBuildTest < Test::Unit::TestCase
     assert_equal 3, res.size
     res = StudioApi::RunningBuild.find BUILD_ID
     assert_equal BUILD_ID, res.id.to_i
+  end
+
+  def test_cancel
+    running_build = StudioApi::RunningBuild.find BUILD_ID
+    assert running_build.destroy
+    assert StudioApi::RunningBuild.delete BUILD_ID
+    assert running_build.cancel #test alias
+  end
+
+  def test_run_new
+    assert StudioApi::RunningBuild.new (:appliance_id => APPLIANCE_ID, :force => true).save
   end
 end
