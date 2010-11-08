@@ -1,0 +1,17 @@
+<build>
+  <id>509559</id>
+  <version>0.0.1</version>
+  <state>finished</state>
+  <expired>true</expired>
+  <image_type>vmx</image_type>
+  <checksum>
+    <md5>a0f0217f0645099c9e41c42e9bf89976</md5>
+    <sha1>9c984b05f9301e70cd72aa44b8fd9f12b920fde6</sha1>
+  </checksum>
+  <size>695</size>
+  <compressed_image_size>121</compressed_image_size>
+  <completed_at>2010-10-08 14:50:03 UTC</completed_at>
+  <download_url>
+    http://susestudio.com/download/a0f0217f0645099c9e41c42e9bf89976/josefs_SLES_11_SP1_git_test.i686-0.0.1.vmx.tar.gz
+  </download_url>
+</build>
