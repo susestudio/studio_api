@@ -19,6 +19,7 @@ REPO_ID = 6345
   def setup
     @connection = StudioApi::Connection.new("test","test","http://localhost/api/")
     StudioApi::Appliance.set_connection @connection
+    StudioApi::Appliance::GpgKey.set_connection @connection
     appliances_out = respond_load "appliances.xml"
     appliance_out = respond_load "appliance.xml"
     status_out = respond_load "status.xml"
@@ -37,6 +38,7 @@ REPO_ID = 6345
       mock.post "/api/appliances/#{APPLIANCE_ID}/cmd/add_user_repository",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
       mock.get "/api/appliances/#{APPLIANCE_ID}/gpg_keys", {"Authorization"=>"Basic dGVzdDp0ZXN0"},gpg_keys_out,200
       mock.get "/api/appliances/#{APPLIANCE_ID}/gpg_keys/1976", {"Authorization"=>"Basic dGVzdDp0ZXN0"},gpg_key_out,200
+      mock.delete "/api/appliances/#{APPLIANCE_ID}/gpg_keys/1976", {"Authorization"=>"Basic dGVzdDp0ZXN0"},gpg_key_out,200
     end
   end
 
@@ -61,6 +63,7 @@ REPO_ID = 6345
 
   def test_delete
     assert StudioApi::Appliance.delete APPLIANCE_ID
+    assert StudioApi::Appliance.find(APPLIANCE_ID).destroy #same but different way
   end
 
   def test_repositories
@@ -72,7 +75,9 @@ REPO_ID = 6345
     appliance = StudioApi::Appliance.new(:id => APPLIANCE_ID)
     assert appliance.remove_repository REPO_ID
     repo = appliance.repositories.detect { |r| r.id == REPO_ID.to_s}
-    assert repo.delete #another way to delete repository
+    assert repo.destroy #another way to delete repository
+    StudioApi::Appliance::Repository.set_connection @connection
+    assert StudioApi::Appliance::Repository.delete REPO_ID, :appliance_id => APPLIANCE_ID #and third way to delete repo
   end
 
   def test_repository_add
@@ -139,5 +144,18 @@ REPO_ID = 6345
     res = StudioApi::Appliance.new(:id => APPLIANCE_ID).gpg_key 1976
     assert_equal 1976, res.id.to_i
     assert_equal "rpm", res.target
+  end
+
+  def test_delete_gpg_key
+    assert StudioApi::Appliance::GpgKey.delete 1976, :appliance_id => APPLIANCE_ID 
+    res = StudioApi::Appliance.new(:id => APPLIANCE_ID).gpg_key 1976
+    assert res.destroy
+  end
+
+  def test_add_gpg_key
+    gpg_key_out = respond_load "gpg_key.xml"
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&target=rpm&key=test",:key => "test").returns(gpg_key_out).twice
+    assert StudioApi::Appliance::GpgKey.create APPLIANCE_ID, "test", "test"
+    assert StudioApi::Appliance.new(:id => APPLIANCE_ID).add_gpg_key "test", "test"
   end
 end

@@ -7,6 +7,8 @@ require "fileutils"
 
 module StudioApi
   class Appliance < Resource
+    self.element_name = "appliance"
+
     class Status < Resource
     end
 
@@ -15,8 +17,16 @@ module StudioApi
       self.element_name = "repository"
       mattr_accessor :appliance
 
-      def delete
+      #for delete repository doesn't work clasic method from ARes
+      def destroy
         self.class.appliance.remove_repository id
+      end
+
+      #for delete repository doesn't work clasic method from ARes
+      def self.delete (id, options)
+        my_app = Appliance.dup
+        my_app.set_connection studio_connection
+        my_app.new(:id => options[:appliance_id]).remove_repository id
       end
     end
     
@@ -25,8 +35,16 @@ module StudioApi
       self.element_name = "gpg_key"
       mattr_accessor :appliance
 
-      def delete
-        self.class.appliance.remove_repository id
+      def self.create (appliance_id, name, key, options={})
+        options[:target] ||= "rpm"
+        if key.is_a? String #if key is string, that pass it in request, if not pack it in body
+          options[:key] = key
+        end
+        request_str = "/appliances/#{appliance_id.to_i}/gpg_keys?name=#{name}"
+        options.each do |k,v|
+          request_str << "&#{URI.escape k.to_s}=#{URI.escape v.to_s}"
+        end
+        GenericRequest.new(studio_connection).post request_str, :key => key
       end
     end
 
@@ -75,6 +93,12 @@ module StudioApi
       my_key = GpgKey.dup
       my_key.set_connection self.class.studio_connection
       my_key.find key_id, :params => { :appliance_id => id }
+    end
+
+    def add_gpg_key (name, key, options={})
+      my_key = GpgKey.dup
+      my_key.set_connection self.class.studio_connection
+      my_key.create id, name, key, options
     end
 
     def selected_software
