@@ -2,8 +2,10 @@ require "studio_api/resource"
 require "cgi"
 module StudioApi
   class File < Resource
+    self.element_name = "file"
+
     def download (output)
-      rq = GenericRequest.new File.studio_connection
+      rq = GenericRequest.new self.class.studio_connection
       data = rq.get "/files/#{id.to_i}/data"
       if output.respond_to? :write #already stream
         output.write data
@@ -20,8 +22,14 @@ module StudioApi
         request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v}"
       end
       
-      rq = GenericRequest.new File.studio_connection
+      rq = GenericRequest.new self.class.studio_connection
       rq.post request_str, input_path
+    end
+
+private 
+    # file uses for update parameter put
+    def new?
+      false
     end
   end
 end

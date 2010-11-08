@@ -1,0 +1,14 @@
+<files type="array">
+  <file>
+    <id>1234765</id>
+    <filename>suseRegister.conf</filename>
+    <path>/etc</path>
+    <owner>root</owner>
+    <group>root</group>
+    <permissions>644</permissions>
+    <enabled>true</enabled>
+    <size>448</size>
+    <checksum type="md5">490d6b9fc97657e2cb835ea82def2e07</checksum>
+    <download_url>http://susestudio.com/file/download/214486/1234765</download_url>
+  </file>
+</files>
