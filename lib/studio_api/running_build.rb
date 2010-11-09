@@ -1,9 +1,11 @@
-require "studio_api/resource"
+require "studio_api/studio_resource"
 
 require "uri"
 
 module StudioApi
-  class RunningBuild < Resource
+  class RunningBuild < ActiveResource::Base
+    extend StudioResource
+
     self.element_name = "running_build"
 
     alias_method :cancel, :destroy

@@ -1,9 +1,11 @@
-require "studio_api/resource"
+require "studio_api/studio_resource"
 require 'cgi'
 
 
 module StudioApi
-  class Rpm < Resource
+  class Rpm < ActiveResource::Base
+    extend StudioResource
+
     self.element_name = "rpm"
     def self.upload file_path, base_system
       ::File.open( file_path, "r" ) do |file|

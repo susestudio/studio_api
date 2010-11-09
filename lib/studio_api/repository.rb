@@ -1,7 +1,9 @@
-require "studio_api/resource"
+require "studio_api/studio_resource"
 module StudioApi
   #method find :all has optional parameters base_system and filter
-  class Repository < Resource
+  class Repository < ActiveResource::Base
+    extend StudioResource
+
     undef_method :save #save is useless there
 
     def self.import (url, name)

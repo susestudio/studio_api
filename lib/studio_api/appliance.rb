@@ -1,4 +1,4 @@
-require "studio_api/resource"
+require "studio_api/studio_resource"
 require "studio_api/generic_request"
 require "studio_api/pattern"
 require "studio_api/package"
@@ -6,13 +6,17 @@ require "xmlsimple"
 require "fileutils"
 
 module StudioApi
-  class Appliance < Resource
+  class Appliance < ActiveResource::Base
+    extend StudioResource
+
     self.element_name = "appliance"
 
-    class Status < Resource
+    class Status < ActiveResource::Base
+      extend StudioResource
     end
 
-    class Repository < Resource
+    class Repository < ActiveResource::Base
+      extend StudioResource
       self.prefix = "/appliances/:appliance_id/"
       self.element_name = "repository"
       mattr_accessor :appliance
@@ -30,7 +34,8 @@ module StudioApi
       end
     end
     
-    class GpgKey < Resource
+    class GpgKey < ActiveResource::Base
+      extend StudioResource
       self.prefix = "/appliances/:appliance_id/"
       self.element_name = "gpg_key"
       mattr_accessor :appliance

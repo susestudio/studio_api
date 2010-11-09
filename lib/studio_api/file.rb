@@ -1,7 +1,8 @@
-require "studio_api/resource"
+require "studio_api/studio_resource"
 require "cgi"
 module StudioApi
-  class File < Resource
+  class File < ActiveResource::Base
+    extend StudioResource
     self.element_name = "file"
 
     def download (output)

@@ -1,17 +1,19 @@
 require 'rubygems'
 require 'active_support'
 $:.unshift File.join( File.dirname(__FILE__),'..','lib')
-require 'studio_api/resource'
+require 'studio_api/studio_resource'
 require 'studio_api/connection'
 
 require 'active_resource/http_mock'
 require 'mocha'
 require 'test/unit'
 
-class MyTest < StudioApi::Resource
+class MyTest < ActiveResource::Base
+  extend StudioApi::StudioResource
 end
 
-class MyTest2 < StudioApi::Resource
+class MyTest2 < ActiveResource::Base
+  extend StudioApi::StudioResource
   self.prefix = "/appliance/:test/"
 end
 
