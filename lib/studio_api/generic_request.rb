@@ -22,6 +22,9 @@ require 'uri'
 require 'cgi'
 require 'net/http'
 require 'net/https'
+require 'active_support'
+require 'active_resource/formats'
+require 'active_resource/connection'
 
 module StudioApi
   class GenericRequest
@@ -68,20 +71,25 @@ module StudioApi
       @http.start() do
         response = @http.request request
         unless response.kind_of? Net::HTTPSuccess
-          raise error_message response
+          msg = error_message response
+          create_active_resource_exception response,msg
         end
       end
-    rescue RuntimeError => e
-      raise e.message
+    end
+
+      #XXX not so nice to use internal method, but better to be DRY and proper test if it works with supported rails
+    def create_active_resource_exception response,msg
+      response.instance_variable_set "@message",msg
+      ActiveResource::Connection.new('').send :handle_response, response
     end
 
     def error_message response
       xml_parsed = XmlSimple.xml_in(response.body, {'KeepRoot' => true})
       raise "Unknown error response from Studio: #{response.body}" unless xml_parsed['error']
       msg = ""
-      xml_parsed['error'].each() {|error| msg << error['message']+"\n" }
+      xml_parsed['error'].each() {|error| msg << error['message'][0]+"\n" }
       return msg
-    rescue
+    rescue RuntimeError
       return response.message+"\n"+response.body
     end
 
