@@ -1,0 +1,404 @@
+<rpms type="array" base_system="SLES11_SP1">
+  <rpm>
+    <id>27653</id>
+    <filename>
+    josefs_sles_11_sp1_slms_test_guest_i586-update-0.0.1-8.noarch.rpm
+    </filename>
+    <size>4585</size>
+    <archive>false</archive>
+    <checksum type="md5">111395637da8b6530b74953d2994c86f</checksum>
+  </rpm>
+  <rpm>
+    <id>27652</id>
+    <filename>
+    josefs_sles_11_sp1_slms_test_guest_i586-release-0.0.1-0.noarch.rpm
+    </filename>
+    <size>10484</size>
+    <archive>false</archive>
+    <checksum type="md5">2a5eb396f74f69f3db4c08da3b228a41</checksum>
+  </rpm>
+  <rpm>
+    <id>27646</id>
+    <filename>
+    josefs_sles_11_sp1_slms_test_guest_i586-update-0.0.1-7.noarch.rpm
+    </filename>
+    <size>4588</size>
+    <archive>false</archive>
+    <checksum type="md5">0ae0dfa0d17d8c29d39b8d5c2070f098</checksum>
+  </rpm>
+  <rpm>
+    <id>26948</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-14.noarch.rpm
+    </filename>
+    <size>4099</size>
+    <archive>false</archive>
+    <checksum type="md5">9545b8ca65618221c6199ba3784bc411</checksum>
+  </rpm>
+  <rpm>
+    <id>26946</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-13.noarch.rpm
+    </filename>
+    <size>4071</size>
+    <archive>false</archive>
+    <checksum type="md5">69ed176704bbc501d2d41ac1def1c848</checksum>
+  </rpm>
+  <rpm>
+    <id>26945</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-12.noarch.rpm
+    </filename>
+    <size>4101</size>
+    <archive>false</archive>
+    <checksum type="md5">2f5040683126bd8a407b3c6bbb46d9a0</checksum>
+  </rpm>
+  <rpm>
+    <id>26944</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-11.noarch.rpm
+    </filename>
+    <size>4071</size>
+    <archive>false</archive>
+    <checksum type="md5">dc8f9df63f653b89e5d8de94fc71fb2e</checksum>
+  </rpm>
+  <rpm>
+    <id>26941</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-10.noarch.rpm
+    </filename>
+    <size>4102</size>
+    <archive>false</archive>
+    <checksum type="md5">cac6b9feedee2556971d642d7213a5cf</checksum>
+  </rpm>
+  <rpm>
+    <id>26940</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-9.noarch.rpm
+    </filename>
+    <size>4066</size>
+    <archive>false</archive>
+    <checksum type="md5">44599fc49e91a08c3106e78203cf1833</checksum>
+  </rpm>
+  <rpm>
+    <id>26937</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-8.noarch.rpm
+    </filename>
+    <size>4066</size>
+    <archive>false</archive>
+    <checksum type="md5">0caf2885ea7e2bc45efc3fa696ea9241</checksum>
+  </rpm>
+  <rpm>
+    <id>26936</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-7.noarch.rpm
+    </filename>
+    <size>4138</size>
+    <archive>false</archive>
+    <checksum type="md5">85aa2f35d6d43193bd01566c2008cb46</checksum>
+  </rpm>
+  <rpm>
+    <id>26935</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-6.noarch.rpm
+    </filename>
+    <size>4067</size>
+    <archive>false</archive>
+    <checksum type="md5">028d70a42d7b8f5123a258719abb8f46</checksum>
+  </rpm>
+  <rpm>
+    <id>26780</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-5.noarch.rpm
+    </filename>
+    <size>4098</size>
+    <archive>false</archive>
+    <checksum type="md5">609812cd8c470f9e1f6e36f117506e57</checksum>
+  </rpm>
+  <rpm>
+    <id>26777</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-4.noarch.rpm
+    </filename>
+    <size>4067</size>
+    <archive>false</archive>
+    <checksum type="md5">3dad29101beed54a8f934b3319511256</checksum>
+  </rpm>
+  <rpm>
+    <id>26776</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-3.noarch.rpm
+    </filename>
+    <size>4087</size>
+    <archive>false</archive>
+    <checksum type="md5">e4c199ad058fdd17d9780ad21e1ed419</checksum>
+  </rpm>
+  <rpm>
+    <id>26775</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-release-0.0.1-0.noarch.rpm
+    </filename>
+    <size>10470</size>
+    <archive>false</archive>
+    <checksum type="md5">e3b9ae3ebcefab216096ad0aae05d9e7</checksum>
+  </rpm>
+  <rpm>
+    <id>26771</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-2.noarch.rpm
+    </filename>
+    <size>4087</size>
+    <archive>false</archive>
+    <checksum type="md5">0d40d0748a7d2dba5b6310685ccb079e</checksum>
+  </rpm>
+  <rpm>
+    <id>26769</id>
+    <filename>
+    josefs_sles_11_sp1_downgrade_test_i586-update-0.0.1-1.noarch.rpm
+    </filename>
+    <size>3104</size>
+    <archive>false</archive>
+    <checksum type="md5">dc1d3ab59621f7f7bd840c110642f825</checksum>
+  </rpm>
+  <rpm>
+    <id>26763</id>
+    <filename>
+    josefs_sles_11_sp1_adapt_test_i586-update-0.0.1-2.noarch.rpm
+    </filename>
+    <size>4221</size>
+    <archive>false</archive>
+    <checksum type="md5">c59d0617eb414abf75a4c0cc6a147fd4</checksum>
+  </rpm>
+  <rpm>
+    <id>26624</id>
+    <filename>
+    josefs_sles_11_sp1_slms_test_guest_i586-update-0.0.1-6.noarch.rpm
+    </filename>
+    <size>4658</size>
+    <archive>false</archive>
+    <checksum type="md5">4a362e800e7b2042b623b8e8a7fc1c66</checksum>
+  </rpm>
+  <rpm>
+    <id>26623</id>
+    <filename>
+    josefs_sles_11_sp1_slms_test_guest_i586-update-0.0.1-5.noarch.rpm
+    </filename>
+    <size>4658</size>
+    <archive>false</archive>
+    <checksum type="md5">49680a772eb2a5a9d5d12bb1cc855d17</checksum>
+    </rpm>
+    <rpm>
+    <id>26621</id>
+    <filename>
+    josefs_sles_11_sp1_slms_test_guest_i586-update-0.0.1-4.noarch.rpm
+    </filename>
+    <size>4658</size>
+    <archive>false</archive>
+    <checksum type="md5">7d8020fc92a7059b3320f5812ad4b9ab</checksum>
+  </rpm>
+  <rpm>
+    <id>26616</id>
+    <filename>
+    josefs_sles_11_sp1_slms_test_guest_i586-update-0.0.1-3.noarch.rpm
+    </filename>
+    <size>4661</size>
+    <archive>false</archive>
+    <checksum type="md5">7c2d56bc7d42ce2a031926e95df038a9</checksum>
+  </rpm>
+  <rpm>
+    <id>26345</id>
+    <filename>
+    josefs_sles_11_sp1_adapt_test_i586-update-0.0.1-1.noarch.rpm
+    </filename>
+    <size>3065</size>
+    <archive>false</archive>
+    <checksum type="md5">4fafa05d437ad31f73661e2674cf32a3</checksum>
+  </rpm>
+  <rpm>
+    <id>26344</id>
+    <filename>
+    josefs_sles_11_sp1_adapt_test_i586-release-0.0.1-0.noarch.rpm
+    </filename>
+    <size>10434</size>
+    <archive>false</archive>
+    <checksum type="md5">a31bfdeec3015427d2051d5bda0fd866</checksum>
+  </rpm>
+  <rpm>
+    <id>26337</id>
+    <filename>
+    josefs_sles_11_sp1_testing_adapt_i586-update-0.0.1-1.noarch.rpm
+    </filename>
+    <size>3098</size>
+    <archive>false</archive>
+    <checksum type="md5">7e846965518e9b6bd0d73c1662b2596f</checksum>
+  </rpm>
+  <rpm>
+    <id>26336</id>
+    <filename>
+    josefs_sles_11_sp1_testing_adapt_i586-release-0.0.1-0.noarch.rpm
+    </filename>
+    <size>10459</size>
+    <archive>false</archive>
+    <checksum type="md5">868c5356aa362426feb4d7e5fe50ac76</checksum>
+  </rpm>
+  <rpm>
+    <id>26314</id>
+    <filename>
+    josefs_slms_test_updates_x86_64-update-0.0.1-1.noarch.rpm
+    </filename>
+    <size>3951</size>
+    <archive>false</archive>
+    <checksum type="md5">0cf39a47ac16d6716dfcb9ce99716766</checksum>
+  </rpm>
+  <rpm>
+    <id>26313</id>
+    <filename>
+    josefs_slms_test_updates_x86_64-release-0.0.1-0.noarch.rpm
+    </filename>
+    <size>10381</size>
+    <archive>false</archive>
+    <checksum type="md5">a4cea8983ae9b32fb5b996ccdfa1b129</checksum>
+  </rpm>
+  <rpm>
+    <id>25933</id>
+    <filename>
+    josefs_sles_11_sp1_slms_test_guest_i586-update-0.0.1-2.noarch.rpm
+    </filename>
+    <size>4639</size>
+    <archive>false</archive>
+    <checksum type="md5">0e1081e64f41af78e50cce61de5678ec</checksum>
+  </rpm>
+  <rpm>
+    <id>25908</id>
+    <filename>
+    josefs_sles_11_sp1_slms_test_guest_i586-update-0.0.1-1.noarch.rpm
+    </filename>
+    <size>4041</size>
+    <archive>false</archive>
+    <checksum type="md5">a3b916528b38f9dfc7e2d05658053576</checksum>
+  </rpm>
+  <rpm>
+    <id>25026</id>
+    <filename>josefs_slms_test_x86_64-update-0.0.1-1.noarch.rpm</filename>
+    <size>2956</size>
+    <archive>false</archive>
+    <checksum type="md5">baa88733b79179993c72206c3285abef</checksum>
+  </rpm>
+  <rpm>
+    <id>25025</id>
+    <filename>josefs_slms_test_x86_64-release-0.0.1-0.noarch.rpm</filename>
+    <size>10302</size>
+    <archive>false</archive>
+    <checksum type="md5">c5ff5b2e0202222faaa6797bcdd46fb8</checksum>
+  </rpm>
+  <rpm>
+    <id>24684</id>
+    <filename>
+    josefs_webyast_for_apptoolkit_11_i586-update-0.0.9-1.noarch.rpm
+    </filename>
+    <size>3096</size>
+    <archive>false</archive>
+    <checksum type="md5">7c91c9d19f05db7440516ead8d385525</checksum>
+  </rpm>
+  <rpm>
+    <id>24683</id>
+    <filename>
+    josefs_webyast_for_apptoolkit_11_i586-release-0.0.9-0.noarch.rpm
+    </filename>
+    <size>10457</size>
+    <archive>false</archive>
+    <checksum type="md5">c9620964f7c59bd10af55640df37cfb3</checksum>
+  </rpm>
+  <rpm>
+    <id>21160</id>
+    <filename>samba-winbind-3.4.3-13.1.i586.rpm</filename>
+    <size>3328773</size>
+    <archive>false</archive>
+    <checksum type="md5">5616e5d20ca284187531da4cb38866ec</checksum>
+  </rpm>
+  <rpm>
+    <id>21159</id>
+    <filename>samba-krb-printing-3.4.3-13.1.i586.rpm</filename>
+    <size>117339</size>
+    <archive>false</archive>
+    <checksum type="md5">9589d54fe8a01deb46bc6d1d1e413f4e</checksum>
+  </rpm>
+  <rpm>
+    <id>21158</id>
+    <filename>samba-client-3.4.3-13.1.i586.rpm</filename>
+    <size>21615572</size>
+    <archive>false</archive>
+    <checksum type="md5">568d9dce8a65f9f97ecc3ed414ece362</checksum>
+  </rpm>
+  <rpm>
+    <id>21157</id>
+    <filename>samba-3.4.3-13.1.i586.rpm</filename>
+    <size>6305634</size>
+    <archive>false</archive>
+    <checksum type="md5">c67be7ba35b97ecc954fdb62b1023675</checksum>
+  </rpm>
+  <rpm>
+    <id>21156</id>
+    <filename>libwbclient0-3.4.3-13.1.i586.rpm</filename>
+    <size>130279</size>
+    <archive>false</archive>
+    <checksum type="md5">404400c577697d65e8151ecc75c532fc</checksum>
+  </rpm>
+  <rpm>
+    <id>21155</id>
+    <filename>libtdb1-3.4.3-13.1.i586.rpm</filename>
+    <size>134850</size>
+    <archive>false</archive>
+    <checksum type="md5">c0bf0d617b6a1c20bbbc8262db365312</checksum>
+  </rpm>
+  <rpm>
+    <id>21154</id>
+    <filename>libtalloc1-3.4.3-13.1.i586.rpm</filename>
+    <size>124575</size>
+    <archive>false</archive>
+    <checksum type="md5">8847ddd28b9cb7dde14ef642d7c1a96f</checksum>
+  </rpm>
+  <rpm>
+    <id>21153</id>
+    <filename>libsmbsharemodes0-3.4.3-13.1.i586.rpm</filename>
+    <size>115219</size>
+    <archive>false</archive>
+    <checksum type="md5">41e703fad9474e13b1a42a3c2ebe5052</checksum>
+  </rpm>
+  <rpm>
+    <id>21152</id>
+    <filename>libsmbclient0-3.4.3-13.1.i586.rpm</filename>
+    <size>1568030</size>
+    <archive>false</archive>
+    <checksum type="md5">edfde88246174db2486f0021c7a27364</checksum>
+  </rpm>
+  <rpm>
+    <id>21151</id>
+    <filename>libnetapi0-3.4.3-13.1.i586.rpm</filename>
+    <size>1680256</size>
+    <archive>false</archive>
+    <checksum type="md5">e799c907adc538637c6e734aaeca6ba7</checksum>
+  </rpm>
+  <rpm>
+    <id>21150</id>
+    <filename>libnetapi-devel-3.4.3-13.1.i586.rpm</filename>
+    <size>423652</size>
+    <archive>false</archive>
+    <checksum type="md5">9f8438efe6e7ebbff04f27d325e9bde4</checksum>
+  </rpm>
+  <rpm>
+    <id>21149</id>
+    <filename>ldapsmb-1.34b-13.1.i586.rpm</filename>
+    <size>134571</size>
+    <archive>false</archive>
+    <checksum type="md5">980e164fc9e9d79bee72cdb331cd7562</checksum>
+  </rpm>
+  <rpm>
+    <id>21148</id>
+    <filename>cifs-mount-3.4.3-13.1.i586.rpm</filename>
+    <size>1744651</size>
+    <archive>false</archive>
+    <checksum type="md5">6d861771da80987b2476b3e62b129c07</checksum>
+  </rpm>
+</rpms>

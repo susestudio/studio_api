@@ -1,0 +1,10 @@
+<rpm>
+  <id>27653</id>
+  <filename>
+    josefs_sles_11_sp1_slms_test_guest_i586-update-0.0.1-8.noarch.rpm
+  </filename>
+  <size>4585</size>
+  <archive>false</archive>
+  <base_system>SLES11_SP1</base_system>
+  <checksum type="md5">111395637da8b6530b74953d2994c86f</checksum>
+</rpm>
