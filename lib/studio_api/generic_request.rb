@@ -22,7 +22,6 @@ require 'uri'
 require 'cgi'
 require 'net/http'
 require 'net/https'
-require 'studio_api/studio_request_exception'
 
 module StudioApi
   class GenericRequest
@@ -73,7 +72,7 @@ module StudioApi
         end
       end
     rescue RuntimeError => e
-      raise StudioRequestException.new e.message
+      raise e.message
     end
 
     def error_message response
@@ -84,51 +83,6 @@ module StudioApi
       return msg
     rescue
       return response.message+"\n"+response.body
-    end
-
-    def self.request (uri_path,options)
-        # ::File is needed to use "Ruby" file instead this one
-      uri      = URI.parse( ::File.join(SLMS::Config.get_value('SUSEStudio', 'restapi'), uri_path ) )
-      user     = SLMS::Config.get_value('SUSEStudio', 'user')
-      password = SLMS::Config.get_value('SUSEStudio', 'apikey')
-      proxy    = SLMS::Proxy::get_proxy_for(uri)
-
-      log.debug("GetRequest #{uri.to_s} " + (proxy.nil? ? "":"via #{proxy.to_s}") )
-
-      begin
-        if proxy.nil?
-          http = Net::HTTP.new(uri.host, uri.port)
-        else
-          http = Net::HTTP.new(uri.host, uri.port, proxy.host, proxy.port, proxy.user, proxy.password)
-        end
-        http.read_timeout = SLMS::Config.get_value('SUSEStudio', 'timeout', 45).to_i
-        if uri.scheme == "https"
-          http.use_ssl = true
-          http.ca_path = SLMS::Config.get_value('SUSEStudio', 'sslcertpath', '/etc/ssl/certs')
-          http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-        end
-        http.start() {
-          req = Net::HTTP::Get.new(uri.request_uri)
-          req.basic_auth user, password
-          response = http.request(req)
-          unless( response.kind_of? Net::HTTPSuccess )
-            begin
-              xml_parsed = XmlSimple.xml_in(response.body, {'KeepRoot' => true})
-              if not xml_parsed['error'].nil?
-                msg = ""
-                xml_parsed['error'].each() {|error| msg = error['message'] }
-                return ["Error: #{msg}", false]
-              end
-            rescue
-              return ["Error: #{response.message}", false]
-            end
-          end
-
-          return [response.body, true]
-        }
-      rescue => e
-        return ["Error: #{e.to_s}", false]
-      end
     end
 
     def set_data(request,data)

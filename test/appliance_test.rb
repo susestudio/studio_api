@@ -4,7 +4,7 @@ $:.unshift File.join( File.dirname(__FILE__),'..','lib')
 require 'studio_api/appliance'
 require 'studio_api/connection'
 require 'studio_api/generic_request'
-
+require 'studio_api/util'
 require 'active_resource/http_mock'
 require 'mocha'
 require 'test/unit'
@@ -18,8 +18,7 @@ REPO_ID = 6345
 
   def setup
     @connection = StudioApi::Connection.new("test","test","http://localhost/api/")
-    StudioApi::Appliance.studio_connection = @connection
-    StudioApi::Appliance::GpgKey.studio_connection = @connection
+    StudioApi::Util.configure_studio_connection @connection
     appliances_out = respond_load "appliances.xml"
     appliance_out = respond_load "appliance.xml"
     status_out = respond_load "status.xml"
@@ -158,7 +157,8 @@ REPO_ID = 6345
 
   def test_add_gpg_key
     gpg_key_out = respond_load "gpg_key.xml"
-    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&target=rpm&key=test",:key => "test").returns(gpg_key_out).twice
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&target=rpm&key=test",:key => "test").returns(gpg_key_out)
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&key=test&target=rpm",:key => "test").returns(gpg_key_out)
     assert StudioApi::Appliance::GpgKey.create APPLIANCE_ID, "test", "test"
     assert StudioApi::Appliance.new(:id => APPLIANCE_ID).add_gpg_key "test", "test"
   end

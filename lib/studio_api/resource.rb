@@ -12,9 +12,15 @@ module StudioApi
       #there is general problem, that when specified prefix in model, it doesn't contain uri.path
       # as it is not know and uri is set during runtime, so we must add here manually adapt prefix
       # otherwise site.path is ommitted in models which has own prefix in API
-      unless self.prefix_source.start_with? connection.uri.path #path not included
-        self.prefix = join_relative_url connection.uri.path, self.prefix_source
+      unless @original_prefix
+        puts "#{self.id} #{connection.uri.path} <=> #{self.prefix_source}"
+        if self.prefix_source == join_relative_url(connection.uri.path,'/')
+          @original_prefix = "/"
+        else
+          @original_prefix = self.prefix_source
+        end
       end
+      self.prefix = join_relative_url connection.uri.path, @original_prefix
       self.user = connection.user
       self.password = connection.password
       self.timeout = connection.timeout
@@ -38,14 +44,14 @@ module StudioApi
       "#{prefix(prefix_options)}#{collection_name}#{query_string(query_options)}"
     end
 
-  #joins relative url for unix servers
-  def self.join_relative_url(*args)
-    args.reduce do |base, append|
-      base= base[0..-2] if base.end_with? "/" #remove ending slash in base
-      append = append[1..-1] if append.start_with? "/" #remove leading slash in append
-      "#{base}/#{append}"
+    #joins relative url for unix servers
+    def self.join_relative_url(*args)
+      args.reduce do |base, append|
+        base= base[0..-2] if base.end_with? "/" #remove ending slash in base
+        append = append[1..-1] if append.start_with? "/" #remove leading slash in append
+        "#{base}/#{append}"
+      end
     end
-  end
 
   end
 end
