@@ -26,8 +26,20 @@ require 'active_support'
 require 'active_resource/formats'
 require 'active_resource/connection'
 
+require 'studio_api/util'
+
 module StudioApi
+  # Class which use itself direct connection to studio for tasks where
+  # ActiveResource is not enough. For consistent api is all network exceptions
+  # mapped to ones used in ActiveResource.
+  #
+  # @xample
+  #   rq = StudioApi::GenericRequest.new @connection
+  #   rq.get "/appliances"
+  #   rq.post "/file", :file => "/etc/config"
   class GenericRequest
+    # Creates new instance of request for given connection
+    # @param (StudioApi::Connection) connection information about connection
     def initialize(connection)
       @connection = connection
       if connection.proxy
@@ -41,28 +53,46 @@ module StudioApi
       if connection.uri.scheme == "https"
         @http.use_ssl = true
         Connection::SSL_ATTRIBUTES.each do |attr|
-          eval "@http.#{attr}= connection.ssl[attr.to_sym]" if connection.ssl[attr.to_sym]
+          @http.send :"#{attr}=", connection.ssl[attr.to_sym] if connection.ssl[attr.to_sym]
         end
       end
     end
 
+    # sends get request
+    # @param (String) path relative path from api root
+    # @return (String) response body from studio
+    # @raise [ActiveResource::ConnectionError] when problem occur during connection
     def get(path)
-      do_request Net::HTTP::Get.new ::File.join @connection.uri.request_uri,path
+      do_request Net::HTTP::Get.new Util.join_relative_url @connection.uri.request_uri,path
     end
 
-    #Even it is not dry I want to avoid meta programming with dynamic code evaluation so code is clear
+    # sends delete request
+    # @param (String) path relative path from api root
+    # @return (String) response body from studio
+    # @raise [ActiveResource::ConnectionError] when problem occur during connection
     def delete(path)
-      do_request Net::HTTP::Delete.new ::File.join @connection.uri.request_uri,path
+      #Even it is not dry I want to avoid meta programming with dynamic code evaluation so code is clear
+      do_request Net::HTTP::Delete.new Util.join_relative_url @connection.uri.request_uri,path
     end
 
+    # sends post request
+    # @param (String) path relative path from api root
+    # @param (Hash<#to_s,#to_s>,Hash<#to_s,#path>) data hash containing data to attach to body
+    # @return (String) response body from studio
+    # @raise [ActiveResource::ConnectionError] when problem occur during connection
     def post(path,data)
-      request = Net::HTTP::Post.new ::File.join @connection.uri.request_uri,path
+      request = Net::HTTP::Post.new Util.join_relative_url @connection.uri.request_uri,path
       set_data(request,data)
       do_request request
     end
 
-    def post(path,data)
-      request = Net::HTTP::Put.new ::File.join @connection.uri.request_uri,path
+    # sends post request
+    # @param (String) path relative path from api root
+    # @param (Hash<#to_s,#to_s>,Hash<#to_s,#path>) data hash containing data to attach to body
+    # @return (String) response body from studio
+    # @raise [ActiveResource::ConnectionError] when problem occur during connection
+    def put(path,data)
+      request = Net::HTTP::Put.new Util.join_relative_url @connection.uri.request_uri,path
       set_data(request,data)
       do_request request
     end
@@ -75,6 +105,7 @@ module StudioApi
           msg = error_message response
           create_active_resource_exception response,msg
         end
+        response.body
       end
     end
 

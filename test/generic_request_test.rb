@@ -55,8 +55,7 @@ EOF
   end
 
   def test_ssl_settings
-    @connection.uri = "https://localhost"
-    @connection.ssl = { :verify_mode => OpenSSL::SSL::VERIFY_PEER, :ca_path => "/dev/null" }
+    @connection = StudioApi::Connection.new ("test","test","https://localhost",:ssl => { :verify_mode => OpenSSL::SSL::VERIFY_PEER, :ca_path => "/dev/null" })
     rq = StudioApi::GenericRequest.new @connection
     http_var = rq.instance_variable_get("@http")
     assert http_var.use_ssl?

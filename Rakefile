@@ -11,6 +11,17 @@ Rake::TestTask.new do |t|
 end
 
 begin
+  require 'yard'
+    YARD::Rake::YardocTask.new do |t|
+      t.files   = ['lib/**/*.rb']   # optional
+      t.options = [] # optional
+    end
+rescue LoadError
+  puts "Yard not available. To generate documentation install it with: gem install yard"
+end
+
+
+begin
   require 'jeweler'
     Jeweler::Tasks.new do |s|
       s.name = %q{studio_api}
@@ -37,5 +48,5 @@ begin
     end
     Jeweler::GemcutterTasks.new
 rescue LoadError
-  puts "Jeweler not available. Install it with: gem install jeweler"
+  puts "Jeweler not available. To generate gem install it with: gem install jeweler"
 end

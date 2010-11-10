@@ -6,15 +6,23 @@ require "xmlsimple"
 require "fileutils"
 
 module StudioApi
+  # Represents appliance in studio
+  # beside information about itself contains also information about its 
+  # relative object like packages, signing keys etc
+  # Each method try to be ActiveResource compatible, so each can throw ConnectionError
   class Appliance < ActiveResource::Base
     extend StudioResource
 
     self.element_name = "appliance"
 
+    # Represents status of appliance
+    # used as output for Appliance#status
+    # @see Appliance#status
     class Status < ActiveResource::Base
       extend StudioResource
     end
 
+    # Represents repository assigned to appliance
     class Repository < ActiveResource::Base
       extend StudioResource
       self.prefix = "/appliances/:appliance_id/"
@@ -34,12 +42,22 @@ module StudioApi
       end
     end
     
+    # Represents GPGKey assigned to appliance
     class GpgKey < ActiveResource::Base
       extend StudioResource
       self.prefix = "/appliances/:appliance_id/"
       self.element_name = "gpg_key"
       mattr_accessor :appliance
 
+      # upload new GPG key to appliance
+      # @param (#to_i) appliance_id id of appliance to which load gpg key
+      # @param (#to_s) name of gpg key
+      # @param (File, String) opened file containing key or key in string
+      # @param (Hash) options additional options keys as it allow studio API
+      # @example Load from file
+      #   File.open ("/etc/my.cert") do |file|
+      #     StudioApi::Appliance::GpgKey.create 1234, "my new cool key", file, :target => "rpm"
+      #   end
       def self.create (appliance_id, name, key, options={})
         options[:target] ||= "rpm"
         if key.is_a? String #if key is string, that pass it in request, if not pack it in body
@@ -53,13 +71,17 @@ module StudioApi
       end
     end
 
+    # gets status of appliance
+    # @return [StudioApi::Appliance::Status] resource of status
     def status
       Status.studio_connection = self.class.studio_connection
       #rails is so smart, that it ignores prefix for calls. At least it is good that we don't want to do such things from library users
-      from = self.class.join_relative_url( self.class.site.path,"appliances/#{id.to_i}/status")
+      from = Util.join_relative_url( self.class.site.path,"appliances/#{id.to_i}/status")
       Status.find :one, :from => from
     end
 
+    # Gets all repositories assigned to appliance
+    # @return [StudioApi::Appliance::Repository] assigned repositories
     def repositories
       my_repo = Repository.dup
       my_repo.studio_connection = self.class.studio_connection
@@ -67,22 +89,39 @@ module StudioApi
       my_repo.find :all, :params => { :appliance_id => id }
     end
 
+    # remove repositories from appliance
+    # @param (#to_s,Array<#to_s>)
+    # @example various way to remove repo
+    #   appl = Appliance.find 1234
+    #   appl.remove_repository 5678
+    #   appl.remove_repository [5678,34,56,78,90]
+    #   appl.remove_repository 5678,34,56,78,90
     def remove_repository (*repo_ids)
       repo_ids.flatten.each do |repo_id|
         post "#{id}/cmd/remove_repository", :repo_id => repo_id
       end
     end
 
+    # adds repositories to appliance
+    # @param (#to_s,Array<#to_s>)
+    # @example various way to add repo
+    #   appl = Appliance.find 1234
+    #   appl.add_repository 5678
+    #   appl.add_repository [5678,34,56,78,90]
+    #   appl.add_repository 5678,34,56,78,90
     def add_repository (*repo_ids)
       repo_ids.flatten.each do |repo_id|
         post "#{id}/cmd/add_repository", :repo_id => repo_id
       end
     end
 
+    # adds repository for user rpms
     def add_user_repository
       post "#{id}/cmd/add_user_repository"
     end
 
+    # clones appliance
+    # @param (Hash<String,String>) options optional parameters to clone command
     def clone options={}
       options[:appliance_id] = id
       post('',options)
