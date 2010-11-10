@@ -22,16 +22,15 @@ require 'openssl'
 
 module StudioApi
   class Connection
-    attr_accessor :user, :password, :uri, :proxy, :timeout, :verify_mode, :ca_path
+    SSL_ATTRIBUTES = [ :key, :cert, :ca_file, :ca_path, :verify_mode, :verify_callback, :verify_depth, :cert_store ]
+    attr_accessor :user, :password, :uri, :proxy, :timeout, :ssl
     def initialize(user, password, uri, options={})
       @user = user
       @password = password
       self.uri = uri
       self.proxy = options[:proxy] #nil as default is OK
       self.timeout = options[:timeout] || 45
-#FIXME solve better SSL attributes. e.g. by separate hash and instance_eval it
-      @ca_path = options[:ca_path] #nil as default is OK
-      @verify_mode = options[:verify_mode] || OpenSSL::SSL::VERIFY_NONE #nil as default is OK
+      @ssl = options[:ssl] || { :verify_mode => OpenSSL::SSL::VERIFY_NONE } # don't verify as default
     end
 
     def uri=(value)

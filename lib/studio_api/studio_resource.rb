@@ -25,9 +25,7 @@ module StudioApi
       self.timeout = connection.timeout
       self.proxy = connection.proxy.to_s if connection.proxy
 #FIXME allow pass variable options
-      self.ssl_options = {}
-      self.ssl_options[:ca_path] = connection.ca_path if connection.ca_path
-      self.ssl_options[:verify_mode] = connection.verify_mode if connection.verify_mode
+      self.ssl_options = connection.ssl
       @studio_connection = connection
     end
 

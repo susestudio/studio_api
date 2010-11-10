@@ -40,8 +40,9 @@ module StudioApi
       @http.read_timeout = connection.timeout
       if connection.uri.scheme == "https"
         @http.use_ssl = true
-        @http.ca_path = connection.ca_path
-        @http.verify_mode = connection.verify_mode
+        Connection::SSL_ATTRIBUTES.each do |attr|
+          eval "@http.#{attr}= connection.ssl[attr.to_sym]" if connection.ssl[attr.to_sym]
+        end
       end
     end
 

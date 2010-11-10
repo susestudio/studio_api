@@ -53,4 +53,14 @@ EOF
     assert_equal 'image/gif', request.send(:mime_type, '/some_dir/some_file.GIF')
     assert_equal 'image/png', request.send(:mime_type, '/use_this.png')
   end
+
+  def test_ssl_settings
+    @connection.uri = "https://localhost"
+    @connection.ssl = { :verify_mode => OpenSSL::SSL::VERIFY_PEER, :ca_path => "/dev/null" }
+    rq = StudioApi::GenericRequest.new @connection
+    http_var = rq.instance_variable_get("@http")
+    assert http_var.use_ssl?
+    assert_equal OpenSSL::SSL::VERIFY_PEER, http_var.verify_mode
+    assert_equal "/dev/null", http_var.ca_path
+  end
 end
