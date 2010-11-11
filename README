@@ -13,19 +13,18 @@ require 'studio_api/connection'
 # See https://susestudio.com/user/show_api_key if you are using SUSE Studio online
 connection = StudioApi::Connection.new('yourname', 'yourapikey', 'https://susestudio.com/api/v1/user')
 
-require 'studio_api/appliance'
+require 'studio_api/util'
 
-# Use the connection for appliances
-StudioApi::Appliance.set_connection connection
+# Setup the connection
+StudioApi::Util.configure_studio_connection connection
+
+require 'studio_api/appliance'
 
 # Find all appliances
 appliances = StudioApi::Appliance.find :all
 appliance_names = appliances.map{|a| a.name} # => Returns list of your appliances (names)
 
-require 'studio_api/studio_api'
-
-# Use the connection for running_builds
-StudioApi::RunningBuild.set_connection connection
+require 'studio_api/running_build'
 
 # Finds all running builds for appliance with ID 269186
 # Appliance ID must be set
