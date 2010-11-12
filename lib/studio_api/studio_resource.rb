@@ -1,5 +1,7 @@
 require "rubygems"
 require 'active_resource'
+require "studio_api/util"
+require "studio_api/studio_resource"
 
 module StudioApi
   # Adds ability to ActiveResource::Base (short as ARes) to easy set connection to studio in 

@@ -11,7 +11,7 @@ module StudioApi
   # relative object like packages, signing keys etc
   # Each method try to be ActiveResource compatible, so each can throw ConnectionError
   class Appliance < ActiveResource::Base
-    extend StudioResource
+    extend StudioApi::StudioResource
 
     self.element_name = "appliance"
 
@@ -126,7 +126,6 @@ module StudioApi
     # @param (Hash<String,String>) options optional parameters to clone command
     # @return (StudioApi::Appliance) resulted appliance
     def self.clone source_id,options={}
-      options[:appliance_id] = source_id.to_i
       request_str = "/appliances?clone_from=#{source_id.to_i}"
       options.each do |k,v|
         request_str << "&#{URI.escape k.to_s}=#{URI.escape v.to_s}"

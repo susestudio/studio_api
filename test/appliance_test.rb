@@ -29,7 +29,6 @@ REPO_ID = 6345
       mock.get "/api/appliances", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliances_out,200
       mock.get "/api/appliances/#{APPLIANCE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliance_out,200
       mock.get "/api/appliances/#{APPLIANCE_ID}/status", {"Authorization"=>"Basic dGVzdDp0ZXN0"},status_out,200
-      mock.post "/api/appliances?appliance_id=#{APPLIANCE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliance_out,200 #correct output should be clone of appliance, but it is not important in test
       mock.delete "/api/appliances/#{APPLIANCE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliance_out,200 
       mock.get "/api/appliances/#{APPLIANCE_ID}/repositories", {"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
       mock.post "/api/appliances/#{APPLIANCE_ID}/cmd/remove_repository?repo_id=#{REPO_ID}",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
@@ -61,6 +60,8 @@ REPO_ID = 6345
   end
 
   def test_clone
+    appliance_out = respond_load "appliance.xml"
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances?clone_from=#{APPLIANCE_ID}",{}).returns(appliance_out).once
     assert StudioApi::Appliance.clone APPLIANCE_ID
   end
 

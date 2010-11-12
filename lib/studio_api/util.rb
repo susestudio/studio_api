@@ -1,4 +1,3 @@
-require 'studio_api'
 module StudioApi
   # Utility class for handling whole stack of Studio Api
   class Util
