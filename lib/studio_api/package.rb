@@ -1,6 +1,7 @@
 module StudioApi
+  # Represents package in appliance. Used mainly as data storage.
   class Package
-    attr_accessor :name, :version, :repository_id, :Arch, :checksum, :checksum_type
+    attr_accessor :name, :version, :repository_id, :arch, :checksum, :checksum_type
     def initialize name, attributes = {}
       @name = name
       attributes.each do |k,v|

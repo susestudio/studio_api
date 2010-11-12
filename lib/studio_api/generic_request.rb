@@ -33,7 +33,7 @@ module StudioApi
   # ActiveResource is not enough. For consistent api is all network exceptions
   # mapped to ones used in ActiveResource.
   #
-  # @xample
+  # @example
   #   rq = StudioApi::GenericRequest.new @connection
   #   rq.get "/appliances"
   #   rq.post "/file", :file => "/etc/config"

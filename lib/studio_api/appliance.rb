@@ -127,24 +127,34 @@ module StudioApi
       post('',options)
     end
 
+    # Gets all GPG keys assigned to appliance
+    # @return [Array<StudioApi::Appliance::GpgKey>] included keys
     def gpg_keys
       my_key = GpgKey.dup
       my_key.studio_connection = self.class.studio_connection
       my_key.find :all, :params => { :appliance_id => id }
     end
 
+    # Gets GPG key assigned to appliance with specified id
+    # @param (#to_s) key_id id of requested key
+    # @return [StudioApi::Appliance::GpgKey,nil] found key or nil if it is not found
     def gpg_key( key_id )
       my_key = GpgKey.dup
       my_key.studio_connection = self.class.studio_connection
       my_key.find key_id, :params => { :appliance_id => id }
     end
 
+    # add GPG key to appliance
+    # @params (see GpgKey#create)
     def add_gpg_key (name, key, options={})
       my_key = GpgKey.dup
       my_key.studio_connection = self.class.studio_connection
       my_key.create id, name, key, options
     end
 
+    # Gets list of all explicitelly selected software ( package and patterns)
+    # in appliance
+    # @return (Array<StudioApi::Package,StudioApi::Pattern>) list of selected packages and patterns
     def selected_software
       request_str = "/appliances/#{id.to_i}/software"
       response = GenericRequest.new(self.class.studio_connection).get request_str
@@ -152,6 +162,10 @@ module StudioApi
       convert_selectable attrs
     end
 
+    # Gets list of all installed (include dependencies) software
+    # (package and patterns) in appliance
+    # @param (#to_i) build_id specifies ID of build, otherwise use the latest one
+    # @return (Array<StudioApi::Package,StudioApi::Pattern>) list of installed packages and patterns
     def installed_software (build_id = nil)
       request_str = "/appliances/#{id.to_i}/software/installed"
 			request_str << "?build_id=#{build_id.to_i}" if build_id
@@ -165,8 +179,12 @@ module StudioApi
 			res
     end
 
+    # Search software (package and patterns) in appliance
+    # @param (#to_s) search_string string which is used for search
+    # @param (Hash<#to_s,#to_s>) options optional parameters for search, see api documentation
+    # @return (Array<StudioApi::Package,StudioApi::Pattern>) list of installed packages and patterns
     def search_software (search_string,options={})
-      request_str = "/appliances/#{id.to_i}/software/search?q=#{search_string}"
+      request_str = "/appliances/#{id.to_i}/software/search?q=#{URI.escape search_string.to_s}"
 			options.each do |k,v|
 				request_str << "&#{URI.escape k.to_s}=#{URI.escape v.to_s}"
 			end
@@ -180,30 +198,52 @@ module StudioApi
 			res
     end
 
-		#options are version and repository_id
+    # Select new package to be installed in appliance.
+    #
+    # Dependencies is automatic resolved, but its repository have to be already
+    # included in appliance
+		# @param(#to_s) name of package
+    # @param (Hash<#to_s,#to_s>) options optional parameters for search, see api documentation
 		def add_package (name, options={})
 			appliance_command "add_package",{:name => name}.merge(options)
 		end
 
-		#options are version and repository_id
+    # Deselect package from appliance.
+    #
+    # Dependencies is automatic resolved (so unneeded dependencies not installed),
+    # but unused repositories is kept
+		# @param(#to_s) name of package
 		def remove_package (name)
 			appliance_command "remove_package",:name => name
 		end
 
-		#options are version and repository_id
+    # Select new pattern to be installed in appliance.
+    #
+    # Dependencies is automatic resolved, but its repositories have to be already
+    # included in appliance
+		# @param(#to_s) name of pattern
+    # @param (Hash<#to_s,#to_s>) options optional parameters for search, see api documentation
 		def add_pattern (name, options={})
 			appliance_command "add_pattern",{:name => name}.merge(options)
 		end
 
-		#options are version and repository_id
+    # Deselect pattern from appliance.
+    #
+    # Dependencies is automatic resolved (so unneeded dependencies not installed),
+    # but unused repositories is kept
+		# @param(#to_s) name of pattern
 		def remove_pattern (name)
 			appliance_command "remove_pattern",:name => name
 		end
 
+    # Bans package ( so it cannot be installed even as dependency).
+		# @param(#to_s) name of package
 		def ban_package(name)
 			appliance_command "ban_package",:name => name
 		end
 
+    # Unbans package ( so then it can be installed).
+		# @param(#to_s) name of package
 		def unban_package(name)
 			appliance_command "unban_package",:name => name
 		end
