@@ -68,3 +68,7 @@ for ActiveResource error handling.
   final_build = StudioApi::Build.find build.id
   puts final_build.inspect
 
+  # to clear after playing with appliance if you keep same name, clean remove appliances with:
+  # appliances = StudioApi::Appliance.find :all
+  # appliances.select{ |a| a.name =~ /cool/i }.each{ |a| a.destroy }
+
