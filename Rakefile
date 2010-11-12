@@ -41,12 +41,24 @@ begin
       s.rdoc_options = ['--line-numbers', "--main", "README.rdoc"]
       s.authors = ["Josef Reidinger"]
       s.email = %q{jreidinger@suse.cz}
-      s.homepage = "http://gitorious.org/rubygem-studio_api/rubygem-studio_api"
+      s.homepage = "http://github.com/jreidinger/studio_api"
       s.add_dependency "active_resource", ">= 1.3.8"
       s.add_dependency "xml-simple", ">= 1.0.0"
       s.platform = Gem::Platform::RUBY
     end
     Jeweler::GemcutterTasks.new
+
+  desc "Create package directory containing all things to build RPM"
+  task :package => [:build] do
+    pkg_name = "rubygem-studio_api"
+    include FileUtils::Verbose
+    rm_rf "package"
+    mkdir "package"
+    cp "#{pkg_name}.changes","package/"
+    cp "#{pkg_name}.spec.template","package/#{pkg_name}.spec"
+    sh 'cp pkg/*.gem package/'
+    sh "sed -i \"s:<VERSION>:`cat VERSION`:\" package/#{pkg_name}.spec"
+  end
 rescue LoadError
   puts "Jeweler not available. To generate gem install it with: gem install jeweler"
 end

@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Josef Reidinger"]
-  s.date = %q{2010-11-10}
+  s.date = %q{2010-11-12}
   s.description = %q{Studio Api makes it easier to use Studio via API.
                 Instead of adapting each ActiveResource to its behavior and
                 manually adding multipart file upload it wrapp in in Active
@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
     "README",
      "Rakefile",
      "VERSION",
+     "lib/example.rb",
      "lib/studio_api.rb",
      "lib/studio_api/appliance.rb",
      "lib/studio_api/build.rb",
@@ -33,6 +34,7 @@ Gem::Specification.new do |s|
      "lib/studio_api/rpm.rb",
      "lib/studio_api/running_build.rb",
      "lib/studio_api/studio_resource.rb",
+     "lib/studio_api/template_set.rb",
      "lib/studio_api/util.rb",
      "test/appliance_test.rb",
      "test/build_test.rb",
@@ -41,15 +43,17 @@ Gem::Specification.new do |s|
      "test/repository_test.rb",
      "test/resource_test.rb",
      "test/rpm_test.rb",
-     "test/running_build_test.rb"
+     "test/running_build_test.rb",
+     "test/template_set_test.rb"
   ]
-  s.homepage = %q{http://gitorious.org/rubygem-studio_api/rubygem-studio_api}
+  s.homepage = %q{http://github.com/jreidinger/studio_api}
   s.rdoc_options = ["--line-numbers", "--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{Studio Api Interface.}
   s.test_files = [
     "test/resource_test.rb",
+     "test/template_set_test.rb",
      "test/build_test.rb",
      "test/appliance_test.rb",
      "test/file_test.rb",
@@ -74,7 +78,8 @@ Gem::Specification.new do |s|
      "test/responses/repositories.xml",
      "test/responses/running_builds.xml",
      "test/responses/software.xml",
-     "test/responses/build.xml"
+     "test/responses/build.xml",
+     "test/responses/template_sets.xml"
   ]
 
   if s.respond_to? :specification_version then
