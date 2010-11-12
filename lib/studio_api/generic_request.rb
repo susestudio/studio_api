@@ -99,6 +99,7 @@ module StudioApi
 
   private
     def do_request(request)
+      request.basic_auth @connection.user, @connection.password
       @http.start() do
         response = @http.request request
         unless response.kind_of? Net::HTTPSuccess

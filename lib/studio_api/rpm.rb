@@ -20,7 +20,8 @@ module StudioApi
     # @param (#to_s) base_system for which is rpm compiled
     def self.upload file_path, base_system
       ::File.open( file_path, "r" ) do |file|
-        GenericRequest.new(studio_connection).post "/rpms?base_system=#{CGI.escape base_system.to_s}", :file => file
+        response = GenericRequest.new(studio_connection).post "/rpms?base_system=#{CGI.escape base_system.to_s}", :file => file
+        self.new Hash.from_xml(response)["rpm"]
       end
     end
 
@@ -28,7 +29,7 @@ module StudioApi
     # @param (String) target_path where save downloaded file
     # Warning: Read whole file to memory
     def download target_path
-      data = GenericRequest.new(studio_connection).get "/rpms/#{id.to_i}/data"
+      data = GenericRequest.new(self.class.studio_connection).get "/rpms/#{id.to_i}/data"
       ::File.open(target_path, 'w') {|f| f.write(data) }
     end
   end

@@ -48,8 +48,6 @@ TEST_STRING = "My lovely testing string\n Doodla da da da nicht"
   def test_download
     file = Tempfile.new("/tmp")
     StudioApi::GenericRequest.any_instance.stubs(:get).with("/rpms/#{RPM_ID}/data").returns(TEST_STRING)
-    StudioApi::Rpm.download file.path, RPM_ID
-    File.open(file.path) { |f| assert_equal TEST_STRING,f.read }
     StudioApi::Rpm.new(:id=> RPM_ID).download file.path
     File.open(file.path) { |f| assert_equal TEST_STRING,f.read }
   end

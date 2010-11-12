@@ -40,7 +40,7 @@ module StudioApi
       end
       
       rq = GenericRequest.new self.class.studio_connection
-      ::File.open (input_path, "r") do |input|
+      ::File.open(input_path, "r") do |input|
         rq.post request_str, :file => input
       end
     end

@@ -1,0 +1,380 @@
+<template_sets type="array">
+  <template_set>
+      <name>default</name>
+      <description>SUSE default templates</description>
+      <template>
+      <appliance_id>3505</appliance_id>
+      <name>openSUSE 11.1, Just enough OS (JeOS)</name>
+      <description>Tiny, minimalistic appliances</description>
+      <basesystem>11.1</basesystem>
+      </template>
+      <template>
+      <appliance_id>2158</appliance_id>
+      <name>openSUSE 11.1, Server</name>
+      <description>A text-only base</description>
+      <basesystem>11.1</basesystem>
+      </template>
+      <template>
+      <appliance_id>2159</appliance_id>
+      <name>openSUSE 11.1, Minimal X</name>
+      <description>Graphical system + IceWM</description>
+      <basesystem>11.1</basesystem>
+      </template>
+      <template>
+      <appliance_id>2160</appliance_id>
+      <name>openSUSE 11.1, KDE 3 desktop</name>
+      <description>Base system + KDE 3</description>
+      <basesystem>11.1</basesystem>
+      </template>
+      <template>
+      <appliance_id>2161</appliance_id>
+      <name>openSUSE 11.1, KDE 4 desktop</name>
+      <description>Base system + KDE 4</description>
+      <basesystem>11.1</basesystem>
+      </template>
+      <template>
+      <appliance_id>2162</appliance_id>
+      <name>openSUSE 11.1, GNOME desktop</name>
+      <description>Base system + GNOME</description>
+      <basesystem>11.1</basesystem>
+      </template>
+      <template>
+      <appliance_id>14769</appliance_id>
+      <name>SLED 10, KDE 3 desktop</name>
+      <description>SLED 10, with KDE</description>
+      <basesystem>SLED10_SP2</basesystem>
+      </template>
+      <template>
+      <appliance_id>14770</appliance_id>
+      <name>SLED 10, GNOME desktop</name>
+      <description>SLED 10, with GNOME</description>
+      <basesystem>SLED10_SP2</basesystem>
+      </template>
+      <template>
+      <appliance_id>14771</appliance_id>
+      <name>SLES 10, Server</name>
+      <description>SLES 10</description>
+      <basesystem>SLES10_SP2</basesystem>
+      </template>
+      <template>
+      <appliance_id>14772</appliance_id>
+      <name>SLED 11, KDE 4 desktop</name>
+      <description>SLED 11, with KDE 4</description>
+      <basesystem>SLED11</basesystem>
+      </template>
+      <template>
+      <appliance_id>14773</appliance_id>
+      <name>SLED 11, GNOME desktop</name>
+      <description>SLED 11, with GNOME</description>
+      <basesystem>SLED11</basesystem>
+      </template>
+      <template>
+      <appliance_id>14775</appliance_id>
+      <name>SLES 11, Server</name>
+      <description>SLES 11</description>
+      <basesystem>SLES11</basesystem>
+      </template>
+      <template>
+      <appliance_id>26667</appliance_id>
+      <name>SLES 11, Just enough OS (JeOS)</name>
+      <description>Minimal SLES</description>
+      <basesystem>SLES11</basesystem>
+      </template>
+      <template>
+      <appliance_id>26694</appliance_id>
+      <name>SLES 11, Just enough OS (JeOS)</name>
+      <description>Minimal SLES</description>
+      <basesystem>SLES11</basesystem>
+      </template>
+      <template>
+      <appliance_id>123663</appliance_id>
+      <name>openSUSE 11.2, Just enough OS (JeOS)</name>
+      <description>Tiny, minimalistic appliances</description>
+      <basesystem>11.2</basesystem>
+      </template>
+      <template>
+      <appliance_id>123664</appliance_id>
+      <name>openSUSE 11.2, Server</name>
+      <description>A text-only base</description>
+      <basesystem>11.2</basesystem>
+      </template>
+      <template>
+      <appliance_id>123665</appliance_id>
+      <name>openSUSE 11.2, Minimal X</name>
+      <description>Graphical system + IceWM</description>
+      <basesystem>11.2</basesystem>
+      </template>
+      <template>
+      <appliance_id>123666</appliance_id>
+      <name>openSUSE 11.2, KDE 4 desktop</name>
+      <description>Base system + KDE 4</description>
+      <basesystem>11.2</basesystem>
+      </template>
+      <template>
+      <appliance_id>123667</appliance_id>
+      <name>openSUSE 11.2, GNOME desktop</name>
+      <description>Base system + GNOME</description>
+      <basesystem>11.2</basesystem>
+      </template>
+      <template>
+      <appliance_id>202443</appliance_id>
+      <name>SLES 11 SP1, Just enough OS (JeOS)</name>
+      <description>Minimal SLES 11 SP1</description>
+      <basesystem>SLES11_SP1</basesystem>
+      </template>
+      <template>
+      <appliance_id>202444</appliance_id>
+      <name>SLES 11 SP1, Server</name>
+      <description>SLES 11 SP1</description>
+      <basesystem>SLES11_SP1</basesystem>
+      </template>
+      <template>
+      <appliance_id>202445</appliance_id>
+      <name>SLED 11 SP1, KDE 4 desktop</name>
+      <description>SLED 11 SP1, with KDE 4</description>
+      <basesystem>SLED11_SP1</basesystem>
+      </template>
+      <template>
+      <appliance_id>202446</appliance_id>
+      <name>SLED 11 SP1, GNOME desktop</name>
+      <description>SLED 11 SP1, with GNOME</description>
+      <basesystem>SLED11_SP1</basesystem>
+      </template>
+      <template>
+      <appliance_id>202458</appliance_id>
+      <name>SLED 11, KDE 4 desktop</name>
+      <description>SLED 11, with KDE 4</description>
+      <basesystem>SLED11</basesystem>
+      </template>
+      <template>
+      <appliance_id>202459</appliance_id>
+      <name>SLED 11, GNOME desktop</name>
+      <description>SLED 11, with GNOME</description>
+      <basesystem>SLED11</basesystem>
+      </template>
+      <template>
+      <appliance_id>202460</appliance_id>
+      <name>SLES 11, Just enough OS (JeOS)</name>
+      <description>Minimal SLES</description>
+      <basesystem>SLES11</basesystem>
+      </template>
+      <template>
+      <appliance_id>160586</appliance_id>
+      <name>openSUSE 11.2, Minimal X</name>
+      <description>Graphical system + IceWM</description>
+      <basesystem>11.2</basesystem>
+      </template>
+      <template>
+      <appliance_id>202461</appliance_id>
+      <name>SLES 11, Server</name>
+      <description>SLES 11</description>
+      <basesystem>SLES11</basesystem>
+      </template>
+      <template>
+      <appliance_id>202476</appliance_id>
+      <name>SLED 11 SP1, GNOME desktop</name>
+      <description>SLED 11 SP1, with GNOME</description>
+      <basesystem>SLED11_SP1</basesystem>
+      </template>
+      <template>
+      <appliance_id>232516</appliance_id>
+      <name>openSUSE 11.3, Just enough OS (JeOS)</name>
+      <description>Tiny, minimalistic appliances</description>
+      <basesystem>11.3</basesystem>
+      </template>
+      <template>
+      <appliance_id>232517</appliance_id>
+      <name>openSUSE 11.3, Server</name>
+      <description>A text-only base</description>
+      <basesystem>11.3</basesystem>
+      </template>
+      <template>
+      <appliance_id>232518</appliance_id>
+      <name>openSUSE 11.3, Minimal X</name>
+      <description>Graphical system + IceWM</description>
+      <basesystem>11.3</basesystem>
+      </template>
+      <template>
+      <appliance_id>232520</appliance_id>
+      <name>openSUSE 11.3, KDE 4 desktop</name>
+      <description>Base system + KDE 4</description>
+      <basesystem>11.3</basesystem>
+      </template>
+      <template>
+      <appliance_id>232521</appliance_id>
+      <name>openSUSE 11.3, GNOME desktop</name>
+      <description>Base system + GNOME</description>
+      <basesystem>11.3</basesystem>
+      </template>
+      <template>
+      <appliance_id>255146</appliance_id>
+      <name>SLED 11, KDE 4 desktop</name>
+      <description>SLED 11, with KDE 4</description>
+      <basesystem>SLED11</basesystem>
+      </template>
+      <template>
+      <appliance_id>255147</appliance_id>
+      <name>SLED 11, GNOME desktop</name>
+      <description>SLED 11, with GNOME</description>
+      <basesystem>SLED11</basesystem>
+      </template>
+      <template>
+      <appliance_id>272624</appliance_id>
+      <name>SLED 10 SP2, KDE 3 desktop</name>
+      <description>SLED 10 SP2, with KDE</description>
+      <basesystem>SLED10_SP2</basesystem>
+      </template>
+      <template>
+      <appliance_id>272625</appliance_id>
+      <name>SLED 10 SP2, GNOME desktop</name>
+      <description>SLED 10 SP2, with GNOME</description>
+      <basesystem>SLED10_SP2</basesystem>
+      </template>
+      <template>
+      <appliance_id>272626</appliance_id>
+      <name>SLED 10 SP3, KDE 3 desktop</name>
+      <description>SLED 10 SP3, with KDE</description>
+      <basesystem>SLED10_SP3</basesystem>
+      </template>
+      <template>
+      <appliance_id>272627</appliance_id>
+      <name>SLED 10 SP3, GNOME desktop</name>
+      <description>SLED 10 SP3, with GNOME</description>
+      <basesystem>SLED10_SP3</basesystem>
+      </template>
+      <template>
+      <appliance_id>272628</appliance_id>
+      <name>SLES 10 SP2, Server</name>
+      <description>SLES 10 SP2</description>
+      <basesystem>SLES10_SP2</basesystem>
+      </template>
+      <template>
+      <appliance_id>272629</appliance_id>
+      <name>SLES 10 SP3, Server</name>
+      <description>SLES 10 SP3</description>
+      <basesystem>SLES10_SP3</basesystem>
+      </template>
+  </template_set>
+  <template_set>
+      <name>mono</name>
+      <description>Mono templates</description>
+      <template>
+      <appliance_id>39570</appliance_id>
+      <name>Mono Desktop (openSUSE 11.1)</name>
+      <description>Base system + GNOME</description>
+      <basesystem>11.1</basesystem>
+      </template>
+      <template>
+      <appliance_id>39574</appliance_id>
+      <name>Mono Desktop</name>
+      <description>SLED 11, with GNOME</description>
+      <basesystem>SLED11</basesystem>
+      </template>
+      <template>
+      <appliance_id>39578</appliance_id>
+      <name>Mono ASP.NET Server (openSUSE 11.1)</name>
+      <description>A text-only base</description>
+      <basesystem>11.1</basesystem>
+      </template>
+      <template>
+      <appliance_id>39581</appliance_id>
+      <name>Mono ASP.NET Server (SLES 11)</name>
+      <description>SLES 11</description>
+      <basesystem>SLES11</basesystem>
+      </template>
+  </template_set>
+  <template_set>
+      <name>featured_appliances</name>
+      <description>Featured appliances for the gallery</description>
+      <template>
+      <appliance_id>223380</appliance_id>
+      <name>MiniSUSE</name>
+      <description>A text-only base</description>
+      <basesystem>11.3</basesystem>
+      </template>
+      <template>
+      <appliance_id>236941</appliance_id>
+      <name>BrowserBox</name>
+      <description>Base system + KDE 4</description>
+      <basesystem>11.3</basesystem>
+      </template>
+      <template>
+      <appliance_id>218302</appliance_id>
+      <name>PJS VMware Open View 4 - small</name>
+      <description>Graphical system + IceWM</description>
+      <basesystem>11.3</basesystem>
+      </template>
+      <template>
+      <appliance_id>138131</appliance_id>
+      <name>GNUmed Live</name>
+      <description>Base system + KDE 4</description>
+      <basesystem>11.3</basesystem>
+      </template>
+      <template>
+      <appliance_id>212675</appliance_id>
+      <name>OpenMedia</name>
+      <description>Base system + KDE 4</description>
+      <basesystem>11.3</basesystem>
+      </template>
+      <template>
+      <appliance_id>265217</appliance_id>
+      <name>Smeegol</name>
+      <description>Graphical system + IceWM</description>
+      <basesystem>11.3</basesystem>
+      </template>
+      <template>
+      <appliance_id>254152</appliance_id>
+      <name>FreeSWITCHBOX</name>
+      <description>Tiny, minimalistic appliances</description>
+      <basesystem>11.3</basesystem>
+      </template>
+      <template>
+      <appliance_id>259798</appliance_id>
+      <name>Illumination Software Creation Station</name>
+      <description>Base system + GNOME</description>
+      <basesystem>11.3</basesystem>
+      </template>
+  </template_set>
+  <template_set>
+      <name>partners</name>
+      <description/>
+      <template>
+      <appliance_id>170681</appliance_id>
+      <name>Ingres Server</name>
+      <description>SLES 11</description>
+      <basesystem>SLES11</basesystem>
+      </template>
+      <template>
+      <appliance_id>192690</appliance_id>
+      <name>Ingres Server 64 Bit</name>
+      <description>SLES 11</description>
+      <basesystem>SLES11</basesystem>
+      </template>
+  </template_set>
+  <template_set>
+      <name>opensuse</name>
+      <description>more openSUSE</description>
+      <template>
+      <appliance_id>130185</appliance_id>
+      <name>LAMP Server (32bit)</name>
+      <description>Tiny, minimalistic appliances</description>
+      <basesystem>11.2</basesystem>
+      </template>
+      <template>
+      <appliance_id>130166</appliance_id>
+      <name>KDE 4 Reloaded</name>
+      <description>Base system + KDE 4</description>
+      <basesystem>11.3</basesystem>
+      </template>
+      <template>
+      <appliance_id>130175</appliance_id>
+      <name>GNOME Reloaded</name>
+      <description>Base system + GNOME</description>
+      <basesystem>11.3</basesystem>
+      </template>
+  </template_set>
+  <template_set>
+      <name>partner_appliances</name>
+      <description>Featured partner appliances for the gallery</description>
+  </template_set>
+</template_sets>

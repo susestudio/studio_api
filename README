@@ -1,34 +1,70 @@
-# The studio_api rubygem has been written to maintain the connection
-# to SUSE Studio (http://susestudio.com/) API or to any Studio Onsite V1.
-# Studio API V1 documentation can be found here: http://susestudio.com/help/api/v1
+Studio API: Wrapper to STUDIO API
+====================================
 
-require 'rubygems'
+Synopsis
+--------
 
-# Path to libraries in git (not needed on a live system)
-$:.unshift File.expand_path(File.join(File.dirname(__FILE__), 'lib'))
+Studio API library is intended to easier access to Studio API from ruby,
+but keep it easily extensible and easy maintanable, so it not need rewritting
+when new attributes introduced to Studio. It leads also that user need to know 
+API documentation, which specify what options you need to use (see http://susestudio.com/help/api/v1 ).
+It has also feature which allows using in multiuser system (like server).
 
-require 'studio_api/connection'
+Example
+-------
 
-# Fill up Studio credentials (user name, API key, API URL)
-# See https://susestudio.com/user/show_api_key if you are using SUSE Studio online
-connection = StudioApi::Connection.new('yourname', 'yourapikey', 'https://susestudio.com/api/v1/user')
+Example usage ( more in class documentation ). Example show how to clone appliance,
+upload own rpm, select it, find new software and add it, run new build and then print information about appliance.
+Note: All error handling is for simplicity removed. It is same as for ActiveResource so if you want see him, search
+for ActiveResource error handling.
+  
+  require 'rubygems'
+  # If you want use it from git adapt LOAD_PATH
+  # you can load just required parts if you need, but Util loaded all classes to properly set it
+  require 'studio_api'
 
-require 'studio_api/util'
+  # Fill up Studio credentials (user name, API key, API URL)
+  # See https://susestudio.com/user/show_api_key if you are using SUSE Studio online
+  connection = StudioApi::Connection.new('user', 'pwd', 'https://susestudio.com/api/v1/user')
+  # Setup the connection for all ActiveResource based class
+  StudioApi::Util.configure_studio_connection connection
 
-# Setup the connection
-StudioApi::Util.configure_studio_connection connection
+  # Find template with KDE4 for SLE11SP1
+  templates = StudioApi::TemplateSet.find(:all).find {|s| s.name == "default" }.template
+  template = templates.find { |t| t.name == "SLED 11 SP1, KDE 4 desktop" }
+  # clone template to new appliance
+  appliance = StudioApi::Appliance.clone template.appliance_id, :name => "New cool appliance", :arch => "i686" 
+  puts "Created appliance #{appliance.inspect}"
 
-require 'studio_api/appliance'
+  #add own rpm built agains SLED11_SP1
+  StudioApi::Rpm.upload "/home/jreidinger/rpms/kezboard-1.0-1.60.noarch.rpm", "SLED11_SP1"
+  # and choose it in appliance ( and of course add repository with own rpms)
+  appliance.add_user_repository
+  appliance.add_package "kezboard", :version => "1.0-1.60"
 
-# Find all appliances
-appliances = StudioApi::Appliance.find :all
-appliance_names = appliances.map{|a| a.name} # => Returns list of your appliances (names)
+  # find samba package and if it is not found in repositories in appliance, try it in all repos
+  result = appliance.search_software("samba").find { |s| s.name == "samba" }
+  unless result #it is not found in available repos
+    result = appliance.search_software("samba", :all_repos => "true").find { |s| s.name == "samba" }
+    # add repo which contain samba
+    appliance.add_repository result.repository_id
+  end
+  appliance.add_package "samba"
 
-require 'studio_api/running_build'
+  #check if appliance is OK
+  if appliance.status.state != "ok"
+    raise "appliance is not OK - #{appliance.status.issues.inspect}"
+  end
+  debugger
+  build = StudioApi::RunningBuild.new(:appliance_id => appliance.id, :image_type => "xen")
+  build.save
+  build.reload
+  while build.state != "finished"
+    puts "building (#{build.state}) - #{build.percent}%"
+    sleep 5
+    build.reload
+  end
 
-# Finds all running builds for appliance with ID 269186
-# Appliance ID must be set
-running_builds = StudioApi::RunningBuild.find :all, :params => {:appliance_id => 269186}
+  final_build = StudioApi::Build.find build.id
+  puts final_build.inspect
 
-# Finds details about running build with ID 529783
-build_details = StudioApi::RunningBuild.find 529783

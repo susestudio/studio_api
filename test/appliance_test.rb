@@ -61,7 +61,7 @@ REPO_ID = 6345
   end
 
   def test_clone
-    assert StudioApi::Appliance.new(:id => APPLIANCE_ID).clone
+    assert StudioApi::Appliance.clone APPLIANCE_ID
   end
 
   def test_delete

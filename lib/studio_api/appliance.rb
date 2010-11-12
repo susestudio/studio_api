@@ -120,11 +120,19 @@ module StudioApi
       post "#{id}/cmd/add_user_repository"
     end
 
-    # clones appliance
+    # clones appliance or template
+    # @see (StudioApi::TemplateSet)
+    # @param (#to_i) source_id id of source appliance
     # @param (Hash<String,String>) options optional parameters to clone command
-    def clone options={}
-      options[:appliance_id] = id
-      post('',options)
+    # @return (StudioApi::Appliance) resulted appliance
+    def self.clone source_id,options={}
+      options[:appliance_id] = source_id.to_i
+      request_str = "/appliances?clone_from=#{source_id.to_i}"
+      options.each do |k,v|
+        request_str << "&#{URI.escape k.to_s}=#{URI.escape v.to_s}"
+      end
+      response = GenericRequest.new(studio_connection).post request_str, options
+      Appliance.new Hash.from_xml(response)["appliance"]
     end
 
     # Gets all GPG keys assigned to appliance
@@ -259,6 +267,10 @@ private
       prefix_options, query_options = split_options(options)
       method_string = method_name.blank? ? "" : "/#{method_name}"
       "#{self.class.prefix(prefix_options)}#{self.class.collection_name}#{method_string}#{self.class.send :query_string,query_options}"
+    end
+    def self.custom_method_collection_url(method_name,options = {})
+      prefix_options, query_options = split_options(options)
+      "#{prefix(prefix_options)}#{collection_name}#{query_string query_options}"
     end
 
     def convert_selectable attrs, preset_options = {}
