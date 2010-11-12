@@ -8,7 +8,8 @@ module StudioApi
     #   StudioApi::Util.configure_studio_connection connection
     #   appliances = StudioApi::Appliance.find :all
     # @param [StudioApi::Connection] connection which is used for communication with studio
-    # 
+    # @return [Array<Class>] return set of classes which is set
+
     def self.configure_studio_connection connection
       classes = get_all_usable_class StudioApi
       classes.each {|c| c.studio_connection = connection}

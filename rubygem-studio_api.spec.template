@@ -16,7 +16,7 @@
 #
 
 # norootforbuild
-Name:           rubygem-delayed_job
+Name:           rubygem-studio_api
 Version:        <VERSION>
 Release:        0
 %define mod_name studio_api
@@ -27,12 +27,12 @@ License:        GPLv2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  rubygems_with_buildroot_patch
 %rubygems_requires
-BuildRequires:  rubygem-active_resource
-Requires:       rubygem-active_resource
+BuildRequires:  rubygem-activeresource
+Requires:       rubygem-activeresource
 BuildRequires:  rubygem-xml-simple
 Requires:       rubygem-xml-simple
 #
-Url:            http://github.com/collectiveidea/delayed_job
+Url:            http://github.com/jreidinger/studio_api
 Source:         %{mod_name}-%{version}.gem
 #
 Summary:        Wrapper to use Studio API from ruby

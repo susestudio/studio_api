@@ -42,7 +42,7 @@ begin
       s.authors = ["Josef Reidinger"]
       s.email = %q{jreidinger@suse.cz}
       s.homepage = "http://github.com/jreidinger/studio_api"
-      s.add_dependency "active_resource", ">= 1.3.8"
+      s.add_dependency "activeresource", ">= 1.3.8"
       s.add_dependency "xml-simple", ">= 1.0.0"
       s.platform = Gem::Platform::RUBY
     end

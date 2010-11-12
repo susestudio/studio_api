@@ -87,14 +87,14 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<active_resource>, [">= 1.3.8"])
+      s.add_runtime_dependency(%q<activeresource>, [">= 1.3.8"])
       s.add_runtime_dependency(%q<xml-simple>, [">= 1.0.0"])
     else
-      s.add_dependency(%q<active_resource>, [">= 1.3.8"])
+      s.add_dependency(%q<activeresource>, [">= 1.3.8"])
       s.add_dependency(%q<xml-simple>, [">= 1.0.0"])
     end
   else
-    s.add_dependency(%q<active_resource>, [">= 1.3.8"])
+    s.add_dependency(%q<activeresource>, [">= 1.3.8"])
     s.add_dependency(%q<xml-simple>, [">= 1.0.0"])
   end
 end

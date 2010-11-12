@@ -20,6 +20,7 @@ module StudioApi
     # @see Appliance#status
     class Status < ActiveResource::Base
       extend StudioResource
+      self.element_name = "status"
     end
 
     # Represents repository assigned to appliance
@@ -67,17 +68,19 @@ module StudioApi
         options.each do |k,v|
           request_str << "&#{URI.escape k.to_s}=#{URI.escape v.to_s}"
         end
-        GenericRequest.new(studio_connection).post request_str, :key => key
+        response = GenericRequest.new(studio_connection).post request_str, :key => key
+        self.new Hash.from_xml(response)["gpg_key"]
       end
     end
 
     # gets status of appliance
     # @return [StudioApi::Appliance::Status] resource of status
     def status
-      Status.studio_connection = self.class.studio_connection
+      my_status = Status.dup
+      my_status.studio_connection = self.class.studio_connection
       #rails is so smart, that it ignores prefix for calls. At least it is good that we don't want to do such things from library users
       from = Util.join_relative_url( self.class.site.path,"appliances/#{id.to_i}/status")
-      Status.find :one, :from => from
+      my_status.find :one, :from => from
     end
 
     # Gets all repositories assigned to appliance
@@ -91,28 +94,35 @@ module StudioApi
 
     # remove repositories from appliance
     # @param (#to_s,Array<#to_s>)
+    # @return (Array<StudioApi::Repository>) list of remaining repositories
     # @example various way to remove repo
     #   appl = Appliance.find 1234
     #   appl.remove_repository 5678
     #   appl.remove_repository [5678,34,56,78,90]
     #   appl.remove_repository 5678,34,56,78,90
+
     def remove_repository (*repo_ids)
+      response = nil
       repo_ids.flatten.each do |repo_id|
-        post "#{id}/cmd/remove_repository", :repo_id => repo_id
+        response = post "#{id}/cmd/remove_repository", :repo_id => repo_id
       end
+      Hash.from_xml(response.body)["repositories"].collect{ |r| Repository.new r }
     end
 
     # adds repositories to appliance
     # @param (#to_s,Array<#to_s>)
+    # @return (Array<StudioApi::Repository>) list of all repositories including new one
     # @example various way to add repo
     #   appl = Appliance.find 1234
     #   appl.add_repository 5678
     #   appl.add_repository [5678,34,56,78,90]
     #   appl.add_repository 5678,34,56,78,90
     def add_repository (*repo_ids)
+      response = nil
       repo_ids.flatten.each do |repo_id|
-        post "#{id}/cmd/add_repository", :repo_id => repo_id
+        response = post "#{id}/cmd/add_repository", :repo_id => repo_id
       end
+      Hash.from_xml(response.body)["repositories"].collect{ |r| Repository.new r }
     end
 
     # adds repository for user rpms
