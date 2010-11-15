@@ -19,6 +19,7 @@
 
 require 'uri'
 require 'openssl'
+require 'studio_api/generic_request'
 
 module StudioApi
   # Represents information needed for connection to studio.
@@ -66,6 +67,9 @@ module StudioApi
       @ssl = options[:ssl] || { :verify_mode => OpenSSL::SSL::VERIFY_NONE } # don't verify as default
     end
 
+    def api_version
+      @version ||= version_detect
+    end
 protected
     
     # Overwritte uri object.
@@ -86,6 +90,13 @@ protected
       else
         @proxy = value
       end
+    end
+
+private
+    def version_detect
+      rq = GenericRequest.new self
+      response = rq.get "/api_version"
+      Hash.from_xml(response)["version"]
     end
   end
 end
