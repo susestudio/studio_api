@@ -41,8 +41,18 @@ module StudioApi
       end
     end
 
+    # Overwritte file content and keep metadata ( of course without such things like size )
+    # @param (File) input opened file to which content is used
+    # @return [StudioApi::File] self with updated metadata
+    def overwrite ( input )
+      request_str = "/files/#{id.to_i}/data"
+      rq = GenericRequest.new self.class.studio_connection
+      response = rq.put request_str, :file => input
+      load Hash.from_xml(response)["file"]
+    end
+
     # Uploads file to appliance
-    # @param (#to_s) input_path to file which want to be uploaded
+    # @param (File) input opened file to upload ( its name is used as default for uploaded file name)
     # @param (#to_i) appliance_id id of appliance where to upload
     # @param (Hash<#to_s,#to_s>) options optional parameters, see API documentation
     # @return [StudioApi::File] metadata of uploaded file
