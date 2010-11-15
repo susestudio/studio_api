@@ -31,7 +31,6 @@ REPO_ID = 6345
       mock.get "/api/appliances/#{APPLIANCE_ID}/status", {"Authorization"=>"Basic dGVzdDp0ZXN0"},status_out,200
       mock.delete "/api/appliances/#{APPLIANCE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliance_out,200 
       mock.get "/api/appliances/#{APPLIANCE_ID}/repositories", {"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
-      mock.post "/api/appliances/#{APPLIANCE_ID}/cmd/remove_repository?repo_id=#{REPO_ID}",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
       mock.post "/api/appliances/#{APPLIANCE_ID}/cmd/add_repository?repo_id=#{REPO_ID}",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
       mock.post "/api/appliances/#{APPLIANCE_ID}/cmd/add_user_repository",{"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
       mock.get "/api/appliances/#{APPLIANCE_ID}/gpg_keys", {"Authorization"=>"Basic dGVzdDp0ZXN0"},gpg_keys_out,200
@@ -76,19 +75,23 @@ REPO_ID = 6345
   end
 
   def test_repository_remove
+    repositories_out = respond_load "repositories.xml"
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/remove_repository?repo_id=#{REPO_ID}").returns(repositories_out)
     appliance = StudioApi::Appliance.new(:id => APPLIANCE_ID)
     assert appliance.remove_repository REPO_ID
     repo = appliance.repositories.detect { |r| r.id == REPO_ID.to_s}
     assert repo.destroy #another way to delete repository
-    StudioApi::Appliance::Repository.studio_connection = @connection
-    assert StudioApi::Appliance::Repository.delete REPO_ID, :appliance_id => APPLIANCE_ID #and third way to delete repo
   end
 
   def test_repository_add
+    repositories_out = respond_load "repositories.xml"
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/add_repository?repo_id=#{REPO_ID}").returns(repositories_out)
     assert StudioApi::Appliance.new(:id => APPLIANCE_ID).add_repository REPO_ID
   end
 
   def test_user_repository_add
+    repositories_out = respond_load "repositories.xml"
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/add_user_repository").returns(repositories_out)
     assert StudioApi::Appliance.new(:id => APPLIANCE_ID).add_user_repository
   end
 
@@ -123,13 +126,24 @@ REPO_ID = 6345
 		assert_equal 6347,apport.repository_id
 	end
 
+SOFTWARE_FAKE_RESPONSE= <<EOF
+<success>
+  <details>
+    <status>
+      <state>changed</state>
+      <packages_added>13</packages_added>
+      <packages_removed>0</packages_removed>
+    </status>
+  </details>
+</success>
+EOF
 	def test_manipulate_with_packages_and_pattern
-    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/add_package?name=3ddiag",:name => "3ddiag").returns(true).once
-    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/remove_package?name=3ddiag",:name => "3ddiag").returns(true).once
-    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/add_pattern?name=kde4", :name => "kde4").returns(true).once
-    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/remove_pattern?name=kde4",:name => "kde4").returns(true).once
-    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/ban_package?name=3ddiag",:name => "3ddiag").returns(true).once
-    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/unban_package?name=3ddiag",:name => "3ddiag").returns(true).once
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/add_package?name=3ddiag",:name => "3ddiag").returns(SOFTWARE_FAKE_RESPONSE).once
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/remove_package?name=3ddiag",:name => "3ddiag").returns(SOFTWARE_FAKE_RESPONSE).once
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/add_pattern?name=kde4", :name => "kde4").returns(SOFTWARE_FAKE_RESPONSE).once
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/remove_pattern?name=kde4",:name => "kde4").returns(SOFTWARE_FAKE_RESPONSE).once
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/ban_package?name=3ddiag",:name => "3ddiag").returns(SOFTWARE_FAKE_RESPONSE).once
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/unban_package?name=3ddiag",:name => "3ddiag").returns(SOFTWARE_FAKE_RESPONSE).once
     appliance = StudioApi::Appliance.new(:id => APPLIANCE_ID)
 		assert appliance.add_package "3ddiag"
 		assert appliance.remove_package "3ddiag"

@@ -16,7 +16,7 @@ module StudioApi
     end
 
     # joins relative url for unix servers as URI.join require at least one
-    # absolut adress. Especially take care about only one slash otherwise studio
+    # absolute adress. Especially take care about only one slash otherwise studio
     # returns 404.
     # @param (Array<String>) args list of Strings to join
     # @return (String) joined String

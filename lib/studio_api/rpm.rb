@@ -18,6 +18,7 @@ module StudioApi
     # Upload file to studio account (user repository)
     # @param (String) file_path to rpm which is uploaded
     # @param (#to_s) base_system for which is rpm compiled
+    # @return [StudioApi::Rpm] uploaded RPM
     def self.upload file_path, base_system
       ::File.open( file_path, "r" ) do |file|
         response = GenericRequest.new(studio_connection).post "/rpms?base_system=#{CGI.escape base_system.to_s}", :file => file
@@ -26,8 +27,10 @@ module StudioApi
     end
 
     # Downloads file to specified path.
-    # @param (String) target_path where save downloaded file
+    #
     # Warning: Read whole file to memory
+    # @param (String) target_path where save downloaded file
+    # @return [Fixnum] number of written bytes
     def download target_path
       data = GenericRequest.new(self.class.studio_connection).get "/rpms/#{id.to_i}/data"
       ::File.open(target_path, 'w') {|f| f.write(data) }

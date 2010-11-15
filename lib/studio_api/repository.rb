@@ -16,9 +16,10 @@ module StudioApi
 
     # Import new repository to Studio 
     #
-    # note: will be available to everyone
+    # note: Repository will be available to everyone
     # @param (#to_s) url to repository
     # @param (#to_s) name of created repository
+    # @return [StudioApi::Repository] imported repository
     def self.import (url, name)
       response = post '',:url => url, :name => name
       attrs = Hash.from_xml response.body

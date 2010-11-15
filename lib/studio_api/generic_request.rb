@@ -80,7 +80,7 @@ module StudioApi
     # @param (Hash<#to_s,#to_s>,Hash<#to_s,#path>) data hash containing data to attach to body
     # @return (String) response body from studio
     # @raise [ActiveResource::ConnectionError] when problem occur during connection
-    def post(path,data)
+    def post(path,data={})
       request = Net::HTTP::Post.new Util.join_relative_url @connection.uri.request_uri,path
       set_data(request,data)
       do_request request
@@ -91,7 +91,7 @@ module StudioApi
     # @param (Hash<#to_s,#to_s>,Hash<#to_s,#path>) data hash containing data to attach to body
     # @return (String) response body from studio
     # @raise [ActiveResource::ConnectionError] when problem occur during connection
-    def put(path,data)
+    def put(path,data={})
       request = Net::HTTP::Put.new Util.join_relative_url @connection.uri.request_uri,path
       set_data(request,data)
       do_request request

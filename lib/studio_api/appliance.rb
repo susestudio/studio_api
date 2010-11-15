@@ -24,6 +24,7 @@ module StudioApi
     end
 
     # Represents repository assigned to appliance
+    # supports find :all and deleting from appliance
     class Repository < ActiveResource::Base
       extend StudioResource
       self.prefix = "/appliances/:appliance_id/"
@@ -31,15 +32,9 @@ module StudioApi
       mattr_accessor :appliance
 
       #for delete repository doesn't work clasic method from ARes
+      # @see StudioApi::Appliance#remove_repository
       def destroy
         self.class.appliance.remove_repository id
-      end
-
-      #for delete repository doesn't work clasic method from ARes
-      def self.delete (id, options)
-        my_app = Appliance.dup
-        my_app.studio_connection = studio_connection
-        my_app.new(:id => options[:appliance_id]).remove_repository id
       end
     end
     
@@ -104,9 +99,10 @@ module StudioApi
     def remove_repository (*repo_ids)
       response = nil
       repo_ids.flatten.each do |repo_id|
-        response = post "#{id}/cmd/remove_repository", :repo_id => repo_id
+        rq = GenericRequest.new self.class.studio_connection
+        response = rq.post "/appliances/#{id}/cmd/remove_repository?repo_id=#{repo_id.to_i}"
       end
-      Hash.from_xml(response.body)["repositories"].collect{ |r| Repository.new r }
+      Hash.from_xml(response)["repositories"].collect{ |r| Repository.new r }
     end
 
     # adds repositories to appliance
@@ -120,14 +116,17 @@ module StudioApi
     def add_repository (*repo_ids)
       response = nil
       repo_ids.flatten.each do |repo_id|
-        response = post "#{id}/cmd/add_repository", :repo_id => repo_id
+        rq = GenericRequest.new self.class.studio_connection
+        response = rq.post "/appliances/#{id}/cmd/add_repository?repo_id=#{repo_id.to_i}"
       end
-      Hash.from_xml(response.body)["repositories"].collect{ |r| Repository.new r }
+      Hash.from_xml(response)["repositories"].collect{ |r| Repository.new r }
     end
 
     # adds repository for user rpms
     def add_user_repository
-      post "#{id}/cmd/add_user_repository"
+      rq = GenericRequest.new self.class.studio_connection
+      response = rq.post "/appliances/#{id}/cmd/add_user_repository"
+      Hash.from_xml(response)["repositories"].collect{ |r| Repository.new r }
     end
 
     # clones appliance or template
@@ -163,6 +162,7 @@ module StudioApi
 
     # add GPG key to appliance
     # @params (see GpgKey#create)
+    # @return [StudioApi::Appliance::GpgKey] created key
     def add_gpg_key (name, key, options={})
       my_key = GpgKey.dup
       my_key.studio_connection = self.class.studio_connection
@@ -220,9 +220,11 @@ module StudioApi
     # Dependencies is automatic resolved, but its repository have to be already
     # included in appliance
 		# @param(#to_s) name of package
-    # @param (Hash<#to_s,#to_s>) options optional parameters for search, see api documentation
+    # @param (Hash<#to_s,#to_s>) options optional parameters for adding packages, see api documentation
+    # @return [Hash<String,String>] return status after software change. It contains
+    #   three keys - state, packages_added and packages_removed
 		def add_package (name, options={})
-			appliance_command "add_package",{:name => name}.merge(options)
+			software_command "add_package",{:name => name}.merge(options)
 		end
 
     # Deselect package from appliance.
@@ -230,8 +232,10 @@ module StudioApi
     # Dependencies is automatic resolved (so unneeded dependencies not installed),
     # but unused repositories is kept
 		# @param(#to_s) name of package
+    # @return [Hash<String,String>] return status after software change. It contains
+    #   three keys - state, packages_added and packages_removed
 		def remove_package (name)
-			appliance_command "remove_package",:name => name
+			software_command "remove_package",:name => name
 		end
 
     # Select new pattern to be installed in appliance.
@@ -239,9 +243,11 @@ module StudioApi
     # Dependencies is automatic resolved, but its repositories have to be already
     # included in appliance
 		# @param(#to_s) name of pattern
-    # @param (Hash<#to_s,#to_s>) options optional parameters for search, see api documentation
+    # @param (Hash<#to_s,#to_s>) options optional parameters for adding patterns, see api documentation
+    # @return [Hash<String,String>] return status after software change. It contains
+    #   three keys - state, packages_added and packages_removed
 		def add_pattern (name, options={})
-			appliance_command "add_pattern",{:name => name}.merge(options)
+			software_command "add_pattern",{:name => name}.merge(options)
 		end
 
     # Deselect pattern from appliance.
@@ -249,20 +255,26 @@ module StudioApi
     # Dependencies is automatic resolved (so unneeded dependencies not installed),
     # but unused repositories is kept
 		# @param(#to_s) name of pattern
+    # @return [Hash<String,String>] return status after software change. It contains
+    #   three keys - state, packages_added and packages_removed
 		def remove_pattern (name)
-			appliance_command "remove_pattern",:name => name
+			software_command "remove_pattern",:name => name
 		end
 
     # Bans package ( so it cannot be installed even as dependency).
 		# @param(#to_s) name of package
+    # @return [Hash<String,String>] return status after software change. It contains
+    #   three keys - state, packages_added and packages_removed
 		def ban_package(name)
-			appliance_command "ban_package",:name => name
+			software_command "ban_package",:name => name
 		end
 
     # Unbans package ( so then it can be installed).
 		# @param(#to_s) name of package
+    # @return [Hash<String,String>] return status after software change. It contains
+    #   three keys - state, packages_added and packages_removed
 		def unban_package(name)
-			appliance_command "unban_package",:name => name
+			software_command "unban_package",:name => name
 		end
 
 private
@@ -306,7 +318,7 @@ private
       end
     end
 
-		def appliance_command type, options={}
+		def software_command type, options={}
       request_str = "/appliances/#{id.to_i}/cmd/#{type}"
 			unless options.empty?
 				first = true
@@ -316,7 +328,8 @@ private
 					request_str << "#{separator}#{URI.escape k.to_s}=#{URI.escape v.to_s}"
 				end
 			end
-      GenericRequest.new(self.class.studio_connection).post request_str, options
+      response = GenericRequest.new(self.class.studio_connection).post request_str, options
+      Hash.from_xml(response)["success"]["details"]["status"]
 		end
   end
 end
