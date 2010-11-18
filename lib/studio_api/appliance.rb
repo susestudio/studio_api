@@ -78,6 +78,15 @@ module StudioApi
       my_status.find :one, :from => from
     end
 
+    # Gets file content from finished build.
+    # @param [StudioApi::Build, StudioApi::Appliance::Build] build from which download file
+    # @param [#to_s] src_path path in appliance fs to required file
+    # @return [String] content of file
+    def file_content_from_build (build,src_path)
+      rq = GenericRequest.new self.class.studio_connection
+      rq.get "/appliances/#{id.to_i}/image_files?build_id=#{build.id.to_i}&path=#{URI.escape src_path.to_s}"
+    end
+
     # Gets all repositories assigned to appliance
     # @return [StudioApi::Appliance::Repository] assigned repositories
     def repositories
@@ -213,6 +222,17 @@ module StudioApi
       	res += convert_selectable repo["software"][0], options
 			end
 			res
+    end
+
+    # Returns rpm file as String
+    # @param (#to_s) name of rpm
+    # @param (Hash<#to_s,#to_s>) options additional options, see API documentation
+    def rpm_content(name, options={})
+      request_str = "/appliances/#{id.to_i}/cmd/download_package?name=#{URI.escape name.to_s}"
+      options.each do |k,v|
+        request_str << "&#{URI.escape k.to_s}=#{URI.escape v.to_s}"
+      end
+      GenericRequest.new(self.class.studio_connection).get request_str
     end
 
     # Select new package to be installed in appliance.

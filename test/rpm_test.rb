@@ -46,19 +46,14 @@ class RpmTest < Test::Unit::TestCase
 
 TEST_STRING = "My lovely testing string\n Doodla da da da nicht"
   def test_download
-    file = Tempfile.new("/tmp")
     StudioApi::GenericRequest.any_instance.stubs(:get).with("/rpms/#{RPM_ID}/data").returns(TEST_STRING)
-    StudioApi::Rpm.new(:id=> RPM_ID).download file.path
-    File.open(file.path) { |f| assert_equal TEST_STRING,f.read }
+    assert_equal TEST_STRING, StudioApi::Rpm.new(:id=> RPM_ID).content
   end
 
   def test_upload
     rpm_out = respond_load "rpm.xml"
-    file = Tempfile.new("/tmp")
-    file.write TEST_STRING
-    file.close
     StudioApi::GenericRequest.any_instance.stubs(:post).returns(rpm_out)
-    assert StudioApi::Rpm.upload(file.path, "SLE11")
+    assert StudioApi::Rpm.upload(TEST_STRING, "SLE11")
   end
 
 end

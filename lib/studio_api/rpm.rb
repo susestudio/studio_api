@@ -16,24 +16,18 @@ module StudioApi
 
     self.element_name = "rpm"
     # Upload file to studio account (user repository)
-    # @param (String) file_path to rpm which is uploaded
+    # @param (String,File) content of rpm as String or as opened file, in which case name is used as name
     # @param (#to_s) base_system for which is rpm compiled
     # @return [StudioApi::Rpm] uploaded RPM
-    def self.upload file_path, base_system
-      ::File.open( file_path, "r" ) do |file|
-        response = GenericRequest.new(studio_connection).post "/rpms?base_system=#{CGI.escape base_system.to_s}", :file => file
-        self.new Hash.from_xml(response)["rpm"]
-      end
+    def self.upload content, base_system
+      response = GenericRequest.new(studio_connection).post "/rpms?base_system=#{CGI.escape base_system.to_s}", :file => content
+      self.new Hash.from_xml(response)["rpm"]
     end
 
     # Downloads file to specified path.
-    #
-    # Warning: Read whole file to memory
-    # @param (String) target_path where save downloaded file
-    # @return [Fixnum] number of written bytes
-    def download target_path
-      data = GenericRequest.new(self.class.studio_connection).get "/rpms/#{id.to_i}/data"
-      ::File.open(target_path, 'w') {|f| f.write(data) }
+    # @return [String] content of rpm
+    def content
+      GenericRequest.new(self.class.studio_connection).get "/rpms/#{id.to_i}/data"
     end
   end
 end
