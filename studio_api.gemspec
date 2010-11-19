@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{studio_api}
-  s.version = "0.2.0"
+  s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Josef Reidinger"]
-  s.date = %q{2010-11-15}
+  s.date = %q{2010-11-19}
   s.description = %q{Studio Api makes it easier to use Studio via API.
                 Instead of adapting each ActiveResource to its behavior and
                 manually adding multipart file upload it wrapp in in Active
@@ -39,6 +39,7 @@ Gem::Specification.new do |s|
      "lib/test.rb",
      "test/appliance_test.rb",
      "test/build_test.rb",
+     "test/connection_test.rb",
      "test/file_test.rb",
      "test/generic_request_test.rb",
      "test/repository_test.rb",
@@ -58,6 +59,7 @@ Gem::Specification.new do |s|
      "test/build_test.rb",
      "test/appliance_test.rb",
      "test/file_test.rb",
+     "test/connection_test.rb",
      "test/generic_request_test.rb",
      "test/repository_test.rb",
      "test/running_build_test.rb",

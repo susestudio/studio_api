@@ -45,6 +45,6 @@ class RunningBuildTest < Test::Unit::TestCase
   end
 
   def test_run_new
-    assert StudioApi::RunningBuild.new (:appliance_id => APPLIANCE_ID, :force => true).save
+    assert StudioApi::RunningBuild.new(:appliance_id => APPLIANCE_ID, :force => true).save
   end
 end
