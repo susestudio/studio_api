@@ -134,8 +134,7 @@ module StudioApi
     # adds repository for user rpms
     def add_user_repository
       rq = GenericRequest.new self.class.studio_connection
-      response = rq.post "/appliances/#{id}/cmd/add_user_repository"
-      Hash.from_xml(response)["repositories"].collect{ |r| Repository.new r }
+      rq.post "/appliances/#{id}/cmd/add_user_repository"
     end
 
     # clones appliance or template

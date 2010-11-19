@@ -82,7 +82,7 @@ module StudioApi
     # @raise [ActiveResource::ConnectionError] when problem occur during connection
     def post(path,data={})
       request = Net::HTTP::Post.new Util.join_relative_url @connection.uri.request_uri,path
-      set_data(request,data)
+      set_data(request,data) unless data.empty?
       do_request request
     end
 
@@ -93,7 +93,7 @@ module StudioApi
     # @raise [ActiveResource::ConnectionError] when problem occur during connection
     def put(path,data={})
       request = Net::HTTP::Put.new Util.join_relative_url @connection.uri.request_uri,path
-      set_data(request,data)
+      set_data(request,data) unless data.empty?
       do_request request
     end
 
