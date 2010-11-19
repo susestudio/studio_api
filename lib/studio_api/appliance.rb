@@ -4,6 +4,7 @@ require "studio_api/pattern"
 require "studio_api/package"
 require "xmlsimple"
 require "fileutils"
+require 'cgi'
 
 module StudioApi
   # Represents appliance in studio
@@ -61,7 +62,7 @@ module StudioApi
         end
         request_str = "/appliances/#{appliance_id.to_i}/gpg_keys?name=#{name}"
         options.each do |k,v|
-          request_str << "&#{URI.escape k.to_s}=#{URI.escape v.to_s}"
+          request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
         end
         response = GenericRequest.new(studio_connection).post request_str, :key => key
         self.new Hash.from_xml(response)["gpg_key"]
@@ -84,7 +85,7 @@ module StudioApi
     # @return [String] content of file
     def file_content_from_build (build,src_path)
       rq = GenericRequest.new self.class.studio_connection
-      rq.get "/appliances/#{id.to_i}/image_files?build_id=#{build.id.to_i}&path=#{URI.escape src_path.to_s}"
+      rq.get "/appliances/#{id.to_i}/image_files?build_id=#{build.id.to_i}&path=#{CGI.escape src_path.to_s}"
     end
 
     # Gets all repositories assigned to appliance
@@ -145,7 +146,7 @@ module StudioApi
     def self.clone source_id,options={}
       request_str = "/appliances?clone_from=#{source_id.to_i}"
       options.each do |k,v|
-        request_str << "&#{URI.escape k.to_s}=#{URI.escape v.to_s}"
+        request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
       end
       response = GenericRequest.new(studio_connection).post request_str, options
       Appliance.new Hash.from_xml(response)["appliance"]
@@ -209,9 +210,9 @@ module StudioApi
     # @param (Hash<#to_s,#to_s>) options optional parameters for search, see api documentation
     # @return (Array<StudioApi::Package,StudioApi::Pattern>) list of installed packages and patterns
     def search_software (search_string,options={})
-      request_str = "/appliances/#{id.to_i}/software/search?q=#{URI.escape search_string.to_s}"
+      request_str = "/appliances/#{id.to_i}/software/search?q=#{CGI.escape search_string.to_s}"
 			options.each do |k,v|
-				request_str << "&#{URI.escape k.to_s}=#{URI.escape v.to_s}"
+				request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
 			end
       response = GenericRequest.new(self.class.studio_connection).get request_str
       attrs = XmlSimple.xml_in response
@@ -227,9 +228,9 @@ module StudioApi
     # @param (#to_s) name of rpm
     # @param (Hash<#to_s,#to_s>) options additional options, see API documentation
     def rpm_content(name, options={})
-      request_str = "/appliances/#{id.to_i}/cmd/download_package?name=#{URI.escape name.to_s}"
+      request_str = "/appliances/#{id.to_i}/cmd/download_package?name=#{CGI.escape name.to_s}"
       options.each do |k,v|
-        request_str << "&#{URI.escape k.to_s}=#{URI.escape v.to_s}"
+        request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
       end
       GenericRequest.new(self.class.studio_connection).get request_str
     end
@@ -344,7 +345,7 @@ private
 				options.each do |k,v|
 					separator = first ? "?" : "&"
 					first = false
-					request_str << "#{separator}#{URI.escape k.to_s}=#{URI.escape v.to_s}"
+					request_str << "#{separator}#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
 				end
 			end
       response = GenericRequest.new(self.class.studio_connection).post request_str, options

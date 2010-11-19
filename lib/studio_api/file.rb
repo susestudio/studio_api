@@ -53,7 +53,7 @@ module StudioApi
     def self.upload ( content, appliance_id, options = {})
       request_str = "files?appliance_id=#{appliance_id.to_i}"
       options.each do |k,v|
-        request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v}"
+        request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
       end
       rq = GenericRequest.new studio_connection
       response = rq.post request_str, :file => content

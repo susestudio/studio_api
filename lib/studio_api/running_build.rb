@@ -1,6 +1,6 @@
 require "studio_api/studio_resource"
 
-require "uri"
+require "cgi"
 
 module StudioApi
   # Represents running build in studio.
@@ -25,7 +25,7 @@ private
       request_str = collection_path
       request_str << "?appliance_id=#{attributes.delete("appliance_id").to_i}"
       attributes.each do |k,v|
-        request_str << "&#{URI.escape k.to_s}=#{URI.escape v.to_s}"
+        request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
       end
       connection.post(request_str,"",self.class.headers).tap do |response|
         load_attributes_from_response response
