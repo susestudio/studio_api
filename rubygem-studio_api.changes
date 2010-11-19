@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Fri Nov 19 14:12:18 UTC 2010 - jreidinger@novell.com
+
+- fix issue with empty body of post and put
+- 1.0.1
+
+-------------------------------------------------------------------
 Fri Nov 19 09:53:38 UTC 2010 - jreidinger@novell.com
 
 - consistent behavior for uploading/downloading
