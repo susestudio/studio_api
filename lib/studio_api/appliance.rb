@@ -57,14 +57,17 @@ module StudioApi
       #   end
       def self.create (appliance_id, name, key, options={})
         options[:target] ||= "rpm"
-        if key.is_a? String #if key is string, that pass it in request, if not pack it in body
-          options[:key] = key
+        data = nil
+        if key.is_a? File #if key is string, that pass it in request, if not pack it in body
+          data = { :file => key }
+        else
+          options[:key] = key.to_s
         end
         request_str = "/appliances/#{appliance_id.to_i}/gpg_keys?name=#{name}"
         options.each do |k,v|
           request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
         end
-        response = GenericRequest.new(studio_connection).post request_str, :key => key
+        response = GenericRequest.new(studio_connection).post request_str, data
         self.new Hash.from_xml(response)["gpg_key"]
       end
     end

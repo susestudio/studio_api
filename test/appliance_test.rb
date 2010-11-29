@@ -172,8 +172,8 @@ EOF
 
   def test_add_gpg_key
     gpg_key_out = respond_load "gpg_key.xml"
-    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&target=rpm&key=test",:key => "test").returns(gpg_key_out)
-    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&key=test&target=rpm",:key => "test").returns(gpg_key_out)
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&target=rpm&key=test",nil).returns(gpg_key_out)
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&key=test&target=rpm",nil).returns(gpg_key_out)
     assert StudioApi::Appliance::GpgKey.create APPLIANCE_ID, "test", "test"
     assert StudioApi::Appliance.new(:id => APPLIANCE_ID).add_gpg_key "test", "test"
   end

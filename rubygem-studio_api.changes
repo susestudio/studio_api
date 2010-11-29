@@ -2,6 +2,7 @@
 Mon Nov 29 15:09:19 UTC 2010 - jreidinger@novell.com
 
 - improve escaping of parameters
+- fix uploading gpg_key as file
 - 1.2.0
 
 -------------------------------------------------------------------
