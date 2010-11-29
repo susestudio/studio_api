@@ -58,7 +58,7 @@ module StudioApi
       def self.create (appliance_id, name, key, options={})
         options[:target] ||= "rpm"
         data = nil
-        if key.is_a? File #if key is string, that pass it in request, if not pack it in body
+        if key.is_a?(IO) && key.respond_to?(:path) #if key is string, that pass it in request, if not pack it in body
           data = { :file => key }
         else
           options[:key] = key.to_s
@@ -193,11 +193,13 @@ module StudioApi
 
     # Gets list of all installed (include dependencies) software
     # (package and patterns) in appliance
-    # @param (#to_i) build_id specifies ID of build, otherwise use the latest one
+    # @param (Hash) hash of options, see studio API
     # @return (Array<StudioApi::Package,StudioApi::Pattern>) list of installed packages and patterns
-    def installed_software (build_id = nil)
+    def installed_software (options = {})
       request_str = "/appliances/#{id.to_i}/software/installed"
-			request_str << "?build_id=#{build_id.to_i}" if build_id
+			options.each do |k,v|
+				request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
+			end
       response = GenericRequest.new(self.class.studio_connection).get request_str
       attrs = XmlSimple.xml_in response
 			res = []
