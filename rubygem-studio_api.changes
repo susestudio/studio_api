@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Tue Nov 30 13:43:58 UTC 2010 - jreidinger@novell.com
+
+- fix passing options to installed software
+- 2.1.0
+
+-------------------------------------------------------------------
 Mon Nov 29 16:50:21 UTC 2010 - jreidinger@novell.com
 
 - add ability too pass more parameters to installed software

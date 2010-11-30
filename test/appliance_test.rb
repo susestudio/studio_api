@@ -106,8 +106,8 @@ REPO_ID = 6345
 
 	def test_installed_software
     software_in_out = respond_load "software_installed.xml"
-    StudioApi::GenericRequest.any_instance.stubs(:get).with("/appliances/#{APPLIANCE_ID}/software/installed").returns(software_in_out).once
-    res = StudioApi::Appliance.new(:id => APPLIANCE_ID).installed_software
+    StudioApi::GenericRequest.any_instance.stubs(:get).with("/appliances/#{APPLIANCE_ID}/software/installed?build_id=1").returns(software_in_out).once
+    res = StudioApi::Appliance.new(:id => APPLIANCE_ID).installed_software :build_id => 1
     assert_equal 608,res.size
     assert res.any? {|r| r.is_a? StudioApi::Pattern }, "Pattern is not loaded"
 		diag = res.find { |p| p.name == "3ddiag"}

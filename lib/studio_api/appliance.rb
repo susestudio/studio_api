@@ -197,8 +197,13 @@ module StudioApi
     # @return (Array<StudioApi::Package,StudioApi::Pattern>) list of installed packages and patterns
     def installed_software (options = {})
       request_str = "/appliances/#{id.to_i}/software/installed"
-			options.each do |k,v|
-				request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
+			unless options.empty?
+				first = true
+				options.each do |k,v|
+					separator = first ? "?" : "&"
+					first = false
+					request_str << "#{separator}#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
+				end
 			end
       response = GenericRequest.new(self.class.studio_connection).get request_str
       attrs = XmlSimple.xml_in response
