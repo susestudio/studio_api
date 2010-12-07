@@ -72,3 +72,22 @@ for ActiveResource error handling.
   # appliances = StudioApi::Appliance.find :all
   # appliances.select{ |a| a.name =~ /cool/i }.each{ |a| a.destroy }
 
+Second example contain how to easy mock calling studio stuff without mock server. Using mocha
+
+  require 'mocha'
+  require 'studio_api'
+
+  APPLIANCE_UUID = "68c91080-ccca-4270-a1d3-10e714ddd1c6"
+  APPLIANCE_VERSION = "0.0.1"
+  APPLIANCE_STUDIO_ID = "97216"
+  BUILD_ID = "180420"
+  APPLIANCE_1 = StudioApi::Appliance.new :id => APPLIANCE_STUDIO_ID, :name => "Test", :arch => 'i386',
+                            :last_edited => "2010-10-08 14:46:07 UTC", :estimated_raw_size => "390 MB", :estimated_compressed_size => "140 MB",
+                            :edit_url => "http://susestudio.com/appliance/edit/266657", :icon_url => "http://susestudio.com/api/v1/user/appliance_icon/266657",
+                            :basesystem => "SLES11_SP1", :uuid => APPLIANCE_UUID, :parent => {:id => "202443", :name => "SLES 11 SP1, Just enough OS (JeOS)"},
+                            :builds => [{:id =>BUILD_ID,:version => APPLIANCE_VERSION, :image_type => "vmx", :image_size => "695",
+                            :compressed_image_size => "121",
+                            :download_url => "http://susestudio.com/download/a0f0217f0645099c9e41c42e9bf89976/josefs_SLES_11_SP1_git_test.i686-0.0.1.vmx.tar.gz"}] 
+  
+  #real mocking
+  StudioApi::Appliance.stubs(:find).with(APPLIANCE_STUDIO_ID).returns(APPLIANCE_1)
