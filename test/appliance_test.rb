@@ -58,6 +58,15 @@ REPO_ID = 6345
     assert_equal "ok", res.status.state
   end
 
+  def test_maintenance_status
+    status_out = respond_load "status-broken.xml"
+    ActiveResource::HttpMock.respond_to do |mock|
+      mock.get "/api/appliances/#{APPLIANCE_ID}/status", {"Authorization"=>"Basic dGVzdDp0ZXN0"},status_out,200
+    end
+    res = StudioApi::Appliance.new(:id => APPLIANCE_ID)
+    assert_equal "error", res.status.state
+  end
+
   def test_clone
     appliance_out = respond_load "appliance.xml"
     StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances?clone_from=#{APPLIANCE_ID}",{}).returns(appliance_out).once

@@ -22,6 +22,7 @@ module StudioApi
     class Status < ActiveResource::Base
       extend StudioResource
       self.element_name = "status"
+      def self.name; "status"; end
     end
 
     # Represents repository assigned to appliance
@@ -75,7 +76,7 @@ module StudioApi
     # gets status of appliance
     # @return [StudioApi::Appliance::Status] resource of status
     def status
-      my_status = Status.dup
+      my_status = Status#.dup FIXME this doesn't work well with AciveResource :(
       my_status.studio_connection = self.class.studio_connection
       #rails is so smart, that it ignores prefix for calls. At least it is good that we don't want to do such things from library users
       from = Util.join_relative_url( self.class.site.path,"appliances/#{id.to_i}/status")

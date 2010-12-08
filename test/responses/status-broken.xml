@@ -1,0 +1,9 @@
+<status>
+  <state>error</state>
+  <issues>
+    <issue>
+      <type>error</type>
+      <text>Sorry, the server is currently in maintenance (read-only) mode. Please check back a little later.</text>
+    </issue>
+  </issues>
+</status>
