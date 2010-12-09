@@ -1,4 +1,12 @@
 -------------------------------------------------------------------
+Thu Dec  9 12:15:22 UTC 2010 - jreidinger@novell.com
+
+- fix uploading gpg key with File object
+- fix studio status in studio maintenance mode
+- add to documentation example of mocking
+- 2.2.0
+
+-------------------------------------------------------------------
 Tue Nov 30 13:43:58 UTC 2010 - jreidinger@novell.com
 
 - fix passing options to installed software
