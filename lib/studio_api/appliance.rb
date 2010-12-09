@@ -58,9 +58,9 @@ module StudioApi
       #   end
       def self.create (appliance_id, name, key, options={})
         options[:target] ||= "rpm"
-        data = nil
+        data = {}
         if key.is_a?(IO) && key.respond_to?(:path) #if key is string, that pass it in request, if not pack it in body
-          data = { :file => key }
+          data[:file] = key
         else
           options[:key] = key.to_s
         end
