@@ -33,7 +33,7 @@ begin
                 for whole api, or use it per partes, so it allow using it for
                 different studio users together.}
 
-      s.files = FileList['[A-Z]*', 'lib/**/*.rb', 'test/**/*.rb']
+      s.files = FileList['[A-Z]*', 'lib/studio_api/*.rb','lib/studio_api.rb', 'test/**/*.rb']
       s.require_path = 'lib'
       s.test_files = Dir[*['test/*_test.rb','test/responses/*.xml']]
       s.has_rdoc = true
