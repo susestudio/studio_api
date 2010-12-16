@@ -22,7 +22,6 @@ module StudioApi
     class Status < ActiveResource::Base
       extend StudioResource
       self.element_name = "status"
-      def self.name; "status"; end
     end
 
     # Represents repository assigned to appliance
