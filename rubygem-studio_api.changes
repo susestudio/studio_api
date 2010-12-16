@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Thu Dec 16 12:04:43 UTC 2010 - jreidinger@novell.com
+
+- fix compatibility with rails 3.0
+- 2.3.0 
+
+-------------------------------------------------------------------
 Thu Dec  9 12:15:22 UTC 2010 - jreidinger@novell.com
 
 - fix uploading gpg key with File object
