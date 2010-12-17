@@ -37,7 +37,9 @@ for ActiveResource error handling.
   puts "Created appliance #{appliance.inspect}"
 
   #add own rpm built agains SLED11_SP1
-  StudioApi::Rpm.upload "/home/jreidinger/rpms/kezboard-1.0-1.60.noarch.rpm", "SLED11_SP1"
+	File.open("/home/jreidinger/rpms/kezboard-1.0-1.60.noarch.rpm") do |file|
+	  StudioApi::Rpm.upload file, "SLED11_SP1"
+	end
   # and choose it in appliance ( and of course add repository with own rpms)
   appliance.add_user_repository
   appliance.add_package "kezboard", :version => "1.0-1.60"
