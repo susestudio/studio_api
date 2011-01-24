@@ -8,9 +8,15 @@ module StudioApi
   class Gallery < ActiveResource::Base
     extend StudioApi::StudioResource
     self.element_name = "gallery"
-    
+
     class Appliance < ActiveResource::Base
       extend StudioApi::StudioResource
+
+      def rating
+        request_str = "/gallery/appliances/#{id.to_i}/rating"
+        response = GenericRequest.new(self.class.studio_connection).get request_str
+        XmlSimple.xml_in(response, "ForceArray" => false)["appliance"]
+      end
     end
 
     def self.find_appliance type,options={}
@@ -29,10 +35,15 @@ module StudioApi
 
     def self.appliance id, version = nil
       request_str = "/gallery/appliances/#{id.to_i}"
-      request_str += "/version/#{CGI.escape version.to_s}" if version
+      request_str << "/version/#{CGI.escape version.to_s}" if version
       response = GenericRequest.new(studio_connection).get request_str
       tree = XmlSimple.xml_in(response,"ForceArray" => ["format","account"])["appliance"]
       Gallery::Appliance.new tree
+    end
+
+    def self.publish_appliance id, version, release_notes
+      request_str = "/gallery/appliances/#{id.to_i}/version/#{CGI.escape version.to_s}"
+      response = GenericRequest.new(studio_connection).post request_str, :release_notes => release_notes
     end
   end
 end
