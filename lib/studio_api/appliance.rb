@@ -24,6 +24,11 @@ module StudioApi
       self.element_name = "status"
     end
 
+    class Configuration < ActiveResource::Base
+      extend StudioResource
+      self.element_name = "configuration"
+    end
+
     # Represents repository assigned to appliance
     # supports find :all and deleting from appliance
     class Repository < ActiveResource::Base
@@ -164,6 +169,45 @@ module StudioApi
       request_str = "/appliances/#{id.to_i}/software/manifest/#{CGI.escape build.to_s}"
       request_str = Util.add_options request_str, options
       GenericRequest.new(self.class.studio_connection).get request_str
+    end
+
+    def logo
+      request_str = "/appliances/#{id.to_i}/configuration/logo"
+      GenericRequest.new(self.class.studio_connection).get request_str
+    end
+
+    def logo= (logo)
+      request_str = "/appliances/#{id.to_i}/configuration/logo"
+      if logo.is_a?(IO) && logo.respond_to?(:path)
+        GenericRequest.new(self.class.studio_connection).post request_str, :file => logo
+      else
+        File.open(logo.to_s) do |f| 
+          GenericRequest.new(self.class.studio_connection).post request_str, :file => f
+        end
+      end
+    end
+
+    def background
+      request_str = "/appliances/#{id.to_i}/configuration/background"
+      GenericRequest.new(self.class.studio_connection).get request_str
+    end
+
+    def background= (logo)
+      request_str = "/appliances/#{id.to_i}/configuration/background"
+      if logo.is_a?(IO) && logo.respond_to?(:path)
+        GenericRequest.new(self.class.studio_connection).post request_str, :file => logo
+      else
+        File.open(logo.to_s) do |f| 
+          GenericRequest.new(self.class.studio_connection).post request_str, :file => f
+        end
+      end
+    end
+
+    def configuration
+      my_conf = Configuration#.dup doesn't work well with active resource
+      my_conf.studio_connection = self.class.studio_connection
+      from = Util.join_relative_url( self.class.site.path,"appliances/#{id.to_i}/configuration")
+      my_conf.find :one, :from => from
     end
 
     # clones appliance or template

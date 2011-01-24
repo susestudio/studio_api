@@ -25,6 +25,7 @@ REPO_ID = 6345
     repositories_out = respond_load "repositories.xml"
     gpg_keys_out = respond_load "gpg_keys.xml"
     gpg_key_out = respond_load "gpg_key.xml"
+    conf_out = respond_load "configuration.xml"
     ActiveResource::HttpMock.respond_to do |mock|
       mock.get "/api/appliances", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliances_out,200
       mock.get "/api/appliances/#{APPLIANCE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"},appliance_out,200
@@ -36,6 +37,7 @@ REPO_ID = 6345
       mock.get "/api/appliances/#{APPLIANCE_ID}/gpg_keys", {"Authorization"=>"Basic dGVzdDp0ZXN0"},gpg_keys_out,200
       mock.get "/api/appliances/#{APPLIANCE_ID}/gpg_keys/1976", {"Authorization"=>"Basic dGVzdDp0ZXN0"},gpg_key_out,200
       mock.delete "/api/appliances/#{APPLIANCE_ID}/gpg_keys/1976", {"Authorization"=>"Basic dGVzdDp0ZXN0"},gpg_key_out,200
+      mock.get "/api/appliances/#{APPLIANCE_ID}/configuration", {"Authorization"=>"Basic dGVzdDp0ZXN0"},conf_out,200
     end
   end
 
@@ -108,6 +110,11 @@ REPO_ID = 6345
     repositories_out = respond_load "repositories.xml"
     StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/add_user_repository").returns(repositories_out)
     assert StudioApi::Appliance.new(:id => APPLIANCE_ID).add_user_repository
+  end
+
+  def test_configuration
+    conf= StudioApi::Appliance.new(:id => APPLIANCE_ID).configuration
+    assert conf
   end
 
   def test_user_repository_add
