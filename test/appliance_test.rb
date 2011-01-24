@@ -73,6 +73,12 @@ REPO_ID = 6345
     assert StudioApi::Appliance.clone APPLIANCE_ID
   end
 
+  def test_manifest
+    manifest_out = respond_load "manifest.xml"
+    StudioApi::GenericRequest.any_instance.stubs(:get).with("/appliances/#{APPLIANCE_ID}/software/manifest/vmx").returns(manifest_out).once
+    assert StudioApi::Appliance.new(:id => APPLIANCE_ID).manifest_file "vmx"
+  end
+
   def test_delete
     assert StudioApi::Appliance.delete APPLIANCE_ID
     assert StudioApi::Appliance.find(APPLIANCE_ID).destroy #same but different way
@@ -102,6 +108,20 @@ REPO_ID = 6345
     repositories_out = respond_load "repositories.xml"
     StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/add_user_repository").returns(repositories_out)
     assert StudioApi::Appliance.new(:id => APPLIANCE_ID).add_user_repository
+  end
+
+  def test_user_repository_add
+    users0 = respond_load "users_0.xml"
+    users1 = respond_load "users_1.xml"
+    users2 = respond_load "users_2.xml"
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/sharing/test1").returns(users2).once
+    StudioApi::GenericRequest.any_instance.stubs(:get).with("/appliances/#{APPLIANCE_ID}/sharing").returns(users1).once
+    StudioApi::GenericRequest.any_instance.stubs(:delete).with("/appliances/#{APPLIANCE_ID}/sharing/test1").returns(users1).once
+    assert_equal 1, StudioApi::Appliance.new(:id => APPLIANCE_ID).users.size
+    assert_equal 2, StudioApi::Appliance.new(:id => APPLIANCE_ID).add_user("test1").size
+    assert_equal 1, StudioApi::Appliance.new(:id => APPLIANCE_ID).remove_user("test1").size
+    StudioApi::GenericRequest.any_instance.stubs(:get).with("/appliances/#{APPLIANCE_ID}/sharing").returns(users0).once
+    assert_equal 0, StudioApi::Appliance.new(:id => APPLIANCE_ID).users.size
   end
 
   def test_selected_software
@@ -181,8 +201,8 @@ EOF
 
   def test_add_gpg_key
     gpg_key_out = respond_load "gpg_key.xml"
-    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&target=rpm&key=test",nil).returns(gpg_key_out)
-    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&key=test&target=rpm",nil).returns(gpg_key_out)
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&target=rpm&key=test",{}).returns(gpg_key_out)
+    StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&key=test&target=rpm",{}).returns(gpg_key_out)
     assert StudioApi::Appliance::GpgKey.create APPLIANCE_ID, "test", "test"
     assert StudioApi::Appliance.new(:id => APPLIANCE_ID).add_gpg_key "test", "test"
   end
