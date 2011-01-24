@@ -1,0 +1,311 @@
+<gallery>
+  <appliances count="10">
+    <pages>147</pages>
+    <current_page>1</current_page>
+    <appliance>
+      <id>130166</id>
+      <name>KDE 4 Reloaded</name>
+
+      <publisher>Andr&#233; Duffeck</publisher>
+      <username>aduffeck</username>
+      <homepage></homepage>
+      <description>Desktop with updated KDE packages.</description>
+      <ratings>27</ratings>
+      <average_rating>3.33333333333333</average_rating>
+
+      <comments>39</comments>
+      <based_on>11.3</based_on>
+      <date>2010-09-28 09:51:11 UTC</date>
+    </appliance>
+    <appliance>
+      <id>130185</id>
+      <name>LAMP Server (32bit)</name>
+
+      <publisher>James Tan</publisher>
+      <username>jtan</username>
+      <homepage></homepage>
+      <description>LAMP - Linux, Apache, MySQL, and PHP (plus Perl &amp; Python).</description>
+      <ratings>12</ratings>
+      <average_rating>3.0</average_rating>
+
+      <comments>14</comments>
+      <based_on>11.2</based_on>
+      <date>2010-07-16 10:19:51 UTC</date>
+    </appliance>
+    <appliance>
+      <id>130175</id>
+      <name>GNOME Reloaded</name>
+
+      <publisher>Andr&#233; Duffeck</publisher>
+      <username>aduffeck</username>
+      <homepage></homepage>
+      <description>Desktop with updated GNOME packages.</description>
+      <ratings>15</ratings>
+      <average_rating>3.26666666666667</average_rating>
+
+      <comments>7</comments>
+      <based_on>11.3</based_on>
+      <date>2010-09-10 07:54:37 UTC</date>
+    </appliance>
+    <appliance>
+      <id>265217</id>
+      <name>Smeegol</name>
+
+      <publisher>Andrew Wafaa</publisher>
+      <username>awafaa</username>
+      <homepage>http://en.opensuse.org/openSUSE:Goblin</homepage>
+      <description>Smeegol is based on the netbook user interface that came from the MeeGo(TM)* project. Smeegol offers the latest Banshee's powerful music player, a newer Evolution Express as mail and agenda client and several additional social networks.</description>
+      <ratings>15</ratings>
+      <average_rating>4.0</average_rating>
+
+      <comments>26</comments>
+      <based_on>11.3</based_on>
+      <date>2010-10-06 10:27:35 UTC</date>
+    </appliance>
+    <appliance>
+      <id>238737</id>
+      <name>Upstream OS</name>
+
+      <publisher>Nick</publisher>
+      <username>nick17</username>
+      <homepage>http://upstreamos.tk/</homepage>
+      <description>The old Upstream, was very large.. and very bloated (800 mb). Not anymore.
+
+Here it is.. Upstream OS, version 6. Now with a download size of 590mb. Finally a smaller but still fully functional OS.
+
+Now available in the form of ISO and WMware/VirtualBox/KVM.
+
+Make your own OS, or use our full-featured OS for normal use. This OS features EVERY Upstream branding package. Even the small packages for applications not installed. That way if the user does install a particular app, the Upstream branding will be ready for it. All OpenSuse branding packages have been removed. So if your looking for a plain OS to start work on, this is the one.
+
+Features:
+
+The latest and most up-to-date KDE 4 repository. 
+No-branding. 
+Upstream-themed apps. 
+Google Chrome. 
+KMail. 
+Flash preinstalled. 
+Java preinstalled. 
+IM: Pidgin. 
+Games: DOSbox, and more. 
+Run Microsoft Windows programs with WINE.  
+Multimedia package. 
+VLC. 
+Compiz 3D effects. 
+DVD tools. 
+Wifi tools. 
+Konqueror. 
+Konsole. 
+Elegant style. 
+ImageMagick. 
+Printer, USB, and other drivers preinstalled. 
+Remote Desktop tools. 
+unrar. 
+Packman. 
+VideoLan. 
+GNOME Apps.
+
+Release History:
+
+6.0.0
+5.0.0 
+4.1.0 
+4.0.0 
+3.1.0 
+3.0.0 
+2.1.0 
+2.0.0 
+1.4.0 
+1.3.0 
+1.2.1 
+1.2.0 
+1.1.0 
+1.0.0
+
+Screenshot: http://i55.tinypic.com/so7byo.png 
+KDE: http://i36.tinypic.com/2e2h0lv.png 
+Desktop (In Testdrive): http://i36.tinypic.com/i751zr.png 
+Desktop 2 (In Testdrive): http://i34.tinypic.com/2hx5y8i.png</description>
+      <ratings>14</ratings>
+      <average_rating>3.64285714285714</average_rating>
+
+      <comments>104</comments>
+      <based_on>11.3</based_on>
+      <date>2010-10-27 21:10:17 UTC</date>
+    </appliance>
+    <appliance>
+      <id>223380</id>
+      <name>MiniSUSE</name>
+
+      <publisher>hgj</publisher>
+      <username>hgj</username>
+      <homepage>http://minisuse.hgj.hu</homepage>
+      <description>MiniSUSE comes with all the great packages you might need. It offers you a +Swiss army knife for all your Linux needs+ - still it is +small+ enough to fit a CD/DVD or USB drive. You can use it to rescue systems, format drives, check sensors or hack whatever you want. If you are looking for a small, but extremely useful Linux distribution you can +get up and running in seconds+ from the media of your choice, look no further :)
+
+Now with *IceWM* and *YaST2*!</description>
+      <ratings>13</ratings>
+      <average_rating>2.84615384615385</average_rating>
+
+      <comments>35</comments>
+      <based_on>11.3</based_on>
+      <date>2011-01-18 16:58:04 UTC</date>
+    </appliance>
+    <appliance>
+      <id>236941</id>
+      <name>BrowserBox</name>
+
+      <publisher>Jacob</publisher>
+      <username>jacobrask</username>
+      <homepage>http://my.opera.com/browserbox/</homepage>
+      <description>BrowserBox is a an appliance for web developers and QA's to do cross browser testing. It includes 22 versions of 13 different browsers.
+
+Do you develop on several machines, or don't want to clutter your installation with lots of various browsers? Try it out.
+
+
+h3. INCLUDED BROWSERS
+
+* Android Browser 4.0 (2.2) (WebKit 533.1) - through the Android SDK
+* Arora 0.11 (WebKit 532.4)
+* Google Chrome 7.0.517.41 (WebKit 534.7)
+* Epiphany 2.30.2 (WebKit 531.2)
+* Mozilla Firefox 2.0.0.20 (Gecko 20081217)
+* Mozilla Firefox 3.0.19 (Gecko 2010031218)
+* Mozilla Firefox 3.5.11 (Gecko 20100701)
+* Mozilla Firefox 3.6.11 (Gecko 20101013)
+* Mozilla Firefox Mobile (Fennec) 1.1 (Gecko 20100614)
+* Microsoft Internet Explorer 6.0 (Trident) - installation script, runs in Wine
+* Microsoft Internet Explorer 7.0 (Trident) - installation script, runs in Wine
+* KDE Konqueror 4.4.4 (KHTML 4.4.4)
+* Lynx 2.8.7 (libwww-FM 2.14)
+* Opera 9.27 (Presto 2.0)
+* Opera 9.64 (Presto 2.1.1)
+* Opera 10.10 (Presto 2.2)
+* Opera 10.63 (Presto 2.6.30)
+* Opera Mini 4.2 (Presto/2.5.25 on server) - runs in MicroEmulator 2.0.4
+* Opera Mini 5.1 (Presto/2.5.25 on server) - runs in MicroEmulator 2.0.4
+* Opera Mobile 10.00 (Presto 2.4.18)
+* Apple Safari 4.0.5 (WebKit 531.22.7) - installation script, runs in Wine
+* Apple Safari 5.0.2 (WebKit 533.18.1) - installation script, runs in Wine
+
+
+h3. KNOWN ISSUES
+
+Safari and Internet Explorer cannot be installed when running a Live CD.
+Don't run installers for more than one Wine-run browser at the same time. If something should break, you can reinstall them from System -&gt; More Programs -&gt; Install &lt;browser&gt;.
+
+h4. Internet Explorer 7
+
+* JavaScript doesn't (always?) work.
+* Toolbar layout is sometimes broken.
+* If 3D Acceleration is disabled in the Virtual Machine, IE7 might randomly crash.
+
+h4. Safari 4
+
+* The "new tab" page crashes Safari. Open links in new tabs instead or stick to one tab.
+
+h4. Safari 5
+
+* The "new tab" page crashes Safari. Open links in new tabs instead or stick to one tab.
+* 3D Acceleration needs to be enabled in the Virtual Machine for Safari 5 to start.
+
+"*Screenshots*":http://my.opera.com/browserbox/albums/show.dml?id=4241622</description>
+
+      <ratings>12</ratings>
+      <average_rating>4.33333333333333</average_rating>
+      <comments>49</comments>
+      <based_on>11.3</based_on>
+      <date>2010-10-22 14:48:23 UTC</date>
+    </appliance>
+
+    <appliance>
+      <id>212675</id>
+      <name>OpenMedia</name>
+      <publisher>Orb</publisher>
+      <username>uhyew6dk</username>
+      <homepage>http://www.openm.webuda.com/index.php</homepage>
+
+      <description>OpenMedia is a fantastic OS that lets you, edit video, record &amp; edit sound, and much, much more. NEW VERSION HERE!!!
+
+This is the la........
+
+Update: WEBSITE REVEALED! CHECK IT OUT!  And also we now have a contact form on our website! If there is anything you would like to ask us privately, this is the place to do it.
+
+Please Clone or Download.
+
+Cloning Records:
+
+Cristi - 100th cloner.
+
+kajnos - 200th cloner.
+
+netman - 300th cloner.
+
+Will you be the 400th?</description>
+      <ratings>12</ratings>
+      <average_rating>3.66666666666667</average_rating>
+      <comments>67</comments>
+      <based_on>11.3</based_on>
+
+      <date>2011-01-22 01:47:13 UTC</date>
+    </appliance>
+    <appliance>
+      <id>218641</id>
+      <name>Jinx</name>
+      <publisher>William Yount</publisher>
+      <username>bob_cool</username>
+
+      <homepage>http://thelinux.uphero.com/?page_id=5</homepage>
+      <description>PLEASE NOTE: I HAVE HAD MILLIONS OF UNFIXABLE ERRORS UPDATING THIS TO  11.3 SO I`D LOVE SOME ONE TO SHOW ME HOW TO DO IT
+Jinx is gnome based operating system. It is so big it needs a lot of DVD space, but it is worth it. Why?
+Jinx is made for you, the user.
+
+Please note I tried to scale it down on size to make a quicker download!
+
+You can browse the web with one of the most reliable, most popular, and open source browser, Firefox. Firefox is a fast web browser that uses Gecko. Find more about it at http://mozilla.com/firefox
+
+You can check emails easily with Thunderbird. This is made b y the same company as Firefox is, Mozilla. More about Thunderbird can be found at http://mozilla.com/thunderbird
+
+Jinx also has Ktorrent. Ktorrent is a torrent client to download and upload torrent files.
+
+Version 1.0.1 Release Notes/Change Log:
+Newer Background For Boot Screen, Really Good Graphics on the background.
+Added Ktorrent
+Removed Evolution Because Thunderbird is the same thing
+There is still a bug on the keyboard language chooser. Please help me out with it!!!
+Also Comment on which games you want... they take up space so i took away all the games...
+Download Them at http://live.gnome.org/GnomeGames/ or just get Jinx Gamer (At the site)
+
+
+Cloning Jinx Shows Support. So Clone.
+But if you publish your cloned version of Jinx, you have to follow the license:
+view it at: http://creativecommons.org/licenses/by-nc-sa/3.0/
+Basically You Can Do:
+No Commercial Work With You Cloned Distro
+You Can not say this is originally you own work, and give a link to Jinx's site
+Your Cloned Distro Must Have The Same License</description>
+      <ratings>12</ratings>
+      <average_rating>3.33333333333333</average_rating>
+      <comments>64</comments>
+      <based_on>11.2</based_on>
+
+      <date>2010-07-19 18:51:43 UTC</date>
+    </appliance>
+    <appliance>
+      <id>217555</id>
+      <name>Android Developer's Desktop Remix</name>
+      <publisher>prizm</publisher>
+      <username>prizm</username>
+
+      <homepage></homepage>
+      <description>bgta's Android developer desktop is a great idea, but there is a problem: it's filled with tons of cruft not needed for a developer's desktop like Tomboy, GIMP and Empathy, and added some useful things like a git GUI. I've drastically decreased the size of the appliance with these changes.
+
+I try and improve on their appliance with this. Also, I've switched out the PAE kernel with the standard one, to help it run on more devices.</description>
+      <ratings>4</ratings>
+      <average_rating>4.5</average_rating>
+      <comments>19</comments>
+      <based_on>11.3</based_on>
+
+      <date>2010-11-23 11:40:34 UTC</date>
+    </appliance>
+  </appliances>
+</gallery>

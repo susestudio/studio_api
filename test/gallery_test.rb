@@ -1,0 +1,34 @@
+require 'rubygems'
+require 'active_support'
+$:.unshift File.join( File.dirname(__FILE__),'..','lib')
+require 'studio_api/gallery'
+require 'studio_api/connection'
+require 'studio_api/generic_request'
+require 'studio_api/util'
+require 'active_resource/http_mock'
+require 'mocha'
+require 'test/unit'
+
+class GalleryTest < Test::Unit::TestCase
+
+  def respond_load name
+    IO.read(File.join(File.dirname(__FILE__),"responses",name))
+  end
+
+  def setup
+    @connection = StudioApi::Connection.new("test","test","http://localhost/api/")
+    StudioApi::Util.configure_studio_connection @connection
+  end
+
+  def teardown
+    Mocha::Mockery.instance.stubba.unstub_all
+  end
+
+  def test_find
+    gallery_out = respond_load "gallery.xml"
+    StudioApi::GenericRequest.any_instance.stubs(:get).with("/gallery/appliances?popular&per_page=10").returns(gallery_out)
+    out = StudioApi::Gallery.find_appliance :popular, :per_page => 10
+    assert 10, out[:appliances].size
+  end
+
+end

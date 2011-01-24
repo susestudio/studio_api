@@ -1,0 +1,108 @@
+<configuration>
+  <id>218318</id>
+  <name>josef's WebYaST for apptoolkit 1.1</name>
+  <description>non-official test build of newest appliance with webyast
+It is just for testing fixes between official beta release.
+No public review should be based on this build.</description>
+  <website>http://en.opensuse.org/Portal:WebYaST</website>
+  <tags count="1">
+    <tag>webyast</tag>
+
+  </tags>
+  <locale>
+    <keyboard_layout>english-us</keyboard_layout>
+    <language>en_US.UTF-8</language>
+    <timezone>
+      <location>Europe/Berlin</location>
+    </timezone>
+
+  </locale>
+  <network>
+    <type>dhcp</type>
+  </network>
+  <firewall>
+    <enabled>false</enabled>
+    <open_port>ssh</open_port>
+
+    <open_port>http</open_port>
+  </firewall>
+  <users count="2">
+    <user>
+      <name>root</name>
+      <password>linux</password>
+      <group>root</group>
+
+      <shell>/bin/bash</shell>
+      <homedir>/root</homedir>
+    </user>
+    <user>
+      <name>tux</name>
+      <password>linux</password>
+      <group>users</group>
+
+      <shell>/bin/bash</shell>
+      <homedir>/home/tux</homedir>
+    </user>
+  </users>
+  <eulas count="0">
+  </eulas>
+  <settings>
+    <memory_size>512</memory_size>
+
+    <disk_size>2</disk_size>
+    <swap_size>512</swap_size>
+    <pae_enabled>false</pae_enabled>
+    <xen_host_mode_enabled>false</xen_host_mode_enabled>
+    <cdrom_enabled>true</cdrom_enabled>
+    <webyast_enabled></webyast_enabled>
+
+    <public_clonable>true</public_clonable>
+    <runlevel>3</runlevel>
+  </settings>
+  <lvm>
+    <enabled>false</enabled>
+  </lvm>
+  <scripts>
+
+    <build>
+      <enabled>true</enabled>
+      <script>#!/bin/bash
+#
+# This script is executed at the end of appliance creation.  Here you can do
+# one-time actions to modify your appliance before it is ever used, like
+# removing files and directories to make it smaller, creating symlinks,
+# generating indexes, etc.
+#
+# The 'kiwi_type' variable will contain the format of the appliance (oem =
+# disk image, vmx = VMware, iso = CD/DVD, xen = Xen).
+#
+
+# read in some variables
+. /studio/profile
+
+#======================================
+# Prune extraneous files
+#--------------------------------------
+# Remove all documentation
+docfiles=`find /usr/share/doc/packages -type f |grep -iv "copying\|license\|copyright"`
+rm -f $docfiles
+rm -rf /usr/share/info
+rm -rf /usr/share/man
+
+# fix the setlocale error
+sed -i 's/en_US.UTF-8/POSIX/g' /etc/sysconfig/language
+
+insserv collectd
+insserv yastws
+insserv yastwc
+exit 0</script>
+    </build>
+    <boot>
+      <enabled>false</enabled>
+    </boot>
+
+    <autoyast>
+      <enabled>false</enabled>
+    </autoyast>
+  </scripts>
+</configuration>

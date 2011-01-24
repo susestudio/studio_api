@@ -69,9 +69,7 @@ module StudioApi
           options[:key] = key.to_s
         end
         request_str = "/appliances/#{appliance_id.to_i}/gpg_keys?name=#{name}"
-        options.each do |k,v|
-          request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
-        end
+        request_str = Util.add_options request_str, options, false
         response = GenericRequest.new(studio_connection).post request_str, data
         self.new Hash.from_xml(response)["gpg_key"]
       end
