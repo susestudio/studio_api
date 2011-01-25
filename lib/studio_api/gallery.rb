@@ -13,28 +13,37 @@ module StudioApi
     class Appliance < ActiveResource::Base
       extend StudioApi::StudioResource
 
+      # Gets rating details as hash
+      # #return[Hash] TODO
       def rating
         request_str = "/gallery/appliances/#{id.to_i}/rating"
         response = GenericRequest.new(self.class.studio_connection).get request_str
         XmlSimple.xml_in(response, "ForceArray" => false)["appliance"]
       end
-      
+
+      # Posts own rating of appliance
+      # @param[#to_i] value in range 0..5
+      # @return[Hash] TODO
       def rate value
         request_str = "/gallery/appliances/#{id.to_i}/rating?rating=#{value.to_i}"
         response = GenericRequest.new(self.class.studio_connection).post request_str
         XmlSimple.xml_in(response, "ForceArray" => false)["appliance"]
       end
 
+      # Modifies appliance release notes
+      # @param[String] text of release notes
       def release_notes= (text)
         request_str = "/gallery/appliances/#{id.to_i}/version/#{CGI.escape version.to_s}"
         response = GenericRequest.new(studio_connection).put request_str, :__raw => release_notes
       end
 
+      # Removes appliance from gallery
       def unpublish
         request_str = "/gallery/appliances/#{id.to_i}/version/#{CGI.escape version.to_s}"
         response = GenericRequest.new(studio_connection).delete request_str
       end
 
+      # Gets all available versions of appliance in gallery
       def versions
         request_str = "/gallery/appliances/#{id.to_i}/versions"
         response = GenericRequest.new(self.class.studio_connection).get request_str
@@ -42,6 +51,7 @@ module StudioApi
         return tree["appliance"]["versions"]["version"]
       end
 
+      # Retrieves information about software used to create appliance
       def software options = {}
         request_str = "/gallery/appliances/#{id.to_i}/software"
         request_str = Util.add_options request_str, options
@@ -49,16 +59,19 @@ module StudioApi
         #TODO parse response to something usefull
       end
 
+      # Retrieves content of logo image
       def logo
         request_str = "/gallery/appliances/#{id.to_i}/logo"
         response = GenericRequest.new(self.class.studio_connection).get request_str
       end
 
+      # Retrieves content of background image
       def background
         request_str = "/gallery/appliances/#{id.to_i}/background"
         response = GenericRequest.new(self.class.studio_connection).get request_str
       end
 
+      # Starts testdrive and gets information how to use it
       def testdrive options = {}
         request_str = "/gallery/appliances/#{id.to_i}/testdrive"
         request_str = Util.add_options request_str, options
@@ -67,6 +80,8 @@ module StudioApi
         tree["testdrive"]
       end
 
+      # Retrieves all comments to appliance
+      # @return [Array[StudioApi::Comment]] list of comments
       def comments
         request_str = "/gallery/appliances/#{id.to_i}/comments"
         response = GenericRequest.new(self.class.studio_connection).get request_str
@@ -76,6 +91,7 @@ module StudioApi
         end
       end
 
+      # Adds new comment to appliance
       def post_comment text, options={}
         request_str = "/gallery/appliances/#{id.to_i}/comments"
         request_str = Util.add_options request_str, options
@@ -87,6 +103,11 @@ module StudioApi
       end
     end
 
+    # Searches for appliance with options specified in API help
+    # @see http://susestudio.com/help/api/v2#65 for search specification
+    # @param [#to_s] type type of search
+    # @param [Hash[#to_s,#to_s]] options additional options
+    # @return TODO
     def self.find_appliance type,options={}
       request_str = "/gallery/appliances?#{CGI.escape type.to_s}"
       request_str = Util.add_options request_str, options, false
