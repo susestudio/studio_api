@@ -17,6 +17,23 @@ module StudioApi
         response = GenericRequest.new(self.class.studio_connection).get request_str
         XmlSimple.xml_in(response, "ForceArray" => false)["appliance"]
       end
+
+      def release_notes= (text)
+        request_str = "/gallery/appliances/#{id.to_i}/version/#{CGI.escape version.to_s}"
+        response = GenericRequest.new(studio_connection).put request_str, :__raw => release_notes
+      end
+
+      def unpublish
+        request_str = "/gallery/appliances/#{id.to_i}/version/#{CGI.escape version.to_s}"
+        response = GenericRequest.new(studio_connection).delete request_str
+      end
+
+      def versions
+        request_str = "/gallery/appliances/#{id.to_i}/versions"
+        response = GenericRequest.new(self.class.studio_connection).get request_str
+        tree = XmlSimple.xml_in response, "ForceArray" => ["version"]
+        return tree["appliance"]["versions"]["version"]
+      end
     end
 
     def self.find_appliance type,options={}
@@ -28,7 +45,9 @@ module StudioApi
       page = tree["current_page"].to_i
       appliances = tree["appliance"].reduce([]) do |acc,appl|
         appl.each { |k,v| appl[k] = nil if v.empty? } #avoid empty string, array or hash
-        acc << Gallery::Appliance.new(appl)
+        gappl = Gallery::Appliance.dup
+        gappl.studio_connection = studio_connection
+        acc << gappl.new(appl)
       end
       return :count => count, :page => page, :appliances => appliances
     end
@@ -43,7 +62,7 @@ module StudioApi
 
     def self.publish_appliance id, version, release_notes
       request_str = "/gallery/appliances/#{id.to_i}/version/#{CGI.escape version.to_s}"
-      response = GenericRequest.new(studio_connection).post request_str, :release_notes => release_notes
+      response = GenericRequest.new(studio_connection).post request_str, :__raw => release_notes
     end
   end
 end

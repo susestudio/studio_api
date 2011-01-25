@@ -36,8 +36,14 @@ class GalleryTest < Test::Unit::TestCase
     gallery_appliance_out = respond_load "gallery_appliance.xml"
     StudioApi::GenericRequest.any_instance.stubs(:get).with("/gallery/appliances/#{APPLIANCE_ID}/version/#{APPL_VERSION}").returns(gallery_appliance_out)
     out = StudioApi::Gallery.appliance APPLIANCE_ID, APPL_VERSION
-    debugger
     assert out
+  end
+
+  def test_gallery_appliance_versions
+    versions_out = respond_load "versions.xml"
+    StudioApi::GenericRequest.any_instance.stubs(:get).with("/gallery/appliances/#{APPLIANCE_ID}/versions").returns(versions_out)
+    out = StudioApi::Gallery::Appliance.new(:id => APPLIANCE_ID).versions
+    assert_equal 6,out.size
   end
 
 end

@@ -127,25 +127,29 @@ module StudioApi
     end
 
     def set_data(request,data)
-      boundary = Time.now.to_i.to_s(16)
-      request["Content-Type"] = "multipart/form-data; boundary=#{boundary}"
-      body = ""
-      data.each do |key,value|
-        esc_key = CGI.escape(key.to_s)
-        body << "--#{boundary}\r\n"
-        if value.respond_to?(:read) && value.respond_to?(:path)
-          # ::File is needed to use "Ruby" file instead this one
-          body << "Content-Disposition: form-data; name=\"#{esc_key}\"; filename=\"#{::File.basename(value.path)}\"\r\n"
-          body << "Content-Type: #{mime_type(value.path)}\r\n\r\n"
-          body << value.read
-        else
-          body << "Content-Disposition: form-data; name=\"#{esc_key}\"\r\n\r\n#{value}"
+      if data[:__raw]
+        request.body = data[:__raw]
+      else
+        boundary = Time.now.to_i.to_s(16)
+        request["Content-Type"] = "multipart/form-data; boundary=#{boundary}"
+        body = ""
+        data.each do |key,value|
+          esc_key = CGI.escape(key.to_s)
+          body << "--#{boundary}\r\n"
+          if value.respond_to?(:read) && value.respond_to?(:path)
+            # ::File is needed to use "Ruby" file instead this one
+            body << "Content-Disposition: form-data; name=\"#{esc_key}\"; filename=\"#{::File.basename(value.path)}\"\r\n"
+            body << "Content-Type: #{mime_type(value.path)}\r\n\r\n"
+            body << value.read
+          else
+            body << "Content-Disposition: form-data; name=\"#{esc_key}\"\r\n\r\n#{value}"
+          end
+          body << "\r\n"
         end
-        body << "\r\n"
+        body << "--#{boundary}--\r\n\r\n"
+        request.body = body
+        request["Content-Length"] = request.body.size
       end
-      body << "--#{boundary}--\r\n\r\n"
-      request.body = body
-      request["Content-Length"] = request.body.size
     end
 
     def mime_type(file)
