@@ -17,6 +17,12 @@ module StudioApi
         response = GenericRequest.new(self.class.studio_connection).get request_str
         XmlSimple.xml_in(response, "ForceArray" => false)["appliance"]
       end
+      
+      def rate value
+        request_str = "/gallery/appliances/#{id.to_i}/rating?rating=#{value.to_i}"
+        response = GenericRequest.new(self.class.studio_connection).post request_str
+        XmlSimple.xml_in(response, "ForceArray" => false)["appliance"]
+      end
 
       def release_notes= (text)
         request_str = "/gallery/appliances/#{id.to_i}/version/#{CGI.escape version.to_s}"
