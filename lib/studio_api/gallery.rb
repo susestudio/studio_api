@@ -1,5 +1,6 @@
 require "studio_api/studio_resource"
 require "studio_api/generic_request"
+require "studio_api/comment"
 require "xmlsimple"
 require "fileutils"
 require 'cgi'
@@ -39,6 +40,50 @@ module StudioApi
         response = GenericRequest.new(self.class.studio_connection).get request_str
         tree = XmlSimple.xml_in response, "ForceArray" => ["version"]
         return tree["appliance"]["versions"]["version"]
+      end
+
+      def software options = {}
+        request_str = "/gallery/appliances/#{id.to_i}/software"
+        request_str = Util.add_options request_str, options
+        response = GenericRequest.new(self.class.studio_connection).get request_str
+        #TODO parse response to something usefull
+      end
+
+      def logo
+        request_str = "/gallery/appliances/#{id.to_i}/logo"
+        response = GenericRequest.new(self.class.studio_connection).get request_str
+      end
+
+      def background
+        request_str = "/gallery/appliances/#{id.to_i}/background"
+        response = GenericRequest.new(self.class.studio_connection).get request_str
+      end
+
+      def testdrive options = {}
+        request_str = "/gallery/appliances/#{id.to_i}/testdrive"
+        request_str = Util.add_options request_str, options
+        response = GenericRequest.new(self.class.studio_connection).post request_str
+        tree = XmlSimple.xml_in response, "ForceArray" => false
+        tree["testdrive"]
+      end
+
+      def comments
+        request_str = "/gallery/appliances/#{id.to_i}/comments"
+        response = GenericRequest.new(self.class.studio_connection).get request_str
+        tree = XmlSimple.xml_in response, "ForceArray" => ["comment"]
+        tree["appliance"]["comments"]["comment"].collect do |c|
+          Comment.parse(self,c)
+        end
+      end
+
+      def post_comment text, options={}
+        request_str = "/gallery/appliances/#{id.to_i}/comments"
+        request_str = Util.add_options request_str, options
+        response = GenericRequest.new(self.class.studio_connection).post request_str, :__raw => text
+        tree = XmlSimple.xml_in response, "ForceArray" => ["comment"]
+        tree["appliance"]["comments"]["comment"].collect do |c|
+          Comment.parse(self,c)
+        end
       end
     end
 
