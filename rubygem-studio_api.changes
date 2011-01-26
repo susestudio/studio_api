@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Wed Jan 26 14:19:44 UTC 2011 - jreidinger@novell.com
+
+- fix crash if software map is empty
+- 2.4.0 
+
+-------------------------------------------------------------------
 Thu Dec 16 12:04:43 UTC 2010 - jreidinger@novell.com
 
 - fix compatibility with rails 3.0
