@@ -227,6 +227,7 @@ module StudioApi
 			end
       response = GenericRequest.new(self.class.studio_connection).get request_str
       attrs = XmlSimple.xml_in response
+      return [] unless attrs["repository"]
 			res = []
 			attrs["repository"].each do |repo|
 				options = { "repository_id" => repo["id"].to_i }
