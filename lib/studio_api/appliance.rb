@@ -208,6 +208,7 @@ module StudioApi
       response = GenericRequest.new(self.class.studio_connection).get request_str
       attrs = XmlSimple.xml_in response
 			res = []
+      return res unless attrs["repository"]
 			attrs["repository"].each do |repo|
 				options = { "repository_id" => repo["id"].to_i }
       	res += convert_selectable repo["software"][0], options
