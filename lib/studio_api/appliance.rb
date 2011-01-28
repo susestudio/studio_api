@@ -49,6 +49,7 @@ module StudioApi
         attributes.delete "id"
         rq = GenericRequest.new self.class.studio_connection
         rq.put "/appliances/#{appliance_id.to_i}/configuration", :__raw => to_xml
+        attributes["id"] = appliance_id
       end
 
       class Firewall < ActiveResource::Base
