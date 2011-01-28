@@ -27,6 +27,40 @@ module StudioApi
     class Configuration < ActiveResource::Base
       extend StudioResource
       self.element_name = "configuration"
+
+      def self.parse response
+        tree = XmlSimple.xml_in(response, "ForceArray" => ["tag","user","eula","autostart","database","volume"])
+        tree["tags"] = tree["tags"]["tag"].reduce({}){ |acc,t| acc.merge :tag => t} if tree["tags"]
+        tree["users"] = tree["users"]["user"]
+        tree["eulas"] = tree["eulas"]["eula"]
+        tree["autostarts"] = tree["autostarts"]["autostart"] if tree["autostarts"]
+        if tree["databases"]
+          tree["databases"]=  tree["databases"]["database"] 
+          tree["databases"].each do |d|
+            d["users"] = d["users"]["user"] if d["users"]
+          end
+        end
+        tree["lvm"]["volumes"] = tree["lvm"]["volumes"]["volume"] if tree["lvm"] && tree["lvm"]["volumes"]
+        Configuration.new tree
+      end
+
+      def update
+        appliance_id = id
+        attributes.delete "id"
+        rq = GenericRequest.new self.class.studio_connection
+        rq.put "/appliances/#{appliance_id.to_i}/configuration", :__raw => to_xml
+      end
+
+      class Firewall < ActiveResource::Base
+        def to_xml(options={})
+          if enabled == "false"
+            "<firewall><enabled>false</enabled></firewall>"
+          else
+            openports_xml = open_port.reduce(""){ |acc,p| acc << "<open_port>#{p}</open_port>" } #FIXME escape name
+            "<firewall><enabled>true</enabled>#{openports_xml}</firewall>"
+          end
+        end
+      end
     end
 
     # Represents repository assigned to appliance
@@ -202,10 +236,9 @@ module StudioApi
     end
 
     def configuration
-      my_conf = Configuration#.dup doesn't work well with active resource
-      my_conf.studio_connection = self.class.studio_connection
-      from = Util.join_relative_url( self.class.site.path,"appliances/#{id.to_i}/configuration")
-      my_conf.find :one, :from => from
+      request_str = "/appliances/#{id.to_i}/configuration"
+      response = GenericRequest.new(self.class.studio_connection).get request_str
+      Configuration.parse response
     end
 
     # clones appliance or template

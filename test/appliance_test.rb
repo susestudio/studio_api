@@ -113,7 +113,10 @@ REPO_ID = 6345
   end
 
   def test_configuration
+    conf_out = respond_load "configuration.xml"
+    StudioApi::GenericRequest.any_instance.stubs(:get).with("/appliances/#{APPLIANCE_ID}/configuration").returns(conf_out).once
     conf= StudioApi::Appliance.new(:id => APPLIANCE_ID).configuration
+    assert conf.to_xml
     assert conf
   end
 
