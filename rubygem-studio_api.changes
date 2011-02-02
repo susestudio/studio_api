@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Wed Feb  2 15:14:03 UTC 2011 - jreidinger@novell.com
+
+- allow to use studio API v2
+- 3.0.0 
+
+-------------------------------------------------------------------
 Wed Jan 26 14:19:44 UTC 2011 - jreidinger@novell.com
 
 - fix crash if software map is empty
