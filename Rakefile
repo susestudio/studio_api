@@ -25,7 +25,7 @@ begin
   require 'jeweler'
     Jeweler::Tasks.new do |s|
       s.name = %q{studio_api}
-      s.summary = %q{Studio Api Interface.}
+      s.summary = %q{Intuitive ruby bindings to Studio Api Interface.}
       s.description = %q{Studio Api makes it easier to use SuSE Studio (http://susestudio.com) via API.
                 Instead of adapting each ActiveResource to its behavior and
                 manually adding multipart file upload it wrapp in in Active
@@ -43,7 +43,7 @@ begin
       s.email = %q{jreidinger@suse.cz}
       s.homepage = "http://github.com/jreidinger/studio_api"
       s.license = ["GPLv2","The Ruby License"]
-      s.add_dependency "activeresource", ">= 1.3.8"
+      s.add_dependency "activeresource", ">= 2.3.8"
       s.add_dependency "xml-simple", ">= 1.0.0"
       s.platform = Gem::Platform::RUBY
     end

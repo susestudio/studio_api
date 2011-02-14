@@ -1,4 +1,12 @@
 -------------------------------------------------------------------
+Mon Feb 14 14:48:15 UTC 2011 - jreidinger@novell.com
+
+- split doc and tests from rest of rpms packages to save space
+- fix dependency in gem for active_resource
+- improve summary
+- 3.0.2
+
+-------------------------------------------------------------------
 Mon Feb 14 13:57:24 UTC 2011 - jreidinger@novell.com
 
 - note in gem description link to suse studio public instance

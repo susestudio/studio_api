@@ -5,13 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{studio_api}
-  s.version = "2.3.0"
+  s.version = "3.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Josef Reidinger"]
-  s.date = %q{2011-01-05}
-  s.description = %q{Studio Api makes it easier to use SUSE Studio
-                (http://susestudio.com) via API.
+  s.date = %q{2011-02-14}
+  s.description = %q{Studio Api makes it easier to use SuSE Studio (http://susestudio.com) via API.
                 Instead of adapting each ActiveResource to its behavior and
                 manually adding multipart file upload it wrapp in in Active
                 Resource like interface. It is possible to define credentials
@@ -25,8 +24,10 @@ Gem::Specification.new do |s|
      "lib/studio_api.rb",
      "lib/studio_api/appliance.rb",
      "lib/studio_api/build.rb",
+     "lib/studio_api/comment.rb",
      "lib/studio_api/connection.rb",
      "lib/studio_api/file.rb",
+     "lib/studio_api/gallery.rb",
      "lib/studio_api/generic_request.rb",
      "lib/studio_api/package.rb",
      "lib/studio_api/pattern.rb",
@@ -40,6 +41,7 @@ Gem::Specification.new do |s|
      "test/build_test.rb",
      "test/connection_test.rb",
      "test/file_test.rb",
+     "test/gallery_test.rb",
      "test/generic_request_test.rb",
      "test/repository_test.rb",
      "test/resource_test.rb",
@@ -48,6 +50,7 @@ Gem::Specification.new do |s|
      "test/template_set_test.rb"
   ]
   s.homepage = %q{http://github.com/jreidinger/studio_api}
+  s.licenses = [["GPLv2", "The Ruby License"]]
   s.rdoc_options = ["--line-numbers", "--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
@@ -62,14 +65,19 @@ Gem::Specification.new do |s|
      "test/generic_request_test.rb",
      "test/repository_test.rb",
      "test/running_build_test.rb",
+     "test/gallery_test.rb",
      "test/rpm_test.rb",
      "test/responses/builds.xml",
+     "test/responses/users_0.xml",
      "test/responses/software_installed.xml",
      "test/responses/running_build.xml",
      "test/responses/file.xml",
      "test/responses/files.xml",
+     "test/responses/gallery_appliance.xml",
+     "test/responses/configuration.xml",
      "test/responses/appliance.xml",
      "test/responses/status-broken.xml",
+     "test/responses/manifest.xml",
      "test/responses/gpg_key.xml",
      "test/responses/status.xml",
      "test/responses/gpg_keys.xml",
@@ -77,7 +85,11 @@ Gem::Specification.new do |s|
      "test/responses/software_search.xml",
      "test/responses/repository.xml",
      "test/responses/rpm.xml",
+     "test/responses/gallery.xml",
+     "test/responses/users_2.xml",
+     "test/responses/versions.xml",
      "test/responses/rpms.xml",
+     "test/responses/users_1.xml",
      "test/responses/repositories.xml",
      "test/responses/running_builds.xml",
      "test/responses/software.xml",
