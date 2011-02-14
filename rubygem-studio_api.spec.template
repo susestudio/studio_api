@@ -22,7 +22,7 @@ Release:        0
 %define mod_name studio_api
 #
 Group:          Development/Languages/Ruby
-License:        GPLv2
+License:        GPLv2 or The Ruby license
 #
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  rubygems_with_buildroot_patch
@@ -37,7 +37,7 @@ Source:         %{mod_name}-%{version}.gem
 #
 Summary:        Wrapper to use Studio API from ruby
 %description
-Studio API is wrapper for Studio API. It include all calls with interface almost identical
+Studio API is wrapper for Studio API (www.susestudio.com). It include all calls with interface almost identical
 with activeResource, except that it can upload multi-part files, dynamic setting of connection
 and in case where ARes xml parsing is not enough replace it with own way.
 
