@@ -1,0 +1,7 @@
+<appliance>
+  <id>266657</id>
+  <read_users count="2">
+    <username>test2</username>
+    <username>test1</username>
+  </read_users>
+</appliance>

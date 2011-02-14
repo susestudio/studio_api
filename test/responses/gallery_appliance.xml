@@ -1,0 +1,62 @@
+<gallery>
+  <appliance>
+    <id>130166</id>
+    <name>KDE 4 Reloaded</name>
+    <version>0.1.1</version>
+    <release_notes>Switched to the KDE:Release:45 repository.</release_notes>
+    <homepage></homepage>
+
+    <description>Desktop with updated KDE packages.</description>
+    <publisher>Andr&#233; Duffeck</publisher>
+    <username>aduffeck</username>
+    <based_on>11.3</based_on>
+    <formats count="4">
+      <format md5="0ff8b3ff62e54f1eedd471d18e886d15">xen</format>
+
+      <format md5="0a7293ab4d9a56f00e4c202885e4cf59">vmx</format>
+      <format md5="b1ae7beb8f40bad17968b2cdf5e87dfd">iso</format>
+      <format md5="400b94250c907d9e363d70c60ccbbb6a">oem</format>
+    </formats>
+    <configuration>
+      <accounts count="2">
+        <account>
+
+          <user>root</user>
+          <password>linux</password>
+        </account>
+        <account>
+          <user>tux</user>
+          <password>linux</password>
+        </account>
+
+      </accounts>
+    </configuration>
+    <keyboard_layout>english-us</keyboard_layout>
+    <language>en_US.UTF-8</language>
+    <timezone>
+      <location>Europe/Berlin</location>
+    </timezone>
+
+    <network>
+      <type>dhcp</type>
+    </network>
+    <firewall>
+      <enabled>true</enabled>
+      <open_port>ssh</open_port>
+      <open_port>http</open_port>
+
+    </firewall>
+    <security>
+      <sources>
+        <only_trusted>false</only_trusted>
+        <untrusted_source>KDE45</untrusted_source>
+      </sources>
+      <custom_packages>
+        <uses_custom_packages>false</uses_custom_packages>
+
+      </custom_packages>
+      <overlay_files>false</overlay_files>
+      <custom_scripts>false</custom_scripts>
+    </security>
+  </appliance>
+</gallery>

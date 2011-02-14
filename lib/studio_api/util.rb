@@ -27,6 +27,17 @@ module StudioApi
         "#{base}/#{append}"
       end
     end
+
+    def self.add_options request_str,options,first=true
+			unless options.empty?
+				options.each do |k,v|
+					separator = first ? "?" : "&"
+					first = false
+					request_str << "#{separator}#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
+				end
+			end
+      request_str
+    end
 private
     def self.get_all_usable_class (modul)
       classes = modul.constants.collect{ |c| modul.const_get(c) }

@@ -24,6 +24,46 @@ module StudioApi
       self.element_name = "status"
     end
 
+    class Configuration < ActiveResource::Base
+      extend StudioResource
+      self.element_name = "configuration"
+
+      def self.parse response
+        tree = XmlSimple.xml_in(response, "ForceArray" => ["tag","user","eula","autostart","database","volume"])
+        tree["tags"] = tree["tags"]["tag"].reduce({}){ |acc,t| acc.merge :tag => t} if tree["tags"]
+        tree["users"] = tree["users"]["user"]
+        tree["eulas"] = tree["eulas"]["eula"]
+        tree["autostarts"] = tree["autostarts"]["autostart"] if tree["autostarts"]
+        if tree["databases"]
+          tree["databases"]=  tree["databases"]["database"] 
+          tree["databases"].each do |d|
+            d["users"] = d["users"]["user"] if d["users"]
+          end
+        end
+        tree["lvm"]["volumes"] = tree["lvm"]["volumes"]["volume"] if tree["lvm"] && tree["lvm"]["volumes"]
+        Configuration.new tree
+      end
+
+      def update
+        appliance_id = id
+        attributes.delete "id"
+        rq = GenericRequest.new self.class.studio_connection
+        rq.put "/appliances/#{appliance_id.to_i}/configuration", :__raw => to_xml
+        attributes["id"] = appliance_id
+      end
+
+      class Firewall < ActiveResource::Base
+        def to_xml(options={})
+          if enabled == "false"
+            "<firewall><enabled>false</enabled></firewall>"
+          else
+            openports_xml = open_port.reduce(""){ |acc,p| acc << "<open_port>#{p}</open_port>" } #FIXME escape name
+            "<firewall><enabled>true</enabled>#{openports_xml}</firewall>"
+          end
+        end
+      end
+    end
+
     # Represents repository assigned to appliance
     # supports find :all and deleting from appliance
     class Repository < ActiveResource::Base
@@ -64,9 +104,7 @@ module StudioApi
           options[:key] = key.to_s
         end
         request_str = "/appliances/#{appliance_id.to_i}/gpg_keys?name=#{name}"
-        options.each do |k,v|
-          request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
-        end
+        request_str = Util.add_options request_str, options, false
         response = GenericRequest.new(studio_connection).post request_str, data
         self.new Hash.from_xml(response)["gpg_key"]
       end
@@ -141,6 +179,69 @@ module StudioApi
       rq.post "/appliances/#{id}/cmd/add_user_repository"
     end
 
+    def users
+      request_str = "/appliances/#{id.to_i}/sharing"
+      response = GenericRequest.new(self.class.studio_connection).get request_str
+      handle_users_response response
+    end
+
+    def add_user name
+      request_str = "/appliances/#{id.to_i}/sharing/#{CGI.escape name.to_s}"
+      response = GenericRequest.new(self.class.studio_connection).post request_str
+      handle_users_response response
+    end
+
+    def remove_user name
+      request_str = "/appliances/#{id.to_i}/sharing/#{CGI.escape name.to_s}"
+      response = GenericRequest.new(self.class.studio_connection).delete request_str
+      handle_users_response response
+    end
+
+    def manifest_file (build, options={})
+      build = build.image_type if build.respond_to?(:image_type)
+      request_str = "/appliances/#{id.to_i}/software/manifest/#{CGI.escape build.to_s}"
+      request_str = Util.add_options request_str, options
+      GenericRequest.new(self.class.studio_connection).get request_str
+    end
+
+    def logo
+      request_str = "/appliances/#{id.to_i}/configuration/logo"
+      GenericRequest.new(self.class.studio_connection).get request_str
+    end
+
+    def logo= (logo)
+      request_str = "/appliances/#{id.to_i}/configuration/logo"
+      if logo.is_a?(IO) && logo.respond_to?(:path)
+        GenericRequest.new(self.class.studio_connection).post request_str, :file => logo
+      else
+        File.open(logo.to_s) do |f| 
+          GenericRequest.new(self.class.studio_connection).post request_str, :file => f
+        end
+      end
+    end
+
+    def background
+      request_str = "/appliances/#{id.to_i}/configuration/background"
+      GenericRequest.new(self.class.studio_connection).get request_str
+    end
+
+    def background= (logo)
+      request_str = "/appliances/#{id.to_i}/configuration/background"
+      if logo.is_a?(IO) && logo.respond_to?(:path)
+        GenericRequest.new(self.class.studio_connection).post request_str, :file => logo
+      else
+        File.open(logo.to_s) do |f| 
+          GenericRequest.new(self.class.studio_connection).post request_str, :file => f
+        end
+      end
+    end
+
+    def configuration
+      request_str = "/appliances/#{id.to_i}/configuration"
+      response = GenericRequest.new(self.class.studio_connection).get request_str
+      Configuration.parse response
+    end
+
     # clones appliance or template
     # @see (StudioApi::TemplateSet)
     # @param (#to_i) source_id id of source appliance
@@ -148,9 +249,7 @@ module StudioApi
     # @return (StudioApi::Appliance) resulted appliance
     def self.clone source_id,options={}
       request_str = "/appliances?clone_from=#{source_id.to_i}"
-      options.each do |k,v|
-        request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
-      end
+      request_str = Util.add_options request_str, options, false
       response = GenericRequest.new(studio_connection).post request_str, options
       Appliance.new Hash.from_xml(response)["appliance"]
     end
@@ -197,14 +296,7 @@ module StudioApi
     # @return (Array<StudioApi::Package,StudioApi::Pattern>) list of installed packages and patterns
     def installed_software (options = {})
       request_str = "/appliances/#{id.to_i}/software/installed"
-			unless options.empty?
-				first = true
-				options.each do |k,v|
-					separator = first ? "?" : "&"
-					first = false
-					request_str << "#{separator}#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
-				end
-			end
+      request_str = Util.add_options request_str, options
       response = GenericRequest.new(self.class.studio_connection).get request_str
       attrs = XmlSimple.xml_in response
 			res = []
@@ -222,11 +314,10 @@ module StudioApi
     # @return (Array<StudioApi::Package,StudioApi::Pattern>) list of installed packages and patterns
     def search_software (search_string,options={})
       request_str = "/appliances/#{id.to_i}/software/search?q=#{CGI.escape search_string.to_s}"
-			options.each do |k,v|
-				request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
-			end
+      request_str = Util.add_options request_str, options, false
       response = GenericRequest.new(self.class.studio_connection).get request_str
       attrs = XmlSimple.xml_in response
+      return [] unless attrs["repository"]
 			res = []
 			attrs["repository"].each do |repo|
 				options = { "repository_id" => repo["id"].to_i }
@@ -240,9 +331,7 @@ module StudioApi
     # @param (Hash<#to_s,#to_s>) options additional options, see API documentation
     def rpm_content(name, options={})
       request_str = "/appliances/#{id.to_i}/cmd/download_package?name=#{CGI.escape name.to_s}"
-      options.each do |k,v|
-        request_str << "&#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
-      end
+      request_str = Util.add_options request_str, options, false
       GenericRequest.new(self.class.studio_connection).get request_str
     end
 
@@ -351,16 +440,18 @@ private
 
 		def software_command type, options={}
       request_str = "/appliances/#{id.to_i}/cmd/#{type}"
-			unless options.empty?
-				first = true
-				options.each do |k,v|
-					separator = first ? "?" : "&"
-					first = false
-					request_str << "#{separator}#{CGI.escape k.to_s}=#{CGI.escape v.to_s}"
-				end
-			end
+			request_str = Util.add_options request_str, options
       response = GenericRequest.new(self.class.studio_connection).post request_str, options
       Hash.from_xml(response)["success"]["details"]["status"]
 		end
+
+    def handle_users_response response
+      tree = XmlSimple.xml_in(response)
+      users = tree["read_users"][0]
+      return [] if users["count"].to_i == 0
+      users["username"].reduce([]) do |acc,u|
+        acc << u
+      end
+    end
   end
 end
