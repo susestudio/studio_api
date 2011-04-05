@@ -1,0 +1,13 @@
+<testdrive>
+  <id>1234</id>
+  <state>new</state>
+  <build_id>12345</build_id>
+  <url>http://node52.susestudio.com/testdrive/testdrive/start/11/22/abcdefgh1234567890</url>
+  <server>
+    <vnc>
+      <host>node52.susestudio.com</host>
+      <port>5902</port>
+      <password>1234567890</password>
+    </vnc>
+  </server>
+</testdrive>
