@@ -29,7 +29,7 @@ class GalleryTest < Test::Unit::TestCase
     gallery_out = respond_load "gallery.xml"
     StudioApi::GenericRequest.any_instance.stubs(:get).with("/gallery/appliances?popular&per_page=10").returns(gallery_out)
     out = StudioApi::Gallery.find_appliance :popular, :per_page => 10
-    assert 10, out[:appliances].size
+    assert_equal 10, out[:appliances].size
   end
 
   def test_appliance
