@@ -63,7 +63,7 @@ module StudioApi
     # @return (String) response body from studio
     # @raise [ActiveResource::ConnectionError] when problem occur during connection
     def get(path)
-      do_request Net::HTTP::Get.new Util.join_relative_url @connection.uri.request_uri,path
+      do_request(Net::HTTP::Get.new(Util.join_relative_url(@connection.uri.request_uri,path)))
     end
 
     # sends delete request
@@ -72,7 +72,7 @@ module StudioApi
     # @raise [ActiveResource::ConnectionError] when problem occur during connection
     def delete(path)
       #Even it is not dry I want to avoid meta programming with dynamic code evaluation so code is clear
-      do_request Net::HTTP::Delete.new Util.join_relative_url @connection.uri.request_uri,path
+      do_request(Net::HTTP::Delete.new(Util.join_relative_url(@connection.uri.request_uri,path)))
     end
 
     # sends post request
@@ -81,7 +81,7 @@ module StudioApi
     # @return (String) response body from studio
     # @raise [ActiveResource::ConnectionError] when problem occur during connection
     def post(path,data={})
-      request = Net::HTTP::Post.new Util.join_relative_url @connection.uri.request_uri,path
+      request = Net::HTTP::Post.new(Util.join_relative_url(@connection.uri.request_uri,path))
       set_data(request,data) unless data.empty?
       do_request request
     end
@@ -92,7 +92,7 @@ module StudioApi
     # @return (String) response body from studio
     # @raise [ActiveResource::ConnectionError] when problem occur during connection
     def put(path,data={})
-      request = Net::HTTP::Put.new Util.join_relative_url @connection.uri.request_uri,path
+      request = Net::HTTP::Put.new(Util.join_relative_url(@connection.uri.request_uri,path))
       set_data(request,data) unless data.empty?
       do_request request
     end

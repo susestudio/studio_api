@@ -72,17 +72,17 @@ REPO_ID = 6345
   def test_clone
     appliance_out = respond_load "appliance.xml"
     StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances?clone_from=#{APPLIANCE_ID}",{}).returns(appliance_out).once
-    assert StudioApi::Appliance.clone APPLIANCE_ID
+    assert StudioApi::Appliance.clone(APPLIANCE_ID)
   end
 
   def test_manifest
     manifest_out = respond_load "manifest.xml"
     StudioApi::GenericRequest.any_instance.stubs(:get).with("/appliances/#{APPLIANCE_ID}/software/manifest/vmx").returns(manifest_out).once
-    assert StudioApi::Appliance.new(:id => APPLIANCE_ID).manifest_file "vmx"
+    assert StudioApi::Appliance.new(:id => APPLIANCE_ID).manifest_file("vmx")
   end
 
   def test_delete
-    assert StudioApi::Appliance.delete APPLIANCE_ID
+    assert StudioApi::Appliance.delete(APPLIANCE_ID)
     assert StudioApi::Appliance.find(APPLIANCE_ID).destroy #same but different way
   end
 
@@ -95,7 +95,7 @@ REPO_ID = 6345
     repositories_out = respond_load "repositories.xml"
     StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/remove_repository?repo_id=#{REPO_ID}").returns(repositories_out)
     appliance = StudioApi::Appliance.new(:id => APPLIANCE_ID)
-    assert appliance.remove_repository REPO_ID
+    assert appliance.remove_repository(REPO_ID)
     repo = appliance.repositories.detect { |r| r.id == REPO_ID.to_s}
     assert repo.destroy #another way to delete repository
   end
@@ -103,7 +103,7 @@ REPO_ID = 6345
   def test_repository_add
     repositories_out = respond_load "repositories.xml"
     StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/add_repository?repo_id=#{REPO_ID}").returns(repositories_out)
-    assert StudioApi::Appliance.new(:id => APPLIANCE_ID).add_repository REPO_ID
+    assert StudioApi::Appliance.new(:id => APPLIANCE_ID).add_repository(REPO_ID)
   end
 
   def test_user_repository_add
@@ -184,12 +184,12 @@ EOF
     StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/ban_package?name=3ddiag",:name => "3ddiag").returns(SOFTWARE_FAKE_RESPONSE).once
     StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/cmd/unban_package?name=3ddiag",:name => "3ddiag").returns(SOFTWARE_FAKE_RESPONSE).once
     appliance = StudioApi::Appliance.new(:id => APPLIANCE_ID)
-		assert appliance.add_package "3ddiag"
-		assert appliance.remove_package "3ddiag"
-		assert appliance.add_pattern "kde4"
-		assert appliance.remove_pattern "kde4"
-		assert appliance.ban_package "3ddiag"
-		assert appliance.unban_package "3ddiag"
+		assert appliance.add_package("3ddiag")
+		assert appliance.remove_package("3ddiag")
+		assert appliance.add_pattern("kde4")
+		assert appliance.remove_pattern("kde4")
+		assert appliance.ban_package("3ddiag")
+		assert appliance.unban_package("3ddiag")
   end
 
   def test_gpg_keys
@@ -204,7 +204,7 @@ EOF
   end
 
   def test_delete_gpg_key
-    assert StudioApi::Appliance::GpgKey.delete 1976, :appliance_id => APPLIANCE_ID 
+    assert StudioApi::Appliance::GpgKey.delete(1976, :appliance_id => APPLIANCE_ID)
     res = StudioApi::Appliance.new(:id => APPLIANCE_ID).gpg_key 1976
     assert res.destroy
   end
@@ -213,7 +213,7 @@ EOF
     gpg_key_out = respond_load "gpg_key.xml"
     StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&target=rpm&key=test",{}).returns(gpg_key_out)
     StudioApi::GenericRequest.any_instance.stubs(:post).with("/appliances/#{APPLIANCE_ID}/gpg_keys?name=test&key=test&target=rpm",{}).returns(gpg_key_out)
-    assert StudioApi::Appliance::GpgKey.create APPLIANCE_ID, "test", "test"
-    assert StudioApi::Appliance.new(:id => APPLIANCE_ID).add_gpg_key "test", "test"
+    assert StudioApi::Appliance::GpgKey.create(APPLIANCE_ID, "test", "test")
+    assert StudioApi::Appliance.new(:id => APPLIANCE_ID).add_gpg_key("test", "test")
   end
 end
