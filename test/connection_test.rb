@@ -1,10 +1,4 @@
-require "rubygems"
-$:.unshift File.join( File.dirname(__FILE__),'..','lib')
-require 'studio_api/connection'
-require 'studio_api/generic_request'
-
-require 'mocha'
-require 'test/unit'
+require 'test_helper'
 
 class ConnectionTest < Test::Unit::TestCase
   def setup

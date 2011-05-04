@@ -1,17 +1,9 @@
-require 'rubygems'
-require 'active_support'
-$:.unshift File.join( File.dirname(__FILE__),'..','lib')
-require 'studio_api/appliance'
-require 'studio_api/connection'
-require 'studio_api/generic_request'
-require 'studio_api/util'
-require 'active_resource/http_mock'
-require 'mocha'
-require 'test/unit'
+require 'test_helper'
 
 class ApplianceTest < Test::Unit::TestCase
-APPLIANCE_ID = 266657
-REPO_ID = 6345
+  APPLIANCE_ID = 266657
+  REPO_ID = 6345
+
   def respond_load name
     IO.read(File.join(File.dirname(__FILE__),"responses",name))
   end

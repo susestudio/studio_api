@@ -1,12 +1,4 @@
-require 'rubygems'
-require 'active_support'
-$:.unshift File.join( File.dirname(__FILE__),'..','lib')
-require 'studio_api/studio_resource'
-require 'studio_api/connection'
-
-require 'active_resource/http_mock'
-require 'mocha'
-require 'test/unit'
+require 'test_helper'
 
 class MyTest < ActiveResource::Base
   extend StudioApi::StudioResource

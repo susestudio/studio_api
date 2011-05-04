@@ -1,13 +1,4 @@
-require 'rubygems'
-require 'active_support'
-$:.unshift File.join( File.dirname(__FILE__),'..','lib')
-require 'studio_api/repository'
-require 'studio_api/appliance'
-require 'studio_api/connection'
-
-require 'active_resource/http_mock'
-require 'mocha'
-require 'test/unit'
+require 'test_helper'
 
 class RepositoryTest < Test::Unit::TestCase
 REPOSITORY_ID = 6343

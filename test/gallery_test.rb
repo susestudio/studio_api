@@ -1,13 +1,4 @@
-require 'rubygems'
-require 'active_support'
-$:.unshift File.join( File.dirname(__FILE__),'..','lib')
-require 'studio_api/gallery'
-require 'studio_api/connection'
-require 'studio_api/generic_request'
-require 'studio_api/util'
-require 'active_resource/http_mock'
-require 'mocha'
-require 'test/unit'
+require 'test_helper'
 
 class GalleryTest < Test::Unit::TestCase
   APPLIANCE_ID = 130166

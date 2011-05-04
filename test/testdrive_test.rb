@@ -1,11 +1,4 @@
-require 'rubygems'
-require 'active_support'
-require 'active_resource/http_mock'
-require 'mocha'
-require 'test/unit'
-$:.unshift File.join( File.dirname(__FILE__), '..', 'lib')
-require 'studio_api/testdrive'
-require 'studio_api/connection'
+require 'test_helper'
 
 class TestdriveTest < Test::Unit::TestCase
   BUILD_ID = 12345

@@ -1,13 +1,4 @@
-require 'rubygems'
-require 'active_support'
-require 'active_resource/http_mock'
-require 'mocha'
-require 'test/unit'
-require 'tempfile'
-$:.unshift File.join( File.dirname(__FILE__), '..', 'lib')
-require 'studio_api/rpm'
-require 'studio_api/connection'
-require 'studio_api/generic_request'
+require 'test_helper'
 
 class RpmTest < Test::Unit::TestCase
   APPLIANCE_ID = 269186
