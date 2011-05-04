@@ -28,7 +28,7 @@ class TestdriveTest < Test::Unit::TestCase
   end
 
   def test_find
-    res = StudioApi::Testdrive.all
+    res = StudioApi::Testdrive.find :all
     assert_equal 1, res.size
   end
 
