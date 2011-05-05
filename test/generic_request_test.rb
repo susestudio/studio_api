@@ -2,43 +2,43 @@ require 'test_helper'
 
 class GenericRequestTest < Test::Unit::TestCase
   def setup
-    Mocha::Mockery.instance.stubba.unstub_all
-    @connection = StudioApi::Connection.new("test","test","http://localhost")
+    FakeWeb.clean_registry
+    FakeWeb.allow_net_connect = false
+    @connection = StudioApi::Connection.new(@@username, @@password,"http://localhost/api/")
+    StudioApi::Build.studio_connection = @connection
+    
+    @test_response = "Test response"
   end
 
   def teardown
-    Mocha::Mockery.instance.stubba.unstub_all
+    FakeWeb.allow_net_connect = false
   end
 
-ERROR_RESPONSE = <<EOF
-<error>
-<code>invalid_base_system</code>
-<message>Invalid base system.</message>
-</error>
-EOF
   def test_get
-    test_response = "Test response"
-    StudioApi::GenericRequest.any_instance.stubs(:do_request).returns test_response
-    assert_equal test_response, StudioApi::GenericRequest.new(@connection).get("test")
+    register_fake_response :get, "/api/test", @test_response
+    assert_equal @test_response, StudioApi::GenericRequest.new(@connection).get("test")
   end
 
   def test_post
-    test_response = "Test response"
-    StudioApi::GenericRequest.any_instance.stubs(:do_request).returns test_response
-    assert_equal test_response, StudioApi::GenericRequest.new(@connection).post("test",:file => "/dev/zero")
+    register_fake_response :post, "/api/test", @test_response
+    assert_equal @test_response,
+      StudioApi::GenericRequest.new(@connection).post("test",:file => "/dev/zero")
   end
 
   def test_error_response
-    response = Net::HTTPServiceUnavailable.new("4.1",503,"Unnavailable")
-    response.instance_variable_set "@body", ERROR_RESPONSE
-    response.instance_variable_set "@read", true #avoid real reading
-    Net::HTTP.any_instance.stubs(:request).returns(response)
-    rq = StudioApi::GenericRequest.new(@connection)
-    http_var = rq.instance_variable_get("@http")
-    def http_var.start
-      yield
+    error_response = <<-EOF
+    <error>
+    <code>invalid_base_system</code>
+    <message>Invalid base system.</message>
+    </error>
+    EOF
+    url = "http://#{@@username}:#{@@password}@localhost/api/test"
+    FakeWeb.register_uri(:get, url, :body => error_response,
+                         :status => ["503", "Unavailable"])
+
+    assert_raises(ActiveResource::ServerError) do
+      StudioApi::GenericRequest.new(@connection).get("test")
     end
-    assert_raises(ActiveResource::ServerError) { rq.get("test") }
   end
 
   def test_mime_type
@@ -50,7 +50,9 @@ EOF
   end
 
   def test_ssl_settings
-    @connection = StudioApi::Connection.new("test","test","https://localhost",:ssl => { :verify_mode => OpenSSL::SSL::VERIFY_PEER, :ca_path => "/dev/null" })
+    @connection = StudioApi::Connection.new("test","test","https://localhost",
+                                            :ssl => { :verify_mode => OpenSSL::SSL::VERIFY_PEER,
+                                            :ca_path => "/dev/null" })
     rq = StudioApi::GenericRequest.new @connection
     http_var = rq.instance_variable_get("@http")
     assert http_var.use_ssl?

@@ -1,31 +1,25 @@
 require 'test_helper'
 
 class TestdriveTest < Test::Unit::TestCase
-  BUILD_ID = 12345
-
-  def respond_load name
-    IO.read(File.join(File.dirname(__FILE__), "responses", name))
-  end
-
   def setup
-    @connection = StudioApi::Connection.new("test", "test", "http://localhost")
+    @build_id = 12345
+
+    FakeWeb.clean_registry
+    FakeWeb.allow_net_connect = false
+    @connection = StudioApi::Connection.new(@@username, @@password,"http://localhost/api/")
     StudioApi::Testdrive.studio_connection = @connection
-
-    testdrives_out = respond_load "testdrives.xml"
-    testdrive_out = respond_load "testdrive.xml"
-
-    ActiveResource::HttpMock.respond_to do |mock|
-      mock.get "/testdrives", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, testdrives_out, 200
-      mock.post "/testdrives?build_id=#{BUILD_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, testdrive_out, 200
-    end
   end
 
   def test_find
+    register_fake_response_from_file :get, "/api/testdrives",
+                                     'testdrives.xml'
     res = StudioApi::Testdrive.find :all
     assert_equal 1, res.size
   end
 
   def test_new
-    assert StudioApi::Testdrive.new(:build_id => BUILD_ID).save
+    register_fake_response_from_file :post, "/api/testdrives?build_id=#{@build_id}",
+                                     'testdrive.xml'
+    assert StudioApi::Testdrive.new(:build_id => @build_id).save
   end
 end

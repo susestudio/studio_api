@@ -1,33 +1,38 @@
 require 'test_helper'
 
 class RepositoryTest < Test::Unit::TestCase
-REPOSITORY_ID = 6343
-  def respond_load name
-    IO.read(File.join(File.dirname(__FILE__),"responses",name))
-  end
   def setup
-    @connection = StudioApi::Connection.new("test","test","http://localhost")
+    @repository_id = 6343
+
+    FakeWeb.clean_registry
+    FakeWeb.allow_net_connect = false
+    @connection = StudioApi::Connection.new(@@username, @@password,"http://localhost/api/")
     StudioApi::Repository.studio_connection = @connection
-    repositories_out = respond_load "repositories.xml"
-    repository_out = respond_load "repository.xml"
-    ActiveResource::HttpMock.respond_to do |mock|
-      mock.get "/repositories?base_system=sle11sp1", {"Authorization"=>"Basic dGVzdDp0ZXN0"},repositories_out,200
-      mock.post "/repositories?name=test&url=http%3A%2F%2Ftest", {"Authorization"=>"Basic dGVzdDp0ZXN0"},repository_out,200
-      mock.get "/repositories/#{REPOSITORY_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"},repository_out,200
-    end
+  end
+
+  def teardown
+    FakeWeb.allow_net_connect = false
   end
 
   def test_find
+    register_fake_response_from_file :get, "/api/repositories?base_system=sle11sp1",
+                                     'repositories.xml'
+    
     res = StudioApi::Repository.find :all, :params => {:base_system => "sle11sp1"}
     assert_equal 5,res.size
-    res = StudioApi::Repository.find REPOSITORY_ID
-    assert_equal REPOSITORY_ID, res.id.to_i
+
+    register_fake_response_from_file :get, "/api/repositories/#{@repository_id}",
+                                     'repository.xml'
+    res = StudioApi::Repository.find @repository_id
+    assert_equal @repository_id, res.id.to_i
   end
 
   def test_import
-    res = StudioApi::Repository.import "http://test","test"
-    assert res
-    assert_equal REPOSITORY_ID, res.id.to_i
+   register_fake_response_from_file :post, "/api/repositories?name=test&url=http%3A%2F%2Ftest",
+                                    'repository.xml'
+   res = StudioApi::Repository.import "http://test","test"
+   assert res
+   assert_equal @repository_id, res.id.to_i
   end
 end
 

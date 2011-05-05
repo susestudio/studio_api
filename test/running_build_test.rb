@@ -1,43 +1,48 @@
 require 'test_helper'
 
 class RunningBuildTest < Test::Unit::TestCase
-  BUILD_ID = 529783
-  APPLIANCE_ID = 269186
-
-  def respond_load name
-    IO.read(File.join(File.dirname(__FILE__), "responses", name))
-  end
 
   def setup
-    @connection = StudioApi::Connection.new("test", "test", "http://localhost")
+    @build_id = 529783
+    @appliance_id = 269186
+
+    FakeWeb.clean_registry
+    FakeWeb.allow_net_connect = false
+    @connection = StudioApi::Connection.new(@@username, @@password,"http://localhost/api/")
     StudioApi::RunningBuild.studio_connection = @connection
+  end
 
-    running_builds_out = respond_load "running_builds.xml"
-    running_build_out = respond_load "running_build.xml"
-
-    ActiveResource::HttpMock.respond_to do |mock|
-      mock.get "/running_builds?appliance_id=#{APPLIANCE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, running_builds_out, 200
-      mock.get "/running_builds/#{BUILD_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, running_build_out, 200
-      mock.delete "/running_builds/#{BUILD_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, running_build_out, 200
-      mock.post "/running_builds?appliance_id=#{APPLIANCE_ID}&force=true", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, running_build_out, 200
-    end
+  def teardown
+    FakeWeb.allow_net_connect = false
   end
 
   def test_find
-    res = StudioApi::RunningBuild.find :all, :params => {:appliance_id => APPLIANCE_ID}
+    register_fake_response_from_file :get, "/api/running_builds?appliance_id=#{@appliance_id}",
+                                     'running_builds.xml'
+    res = StudioApi::RunningBuild.find :all, :params => {:appliance_id => @appliance_id}
     assert_equal 3, res.size
-    res = StudioApi::RunningBuild.find BUILD_ID
-    assert_equal BUILD_ID, res.id.to_i
+
+    register_fake_response_from_file :get, "/api/running_builds/#{@build_id}",
+                                     'running_build.xml'
+    res = StudioApi::RunningBuild.find @build_id
+    assert_equal @build_id, res.id.to_i
   end
 
   def test_cancel
-    running_build = StudioApi::RunningBuild.find BUILD_ID
+    register_fake_response_from_file :get, "/api/running_builds/#{@build_id}",
+                                     'running_build.xml'
+    running_build = StudioApi::RunningBuild.find @build_id
+
+    register_fake_response_from_file :delete, "/api/running_builds/#{@build_id}",
+                                     'running_build.xml'
     assert running_build.destroy
-    assert StudioApi::RunningBuild.delete BUILD_ID
+    assert StudioApi::RunningBuild.delete @build_id
     assert running_build.cancel #test alias
   end
 
   def test_run_new
-    assert StudioApi::RunningBuild.new(:appliance_id => APPLIANCE_ID, :force => true).save
+    register_fake_response_from_file :post, "/api/running_builds?appliance_id=#{@appliance_id}&force=true",
+                                     'running_build.xml'
+    assert StudioApi::RunningBuild.new(:appliance_id => @appliance_id, :force => true).save
   end
 end

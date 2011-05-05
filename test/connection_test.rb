@@ -2,12 +2,18 @@ require 'test_helper'
 
 class ConnectionTest < Test::Unit::TestCase
   def setup
-    @connection = StudioApi::Connection.new("test","test","http://localhost/api/user")
+    FakeWeb.clean_registry
+    FakeWeb.allow_net_connect = false
+    @connection = StudioApi::Connection.new(@@username, @@password,"http://localhost/api/")
   end
 
-FAKE_API_VERSION_RESPONSE = "<version>1.0</version>"
+  def teardown
+    FakeWeb.allow_net_connect = false
+  end
+
   def test_api_version
-    StudioApi::GenericRequest.any_instance.stubs(:get).with("/api_version").returns(FAKE_API_VERSION_RESPONSE).once
+    register_fake_response_from_file :get, "/api/api_version",
+                                     'api_version.xml'
     assert_equal "1.0",@connection.api_version
     @connection.api_version #test caching, if it again call, then mocha raise exception
   end

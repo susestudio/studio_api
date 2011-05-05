@@ -2,43 +2,48 @@ require 'test_helper'
 
 #FileTest cause collistion of names
 class File1Test < Test::Unit::TestCase
-  APPLIANCE_ID=488
-  FILE_ID = 1234765
-
-  def respond_load name
-    IO.read(File.join(File.dirname(__FILE__),"responses",name))
-  end
 
   def setup
-    @connection = StudioApi::Connection.new("test","test","http://localhost")
+    @appliance_id=488
+    @file_id = 1234765
+
+    FakeWeb.clean_registry
+    FakeWeb.allow_net_connect = false
+    @connection = StudioApi::Connection.new(@@username, @@password,"http://localhost/api/")
     StudioApi::File.studio_connection = @connection
-    files_out = respond_load "files.xml"
-    file_out = respond_load "file.xml"
-    ActiveResource::HttpMock.respond_to do |mock|
-      mock.get "/files?appliance_id=#{APPLIANCE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"},files_out,200
-      mock.get "/files/#{FILE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"},file_out,200
-      mock.delete "/files/#{FILE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"},file_out,200
-      mock.put "/files/#{FILE_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"},file_out,200
-    end
   end
 
   def test_find
-    res = StudioApi::File.find :all, :params => { :appliance_id => APPLIANCE_ID }
+    register_fake_response_from_file :get, "/api/files?appliance_id=#{@appliance_id}",
+                                     'files.xml'
+    res = StudioApi::File.find :all, :params => { :appliance_id => @appliance_id }
     assert_equal 1, res.size
     assert_equal "http://susestudio.com/file/download/214486/1234765", res[0].download_url
-    res = StudioApi::File.find FILE_ID
+
+    register_fake_response_from_file :get, "/api/files/#{@file_id}",
+                                     'file.xml'
+    res = StudioApi::File.find @file_id
     assert_equal "http://susestudio.com/file/download/214486/1234765", res.download_url
   end
 
   def test_delete
-    assert StudioApi::File.find(FILE_ID).destroy
-    assert StudioApi::File.delete FILE_ID #different way
+    register_fake_response_from_file :get, "/api/files/#{@file_id}",
+                                     'file.xml'
+    register_fake_response_from_file :delete, "/api/files/#{@file_id}",
+                                     'file.xml'
+    assert StudioApi::File.find(@file_id).destroy
+    assert StudioApi::File.delete @file_id #different way
   end
 
   def test_update
-    f = StudioApi::File.find(FILE_ID)
-    f.path = "/tmp"
-    assert f.save
+   register_fake_response_from_file :get, "/api/files/#{@file_id}",
+                                    'file.xml'
+   register_fake_response_from_file :put, "/api/files/#{@file_id}",
+                                    'file.xml'
+
+   f = StudioApi::File.find(@file_id)
+   f.path = "/tmp"
+   assert f.save
   end
 end
 

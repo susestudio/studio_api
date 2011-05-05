@@ -2,22 +2,20 @@ require 'test_helper'
 
 class TemplateSetTest < Test::Unit::TestCase
 
-  def respond_load name
-    IO.read(File.join(File.dirname(__FILE__), "responses", name))
+  def setup
+    FakeWeb.clean_registry
+    FakeWeb.allow_net_connect = false
+    @connection = StudioApi::Connection.new(@@username, @@password,"http://localhost/api/")
+    StudioApi::TemplateSet.studio_connection = @connection
   end
 
-  def setup
-    @connection = StudioApi::Connection.new("test", "test", "http://localhost")
-    StudioApi::TemplateSet.studio_connection = @connection
-
-    template_sets_out = respond_load "template_sets.xml"
-
-    ActiveResource::HttpMock.respond_to do |mock|
-      mock.get "/template_sets", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, template_sets_out, 200
-    end
+  def teardown
+    FakeWeb.allow_net_connect = false
   end
 
   def test_find
+    register_fake_response_from_file :get, "/api/template_sets",
+                                     'template_sets.xml'
     res = StudioApi::TemplateSet.find :all
     assert_equal 6, res.size
     assert_equal 42, res[0].template.size

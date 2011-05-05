@@ -1,50 +1,53 @@
 require 'test_helper'
 
 class RpmTest < Test::Unit::TestCase
-  APPLIANCE_ID = 269186
-  RPM_ID = 27653
-
-  def respond_load name
-    IO.read(File.join(File.dirname(__FILE__), "responses", name))
-  end
 
   def setup
-    @connection = StudioApi::Connection.new("test", "test", "http://localhost")
+    @appliance_id = 269186
+    @rpm_id = 27653
+    @rpm_data = "My lovely testing string\n Doodla da da da nicht"
+
+    FakeWeb.clean_registry
+    FakeWeb.allow_net_connect = false
+    @connection = StudioApi::Connection.new(@@username, @@password,"http://localhost/api/")
     StudioApi::Rpm.studio_connection = @connection
+  end
 
-    rpms_out = respond_load "rpms.xml"
-    rpm_out = respond_load "rpm.xml"
-
-    ActiveResource::HttpMock.respond_to do |mock|
-      mock.get "/rpms?base_system=sle11_sp1", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, rpms_out, 200
-      mock.get "/rpms/#{RPM_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, rpm_out, 200
-      mock.delete "/rpms/#{RPM_ID}", {"Authorization"=>"Basic dGVzdDp0ZXN0"}, rpm_out, 200
-    end
+  def teardown
+    FakeWeb.allow_net_connect = false
   end
 
   def test_find
+    register_fake_response_from_file :get, "/api/rpms?base_system=sle11_sp1",
+                                     'rpms.xml'
     res = StudioApi::Rpm.find :all, :params => {:base_system => "sle11_sp1"}
     assert_equal 48, res.size
-    res = StudioApi::Rpm.find RPM_ID
+
+    register_fake_response_from_file :get, "/api/rpms/#{@rpm_id}",
+                                     'rpm.xml'
+    res = StudioApi::Rpm.find @rpm_id
     assert "false", res.archive
   end
 
   def test_delete
-    rpm = StudioApi::Rpm.find RPM_ID
+    register_fake_response_from_file :get, "/api/rpms/#{@rpm_id}",
+                                     'rpm.xml'
+    register_fake_response_from_file :delete, "/api/rpms/#{@rpm_id}",
+                                     'rpm.xml'
+    rpm = StudioApi::Rpm.find @rpm_id
     assert rpm.destroy
-    assert StudioApi::Rpm.delete RPM_ID
+    assert StudioApi::Rpm.delete @rpm_id
   end
 
-TEST_STRING = "My lovely testing string\n Doodla da da da nicht"
   def test_download
-    StudioApi::GenericRequest.any_instance.stubs(:get).with("/rpms/#{RPM_ID}/data").returns(TEST_STRING)
-    assert_equal TEST_STRING, StudioApi::Rpm.new(:id=> RPM_ID).content
+    register_fake_response :get, "/api/rpms/#{@rpm_id}/data", @rpm_data
+    assert_equal @rpm_data, StudioApi::Rpm.new(:id=> @rpm_id).content
   end
 
-  def test_upload
-    rpm_out = respond_load "rpm.xml"
-    StudioApi::GenericRequest.any_instance.stubs(:post).returns(rpm_out)
-    assert StudioApi::Rpm.upload(TEST_STRING, "SLE11")
-  end
+   def test_upload
+     register_fake_response_from_file :post, "/api/rpms?base_system=SLE11",
+                                     'rpm.xml'
+     assert StudioApi::Rpm.upload(@rpm_data, "SLE11")
+   end
 
 end
