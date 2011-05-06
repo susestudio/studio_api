@@ -12,12 +12,28 @@ module StudioApi
   #   rb.save!
   #   sleep 5
   #   rb.cancel
+  #
+  # An ImageAlreadyExists exception is raised when force parameter is not
+  # specified and there's already a build with the same version.
   class RunningBuild < ActiveResource::Base
     extend StudioResource
 
     self.element_name = "running_build"
 
     alias_method :cancel, :destroy
+
+    def save
+      response = super
+    rescue ActiveResource::BadRequest => e
+      tree = XmlSimple.xml_in(e.response.body)
+      code = tree["code"][0]
+      if code == "image_already_exists"
+        message = tree["message"][0]
+        raise ImageAlreadyExists.new message
+      else
+        raise e
+      end
+    end
 
 private
     #overwrite create as studio doesn't interact well with enclosed parameters
@@ -31,5 +47,8 @@ private
         load_attributes_from_response response
       end
     end
+  end
+
+  class ImageAlreadyExists < StandardError
   end
 end

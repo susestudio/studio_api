@@ -45,4 +45,14 @@ class RunningBuildTest < Test::Unit::TestCase
                                      'running_build.xml'
     assert StudioApi::RunningBuild.new(:appliance_id => @appliance_id, :force => true).save
   end
+
+  def test_find_image_already_exists_error
+    register_fake_response_from_file :post, "/api/running_builds?appliance_id=#{@appliance_id}",
+                                     'running_build_image_already_exists.xml',
+                                     ["400", "Bad Request"]
+
+    assert_raises StudioApi::ImageAlreadyExists do
+      StudioApi::RunningBuild.new(:appliance_id => @appliance_id).save
+    end
+  end
 end
