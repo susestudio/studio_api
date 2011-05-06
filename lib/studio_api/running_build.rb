@@ -22,19 +22,6 @@ module StudioApi
 
     alias_method :cancel, :destroy
 
-    def save
-      response = super
-    rescue ActiveResource::BadRequest => e
-      tree = XmlSimple.xml_in(e.response.body)
-      code = tree["code"][0]
-      if code == "image_already_exists"
-        message = tree["message"][0]
-        raise ImageAlreadyExists.new message
-      else
-        raise e
-      end
-    end
-
 private
     #overwrite create as studio doesn't interact well with enclosed parameters
     def create
@@ -45,6 +32,15 @@ private
       end
       connection.post(request_str,"",self.class.headers).tap do |response|
         load_attributes_from_response response
+      end
+    rescue ActiveResource::BadRequest => e
+      tree = XmlSimple.xml_in(e.response.body)
+      code = tree["code"][0]
+      if code == "image_already_exists"
+        message = tree["message"][0]
+        raise ImageAlreadyExists.new message
+      else
+        raise e
       end
     end
   end
