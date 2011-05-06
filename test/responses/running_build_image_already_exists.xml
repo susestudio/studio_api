@@ -1,0 +1,4 @@
+<error>
+  <code>image_already_exists</code>
+  <message>Image already exists. Change version or type or force an overwrite.</message>
+</error>
