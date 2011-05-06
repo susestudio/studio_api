@@ -1,3 +1,9 @@
+Fri May 14:30:55 CEST 2011  Flavio Castelli <flavio@castelli.name>
+
+- code refactorying of the unit tests
+- better handling of errors raised during image building
+- created 3.1.1
+
 -------------------------------------------------------------------
 Wed Apr  6 06:43:08 UTC 2011 - jreidinger@novell.com
 
