@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "studio_api"
 
-  s.add_dependency "activeresource", "= 2.3.8"
+  s.add_dependency "activeresource", ">= 2.3.8"
   s.add_dependency "xml-simple", ">= 1.0.0"
   s.add_development_dependency "yard"
 end
