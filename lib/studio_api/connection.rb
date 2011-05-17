@@ -63,7 +63,7 @@ module StudioApi
       @password = password
       self.uri = uri
       self.proxy = options[:proxy] #nil as default is OK
-      @timeout = options[:timeout].to_i || 45
+      @timeout = (options[:timeout] || 45).to_i
       @ssl = options[:ssl] || { :verify_mode => OpenSSL::SSL::VERIFY_NONE } # don't verify as default
     end
 
