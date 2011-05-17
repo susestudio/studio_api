@@ -18,4 +18,8 @@ class ConnectionTest < Test::Unit::TestCase
     @connection.api_version #test caching, if it again call, then mocha raise exception
   end
 
+  def test_default_timeout
+    assert_equal 45, @connection.timeout
+  end
+
 end
