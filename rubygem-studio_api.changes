@@ -1,3 +1,9 @@
+Mon Jul 18 11:33:38 CEST 2011  Flavio Castelli <flavio@castelli.name>
+
+- ensure the timeout value is properly set.
+  See https://github.com/jreidinger/studio_api/issues/3
+  for more details.
+
 Fri May 14:30:55 CEST 2011  Flavio Castelli <flavio@castelli.name>
 
 - code refactorying of the unit tests
