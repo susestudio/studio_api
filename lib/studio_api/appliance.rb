@@ -41,6 +41,7 @@ module StudioApi
           end
         end
         tree["lvm"]["volumes"] = tree["lvm"]["volumes"]["volume"] if tree["lvm"] && tree["lvm"]["volumes"]
+        Firewall.studio_connection = studio_connection
         Configuration.new tree
       end
 
@@ -53,6 +54,7 @@ module StudioApi
       end
 
       class Firewall < ActiveResource::Base
+        extend StudioResource
         def to_xml(options={})
           if enabled == "false"
             "<firewall><enabled>false</enabled></firewall>"
@@ -239,6 +241,7 @@ module StudioApi
     def configuration
       request_str = "/appliances/#{id.to_i}/configuration"
       response = GenericRequest.new(self.class.studio_connection).get request_str
+      Configuration.studio_connection = self.class.studio_connection
       Configuration.parse response
     end
 
