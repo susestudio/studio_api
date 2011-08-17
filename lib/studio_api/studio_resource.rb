@@ -25,6 +25,12 @@ module StudioApi
       @studio_connection
     end
 
+    # hooks when module extend and ActiveResource based class
+    # @param (ActiveResource::Base) extended class
+    def self.extended(base)
+      base.format = :xml #fix ARes 3.1 default ( json )
+    end
+
     # Takes information from connection and sets it to ActiveResource::Base.
     # Also take care properly of prefix as it need to join path from site with
     # api prefix like appliance/:appliance_id .
