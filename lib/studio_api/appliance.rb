@@ -28,25 +28,10 @@ module StudioApi
       extend StudioResource
       self.element_name = "configuration"
 
-      def self.parse response
-        tree = XmlSimple.xml_in(response, "ForceArray" => ["tag","user","eula","autostart","database","volume"])
-        tree["tags"] = tree["tags"]["tag"].reduce({}){ |acc,t| acc.merge :tag => t} if tree["tags"]
-        tree["users"] = tree["users"]["user"]
-        tree["eulas"] = tree["eulas"]["eula"]
-        tree["autostarts"] = tree["autostarts"]["autostart"] if tree["autostarts"]
-        if tree["databases"]
-          tree["databases"]=  tree["databases"]["database"] 
-          tree["databases"].each do |d|
-            d["users"] = d["users"]["user"] if d["users"]
-          end
-        end
-        tree["lvm"]["volumes"] = tree["lvm"]["volumes"]["volume"] if tree["lvm"] && tree["lvm"]["volumes"]
-        Firewall.studio_connection = studio_connection
-        if defined? ActiveModel #we are in rails3, so set model persistent
-          Configuration.new tree,true
-        else
-          Configuration.new tree
-        end
+      def self.find (id, prefix_options={})
+        request_str = "/appliances/#{id.to_i}/configuration"
+        response = GenericRequest.new(studio_connection).get request_str
+        Configuration.parse response
       end
 
       def update
@@ -68,6 +53,29 @@ module StudioApi
           end
         end
       end
+
+    private 
+      def self.parse response
+        tree = XmlSimple.xml_in(response, "ForceArray" => ["tag","user","eula","autostart","database","volume"])
+        tree["tags"] = tree["tags"]["tag"].reduce({}){ |acc,t| acc.merge :tag => t} if tree["tags"]
+        tree["users"] = tree["users"]["user"]
+        tree["eulas"] = tree["eulas"]["eula"]
+        tree["autostarts"] = tree["autostarts"]["autostart"] if tree["autostarts"]
+        if tree["databases"]
+          tree["databases"]=  tree["databases"]["database"] 
+          tree["databases"].each do |d|
+            d["users"] = d["users"]["user"] if d["users"]
+          end
+        end
+        tree["lvm"]["volumes"] = tree["lvm"]["volumes"]["volume"] if tree["lvm"] && tree["lvm"]["volumes"]
+        Firewall.studio_connection = studio_connection
+        if defined? ActiveModel #we are in rails3, so set model persistent
+          Configuration.new tree,true
+        else
+          Configuration.new tree
+        end
+      end
+
     end
 
     # Represents repository assigned to appliance
@@ -243,10 +251,8 @@ module StudioApi
     end
 
     def configuration
-      request_str = "/appliances/#{id.to_i}/configuration"
-      response = GenericRequest.new(self.class.studio_connection).get request_str
       Configuration.studio_connection = self.class.studio_connection
-      Configuration.parse response
+      Configuration.find id
     end
 
     # clones appliance or template
