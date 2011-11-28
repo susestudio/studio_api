@@ -27,8 +27,8 @@ License:        GPLv2 or The Ruby License
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  rubygems_with_buildroot_patch
 %rubygems_requires
-BuildRequires:  rubygem-activeresource >= 1.3.8
-Requires:       rubygem-activeresource >= 1.3.8
+BuildRequires:  rubygem-activeresource >= 2.3.8
+Requires:       rubygem-activeresource >= 2.3.8
 BuildRequires:  rubygem-xml-simple >= 1.0.0
 Requires:       rubygem-xml-simple >= 1.0.0
 #
