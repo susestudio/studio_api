@@ -24,6 +24,13 @@ module StudioApi
       self.element_name = "status"
     end
 
+    # Represent appliance configuration
+    # @example set LVM in appliance ( require rails 3 for newly initialized variables )
+    #   configuration = appliance.configuration
+    #   configuration.lvm.enabled = "true"
+    #   configuration.lvm.volume_group = "fooVG"
+    #   configuration.lvm.volumes = [ { :path => "/test", :size => "500M" } ]
+    #   configuration.save
     class Configuration < ActiveResource::Base
       extend StudioResource
       self.element_name = "configuration"
