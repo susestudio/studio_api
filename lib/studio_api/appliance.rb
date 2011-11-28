@@ -254,7 +254,11 @@ module StudioApi
       request_str = "/appliances?clone_from=#{source_id.to_i}"
       request_str = Util.add_options request_str, options, false
       response = GenericRequest.new(studio_connection).post request_str, options
-      Appliance.new Hash.from_xml(response)["appliance"]
+      if defined? ActiveModel #we are in rails3, so set model persistent
+        Appliance.new Hash.from_xml(response)["appliance"],true
+      else
+        Appliance.new Hash.from_xml(response)["appliance"]
+      end
     end
 
     # Gets all GPG keys assigned to appliance
