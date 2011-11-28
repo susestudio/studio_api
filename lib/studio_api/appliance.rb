@@ -42,7 +42,11 @@ module StudioApi
         end
         tree["lvm"]["volumes"] = tree["lvm"]["volumes"]["volume"] if tree["lvm"] && tree["lvm"]["volumes"]
         Firewall.studio_connection = studio_connection
-        Configuration.new tree
+        if defined? ActiveModel #we are in rails3, so set model persistent
+          Configuration.new tree,true
+        else
+          Configuration.new tree
+        end
       end
 
       def update
