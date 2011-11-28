@@ -250,6 +250,8 @@ module StudioApi
       end
     end
 
+    # Shortcut to find configuration of appliance. Always ask server for new one.
+    # @see StudioApi::Appliance::Configuration
     def configuration
       Configuration.studio_connection = self.class.studio_connection
       Configuration.find id
