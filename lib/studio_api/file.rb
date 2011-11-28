@@ -57,7 +57,11 @@ module StudioApi
       end
       rq = GenericRequest.new studio_connection
       response = rq.post request_str, :file => content
-      File.new Hash.from_xml(response)["file"]
+      if defined? ActiveModel #rails 3 and ActiveResource persistency
+        File.new Hash.from_xml(response)["file"],true
+      else
+        File.new Hash.from_xml(response)["file"]
+      end
     end
 
 private 

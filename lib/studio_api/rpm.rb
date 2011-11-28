@@ -21,7 +21,11 @@ module StudioApi
     # @return [StudioApi::Rpm] uploaded RPM
     def self.upload content, base_system
       response = GenericRequest.new(studio_connection).post "/rpms?base_system=#{CGI.escape base_system.to_s}", :file => content
-      self.new Hash.from_xml(response)["rpm"]
+      if defined? ActiveModel #for rails3 we need persistent, otherwise delete method fail
+        self.new Hash.from_xml(response)["rpm"],true
+      else
+        self.new Hash.from_xml(response)["rpm"]
+      end
     end
 
     # Downloads file to specified path.
