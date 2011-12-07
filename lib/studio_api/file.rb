@@ -9,11 +9,11 @@ module StudioApi
   # StudioApi::File.find :all, :params => { :appliance_id => 1234 }
   #
   # @example Upload file Xorg.conf
-  #   File.open ("/tmp/xorg.conf) { |file|
+  #   File.open ("/tmp/xorg.conf") do |file|
   #     StudioApi::File.upload file, 1234, :path => "/etc/X11", 
   #                         :filename => "Xorg.conf", :permissions => "0755",
   #                         :owner => "root"
-  #   }
+  #   end
   #
   # @example Update metadata
   # file = StudioApi::File.find 1234
