@@ -30,6 +30,9 @@ module StudioApi
 
     # Downloads file to specified path.
     # @return [String] content of rpm
+    # @yield [tempfile] Access the tempfile from the block parameter
+    # @yieldparam[tempfile Tempfile] Tempfile instance
+    # @yieldreturn [nil] Tempfile gets closed when the block returns
     def content &block
       request = GenericRequest.new self.class.studio_connection
       path = "/rpms/#{id.to_i}/data"
