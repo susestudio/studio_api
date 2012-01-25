@@ -36,14 +36,14 @@ class File1Test < Test::Unit::TestCase
   end
 
   def test_update
-   register_fake_response_from_file :get, "/api/files/#{@file_id}",
-                                    'file.xml'
-   register_fake_response_from_file :put, "/api/files/#{@file_id}",
-                                    'file.xml'
+    register_fake_response_from_file :get, "/api/files/#{@file_id}",
+                                     'file.xml'
+    register_fake_response_from_file :put, "/api/files/#{@file_id}",
+                                     'file.xml'
 
-   f = StudioApi::File.find(@file_id)
-   f.path = "/tmp"
-   assert f.save
+    f = StudioApi::File.find(@file_id)
+    f.path = "/tmp"
+    assert f.save
   end
 end
 
