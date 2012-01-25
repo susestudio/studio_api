@@ -27,10 +27,11 @@ module StudioApi
     self.element_name = "file"
 
     # Downloads file to output. Allow downloading to stream or to path.
-    # @return [String] content of file
-    # @yield [tempfile] Access the tempfile from the block parameter
-    # @yieldparam[tempfile Tempfile] Tempfile instance
-    # @yieldreturn [nil] Tempfile gets closed when the block returns
+    # @return [String] content of file if no block
+    # @return [nil] if block given
+    # @yield [socket response segment] Read the Net::HTTPResponse segments
+    # @yieldparam[body segment] buffered chunk of body
+    # @yieldreturn [nil]
     def content &block
       rq = GenericRequest.new self.class.studio_connection
       path = "/files/#{id.to_i}/data"

@@ -53,8 +53,12 @@ class RpmTest < Test::Unit::TestCase
    def test_download_with_block
      register_fake_response :get, "/api/rpms/#{@rpm_id}/data", @rpm_data
      file_content = nil
-     rpm = StudioApi::Rpm.new(:id=> @rpm_id).content {|f| f.rewind; file_content = f.read }
-     assert_equal @rpm_data, file_content
+     rpm = StudioApi::Rpm.new(:id=> @rpm_id)
+     response = StringIO.new
+     rpm.content do |body|
+       response << body
+     end
+     assert_equal @rpm_data, response.string
    end
 
 

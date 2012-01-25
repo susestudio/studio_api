@@ -51,14 +51,15 @@ class File1Test < Test::Unit::TestCase
     file_path = File.join File.dirname(__FILE__), 'responses'
     register_fake_response_from_file :get, "/api/files/#{@file_id}/data", file_name
     register_fake_response_from_file :get, "/api/files/#{@file_id}", file_name
-    f = StudioApi::File.find(@file_id)
+    studio_file = StudioApi::File.find(@file_id)
+    response = StringIO.new
     File.open(File.join(file_path, file_name), 'r') do |file|
-      assert_equal f.content, file.read
-      f.content do |tmp|
-        tmp.rewind
-        file.rewind
-        assert_equal tmp.read, file.read
+      assert_equal studio_file.content, file.read
+      studio_file.content do |body|
+        response << body
       end
+      file.rewind
+      assert_equal file.read, response.string
     end
   end
 end

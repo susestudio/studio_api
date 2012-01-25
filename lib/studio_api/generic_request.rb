@@ -25,7 +25,6 @@ require 'net/https'
 require 'active_support'
 require 'active_resource/formats'
 require 'active_resource/connection'
-require 'tempfile' unless defined? Tempfile
 
 require 'studio_api/util'
 
@@ -71,7 +70,7 @@ module StudioApi
     # @return (nil) as response
     # @raise [ActiveResource::ConnectionError] when problem occur during connection
     def get_file(path, &block)
-      do_tempfile_request(Net::HTTP::Get.new(
+      do_file_request(Net::HTTP::Get.new(
         Util.join_relative_url(@connection.uri.request_uri,path)),
         &block)
     end
@@ -117,15 +116,12 @@ module StudioApi
       end
     end
 
-    def do_tempfile_request request, &block
+    def do_file_request request, &block
       request.basic_auth @connection.user, @connection.password
       @http.start do |http|
-        Tempfile.open '' do |tmp|
-          http.request request do |response|
-            handle_active_resource_exception response
-            response.read_body {|body| tmp.write body }
-          end
-          yield tmp
+        http.request request do |response|
+          handle_active_resource_exception response
+          response.read_body {|body| yield body }
         end
       end
     end
