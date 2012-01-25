@@ -3,9 +3,9 @@ require 'cgi'
 
 module StudioApi
   # Represents Additional rpms which can user upload to studio.
-  # 
+  #
   # Allows uploading, downloading, listing (via find) and deleting
-  # 
+  #
   # @example Delete own rpm
   #   rpms = StudioApi::Rpm.find :all, :params => { :base_system => "SLE11" }
   #   my_pac = rpms.find {|r| r.filename =~ /my_pac/ }
@@ -30,8 +30,10 @@ module StudioApi
 
     # Downloads file to specified path.
     # @return [String] content of rpm
-    def content
-      GenericRequest.new(self.class.studio_connection).get "/rpms/#{id.to_i}/data"
+    def content &block
+      request = GenericRequest.new self.class.studio_connection
+      path = "/rpms/#{id.to_i}/data"
+      block_given? ? request.get_file(path, &block) : request.get(path)
     end
   end
 end
