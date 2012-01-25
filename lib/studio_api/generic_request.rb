@@ -26,7 +26,6 @@ require 'active_support'
 require 'active_resource/formats'
 require 'active_resource/connection'
 require 'tempfile' unless defined? Tempfile
-require 'securerandom'
 
 require 'studio_api/util'
 
@@ -121,7 +120,7 @@ module StudioApi
     def do_tempfile_request request, &block
       request.basic_auth @connection.user, @connection.password
       @http.start do |http|
-        Tempfile.open SecureRandom.hex(10) do |tmp|
+        Tempfile.open '' do |tmp|
           http.request request do |response|
             handle_active_resource_exception response
             response.read_body {|body| tmp.write body }
