@@ -50,4 +50,16 @@ class RpmTest < Test::Unit::TestCase
      assert StudioApi::Rpm.upload(@rpm_data, "SLE11")
    end
 
+   def test_download_with_block
+     register_fake_response :get, "/api/rpms/#{@rpm_id}/data", @rpm_data
+     file_content = nil
+     rpm = StudioApi::Rpm.new(:id=> @rpm_id)
+     response = StringIO.new
+     rpm.content do |body|
+       response << body
+     end
+     assert_equal @rpm_data, response.string
+   end
+
+
 end

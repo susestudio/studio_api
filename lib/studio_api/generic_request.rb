@@ -66,6 +66,15 @@ module StudioApi
       do_request(Net::HTTP::Get.new(Util.join_relative_url(@connection.uri.request_uri,path)))
     end
 
+    # sends get request to suse studio
+    # @return (nil) as response
+    # @raise [ActiveResource::ConnectionError] when problem occur during connection
+    def get_file(path, &block)
+      do_file_request(Net::HTTP::Get.new(
+        Util.join_relative_url(@connection.uri.request_uri,path)),
+        &block)
+    end
+
     # sends delete request
     # @param (String) path relative path from api root
     # @return (String) response body from studio
@@ -102,18 +111,28 @@ module StudioApi
       request.basic_auth @connection.user, @connection.password
       @http.start() do
         response = @http.request request
-        unless response.kind_of? Net::HTTPSuccess
-          msg = error_message response
-          create_active_resource_exception response,msg
-        end
+        handle_active_resource_exception response
         response.body
       end
     end
 
+    def do_file_request request, &block
+      request.basic_auth @connection.user, @connection.password
+      @http.start do |http|
+        http.request request do |response|
+          handle_active_resource_exception response
+          response.read_body {|body| yield body }
+        end
+      end
+    end
+
       #XXX not so nice to use internal method, but better to be DRY and proper test if it works with supported rails
-    def create_active_resource_exception response,msg
-      response.instance_variable_set "@message",msg
-      ActiveResource::Connection.new('').send :handle_response, response
+    def handle_active_resource_exception response
+      unless response.kind_of? Net::HTTPSuccess
+        msg = error_message response
+        response.instance_variable_set "@message",msg
+        ActiveResource::Connection.new('').send :handle_response, response
+      end
     end
 
     def error_message response
