@@ -45,5 +45,21 @@ class File1Test < Test::Unit::TestCase
     f.path = "/tmp"
     assert f.save
   end
+
+  def test_content
+    file_name = 'file.xml'
+    file_path = File.join File.dirname(__FILE__), 'responses'
+    register_fake_response_from_file :get, "/api/files/#{@file_id}/data", file_name
+    register_fake_response_from_file :get, "/api/files/#{@file_id}", file_name
+    f = StudioApi::File.find(@file_id)
+    File.open(File.join(file_path, file_name), 'r') do |file|
+      assert_equal f.content, file.read
+      f.content do |tmp|
+        tmp.rewind
+        file.rewind
+        assert_equal tmp.read, file.read
+      end
+    end
+  end
 end
 
