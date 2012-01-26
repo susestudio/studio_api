@@ -36,14 +36,31 @@ class File1Test < Test::Unit::TestCase
   end
 
   def test_update
-   register_fake_response_from_file :get, "/api/files/#{@file_id}",
-                                    'file.xml'
-   register_fake_response_from_file :put, "/api/files/#{@file_id}",
-                                    'file.xml'
+    register_fake_response_from_file :get, "/api/files/#{@file_id}",
+                                     'file.xml'
+    register_fake_response_from_file :put, "/api/files/#{@file_id}",
+                                     'file.xml'
 
-   f = StudioApi::File.find(@file_id)
-   f.path = "/tmp"
-   assert f.save
+    f = StudioApi::File.find(@file_id)
+    f.path = "/tmp"
+    assert f.save
+  end
+
+  def test_content
+    file_name = 'file.xml'
+    file_path = File.join File.dirname(__FILE__), 'responses'
+    register_fake_response_from_file :get, "/api/files/#{@file_id}/data", file_name
+    register_fake_response_from_file :get, "/api/files/#{@file_id}", file_name
+    studio_file = StudioApi::File.find(@file_id)
+    response = StringIO.new
+    File.open(File.join(file_path, file_name), 'r') do |file|
+      assert_equal studio_file.content, file.read
+      studio_file.content do |body|
+        response << body
+      end
+      file.rewind
+      assert_equal file.read, response.string
+    end
   end
 end
 
