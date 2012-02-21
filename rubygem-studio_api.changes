@@ -1,4 +1,19 @@
 -------------------------------------------------------------------
+Tue Feb 21 16:48:12 UTC 2012 - jreidinger@suse.com
+
+- add feature for chunk processing of downloaded overlay files
+  and rpms ( thanks to vmoravec )
+- 3.2.0 
+
+-------------------------------------------------------------------
+Mon Nov 28 15:13:50 UTC 2011 - jreidinger@suse.com
+
+- rails 3.1 fixes
+-- fix persistency when model created by new
+- improve documentation of configuration of appliance
+- 3.1.4 
+
+-------------------------------------------------------------------
 Wed Aug 17 12:59:00 UTC 2011 - jreidinger@novell.com
 
 - rails 3.1 fixes:
