@@ -4,11 +4,11 @@ require "studio_api/util"
 require "studio_api/studio_resource"
 
 module StudioApi
-  # Adds ability to ActiveResource::Base (short as ARes) to easy set connection to studio in 
+  # Adds ability to ActiveResource::Base (short as ARes) to easy set connection to studio in
   # dynamic way, which is not so easy as ARes is designed for static values.
   # Also modify a few expectation of ActiveResource to fit studio API ( like
   # missing xml suffix in calls ).
-  # 
+  #
   # @example Add new Studio Resource
   #   # enclose it in module allows to automatic settings with Util
   #   module StudioApi
@@ -62,6 +62,7 @@ module StudioApi
     # We need to overwrite the paths methods because susestudio doesn't use the
     # standard .xml filename extension which is expected by ActiveResource.
     def element_path(id, prefix_options = {}, query_options = nil)
+      inspect_connection
       prefix_options, query_options = split_options(prefix_options) if query_options.nil?
       "#{prefix(prefix_options)}#{collection_name}/#{id}#{query_string(query_options)}"
     end
@@ -69,8 +70,18 @@ module StudioApi
     # We need to overwrite the paths methods because susestudio doesn't use the
     # standard .xml filename extension which is expected by ActiveResource.
     def collection_path(prefix_options = {}, query_options = nil)
+      inspect_connection
       prefix_options, query_options = split_options(prefix_options) if query_options.nil?
       "#{prefix(prefix_options)}#{collection_name}#{query_string(query_options)}"
+    end
+
+    private
+
+    def inspect_connection
+      unless @studio_connection
+        raise RuntimeError, 'Connection to Studio is not set
+        Try: StudioApi::Util.studio_connection = StudioApi::Connection.new username, api_key, api_uri'
+      end
     end
   end
 end
