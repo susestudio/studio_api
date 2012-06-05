@@ -39,3 +39,22 @@ class ResourceTest < Test::Unit::TestCase
   end
 
 end
+
+class NoConnectionTest < Test::Unit::TestCase
+  def test_find
+    assert_raise RuntimeError do
+      MyTest.find rand 1000
+    end
+
+    assert_raise RuntimeError do
+      MyTest2.find rand 100
+    end
+  end
+
+  def test_message
+    MyTest.find rand 100
+  rescue RuntimeError => e
+    assert_match /Connection to Studio is not set/, e.message
+  end
+
+end
