@@ -1,8 +1,8 @@
 require File.expand_path('../../lib/studio_api',__FILE__)
 
 require 'fakeweb'
-require 'mocha'
 require 'test/unit'
+require 'mocha'
 
 class Test::Unit::TestCase
   @@username = "foo"
