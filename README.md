@@ -7,7 +7,7 @@ Synopsis
 Studio API library is intended to easier access to Studio API from ruby,
 but keep it easily extensible and easy maintanable, so it not need rewritting
 when new attributes introduced to Studio. It leads also that user need to know 
-API documentation, which specify what options you need to use (see http://susestudio.com/help/api/v1 ).
+API documentation, which specify what options you need to use (see http://susestudio.com/help/api/v2 ).
 It has also feature which allows using in multiuser system (like server).
 
 Example
@@ -26,7 +26,7 @@ require 'studio_api'
 
 # Fill up Studio credentials (user name, API key, API URL)
 # See https://susestudio.com/user/show_api_key if you are using SUSE Studio online
-connection = StudioApi::Connection.new('user', 'pwd', 'https://susestudio.com/api/v1/user')
+connection = StudioApi::Connection.new('user', 'pwd', 'https://susestudio.com/api/v2/user')
 # Setup the connection for all ActiveResource based class
 StudioApi::Util.configure_studio_connection connection
 
@@ -88,7 +88,7 @@ APPLIANCE_STUDIO_ID = "97216"
 BUILD_ID = "180420"
 APPLIANCE_1 = StudioApi::Appliance.new :id => APPLIANCE_STUDIO_ID, :name => "Test", :arch => 'i386',
                           :last_edited => "2010-10-08 14:46:07 UTC", :estimated_raw_size => "390 MB", :estimated_compressed_size => "140 MB",
-                          :edit_url => "http://susestudio.com/appliance/edit/266657", :icon_url => "http://susestudio.com/api/v1/user/appliance_icon/266657",
+                          :edit_url => "http://susestudio.com/appliance/edit/266657", :icon_url => "http://susestudio.com/api/v2/user/appliance_icon/266657",
                           :basesystem => "SLES11_SP1", :uuid => APPLIANCE_UUID, :parent => {:id => "202443", :name => "SLES 11 SP1, Just enough OS (JeOS)"},
                           :builds => [{:id =>BUILD_ID,:version => APPLIANCE_VERSION, :image_type => "vmx", :image_size => "695",
                           :compressed_image_size => "121",
