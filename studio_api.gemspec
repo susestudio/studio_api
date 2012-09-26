@@ -13,12 +13,12 @@ Gem::Specification.new do |s|
   s.test_files =`git ls-files`.split("\n").grep(/^(test\/)/)
   s.require_path = 'lib'
   s.has_rdoc = true
-  s.extra_rdoc_files = ["README"]
+  s.extra_rdoc_files = ["README.md"]
   s.rdoc_options = ['--line-numbers', "--main", "README"]
   s.authors = ["Josef Reidinger"]
   s.email = %q{jreidinger@suse.cz}
   s.homepage = "http://github.com/jreidinger/studio_api"
-  s.license = ["GPLv2","The Ruby License"]
+  s.licenses = ["GPLv2","The Ruby License"]
   s.platform = Gem::Platform::RUBY
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "studio_api"
