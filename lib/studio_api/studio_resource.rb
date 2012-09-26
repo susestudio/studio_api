@@ -18,6 +18,17 @@ module StudioApi
   #   end
 
   module StudioResource
+    def included mod
+      # ensure that dasherize is not called as studio use in some keys '-'
+      # need to extend it after inclusion
+      class << self
+        alias_method :original_encode, :encode
+        def encode(options={})
+          options[:dasherize] = false
+          original_encode options
+        end
+      end
+    end
     # Gets studio connection. Mostly useful internally.
     # @return (StudioApi::Connection,nil) object of studio connection or nil if not
     # yet set
