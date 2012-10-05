@@ -18,19 +18,6 @@ module StudioApi
   #   end
 
   module StudioResource
-    # hooks when module extend and ActiveResource based class
-    # @param (ActiveResource::Base) extended class
-    def self.extended(base)
-      # ensure that dasherize is not called as studio use in some keys '-'
-      # need to extend it after inclusion
-      base.class_eval do
-        alias_method :original_encode, :encode
-        def encode(options={})
-          options[:dasherize] = false
-          original_encode options
-        end
-      end
-    end
 
     # Gets studio connection. Mostly useful internally.
     # @return (StudioApi::Connection,nil) object of studio connection or nil if not
@@ -43,6 +30,15 @@ module StudioApi
     # @param (ActiveResource::Base) extended class
     def self.extended(base)
       base.format = :xml #fix ARes 3.1 default ( json )
+      # ensure that dasherize is not called as studio use in some keys '-'
+      # need to extend it after inclusion
+      base.class_eval do
+        alias_method :original_encode, :encode
+        def encode(options={})
+          options[:dasherize] = false
+          original_encode options
+        end
+      end
     end
 
     # Takes information from connection and sets it to ActiveResource::Base.

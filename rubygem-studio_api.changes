@@ -1,4 +1,11 @@
 -------------------------------------------------------------------
+Wed Oct  3 16:09:18 UTC 2012 - jreidinger@suse.com
+
+- fix dasherizing of keys so all keys should be properly passed to
+  API
+- 3.2.1
+
+-------------------------------------------------------------------
 Tue Feb 21 16:48:12 UTC 2012 - jreidinger@suse.com
 
 - add feature for chunk processing of downloaded overlay files
