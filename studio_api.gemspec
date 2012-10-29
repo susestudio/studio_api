@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{studio_api}
-  s.version = "3.0.1"
+  s.version = "3.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Josef Reidinger"]
@@ -50,7 +50,7 @@ Gem::Specification.new do |s|
      "test/template_set_test.rb"
   ]
   s.homepage = %q{http://github.com/jreidinger/studio_api}
-  s.licenses = [["GPLv2", "The Ruby License"]]
+  s.licenses = ["GPLv2", "The Ruby License"]
   s.rdoc_options = ["--line-numbers", "--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
