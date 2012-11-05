@@ -55,7 +55,9 @@ module StudioApi
           if enabled == "false"
             "<firewall><enabled>false</enabled></firewall>"
           else
-            openports_xml = open_port.reduce(""){ |acc,p| acc << "<open_port>#{p}</open_port>" } #FIXME escape name
+            #open port can be array or single string
+            ports = open_port.is_a?(String) ? [open_port] : open_port
+            openports_xml = open_port.map{ |p| "<open_port>#{p}</open_port>" }.join("") #FIXME escape name
             "<firewall><enabled>true</enabled>#{openports_xml}</firewall>"
           end
         end
