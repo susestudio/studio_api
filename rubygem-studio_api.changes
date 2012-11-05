@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Mon Nov  5 17:44:15 UTC 2012 - jreidinger@suse.com
+
+- fix serialization of open perts in case there is just one port
+- 3.2.2 
+
+-------------------------------------------------------------------
 Wed Oct  3 16:09:18 UTC 2012 - jreidinger@suse.com
 
 - fix dasherizing of keys so all keys should be properly passed to
